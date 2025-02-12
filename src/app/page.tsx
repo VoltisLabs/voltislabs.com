@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import Link from "next/link";
 export default function Home() {
   return (
     <div className="page-container bg-white min-h-screen">
@@ -10,8 +10,8 @@ export default function Home() {
                   alt="Icon"
                   className=" w-28 h-18 "
                 />
-                <div className="flex ">
-                <div><a>About us</a></div> <div><a>Project</a></div> <div><a>Contact</a></div></div>
+                <ul className="flex ">
+                <li><Link href="/" >About us</Link></li> <li><Link href="/" >Project</Link></li> <li><Link href="/" >Contact</Link></li></ul>
       </nav>
       
     </div>
