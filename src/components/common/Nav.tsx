@@ -3,8 +3,11 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
+interface NavProps {
+  setToggle: (value: boolean) => void;
+}
 
-const Nav = () => {
+const Nav = ({ setToggle }: NavProps) => {
   const links = [
     {
       name: "About Us",
@@ -20,11 +23,9 @@ const Nav = () => {
     },
   ];
 
-  const [toggle, setToggle] = useState<boolean>(false);
-
   return (
-    <div className="page-container shadow-sm shadow-gray-50 md:px-[4rem] px-[1rem] min-h-[6rem] fixed top left-0 w-full flex items-center justify-between bg-black">
-      <div className="logo-container cursor-pointer">
+    <div className="page-container border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black">
+      <div className="logo-container cursor-pointer md:hidden block">
         <Image
           src={"/image/logo3.png"}
           alt="company-logo"
@@ -35,7 +36,7 @@ const Nav = () => {
       </div>
 
       {/* desktop links */}
-      <nav className="nav-container md:flex gap-6 hidden items-center">
+      {/* <nav className="nav-container md:flex gap-6 hidden items-center">
         {links.map((item) => (
           <div
             key={item.name}
@@ -44,29 +45,14 @@ const Nav = () => {
             {item.name}
           </div>
         ))}
-      </nav>
+      </nav> */}
 
       <section
-        onClick={() => setToggle(!toggle)}
+        onClick={() => setToggle(true)}
         className="burger-container md:hidden block"
       >
         <RxHamburgerMenu size={25} color="white" />
       </section>
-
-      {/* mobile links */}
-
-      {toggle && (
-        <nav className="nav-container md:px-[2rem] px-[1rem] py-[2rem] md:hidden block absolute top-[100%] min-h-[10rem] left-0 w-full bg-gray-50">
-          {links.map((item) => (
-            <div
-              key={item.name}
-              className="card-container mb-[1rem] text-[1rem] text-white"
-            >
-              {item.name}
-            </div>
-          ))}
-        </nav>
-      )}
     </div>
   );
 };

@@ -23,7 +23,7 @@ const Aside = () => {
   ];
 
   return (
-    <div className="bg-black border-r-[1px] border-gray-600 h-screen py-[2rem]">
+    <div className="bg-black border-r-[1px] border-gray-600 h-screen py-[2rem] px-[2.5rem]">
       <div className="logo-container px-[2rem]">
         <Image
           src={"/image/logo3.png"}
