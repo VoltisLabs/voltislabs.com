@@ -35,12 +35,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex items-start min-h-screen justify-center">
-          <div className="aside-container w-[16rem] h-screen overflow-y-scroll no-scrollbar fixed z-50 top-0 left-0 md:block hidden">
+          {/* <div className="aside-container w-[16rem] h-screen overflow-y-scroll no-scrollbar fixed z-50 top-0 left-0 md:block hidden">
             <Aside />
-          </div>
+          </div> */}
 
           {/* mobile-nav */}
-          {toggle && (
+          {/* {toggle && (
             <motion.div
               className="fixed inset-0 z-40 bg-black bg-opacity-10 backdrop-blur-sm"
               initial={{ opacity: 0 }}
@@ -48,8 +48,8 @@ export default function RootLayout({
               exit={{ opacity: 0 }}
               onClick={() => setToggle(false)}
             />
-          )}
-          <motion.div
+          )} */}
+          {/* <motion.div
             className={`aside-container w-[16rem] h-screen overflow-y-scroll no-scrollbar fixed z-50 top-0 left-0 md:hidden ${
               toggle ? "block" : "hidden"
             }`}
@@ -58,9 +58,9 @@ export default function RootLayout({
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             <Aside />
-          </motion.div>
+          </motion.div> */}
 
-          <main className="content bg-green-300 w-full md:ml-[16rem]">
+          <main className="content bg-green-300 w-full">
             <div className="nav-container">
               <Nav setToggle={setToggle} />
             </div>
