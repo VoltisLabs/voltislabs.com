@@ -1,5 +1,3 @@
-import Link from "next/link";
-import Nav from "../components/common/Nav";
 import { IoIosSearch } from "react-icons/io";
 export default function Home() {
   return (

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 interface NavProps {
   setToggle: (value: boolean) => void;
