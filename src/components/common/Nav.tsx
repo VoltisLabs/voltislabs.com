@@ -23,23 +23,23 @@ const Nav = () => {
   const [toggle, setToggle] = useState<boolean>(false);
 
   return (
-    <div className="page-container shadow-md md:px-[2rem] px-[1rem] min-h-[4rem] fixed top left-0 w-full flex items-center justify-between">
+    <div className="page-container shadow-sm shadow-gray-50 md:px-[4rem] px-[1rem] min-h-[6rem] fixed top left-0 w-full flex items-center justify-between bg-black">
       <div className="logo-container cursor-pointer">
         <Image
-          src={"/image/logo.jpeg"}
+          src={"/image/logo3.png"}
           alt="company-logo"
-          width={70}
-          height={70}
+          width={100}
+          height={100}
           className="hover:scale-90 transition-all ease-in-out delay-75"
         />
       </div>
 
       {/* desktop links */}
-      <nav className="nav-container md:flex gap-3 hidden items-center">
+      <nav className="nav-container md:flex gap-6 hidden items-center">
         {links.map((item) => (
           <div
             key={item.name}
-            className="card-container hover:underline cursor-pointer text-black text-[.9rem]"
+            className="card-container hover:underline cursor-pointer text-white text-[1rem]"
           >
             {item.name}
           </div>
@@ -50,7 +50,7 @@ const Nav = () => {
         onClick={() => setToggle(!toggle)}
         className="burger-container md:hidden block"
       >
-        <RxHamburgerMenu size={25} color="black" />
+        <RxHamburgerMenu size={25} color="white" />
       </section>
 
       {/* mobile links */}
@@ -60,7 +60,7 @@ const Nav = () => {
           {links.map((item) => (
             <div
               key={item.name}
-              className="card-container mb-[1rem] text-[1rem] text-black"
+              className="card-container mb-[1rem] text-[1rem] text-white"
             >
               {item.name}
             </div>
