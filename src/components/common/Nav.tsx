@@ -33,8 +33,8 @@ const Nav = ({ setToggle }: NavProps) => {
   ];
 
   return (
-    <div className="page-container border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center md:justify-start justify-between bg-black">
-      <div className="nav-inner-container min-w-[50%] flex items-center justify-between">
+    <div className="page-container border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black">
+      <div className="nav-inner-container min-w-[47%] flex items-center justify-between">
         <div className="logo-container cursor-pointer mr-[17rem]">
           <Image
             src={"/image/logo3.png"}
@@ -46,7 +46,7 @@ const Nav = ({ setToggle }: NavProps) => {
         </div>
 
         {/* desktop links */}
-        <nav className="nav-container md:flex gap-6 hidden items-center">
+        <nav className="nav-container lg:flex gap-6 hidden items-center">
           {links.map((item) => (
             <div
               key={item.name}
@@ -56,6 +56,15 @@ const Nav = ({ setToggle }: NavProps) => {
             </div>
           ))}
         </nav>
+      </div>
+
+      <div className="md:flex hidden items-center">
+        <button className="outline-none border-none text-[.9rem] text-white">
+          Search
+        </button>
+        <button className="outline-none border-none text-[.9rem] text-white">
+          Login
+        </button>
       </div>
 
       <section
