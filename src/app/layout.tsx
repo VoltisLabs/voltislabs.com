@@ -60,7 +60,7 @@ export default function RootLayout({
             <Aside />
           </motion.div> */}
 
-          <main className="content bg-green-300 w-full">
+          <main className="content bg-black w-full">
             <div className="nav-container">
               <Nav setToggle={setToggle} />
             </div>
