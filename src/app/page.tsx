@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="page-container bg-black w-full min-h-screen md:px-10">
+    <div className="page-container bg-black w-full min-h-screen md:px-10 px-5">
       <section className="hero-section md:px-[4rem] min-h-[25rem] flex items-end justify-end px-[1rem] pt-[6rem]">
         <div className="input-container bg-[#1F1F1F] flex items-center rounded-full md:w-[70%] w-[90%] mb-[8rem] mx-auto h-[4rem]">
           <div className="icon-container flex items-center justify-center w-[4rem]">
