@@ -34,7 +34,7 @@ const Nav = ({ setToggle }: NavProps) => {
 
   return (
     <div className="page-container border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center md:justify-start justify-between bg-black">
-      <div className="nav-inner-container min-w-[65%] flex items-center justify-between">
+      <div className="nav-inner-container min-w-[50%] flex items-center justify-between">
         <div className="logo-container cursor-pointer mr-[17rem]">
           <Image
             src={"/image/logo3.png"}
