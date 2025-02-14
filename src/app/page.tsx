@@ -4,20 +4,46 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="page-container bg-black w-full min-h-screen md:px-10 px-5">
-      <section className="hero-section md:px-[4rem] min-h-[25rem] flex items-end justify-end px-[1rem] pt-[6rem]">
-        <div className="input-container bg-[#1F1F1F] flex items-center rounded-full md:w-[70%] w-[90%] mb-[8rem] mx-auto h-[4rem]">
-          <div className="icon-container flex items-center justify-center w-[4rem]">
-            <IoIosSearch size={30} color="gray" />
+    <div className="page-container bg-black w-full min-h-screen">
+      <section className="hero-section h-[30rem] relative">
+        <div className="left-section h-full md:w-[50%] w-full bg-[#503C3B] p-3 flex items-end">
+          <div className="item-container flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 min-w-[10rem] h-[2rem] rounded-[9px]">
+            <span className="block text-white text-[.8rem]">
+              Learn More about VModel
+            </span>
+            <Image
+              src={"/icons/arrow.svg"}
+              alt="arrow-icon"
+              width={20}
+              height={20}
+            />
           </div>
-
-          <input
-            type="text"
-            className="outline-none text-input-container text-gray-100 text-[16px] md:placeholder:text-[1.15rem] placeholder:text-[.98rem] border-none bg-transparent w-[80%]"
-            placeholder="Search Popular  Influencers..."
-          />
         </div>
+        <div className="right-section md:w-[50%] w-full"></div>
+        <section className="text-container absolute md:top-[20%] top-[30%] left-0 md:px-0 px-[1rem] w-full flex items-center justify-center mx-auto">
+          <div className="content-container">
+            <div className="image-container flex items-center mb-7 gap-2">
+              <Image
+                src={"/icons/Vmodel.svg"}
+                alt="vmodel-logo"
+                width={30}
+                height={30}
+              />
+
+              <span className="block text-[#EDCEAB] font-semibold text-[1.35rem]">
+                VMODEL
+              </span>
+            </div>
+
+            <div className="text-section">
+              <span className="block text-center font-semibold text-white md:text-[2.5rem] text-[1.7rem]">
+                “Designed for Creators, Built for the Future”
+              </span>
+            </div>
+          </div>
+        </section>
       </section>
+
       <section className="flex flex-col md:flex-row flex-wrap w-full min-h-[150px] gap-4  mb-20">
         {About.map((text, index) => (
           <div
