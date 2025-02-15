@@ -57,23 +57,15 @@ export default function Home() {
           ))}
         </Slider>
         <button
-          className="absolute top-[40%] right-4 bg-gray-200 backdrop-blur-lg text-white rounded-full p-4 opacity-80 hover:opacity-100 focus:outline-none"
+          className="absolute top-[40%] right-4 bg-gray-100/90 text-white rounded-full p-4 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none"
           onClick={handleNextClick}
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
+          <Image
+            src={"/icons/button-arrow.svg"}
+            alt="button-icon"
+            width={30}
+            height={30}
+          />
         </button>
       </div>
 
