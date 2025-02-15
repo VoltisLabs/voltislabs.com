@@ -10,15 +10,15 @@ import ThirdHero from "../components/common/carousel/ThirdHero";
 export default function Home() {
   const slides = [
     {
-      image: "/path/to/image1.jpg",
+      image: <FirstHero />,
       text: "Slide 1 Text",
     },
     {
-      image: "/path/to/image2.jpg",
+      image: <SecondHero />,
       text: "Slide 2 Text",
     },
     {
-      image: "/path/to/image3.jpg",
+      image: <ThirdHero />,
       text: "Slide 3 Text",
     },
   ];

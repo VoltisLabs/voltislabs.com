@@ -23,7 +23,7 @@ const SecondHero = () => {
         </div>
       </div>
       <div className="right-section md:flex hidden md:w-[50%] bg-black h-full w-full">
-        <div className="image-container h-full px-2 gap-2 w-[25%] flex flex-col justify-between">
+        <div className="image-container h-full px-2 gap-2 w-[20rem] flex flex-col justify-between">
           <div className="image-wrapper h-[50%] w-full rounded-[8px] overflow-hidden relative">
             <Image
               src={"/image/hero1.jpeg"}
