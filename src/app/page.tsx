@@ -9,8 +9,11 @@ import ThirdHero from "../components/common/carousel/ThirdHero";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useRef } from "react";
 
 export default function Home() {
+  const sliderRef = useRef<Slider>(null);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -37,15 +40,42 @@ export default function Home() {
     },
   ];
 
+  const handleNextClick = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
   return (
     <div className="page-container bg-black w-full min-h-screen">
-      <Slider {...settings}>
-        {slides.map((item) => (
-          <div key={item.text} className="item-container">
-            {item.image}
-          </div>
-        ))}
-      </Slider>
+      <div className="item-container relative">
+        <Slider ref={sliderRef} {...settings}>
+          {slides.map((item) => (
+            <div key={item.text} className="item-container">
+              {item.image}
+            </div>
+          ))}
+        </Slider>
+        <button
+          className="absolute top-[40%] right-4 bg-gray-200 backdrop-blur-lg text-white rounded-full p-4 opacity-80 hover:opacity-100 focus:outline-none"
+          onClick={handleNextClick}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      </div>
 
       <div className="content-container md:px-[2rem] px-[1rem]">
         <section className="flex pt-[3.45rem] flex-col md:flex-row flex-wrap w-full min-h-[150px] gap-4  mb-20">
