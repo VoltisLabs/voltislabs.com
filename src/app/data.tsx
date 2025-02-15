@@ -1,19 +1,23 @@
 interface AboutItem {
     title: string;
     message: string;
+    route: string;
   }
 export const About : AboutItem[] = [
     {
       title: "Pioneering research on the path to AGI",
       message: "Learn about our research.",
+      route: "/",
     },
     {
       title: "Transforming work and creativity with AI",
       message: "Explore our products.",
+      route: "/",
     },
     {
       title: "Join us in shaping the future of technology",
       message: "View careers.",
+      route: "/",
     }
   ];
 
@@ -25,6 +29,7 @@ export const About : AboutItem[] = [
       img: "/image/update1.png",
       message: "Sam Altman returns as CEO, OpenAI has a new initial board",
       time: "Nov 29, 2023"
+      
     },
     {
       img: "/image/update1.png",

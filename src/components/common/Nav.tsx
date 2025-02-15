@@ -9,22 +9,29 @@ interface NavProps {
 const Nav = ({ setToggle }: NavProps) => {
   const links = [
     {
+      name: "VModel",
+      route: "/",
+    },
+    {
+      name: "Prelura",
+      route: "/",
+    },
+    {
+      name: "Vell Magazine",
+      route: "/",
+    },
+    {
+      name: "Research",
+      route: "/",
+    }, {
       name: "About Us",
-      route: "/",
-    },
-    {
-      name: "Projects",
-      route: "/",
-    },
-    {
-      name: "Contacts",
       route: "/",
     },
   ];
 
   return (
-    <div className="page-container border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black">
-      <div className="logo-container cursor-pointer">
+    <div className="page-container border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center  bg-black gap-6">
+      <div className="logo-container cursor-pointer ">
         <Image
           src={"/image/logo3.png"}
           alt="company-logo"
@@ -35,7 +42,7 @@ const Nav = ({ setToggle }: NavProps) => {
       </div>
 
       {/* desktop links */}
-      {/* <nav className="nav-container md:flex gap-6 hidden items-center">
+       <nav className="nav-container md:flex gap-6 hidden items-center justify-center ">
         {links.map((item) => (
           <div
             key={item.name}
@@ -44,7 +51,7 @@ const Nav = ({ setToggle }: NavProps) => {
             {item.name}
           </div>
         ))}
-      </nav> */}
+      </nav> 
 
       <section
         onClick={() => setToggle(true)}

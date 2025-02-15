@@ -1,6 +1,7 @@
 import { IoIosSearch } from "react-icons/io";
 import { About, updates, products, research } from "./data";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -25,9 +26,10 @@ export default function Home() {
             className="flex flex-col md:flex-1 min-w-[200px] gap-3 px-4 md:px-8"
           >
             <p className="text-white text-2xl font-medium">{text.title}</p>
-            <p className="text-white underline font-normal text-sm">
+            <Link href={text.route} className="font-normal text-white sm:mt-0 text-sm underline mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500 ">
+           
               {text.message}
-            </p>
+            </Link>
           </div>
         ))}
       </section>
@@ -37,7 +39,8 @@ export default function Home() {
        
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white mb-10">
   <h2 className="font-normal text-xl sm:text-2xl">Latest updates</h2>
-  <p className="font-normal text-sm underline mt-2 sm:mt-0">Söhne</p>
+  <Link href="/" className="font-normal text-white sm:mt-0 text-sm underline mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500 "
+  >Söhne</Link>
 </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -46,7 +49,9 @@ export default function Home() {
               key={index}
               className="flex flex-col gap-3 items-center text-center md:items-start md:text-left"
             >
-              <Image src={text.img} alt="Icon" width={450} height={300} />
+              <Image src={text.img} alt="Icon" width={450} height={300}
+              className="transition-transform duration-300 ease-in-out hover:scale-95"
+             />
               <p className="text-white text-sm">{text.message}</p>
               <p className="text-white text-sm">{text.time}</p>
             </div>
@@ -66,9 +71,10 @@ export default function Home() {
               understanding of the potential risks and benefits, as well as
               careful consideration of the impact.
             </p>
-            <p className="text-sm underline mt-2 cursor-pointer">
+            <Link href="/" 
+            className="font-normal text-white sm:mt-0 text-sm underline mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500 ">
               Learn about safety
-            </p>
+           </Link>
           </div>
         </div>
         <div>
@@ -92,9 +98,9 @@ export default function Home() {
               We research generative models and how to align them with human
               values.
             </p>
-            <p className="text-sm underline mt-2 cursor-pointer">
+            <Link href="/" className="font-normal text-white sm:mt-0 text-sm underline mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500 ">
               Learn about our research
-            </p>
+            </Link>
           </div>
         </div>
 
@@ -104,7 +110,9 @@ export default function Home() {
               key={index}
               className="flex flex-col items-center md:items-start"
             >
-              <Image src={text.img} alt="Icon" width={450} height={300} />
+              <Image src={text.img} alt="Icon" width={450} height={300}
+               className="transition-transform duration-300 ease-in-out hover:scale-95"
+              />
               <p className="text-white text-sm font-normal text-[14px] mt-2">
                 {text.message}
               </p>
@@ -123,9 +131,10 @@ export default function Home() {
               Our API platform offers our latest models and guides for safety
               best practices.
             </p>
-            <p className="text-sm underline mt-2 cursor-pointer">
+            <Link href="/" className="font-normal text-white sm:mt-0 text-sm underline mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500 ">
+           
               Explore our products
-            </p>
+            </Link>
           </div>
         </div>
 
@@ -135,7 +144,9 @@ export default function Home() {
               key={index}
               className="flex flex-col items-center text-center gap-3"
             >
-              <Image src={text.img} alt="Icon" width={450} height={300} />
+              <Image src={text.img} alt="Icon" width={450} height={300} 
+               className="transition-transform duration-300 ease-in-out hover:scale-95"
+              />
               <p className="text-white text-sm font-normal">{text.message}</p>
               <p className="text-white text-sm">{text.time}</p>
             </div>
@@ -154,7 +165,9 @@ export default function Home() {
               Developing safe and beneficial AI requires people from a wide
               range of disciplines and backgrounds.
             </p>
-            <p className="text-sm underline mt-2">View careers</p>
+            <Link href="/" className="font-normal text-white sm:mt-0 text-sm  mt-2 cursor-pointer hover:text-blue-500  visited:underline ">
+           
+              View careers</Link>
           </div>
         </div>
         <div className="flex justify-center">
@@ -199,7 +212,8 @@ export default function Home() {
         </div>
 
         <div className="border-[#FFFFFF] border-[1px] w-full text-center py-4 px-1 h-16 rounded mt-10 mb-28">
-          <p className="text-white">View careers</p>
+        <Link href="/#" className="font-normal text-white sm:mt-0 text-sm underline mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500 ">
+        View careers</Link>
         </div>
 
         <div className="flex flex-wrap justify-between items-start gap-6">
