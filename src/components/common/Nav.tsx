@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { RxHamburgerMenu } from "react-icons/rx";
 interface NavProps {
   setToggle: (value: boolean) => void;
@@ -32,10 +33,15 @@ const Nav = ({ setToggle }: NavProps) => {
     },
   ];
 
+  const router = useRouter();
+
   return (
     <div className="page-container border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black">
       <div className="nav-inner-container min-w-[47%] flex items-center justify-between">
-        <div className="logo-container cursor-pointer mr-[17rem]">
+        <div
+          onClick={() => router.push("/")}
+          className="logo-container cursor-pointer mr-[17rem]"
+        >
           <Image
             src={"/image/logo3.png"}
             alt="company-logo"

@@ -42,14 +42,17 @@ const SecondHero = () => {
           </div>
         </div>
 
-        <div className="big-image-container w-[75%] overflow-hidden">
-          <Image
-            src={"/image/hero2.jpeg"}
-            alt="her-section-image"
-            width={800}
-            height={300}
-            className="w-full h-full object-cover"
-          />
+        <div className="big-image-container w-[75%] overflow-hidden relative">
+          <div className="image-wrapper relative w-full h-full">
+            <Image
+              src={"/image/hero2.jpeg"}
+              alt="her-section-image"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="top" // Center the image
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>
