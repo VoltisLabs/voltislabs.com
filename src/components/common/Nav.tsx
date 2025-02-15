@@ -58,7 +58,7 @@ const Nav = ({ setToggle }: NavProps) => {
         </nav>
       </div>
 
-      <div className="md:flex hidden items-center">
+      <div className="md:flex hidden items-center gap-4">
         <button className="outline-none border-none text-[.9rem] text-white">
           Search
         </button>
