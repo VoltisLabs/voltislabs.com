@@ -14,11 +14,11 @@ export default function Home() {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1300,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4500,
     arrows: false,
   };
 
