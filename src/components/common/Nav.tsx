@@ -23,6 +23,11 @@ const Nav = ({ setToggle }: NavProps) => {
     },
 
     {
+      name: "Afrogarm",
+      route: "/",
+    },
+
+    {
       name: "Research",
       route: "/",
     },
