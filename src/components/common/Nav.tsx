@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
+import Link from "next/link";
 
 interface NavProps {
   setToggle: (value: boolean) => void;
@@ -12,8 +13,8 @@ const Nav = ({ setToggle }: NavProps) => {
   const links = [
     {
       name: "VModel",
-      route: "/",
-      icon:IoIosArrowDown 
+      route: "../Navlinks/Vmodel",
+      icon:<IoIosArrowDown/> 
     },
     {
       name: "Prelura",
@@ -55,19 +56,19 @@ const Nav = ({ setToggle }: NavProps) => {
         {/* desktop links */}
         <nav className="nav-container lg:flex gap-6 hidden items-center">
           {links.map((item) => (
-            <div
+            <Link
+            href={item.route}
               key={item.name}
-              className="card-container hover:underline cursor-pointer text-white text-[1rem] flex "
+              className="card-container hover:underline cursor-pointer text-white text-[1rem] flex  "
             >
-              <p>{item.name}</p> {item.icon}
-            </div>
+              <p>{item.name}</p> <div className="my-1">{item.icon}</div>
+            </Link>
           ))}
         </nav>
-
         
       </div>
 
-      <div className="md:flex hidden items-center">
+      <div className="md:flex hidden items-center gap-4">
         <button className="outline-none border-none text-[.9rem] text-white">
           Search
         </button>
