@@ -3,8 +3,8 @@ import React from "react";
 
 const ThirdHero = () => {
   return (
-    <section className="hero-section-container h-[35rem] flex items-center justify-center gap-2">
-      <div className="image-container h-[35rem] md:w-[30%] md:block hidden">
+    <section className="hero-section-container h-[42rem] flex items-center justify-center gap-2">
+      <div className="image-container h-full md:w-[30%] md:block hidden">
         <Image
           src={"/image/hero4.jpeg"}
           alt="hero-images"
@@ -36,7 +36,7 @@ const ThirdHero = () => {
           Rooted in Culture, Styled for everyone.
         </span>
 
-        <div className="item-container self-end flex items-center gap-2 p-1 border-solid border-black border-[1px] px-2 min-w-[10rem] h-[2rem] rounded-[9px]">
+        <div className="item-container self-end flex items-center gap-2 p-1 border-solid border-black border-[1px] px-2 min-w-[10rem] h-[2rem] rounded-[4px]">
           <span className="block text-black text-[.8rem]">
             Learn More about VModel
           </span>

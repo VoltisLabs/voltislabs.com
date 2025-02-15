@@ -3,9 +3,9 @@ import React from "react";
 
 const FirstHero = () => {
   return (
-    <section className="hero-section-container h-[35rem] relative">
+    <section className="hero-section-container h-[42rem] relative">
       <div className="left-section h-full md:w-[50%] w-full bg-[#503C3B] p-7 flex items-end">
-        <div className="item-container flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 min-w-[10rem] h-[2rem] rounded-[9px]">
+        <div className="item-container flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 min-w-[10rem] h-[2rem] rounded-[4px]">
           <span className="block text-white text-[.8rem]">
             Learn More about VModel
           </span>
