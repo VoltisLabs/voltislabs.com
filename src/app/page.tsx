@@ -1,13 +1,27 @@
+"use client";
+
 import { IoIosSearch } from "react-icons/io";
 import { About, updates, products, research } from "./data";
 import Image from "next/image";
-// import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css";
 import FirstHero from "../components/common/carousel/FirstHero";
 import SecondHero from "../components/common/carousel/SecondHero";
 import ThirdHero from "../components/common/carousel/ThirdHero";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+  };
+
   const slides = [
     {
       image: <FirstHero />,
@@ -25,11 +39,13 @@ export default function Home() {
 
   return (
     <div className="page-container bg-black w-full min-h-screen">
-      {/* <Swiper spaceBetween={50} slidesPerView={1} autoplay={{ delay: 3000 }}> */}
-      {/* <FirstHero /> */}
-      <SecondHero />
-      {/* <ThirdHero /> */}
-      {/* </Swiper> */}
+      <Slider {...settings}>
+        {slides.map((item) => (
+          <div key={item.text} className="item-container">
+            {item.image}
+          </div>
+        ))}
+      </Slider>
 
       <div className="content-container md:px-[2rem] px-[1rem]">
         <section className="flex pt-[3.45rem] flex-col md:flex-row flex-wrap w-full min-h-[150px] gap-4  mb-20">
