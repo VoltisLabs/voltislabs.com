@@ -58,7 +58,7 @@ export default function Home() {
           ))}
         </Slider>
         <button
-          className="absolute top-[45%] right-4 bg-gray-100/90 text-white rounded-full p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none"
+          className="absolute top-[45%] right-4 bg-gray-100/90 text-white rounded-full md:p-2 p-1 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none"
           onClick={handleNextClick}
         >
           <Image

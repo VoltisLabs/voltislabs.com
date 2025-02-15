@@ -50,7 +50,7 @@ const Nav = ({ setToggle }: NavProps) => {
           <Image
             src={"/image/logo3.png"}
             alt="company-logo"
-            width={100}
+            width={110}
             height={100}
             className="hover:scale-90 transition-all ease-in-out delay-75"
           />

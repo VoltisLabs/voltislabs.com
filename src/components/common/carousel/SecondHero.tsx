@@ -3,10 +3,10 @@ import React from "react";
 
 const SecondHero = () => {
   return (
-    <section className="hero-section-container h-[42rem] flex items-center relative">
+    <section className="hero-section-container  md:h-[42rem] h-[28rem] flex items-center relative">
       <div className="left-section h-full md:w-[50%] w-full bg-[#AB28B280] p-7 pb-[4rem] flex md:items-end items-center">
-        <div className="item-container mb-[4.5rem]">
-          <span className="block mb-[5rem] text-left text-white md:text-[3.5vw] text-[2.4rem]">
+        <div className="item-container md:mb-[4.5rem]">
+          <span className="block md:mb-[5rem] mb-[3rem] text-left text-white md:text-[3.5vw] text-[2rem]">
             A New Home for Your Fashion Finds.
           </span>
           <div className="item-container flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 w-[14rem] h-[2rem] rounded-[4px]">
