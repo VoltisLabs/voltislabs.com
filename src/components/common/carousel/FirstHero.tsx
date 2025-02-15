@@ -22,7 +22,7 @@ const FirstHero = () => {
         <div className="content-container mx-auto md:w-[50%]">
           <div className="image-container flex items-center mb-1 gap-2">
             <Image
-              src={"/icons/Vmodel.svg"}
+              src={"/icons/vmodel.svg"}
               alt="vmodel-logo"
               width={30}
               height={30}
