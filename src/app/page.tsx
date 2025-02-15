@@ -4,6 +4,8 @@ import Image from "next/image";
 // import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import FirstHero from "../components/common/carousel/FirstHero";
+import SecondHero from "../components/common/carousel/SecondHero";
+import ThirdHero from "../components/common/carousel/ThirdHero";
 
 export default function Home() {
   const slides = [
@@ -24,7 +26,9 @@ export default function Home() {
   return (
     <div className="page-container bg-black w-full min-h-screen">
       {/* <Swiper spaceBetween={50} slidesPerView={1} autoplay={{ delay: 3000 }}> */}
-      <FirstHero />
+      {/* <FirstHero /> */}
+      <SecondHero />
+      {/* <ThirdHero /> */}
       {/* </Swiper> */}
 
       <div className="content-container md:px-[2rem] px-[1rem]">
