@@ -68,11 +68,11 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           className="logo-container cursor-pointer mr-[17rem]"
         >
           <Image
-            src={"/image/logo3.png"}
+            src={"/icons/voltis.svg"}
             alt="company-logo"
-            width={130}
-            height={120}
-            className="hover:scale-90 transition-all ease-in-out delay-75"
+            width={90}
+            height={60}
+            // className="hover:scale-90 transition-all ease-in-out delay-75"
           />
         </div>
 
