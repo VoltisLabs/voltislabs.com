@@ -11,13 +11,13 @@ function Content() {
           <h2 className="font-normal text-3xl mb-4 lg:mb-0">
             Responsible Innovation
           </h2>
-          <div className="lg:w-1/2 ">
-            <p className="font-normal text-xl md:text-2xl">
+          <div className="lg:w-1/2">
+            <p className="font-normal mb-[2rem] text-xl md:text-2xl">
               At Voltis Labs, we innovate with purpose and responsibility —
               crafting technology that enhances lives while considering its
               long-term impact on people and the planet."
             </p>
-            <p className="font-normal text-xl md:text-2xl mb-1">
+            <p className="font-normal mb-[3rem] text-xl md:text-2xl">
               We believe in building technology that empowers, disrupts, and
               transforms—always with a thoughtful approach to its risks and
               rewards."
