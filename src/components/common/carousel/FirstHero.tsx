@@ -3,7 +3,7 @@ import React from "react";
 
 const FirstHero = () => {
   return (
-    <section className="hero-section-container md:h-[42rem] h-[28rem] relative">
+    <section className="hero-section-container md:h-[42rem] h-[30rem] relative">
       <div className="left-section h-full md:w-[50%] w-full bg-[#503C3B] p-7 flex items-end">
         <div className="item-container flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 min-w-[10rem] h-[2rem] rounded-[4px]">
           <span className="block text-white text-[.8rem]">
@@ -34,7 +34,7 @@ const FirstHero = () => {
           </div>
 
           <div className="text-section mx-auto">
-            <span className="block md:text-center text-left text-white md:text-[3.5vw] text-[1.7rem]">
+            <span className="block md:text-center text-left text-white md:text-[3rem] text-[1.7rem]">
               “Designed for Creators, Built for the Future”
             </span>
           </div>

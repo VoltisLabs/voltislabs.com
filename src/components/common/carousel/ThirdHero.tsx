@@ -3,7 +3,7 @@ import React from "react";
 
 const ThirdHero = () => {
   return (
-    <section className="hero-section-container md:h-[42rem] h-[28rem] flex items-center justify-center gap-2">
+    <section className="hero-section-container md:h-[42rem] h-[30rem] flex items-center justify-center gap-2">
       <div className="image-container h-full md:w-[30%] md:block hidden">
         <Image
           src={"/image/hero4.jpeg"}
@@ -32,7 +32,7 @@ const ThirdHero = () => {
           height={100}
         />
 
-        <span className="block text-center font-semibold mb-[3rem] text-black md:text-[4.5rem] text-[1.7rem]">
+        <span className="block text-center font-semibold mb-[3rem] text-black md:text-[3rem] text-[1.7rem]">
           Rooted in Culture, Styled for everyone.
         </span>
 
