@@ -66,7 +66,7 @@ export default function RootLayout({
 
           <main className="content bg-black w-full">
             <div className="nav-container">
-              <Nav setToggle={setToggle} />
+              <Nav setToggle={setToggle} toggle={toggle} />
             </div>
             {children}
           </main>

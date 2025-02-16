@@ -5,12 +5,14 @@ import { useRouter } from "next/navigation";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface NavProps {
   setToggle: (value: boolean) => void;
+  toggle: boolean;
 }
 
-const Nav = ({ setToggle }: NavProps) => {
+const Nav = ({ setToggle, toggle }: NavProps) => {
   const links = [
     {
       name: "VModel",
@@ -48,8 +50,18 @@ const Nav = ({ setToggle }: NavProps) => {
 
   const router = useRouter();
 
+  const navVariants = {
+    hidden: { x: "-100%", opacity: 0 },
+    visible: { x: 0, opacity: 1 },
+  };
+
+  const overlayVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
   return (
-    <div className="page-container border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black">
+    <div className="page-container z-50 fixed top-0 border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black">
       <div className="nav-inner-container min-w-[47%] flex items-center justify-between">
         <div
           onClick={() => router.push("/")}
@@ -93,6 +105,40 @@ const Nav = ({ setToggle }: NavProps) => {
       >
         <RxHamburgerMenu size={25} color="white" />
       </section>
+
+      <AnimatePresence>
+        {toggle && (
+          <>
+            <motion.div
+              className="section-container top-0 absolute md:hidden h-screen bg-black/30 backdrop-blur-sm z-100 left-0 block w-full"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={overlayVariants}
+              transition={{ duration: 0.5 }}
+              onClick={() => setToggle(false)}
+            />
+            <motion.nav
+              className="nav-container bg-black py-[3.5rem] h-full px-[2rem] w-[66%] fixed top-0 left-0 z-110"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={navVariants}
+              transition={{ duration: 0.5 }}
+            >
+              {links.map((item) => (
+                <Link
+                  href={item.route}
+                  key={item.name}
+                  className="card-container mb-[2rem] text-[1.2rem] hover:underline cursor-pointer text-white flex"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </motion.nav>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
