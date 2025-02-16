@@ -70,7 +70,7 @@ const Nav = ({ setToggle }: NavProps) => {
             <Link
               href={item.route}
               key={item.name}
-              className="card-container hover:underline cursor-pointer text-white text-[1rem] flex  "
+              className="card-container hover:underline cursor-pointer text-white text-[1rem] flex"
             >
               {item.name}
             </Link>

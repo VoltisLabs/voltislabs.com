@@ -91,8 +91,8 @@ export default function Home() {
           ))}
         </section>
 
-        <div className=" border-white border-[1px] w-[full] mb-6"></div>
-        <section className="mb-20 ">
+        <div className="border-white border-[1px] w-[full] mb-6"></div>
+        <section className="mb-20">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white mb-10">
             <h2 className="font-normal text-xl sm:text-2xl">Latest updates</h2>
             <p className="font-normal text-sm underline mt-2 sm:mt-0">Söhne</p>
@@ -117,9 +117,7 @@ export default function Home() {
             ))}
           </div>
         </section>
-
         <Content />
-
         <Footer />
       </div>
     </div>
