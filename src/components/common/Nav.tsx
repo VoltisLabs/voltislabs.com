@@ -70,8 +70,8 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           <Image
             src={"/icons/voltis.svg"}
             alt="company-logo"
-            width={90}
-            height={60}
+            width={100}
+            height={80}
             // className="hover:scale-90 transition-all ease-in-out delay-75"
           />
         </div>
