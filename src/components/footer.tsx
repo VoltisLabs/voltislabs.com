@@ -19,7 +19,7 @@ export default function Footer() {
 
         <div className="flex flex-wrap justify-between items-start gap-6">
           <Image
-            src={"../image/logo.svg"}
+            src={"../image/Logo.svg"}
             alt="Icon"
             width={100}
             height={100}
