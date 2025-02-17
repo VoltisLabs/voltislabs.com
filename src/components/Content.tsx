@@ -138,29 +138,22 @@ function Content() {
 
       <div className=" border-[#333333] border-[1px] w-[full] mb-6"></div>
 
-     
-
-
-      <section className="mb-20"> 
-  <div className="flex flex-wrap  w-full">
-    <div className="flex flex-col w-full md:w-[45%] mb-6 md:mb-0">
-      <p className="text-white font-normal text-2xl">
-        “I encourage my team to keep learning. Ideas in different topics
-        or fields can often inspire new ideas and broaden the potential
-        solution space.”
-      </p>
-      <p className="text-white font-normal mt-1">Lilian Weng</p>
-      <p className="text-white font-normal">Applied AI at OpenAI</p>
-    </div>
-    <div className="w-full md:w-[55%] flex justify-center md:justify-end">
-      <img
-        src="../image/team.png"
-        alt="Icon"
-        className="w-full h-auto"
-      />
-    </div>
-  </div>
-</section>
+      <section className="mb-20">
+        <div className="flex flex-wrap  w-full">
+          <div className="flex flex-col w-full md:w-[45%] mb-6 md:mb-0">
+            <p className="text-white font-normal text-2xl">
+              “I encourage my team to keep learning. Ideas in different topics
+              or fields can often inspire new ideas and broaden the potential
+              solution space.”
+            </p>
+            <p className="text-white font-normal mt-1">Lilian Weng</p>
+            <p className="text-white font-normal">Applied AI at OpenAI</p>
+          </div>
+          <div className="w-full md:w-[55%] flex justify-center md:justify-end">
+            <img src="../image/team.png" alt="Icon" className="w-full h-auto" />
+          </div>
+        </div>
+      </section>
 
       <div className=" border-[#FFFFFF] border-[1px] w-[full] mb-3"></div>
     </div>
