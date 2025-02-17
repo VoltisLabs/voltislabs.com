@@ -91,3 +91,18 @@ export const About : AboutItem[] = [
       time: "Sep 25, 2023"
     }
   ];
+
+
+
+
+  
+  export const prelura = [
+    {
+      img: "/image/landing1.png",
+    },
+    {
+      img: "/image/landingimg2.png",
+    }, {
+      img: "/image/landingimg3.png",
+    },
+  ]
