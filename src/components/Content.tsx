@@ -139,7 +139,7 @@ function Content() {
       <div className=" border-[#333333] border-[1px] w-[full] mb-6"></div>
 
       <section className="mb-20 ">
-        <div className="flex flex-wrap  w-full gap-8">
+        <div className="flex md:flex-row flex-col w-full gap-8">
           <div className="flex flex-col w-full md:w-[48.5%] mb-6 md:mb-0">
             <p className="text-white font-normal text-2xl">
               “I encourage my team to keep learning. Ideas in different topics
@@ -153,7 +153,7 @@ function Content() {
             <img
               src="../image/team.png"
               alt="Icon"
-              className="w-full h-auto rounded-lg "
+              className="w-full md:h-[30rem] h-[25rem] object-cover"
             />
           </div>
         </div>
