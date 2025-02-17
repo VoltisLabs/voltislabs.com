@@ -1,7 +1,7 @@
 "use client";
 
 import { IoIosSearch } from "react-icons/io";
-import { About, updates, products, research } from "./data";
+import { About, updates,} from "./data";
 import Image from "next/image";
 import FirstHero from "../components/common/carousel/FirstHero";
 import SecondHero from "../components/common/carousel/SecondHero";

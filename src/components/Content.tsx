@@ -54,11 +54,11 @@ function Content() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {research.map((text, index) => (
             <div
               key={index}
-              className="flex flex-col items-center md:items-start"
+              className="flex flex-col gap-3 items-center text-center md:items-start md:text-left"
             >
               <Image
                 src={text.img}
@@ -91,11 +91,11 @@ function Content() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {products.map((text, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center gap-3"
+              className="flex flex-col gap-3 items-center text-center md:items-start md:text-left"
             >
               <Image
                 src={text.img}
@@ -127,7 +127,7 @@ function Content() {
             </p>
           </div>
         </div>
-        <div className="flex justify-center">
+        <div>
           <img
             src="../image/career.png"
             alt="Icon"
@@ -139,8 +139,8 @@ function Content() {
       <div className=" border-[#333333] border-[1px] w-[full] mb-6"></div>
 
       <section className="mb-20 ">
-        <div className="flex flex-wrap items-center w-full">
-          <div className="flex flex-col w-full md:w-[45%] mb-6 md:mb-0">
+        <div className="flex flex-wrap  w-full gap-8">
+          <div className="flex flex-col w-full md:w-[48.5%] mb-6 md:mb-0">
             <p className="text-white font-normal text-2xl">
               “I encourage my team to keep learning. Ideas in different topics
               or fields can often inspire new ideas and broaden the potential
@@ -149,11 +149,11 @@ function Content() {
             <p className="text-white font-normal mt-1">Lilian Weng</p>
             <p className="text-white font-normal">Applied AI at OpenAI</p>
           </div>
-          <div className="w-full md:w-[45%] flex justify-center md:justify-end">
+          <div className="w-full md:w-[48.5%] flex justify-center md:justify-end ">
             <img
               src="../image/team.png"
               alt="Icon"
-              className="w-full md:w-[45%] h-auto"
+              className="w-full h-auto rounded-lg "
             />
           </div>
         </div>
