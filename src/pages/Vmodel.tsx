@@ -20,20 +20,20 @@ function Vmodel() {
 </div>
 
         <div className='my-16 px-10'>
-<div className='mb-8'>
+<div className='mb-8 font-normal'>
         <h1 className='font-bold text-[18px] mb-8'>Hello, VModel community! ✨
 </h1>
-<p>We’re thrilled to announce a major update to the VModel app! After months of planning, developing, and incorporating your invaluable feedback, we are excited to share an array of new features designed to enhance your experience and elevate your creative career. This update brings meaningful improvements across the board, making it easier than ever to connect, collaborate, and thrive on VModel.</p>
-<p>
+<p className='font-normal'>We’re thrilled to announce a major update to the VModel app! After months of planning, developing, and incorporating your invaluable feedback, we are excited to share an array of new features designed to enhance your experience and elevate your creative career. This update brings meaningful improvements across the board, making it easier than ever to connect, collaborate, and thrive on VModel.</p>
+<p className='font-normal'>
 We know how important it is to feel empowered, inspired, and ready to take your work to the next level. Whether you’re a seasoned pro or just starting out, we’re committed to giving you the best platform to showcase your talent and unlock new opportunities. Here’s a deeper dive into the most exciting updates that will reshape the way you use VModel.</p>
 </div>
 
-<div className='mb-8'>
+<div className='mb-8 font-normal'>
 
-  <h1 className='font-bold text-[18px]'>
+  <h1 className='font-bold text-[18px] '>
   A Refined, Sleek User Interface for Effortless Navigation
   </h1>
-  <p className='mb-8'>Our design overhaul is here, and it’s all about streamlining your journey through the app. We’ve completely redesigned the user interface to make navigation as intuitive and efficient as possible. From the moment you open VModel, you’ll notice a cleaner, more modern look—everything is easier to find and access.</p>
+  <p className='mb-8 font-normal'>Our design overhaul is here, and it’s all about streamlining your journey through the app. We’ve completely redesigned the user interface to make navigation as intuitive and efficient as possible. From the moment you open VModel, you’ll notice a cleaner, more modern look—everything is easier to find and access.</p>
 
 <p >The new layout ensures that every interaction feels smooth and natural. You can now quickly navigate between job opportunities, creator services, and your profile with just a few taps. We’ve reduced the clutter, so every button, link, and menu serves a clear purpose. The “quick-access” dashboard provides you with a snapshot of your most important notifications, pending job applications, and service requests all in one place. This allows you to jump right into action without losing any time.</p>
 <p>
@@ -42,7 +42,7 @@ The improvements don’t just focus on aesthetics; we’ve made sure that functi
 
 
 
-    <div className='mb-8'>
+    <div className='mb-8 font-normal'>
       <h1 className='font-bold text-[18px]'>Personalized Job Matching – Tailored Opportunities, Just for You</h1>
       <p>We know that finding the right job opportunities is a priority for creators, so we’ve upgraded our job matching algorithm to make the process even easier. Thanks to the power of artificial intelligence, we’ve made job recommendations more personalized than ever before.</p>
       <p className='mb-8'>
@@ -55,7 +55,7 @@ The improvements don’t just focus on aesthetics; we’ve made sure that functi
 
 
 
-    <div className='mb-8'>
+    <div className='mb-8 font-normal'>
       <h1 className='font-bold text-[18px]'>Instant Messaging & Real-Time Collaboration – Connect and Create Together</h1>
       <p>Collaboration is at the heart of what we do on VModel. Whether you’re working with a client, collaborating with another creator, or brainstorming ideas with a team, communication should be quick and seamless. That’s why we’ve introduced real-time messaging and collaboration tools within the app.</p>
       <p>With real-time chat, you can now communicate instantly with anyone on the platform. No more waiting for emails or jumping between apps. You can send text messages, share media, and even create group chats specific to the projects you’re working on. This keeps everything organized in one place and eliminates the need to manage multiple conversations on different platforms.</p>
@@ -67,7 +67,7 @@ The improvements don’t just focus on aesthetics; we’ve made sure that functi
 
 
 
-    <div className='mb-8'>
+    <div className='mb-8 font-normal'>
       <h1 className='font-bold text-[18px]'>A Portfolio That Truly Represents You</h1>
       <p>Your portfolio is your opportunity to showcase your work, and we want to make sure it’s doing everything it can to highlight your talent. That’s why we’ve redesigned the creator portfolio to help you present your projects in the most dynamic, visually appealing way possible.</p>
       
@@ -83,7 +83,7 @@ Plus, you can now track portfolio performance with new analytics. This feature a
 
 
 
-    <div className='mb-8'>
+    <div className='mb-8 font-normal'>
 <h1 className='font-bold text-[18px]'>Streamlined Payment System & Enhanced Security</h1>
 <p>Getting paid for your work should be a seamless process. That’s why we’ve simplified the payment system within VModel. Now, you can receive payments directly through the app, with multiple payment options available for your convenience.
 </p>
@@ -92,7 +92,7 @@ Plus, you can now track portfolio performance with new analytics. This feature a
 
 
 
-    <div className='mb-8'>
+    <div className='mb-8 font-normal'>
 <h1 className='font-bold text-[18px]'>Looking Ahead – What's Next?</h1>
 <p>The updates you see today are just the beginning. We’re continuously working on new features and improvements to make VModel even better. Your feedback has been instrumental in shaping this update, and we’re eager to hear what you think as you begin exploring these new tools.</p>
 <p>
