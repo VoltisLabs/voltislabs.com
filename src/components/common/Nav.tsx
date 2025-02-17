@@ -61,7 +61,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   };
 
   return (
-    <div className="page-container z-50 fixed top-0 border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black/70 backdrop-blur-sm">
+    <div className="page-container z-50 border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black/70 backdrop-blur-sm">
       <div className="nav-inner-container min-w-[47%] flex items-center justify-between">
         <div
           onClick={() => router.push("/")}

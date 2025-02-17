@@ -36,41 +36,14 @@ export default function RootLayout({
         <meta name="description" content="Software Development Company" />
       </head>
 
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <div className="flex items-start min-h-screen justify-center">
-          {/* <div className="aside-container w-[16rem] h-screen overflow-y-scroll no-scrollbar fixed z-50 top-0 left-0 md:block hidden">
-            <Aside />
-          </div> */}
-
-          {/* mobile-nav */}
-          {/* {toggle && (
-            <motion.div
-              className="fixed inset-0 z-40 bg-black bg-opacity-10 backdrop-blur-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setToggle(false)}
-            />
-          )} */}
-          {/* <motion.div
-            className={`aside-container w-[16rem] h-screen overflow-y-scroll no-scrollbar fixed z-50 top-0 left-0 md:hidden ${
-              toggle ? "block" : "hidden"
-            }`}
-            initial={{ x: "-100%" }}
-            animate={{ x: toggle ? "0" : "-100%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          >
-            <Aside />
-          </motion.div> */}
-
+      <body className={`bg-black`}>
+        <div className="mx-auto max-w-[100rem] w-full">
           <main className="content bg-black w-full">
             <div className="nav-container">
               <Nav setToggle={setToggle} toggle={toggle} />
             </div>
 
-            <div className="item-container mt-[6rem]">{children}</div>
+            <div className="item-container">{children}</div>
           </main>
         </div>
       </body>
