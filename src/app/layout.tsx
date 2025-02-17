@@ -23,6 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [toggle, setToggle] = useState<boolean>(false);
+  console.log("RootLayout rendered");
 
   return (
     <html lang="en">
