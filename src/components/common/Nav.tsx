@@ -61,11 +61,11 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   };
 
   return (
-    <div className="page-container z-50 border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black/70 backdrop-blur-sm">
-      <div className="nav-inner-container min-w-[47%] flex items-center justify-between">
+    <div className="page-container border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black/70 backdrop-blur-sm">
+      <div className="">
         <div
           onClick={() => router.push("/")}
-          className="logo-container cursor-pointer mr-[17rem]"
+          className="logo-container cursor-pointer"
         >
           <Image
             src={"/icons/voltis.svg"}
@@ -75,20 +75,20 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
             // className="hover:scale-90 transition-all ease-in-out delay-75"
           />
         </div>
-
-        {/* desktop links */}
-        <nav className="nav-container lg:flex gap-6 hidden items-center">
-          {links.map((item) => (
-            <Link
-              href={item.route}
-              key={item.name}
-              className="card-container hover:underline cursor-pointer text-white text-[1rem] flex"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
       </div>
+
+      {/* desktop links */}
+      <nav className="nav-container lg:flex gap-6 hidden items-center">
+        {links.map((item) => (
+          <Link
+            href={item.route}
+            key={item.name}
+            className="card-container hover:underline cursor-pointer text-white text-[1rem] flex"
+          >
+            {item.name}
+          </Link>
+        ))}
+      </nav>
 
       <div className="md:flex hidden items-center gap-4">
         <button className="outline-none border-none text-[.9rem] text-white">
