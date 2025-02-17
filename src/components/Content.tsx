@@ -142,7 +142,7 @@ function Content() {
 
 
       <section className="mb-20"> 
-  <div className="flex flex-wrap items-center w-full">
+  <div className="flex flex-wrap  w-full">
     <div className="flex flex-col w-full md:w-[45%] mb-6 md:mb-0">
       <p className="text-white font-normal text-2xl">
         “I encourage my team to keep learning. Ideas in different topics
