@@ -69,7 +69,8 @@ export default function RootLayout({
             <div className="nav-container">
               <Nav setToggle={setToggle} toggle={toggle} />
             </div>
-            {children}
+
+            <div className="item-container mt-[6rem]">{children}</div>
           </main>
         </div>
       </body>

@@ -76,8 +76,8 @@ function Content() {
         </div>
       </section>
 
-      <div className=" border-white border-[1px] w-[full] mb-6"></div>
-      <section className="mb-20 ">
+      <div className="border-white border-[1px] w-[full] mb-6"></div>
+      <section className="mb-20">
         <div className="flex flex-col md:flex-row justify-between text-white mb-10">
           <h2 className="font-normal text-3xl mb-4 md:mb-0">Products</h2>
           <div className="md:w-1/2">
@@ -111,8 +111,8 @@ function Content() {
         </div>
       </section>
 
-      <div className=" border-white border-[1px] w-[full] mb-6"></div>
-      <section className="mb-20 ">
+      <div className="border-white border-[1px] w-[full] mb-6"></div>
+      <section className="mb-20">
         <div className="flex flex-col md:flex-row justify-between text-white mb-10">
           <h2 className="font-normal text-2xl md:text-3xl">
             Careers at OpenAI

@@ -7,8 +7,6 @@ import { IoIosArrowDown } from "react-icons/io";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
-
-
 interface NavProps {
   setToggle: (value: boolean) => void;
   toggle: boolean;
@@ -18,7 +16,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   const links = [
     {
       name: "VModel",
-      route: "/Vmodel",
+      route: "/vmodel",
       icon: <IoIosArrowDown />,
     },
     {
@@ -63,7 +61,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   };
 
   return (
-    <div className="page-container z-50 fixed top-0 border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black">
+    <div className="page-container z-50 fixed top-0 border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black/70 backdrop-blur-sm">
       <div className="nav-inner-container min-w-[47%] flex items-center justify-between">
         <div
           onClick={() => router.push("/")}
@@ -84,7 +82,6 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
             <Link
               href={item.route}
               key={item.name}
-              
               className="card-container hover:underline cursor-pointer text-white text-[1rem] flex"
             >
               {item.name}
