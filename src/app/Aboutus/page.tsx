@@ -5,7 +5,7 @@ function page() {
     <div className="px-8 md:px-8  pt-[.1rem] ">
       <section className="text-white my-8  mb-10">
       <div className="text-center px-4 mt-10 mb-6">
-          <h1 className="font-medium md:text-[2.5rem] mt-2 cursor-pointer ">
+          <h1 className="font-medium md:text-[2.5rem] mt-2   text-[1.5rem] cursor-pointer ">
           About us 
           </h1>
           <div className="text-center  sm:px-10   mt-2  ">
