@@ -10,7 +10,7 @@ const SecondHero = () => {
             A New Home for Your Fashion Finds.
           </span>
           <div className="item-container flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 md:w-[14rem] h-[2rem] rounded-[4px]">
-            <span className="block text-white text-[.8rem]">
+            <span className="block text-white md:text-[.8rem] text-[.6rem]">
               Learn More about Prelura
             </span>
             <Image
