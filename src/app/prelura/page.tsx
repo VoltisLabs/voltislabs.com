@@ -4,14 +4,14 @@ import Image from "next/image";
 
 function page() {
   return (
-    <div className="md:px-8 px-5">
+    <div className="md:px-8 px-5 pt-[.1rem] ">
       <section className="text-white my-8  mb-10">
         <div className="text-center px-4 mt-10 mb-6">
-          <h1 className="font-medium md:text-[2.5rem] mt-2 cursor-pointer ">
+          <h1 className="font-medium md:text-[2.5rem] text-[1.5rem] mt-2 cursor-pointer ">
             Dont wear it? Sell it!
           </h1>
-          <div className="text-center  sm:px-10   mt-4  ">
-            <h4 className="font-normal text-base sm:text-lg md:text-lg mb-3">
+          <div className="text-center  sm:px-6 mt-4">
+            <h4 className="font-normal text-base sm:text-lg md:text-lg !text-[.9rem] mb-3">
               Prelura makes it easy to pass on the pieces you no longer wear,
               giving them a new home while putting money back in your pocket
             </h4>
