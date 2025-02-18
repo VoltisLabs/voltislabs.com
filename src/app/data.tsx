@@ -26,9 +26,10 @@ export const updates = [
     img: "/image/vmodel.png",
     message: "VModel 4.15 is here!",
     time: "Nov 29, 2023",
+    subText: "Services updates and more",
   },
   {
-    img: "/image/afrogam.png",
+    img: "/image/afrogramLogo.png",
     message: "",
     time: "Nov 17, 2023",
   },

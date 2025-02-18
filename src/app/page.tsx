@@ -13,6 +13,7 @@ import { useRef } from "react";
 import Content from "../components/Content";
 import Footer from "../components/footer";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const sliderRef = useRef<Slider>(null);
@@ -50,6 +51,8 @@ export default function Home() {
     }
   };
 
+  const router = useRouter();
+
   return (
     <div className="page-container bg-black w-full min-h-screen">
       <div className="item-container relative">
@@ -61,7 +64,7 @@ export default function Home() {
           ))}
         </Slider>
         <button
-          className="absolute md:top-[49%] top-[50%] right-4 bg-gray-100/90 text-white rounded-full md:p-2 p-1 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none"
+          className="absolute md:top-[49%] top-[41%] right-4 bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none"
           onClick={handleNextClick}
         >
           <Image
@@ -73,14 +76,16 @@ export default function Home() {
         </button>
       </div>
 
-      <div className="content-container md:px-[2rem] px-[1rem]">
-        <section className="flex pt-[3.45rem] flex-col md:flex-row flex-wrap w-full min-h-[150px] gap-4  mb-20">
+      <div className="content-container">
+        <section className="flex md:px-[2rem] px-[1rem] pt-[3.45rem] flex-col md:flex-row flex-wrap w-full min-h-[150px] gap-4  mb-20">
           {About.map((text, index) => (
             <div
               key={index}
-              className="flex flex-col md:flex-1 min-w-[200px] gap-3 px-4 md:px-8"
+              className="flex flex-col md:flex-1 min-w-[200px] md:gap-3 gap-1 px-4 md:px-8"
             >
-              <p className="text-white text-2xl font-medium">{text.title}</p>
+              <p className="text-white md:text-[1.5rem] text-[1.4rem] font-medium">
+                {text.title}
+              </p>
               <Link
                 href={text.route}
                 className="text-white underline font-normal text-sm    mt-2 cursor-pointer  sm:mt-0  hover:text-blue-500 "
@@ -92,31 +97,46 @@ export default function Home() {
         </section>
 
         <div className="border-white border-[1px] w-[full] mb-6"></div>
-        <section className="mb-20">
+        <section className="mb-20 md:px-[2rem]  md:h-[34rem] h-[23rem] px-[1rem]">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white mb-10">
-            <h2 className="font-normal text-xl sm:text-2xl">Latest updates</h2>
-            <p className="font-normal text-sm underline mt-2 sm:mt-0">
+            <h2 className="font-normal md:text-[1.7rem] text-[1.6rem]">
+              Latest updates
+            </h2>
+            <Link
+              href={"http://vmodelapp.com"}
+              className="font-normal text-sm underline mt-2 sm:mt-0"
+            >
               See all
-            </p>
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {updates.map((text, index) => (
-              <div
-                key={index}
-                className="flex flex-col gap-3 items-center text-center md:items-start md:text-left"
-              >
-                <Image
-                  src={text.img}
-                  alt="Icon"
-                  width={450}
-                  height={300}
-                  className="transition-transform duration-300 ease-in-out hover:scale-110 rounded-lg"
-                />
-                <p className="text-white text-sm">{text.message}</p>
-                <p className="text-white text-sm">{text.time}</p>
-              </div>
-            ))}
+          <div className="overflow-x-scroll md:min-w-[43rem] no-scrollbar min-w-[20rem] flex items-center">
+            <div className="flex flex-nowrap gap-8 h-full md:w-full">
+              {updates.map((text, index) => (
+                <div
+                  key={index}
+                  className="md:min-w-[22rem] w-[12.5rem] text-left !min-h-[25rem] overflow-hidden items-start"
+                >
+                  <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
+                    <Image
+                      src={text.img}
+                      alt="Icon"
+                      width={310}
+                      height={300}
+                      className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
+                    />
+                  </div>
+
+                  <p className="text-white text-[.9rem] mt-3">{text.message}</p>
+                  {text.subText && (
+                    <p className="text-[.9rem] text-[#535353]">
+                      {text.subText}
+                    </p>
+                  )}
+                  <p className="text-white text-[.7rem]">{text.time}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
         <Content />

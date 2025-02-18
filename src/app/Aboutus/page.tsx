@@ -41,7 +41,11 @@ function page() {
 
 <p className="font-normal mb-5">Our journey began with a simple yet powerful belief: great ideas deserve the right platform to thrive. Frustrated by outdated systems and missed opportunities, a small group of visionaries came together to rethink how technology could empower individuals and businesses alike. </p>
 
-<p className="font-normal">The result was Voltis Labs—a place where bold ideas are turned into reality, where barriers are broken, and where technology serves people, not the other way around.</p>
+        <p className="font-normal">
+          The result was Voltis Labs—a place where bold ideas are turned into
+          reality, where barriers are broken, and where technology serves
+          people, not the other way around.
+        </p>
       </section>
 
 
@@ -79,7 +83,7 @@ function page() {
   
      </section>
     </div>
-  )
+  );
 }
 
-export default page
+export default page;

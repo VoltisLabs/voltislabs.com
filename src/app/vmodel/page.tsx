@@ -1,14 +1,13 @@
 "use client";
 
+import Title from "@/src/components/UI/Title";
 import React, { useState } from "react";
 
 function Vmodel() {
   return (
     <div className="pt-[1rem] text-white">
       <div className="text-center px-4 mt-10 mb-6">
-        <h2 className="font-medium md:text-[3.2rem] mt-2 cursor-pointer">
-          A New Era for Creators
-        </h2>
+        <Title className="mt-2">A New Era for Creators</Title>
         <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
           <h4 className="font-medium text-xs sm:text-lg md:text-base">
             Exciting updates are here for VModel! Enjoy a fresh UI, AI job
@@ -18,7 +17,7 @@ function Vmodel() {
         </div>
       </div>
 
-      <div className="my-16 px-10">
+      <div className="mb-16 md:px-10 px-5">
         <div className="mb-8 font-normal">
           <h1 className="font-bold text-[18px] mb-8">
             Hello, VModel community! ✨
