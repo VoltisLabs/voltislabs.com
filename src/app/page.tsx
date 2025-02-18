@@ -109,7 +109,7 @@ export default function Home() {
                   alt="Icon"
                   width={450}
                   height={300}
-                  className="transition-transform duration-300 ease-in-out hover:scale-95"
+                  className="transition-transform duration-300 ease-in-out hover:scale-95 rounded-lg"
                 />
                 <p className="text-white text-sm">{text.message}</p>
                 <p className="text-white text-sm">{text.time}</p>
