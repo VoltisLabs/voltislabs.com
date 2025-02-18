@@ -104,12 +104,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="overflow-x-scroll md:min-w-[28rem] no-scrollbar min-w-[20rem] flex items-center">
+          <div className="overflow-x-scroll md:min-w-[43rem] no-scrollbar min-w-[20rem] flex items-center">
             <div className="flex flex-nowrap gap-8 h-full">
               {updates.map((text, index) => (
                 <div
                   key={index}
-                  className="flex flex-col w-[15rem] gap-3 text-left items-start"
+                  className="flex flex-col md:w-[22rem] w-[15rem] gap-3 text-left items-start"
                 >
                   <Image
                     src={text.img}

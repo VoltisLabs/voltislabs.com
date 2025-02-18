@@ -27,7 +27,7 @@ function Content() {
             </p>
           </div>
         </div>
-        <div className="w-full h-screen">
+        <div className="w-full md:h-screen">
           <img
             src="../image/safety.png"
             alt="Icon"
