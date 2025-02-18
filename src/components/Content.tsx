@@ -8,7 +8,7 @@ function Content() {
       <div className=" border-white border-[1px] w-[full] mb-6"></div>
       <section className="mb-20 ">
         <div className="flex flex-col lg:flex-row justify-between text-white mb-10">
-          <h2 className="font-normal text-3xl mb-4 lg:mb-0">
+          <h2 className="font-normal text-3xl mb-4 lg:mb-0 ">
             Responsible Innovation
           </h2>
           <div className="lg:w-1/2">
@@ -27,11 +27,12 @@ function Content() {
             </p>
           </div>
         </div>
-        <div>
+        <div className="w-full h-screen">
           <img
             src="../image/safety.png"
             alt="Icon"
             className="w-full h-64 md:h-96 lg:h-[30rem] object-cover rounded-lg"
+            
           />
         </div>
       </section>
@@ -65,7 +66,7 @@ function Content() {
                 alt="Icon"
                 width={450}
                 height={300}
-                className="transition-transform duration-300 ease-in-out hover:scale-95"
+                className="transition-transform duration-300 ease-in-out hover:scale-95 rounded-lg"
               />
               <p className="text-white text-sm font-normal text-[14px] mt-2">
                 {text.message}
@@ -102,7 +103,7 @@ function Content() {
                 alt="Icon"
                 width={450}
                 height={300}
-                className="transition-transform duration-300 ease-in-out hover:scale-95"
+                className="transition-transform duration-300 ease-in-out hover:scale-95 rounded-lg"
               />
               <p className="text-white text-sm font-normal">{text.message}</p>
               <p className="text-white text-sm">{text.time}</p>
@@ -149,7 +150,7 @@ function Content() {
             <p className="text-white font-normal mt-1">Lilian Weng</p>
             <p className="text-white font-normal">Applied AI at OpenAI</p>
           </div>
-          <div className="w-full md:w-[48.5%] flex justify-center md:justify-end ">
+          <div className="w-full md:w-[55%] flex justify-center md:justify-end">
             <img
               src="../image/team.png"
               alt="Icon"
@@ -158,6 +159,7 @@ function Content() {
           </div>
         </div>
       </section>
+
       <div className=" border-[#FFFFFF] border-[1px] w-[full] mb-3"></div>
     </div>
   );
