@@ -5,7 +5,7 @@ import Image from 'next/image'
 function page() {
   return (
     <div className="px-4 md:px-8  pt-[.1rem] ">
-      <section className="text-white my-8  mb-10">
+      <section className="text-white my-8  mb-14">
       <div className="text-center px-4 mt-10 mb-6">
           <h1 className="font-bold md:text-[1.8rem] mt-2  text-[1.5rem] cursor-pointer ">
           We are Voltis Labs 
