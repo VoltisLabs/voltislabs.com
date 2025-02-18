@@ -9,8 +9,8 @@ function Vmodel() {
         <h2 className="font-medium md:text-[3.2rem] mt-2 cursor-pointer">
           A New Era for Creators
         </h2>
-        <div className="text-center px-4 sm:px-10 md:px-20 lg:px-40 xl:px-56 mt-4">
-          <h4 className="font-medium text-base sm:text-lg md:text-xl">
+        <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
+          <h4 className="font-medium text-xs sm:text-lg md:text-base">
             Exciting updates are here for VModel! Enjoy a fresh UI, AI job
             matching, real-time messaging, an enhanced portfolio, and easier
             payments. More to come soon!

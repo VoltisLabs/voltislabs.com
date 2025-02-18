@@ -13,6 +13,7 @@ import { useRef } from "react";
 import Content from "../components/Content";
 import Footer from "../components/footer";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const sliderRef = useRef<Slider>(null);
@@ -49,6 +50,8 @@ export default function Home() {
       sliderRef.current.slickNext();
     }
   };
+
+  const router = useRouter();
 
   return (
     <div className="page-container bg-black w-full min-h-screen">
@@ -99,27 +102,38 @@ export default function Home() {
             <h2 className="font-normal md:text-[1.7rem] text-[1.6rem]">
               Latest updates
             </h2>
-            <p className="font-normal text-sm underline mt-2 sm:mt-0">
+            <Link
+              href={"http://vmodelapp.com"}
+              className="font-normal text-sm underline mt-2 sm:mt-0"
+            >
               See all
-            </p>
+            </Link>
           </div>
 
-          <div className="overflow-x-scroll md:min-w-[43rem] no-scrollbar min-w-[20rem] flex items-center">
-            <div className="flex flex-nowrap gap-8 h-full">
+          <div className="overflow-x-scroll md:min-w-[43rem]  no-scrollbar min-w-[20rem] flex items-center">
+            <div className="flex flex-nowrap gap-8 h-full md:w-full">
               {updates.map((text, index) => (
                 <div
                   key={index}
-                  className="flex flex-col md:w-[22rem] w-[15rem] gap-3 text-left items-start"
+                  className="md:min-w-[22rem]  w-[15rem] text-left !min-h-[25rem] overflow-hidden items-start"
                 >
-                  <Image
-                    src={text.img}
-                    alt="Icon"
-                    width={450}
-                    height={300}
-                    className="transition-transform duration-300 ease-in-out hover:scale-110 rounded-lg"
-                  />
-                  <p className="text-white text-sm">{text.message}</p>
-                  <p className="text-white text-sm">{text.time}</p>
+                  <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
+                    <Image
+                      src={text.img}
+                      alt="Icon"
+                      width={310}
+                      height={300}
+                      className="transition-all w-full duration-300 ease-in-out hover:scale-110"
+                    />
+                  </div>
+
+                  <p className="text-white text-[.9rem] mt-3">{text.message}</p>
+                  {text.subText && (
+                    <p className="text-[.9rem] text-[#535353]">
+                      {text.subText}
+                    </p>
+                  )}
+                  <p className="text-white text-[.7rem]">{text.time}</p>
                 </div>
               ))}
             </div>

@@ -7,7 +7,7 @@ function page() {
     <div className="md:px-8 px-4 pt-[.1rem]  ">
       <section className="text-white my-8  mb-10">
         <div className="text-center px-4 mt-10 mb-6">
-          <h1 className="font-medium md:text-[2.5rem] text-[1.5rem] mt-2 cursor-pointer ">
+          <h1 className="font-medium md:text-[2rem] text-[1.5rem] mt-2 cursor-pointer ">
             Dont wear it? Sell it!
           </h1>
           <div className="text-center  sm:px-6 mt-4">
@@ -28,7 +28,7 @@ function page() {
 
 
 
-        <div className="flex flex-wrap gap-4 px-4 sm:px-0 md:px-24 justify-center">
+        <div className="flex flex-wrap gap-4 px-0 sm:px-0 md:px-24 justify-center">
   {prelura.map((img, index) => (
     <div key={index} className="w-full sm:w-1/2 md:w-[32%] ">
       <Image
@@ -44,7 +44,7 @@ function page() {
 
       </section>
       <section className="text-white mb-10">
-        <h1 className="font-bold text-[18px]">Hi Preluvas</h1>
+        <h1 className="font-bold text-[16px]">Hi Preluvas</h1>
 
         <p className="font-normal">
           We’re excited to introduce a major update packed with new features,
@@ -63,7 +63,7 @@ function page() {
       </section>
 
       <section className="text-white mb-10">
-        <h1 className="font-semibold text-[18px]">
+        <h1 className="font-semibold text-[16px]">
           A Smarter, More Personalized Shopping Experience
         </h1>
 
@@ -90,7 +90,7 @@ function page() {
       </section>
 
       <section className="text-white mb-10">
-        <h1 className="font-semibold text-[18px]">
+        <h1 className="font-semibold text-[16px]">
           New Discover Feed – Follow, Favourite & Explore
         </h1>
         <p className="font-normal">
@@ -113,7 +113,7 @@ function page() {
       </section>
 
       <section className="text-white mb-10">
-        <h1 className="font-semibold text-[18px]">
+        <h1 className="font-semibold text-[16px]">
         
           Selling Made Simple & More Rewarding
         </h1>
@@ -143,7 +143,7 @@ function page() {
       </section>
 
       <section className="text-white mb-10">
-        <h1 className="font-semibold text-[18px]">Prelura Pro – The Ultimate Seller Toolkit </h1>
+        <h1 className="font-semibold text-[16px]">Prelura Pro – The Ultimate Seller Toolkit </h1>
          <p className="font-normal"> For those who sell regularly
         or want to grow their shop, we’re introducing Prelura Pro, a premium
         toolkit with advanced seller features:</p>
@@ -172,7 +172,7 @@ function page() {
         earnings.</p>
       </section>
       <section className="text-white mb-10">
-      <h1 className="font-semibold text-[18px]">Stronger Protections for Buyers & Sellers Verified Sellers & Secure</h1>
+      <h1 className="font-semibold text-[16px]">Stronger Protections for Buyers & Sellers Verified Sellers & Secure</h1>
        <p className="font-normal"> Transactions Trust is a top priority, and we’re rolling out new features
         to ensure a safe, transparent marketplace for everyone.</p>
         
@@ -192,7 +192,7 @@ function page() {
       </section>
 
       <section className="text-white mb-10">
-        <h1 className="font-semibold text-[18px]">
+        <h1 className="font-semibold text-[16px]">
         
           Prelura Secure Pay – A Safer Way to Transact
         </h1>
@@ -220,7 +220,7 @@ function page() {
       </section>
 
       <section className="text-white mb-10">
-      <h1 className="font-semibold text-[18px]"> Sustainability at the Core</h1>
+      <h1 className="font-semibold text-[16px]"> Sustainability at the Core</h1>
       <h5 className="text-[#858585] font-normal"> Eco-Friendly Shipping & Circular Fashion
         Initiatives</h5>
         <p className="font-normal"> We’re committed to making fashion more sustainable, and
@@ -247,7 +247,7 @@ function page() {
         of fashion and reduce waste, one purchase at a time.</p>
       </section>
       <section className="text-white mb-10">
-      <h1 className="font-semibold text-[18px]"> What’s Coming Next? </h1>
+      <h1 className="font-semibold text-[16px]"> What’s Coming Next? </h1>
       <p className="font-normal">This update is just the beginning! Here’s what’s on
         the horizon for Prelura:</p>
         <ul className="list-disc pl-5">
