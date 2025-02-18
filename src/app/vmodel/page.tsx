@@ -17,7 +17,7 @@ function Vmodel() {
         </div>
       </div>
 
-      <div className="my-16 md:px-10 px-6">
+      <div className="mb-16 md:px-10 px-5">
         <div className="mb-8 font-normal">
           <h1 className="font-bold text-[18px] mb-8">
             Hello, VModel community! ✨

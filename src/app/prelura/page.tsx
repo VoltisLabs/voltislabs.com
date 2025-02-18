@@ -5,7 +5,7 @@ import Title from "@/src/components/UI/Title";
 
 function page() {
   return (
-    <div className="md:px-8 px-4 pt-[.1rem]  ">
+    <div className="md:px-8 px-5 pt-[.1rem]">
       <section className="text-white my-8  mb-10">
         <div className="text-center px-4 mt-10 mb-6">
           <Title className="mt-2">Dont wear it? Sell it!</Title>
@@ -22,7 +22,7 @@ function page() {
 
         <div className="flex flex-wrap gap-4 px-0 sm:px-0 justify-center">
           {prelura.map((img, index) => (
-            <div key={index} className="w-full sm:w-1/2 md:w-[32%] ">
+            <div key={index} className="w-full sm:w-1/2 md:w-[32%]">
               <Image
                 src={img.img}
                 alt="reluraimg"
