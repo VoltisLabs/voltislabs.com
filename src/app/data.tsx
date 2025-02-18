@@ -102,3 +102,15 @@ export const prelura = [
     img: "/image/landingimg3.png",
   },
 ];
+
+
+
+
+export const Aboutus = [
+  {
+    img: "/image/landing1.png",
+  },
+  {
+    img: "/image/landingimg2.png",
+  },
+];

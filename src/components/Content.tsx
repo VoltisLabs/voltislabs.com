@@ -152,7 +152,7 @@ function Content() {
           </div>
           <div className="w-full md:w-[55%] flex justify-center md:justify-end">
             <img
-              src="../image/team.png"
+              src="/image/team.png"
               alt="Icon"
               className="w-full md:h-[30rem] h-[25rem] object-cover"
             />
