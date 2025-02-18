@@ -43,18 +43,9 @@ function page() {
       <div className="bg-white rounded-lg w-2 h-2"></div>
       <span>Refined search filters allow you to browse by brand, condition, size, and more.</span>
     </div>
-    <div className="flex gap-1 items-center text-sm md:text-base">
-      <div className="bg-white rounded-lg w-2 h-2"></div>
-      <span>Smart recommendations curate personalized selections based on your past searches and purchases.</span>
-    </div>
-    <div >
-      <div className="bg-white rounded-lg w-2 h-2"></div>
-      <span>Saved searches & alerts notify you when an item you’re looking for becomes available.</span>
-    </div>
-  </div>
+  ))}
 </div>
-
- */}
+*/}
       </section>
       <section className="text-white mb-10">
         <h1 className="font-medium text-[18px]">Hi Preluvas</h1>
@@ -86,21 +77,20 @@ function page() {
           AI-powered search engine now delivers more accurate results, helping
           you discover pieces that truly match your style and preferences.
         </p>
-        <div>
-          <div className="flex gap-1 text-center items-center ">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>Refined search
-            filters allow you to browse by brand, condition, size, and more.
-          </div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>Smart
-            recommendations curate personalized selections based on your past
-            searches and purchases.
-          </div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>Saved searches &
-            alerts notify you when an item you’re looking for becomes available.
-          </div>
-        </div>
+        <ul className="list-disc pl-5">
+          <li>
+            Refined search filters allow you to browse by brand, condition,
+            size, and more.
+          </li>
+          <li>
+            Smart recommendations curate personalized selections based on your
+            past searches and purchases.
+          </li>
+          <li>
+            Saved searches & alerts notify you when an item you’re looking for
+            becomes available.
+          </li>
+        </ul>
       </section>
 
       <section className="text-white mb-10">
@@ -112,20 +102,14 @@ function page() {
           that helps you stay ahead of trends, explore curated collections, and
           connect with sellers whose style matches yours.
         </p>
-        <div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>Follow sellers
-            to get notified when they list new items.
-          </div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>Daily trend
-            highlights showcase the most sought-after pieces.
-          </div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>Community
-            favourites help you discover what’s trending across Prelura.
-          </div>
-        </div>
+        <ul className="list-disc pl-5">
+          <li>Follow sellers to get notified when they list new items.</li>
+          <li>Daily trend highlights showcase the most sought-after pieces.</li>
+          <li>
+            Community favourites help you discover what’s trending across
+            Prelura.
+          </li>
+        </ul>
         <p>
           Shopping preloved fashion should feel like an exciting treasure hunt,
           and this new update makes the journey even more engaging.
@@ -142,22 +126,20 @@ function page() {
           Selling on Prelura is now easier than ever with streamlined listing
           tools that help you price and present your items effectively.
         </p>
-        <div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div> Auto-enhanced
-            photos ensure your listings look professional with minimal effort.
-          </div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>Smart price
-            suggestions show you what similar items have sold for, so you can
-            price competitively.
-          </div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>Condition
-            grading system makes it clear to buyers what they’re getting (New,
-            Like New, Gently Used, Well-Loved).
-          </div>
-        </div>
+        <ul className="list-disc pl-5">
+          <li>
+            Auto-enhanced photos ensure your listings look professional with
+            minimal effort.
+          </li>
+          <li>
+            Smart price suggestions show you what similar items have sold for,
+            so you can price competitively.
+          </li>
+          <li>
+            Condition grading system makes it clear to buyers what they’re
+            getting (New, Like New, Gently Used, Well-Loved).
+          </li>
+        </ul>
         <p>
           With these updates, listing an item takes just seconds, and you get
           all the insights you need to sell faster.
@@ -174,22 +156,20 @@ function page() {
           introducing Prelura Pro, a premium toolkit with advanced seller
           features:
         </p>
-        <div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>Bulk listing &
-            auto-relist for high-volume sellers.
-          </div>
 
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>Advanced shop
-            analytics to track sales, views, and customer engagement.
-          </div>
+        <ul className="list-disc pl-5">
+          <li>Bulk listing & auto-relist for high-volume sellers.</li>
 
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div> Exclusive
-            seller badges to boost credibility and attract more buyers.
-          </div>
-        </div>
+          <li>
+            Advanced shop analytics to track sales, views, and customer
+            engagement.
+          </li>
+
+          <li>
+            Exclusive seller badges to boost credibility and attract more
+            buyers.
+          </li>
+        </ul>
 
         <p>
           {" "}
@@ -207,20 +187,13 @@ function page() {
           features to ensure a safe, transparent marketplace for everyone.
         </p>
 
-        <div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>
+        <ul className="list-disc pl-5">
+          <li>
             Verified seller badges highlight sellers with a strong track record.
-          </div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div> Instant refunds
-            for items that don’t match the description.
-          </div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div> Stronger
-            dispute resolution to quickly resolve any issues.
-          </div>
-        </div>
+          </li>
+          <li>Instant refunds for items that don’t match the description.</li>
+          <li>Stronger dispute resolution to quickly resolve any issues.</li>
+        </ul>
       </section>
 
       <section className="text-white mb-10">
@@ -234,22 +207,14 @@ function page() {
           and more convenient.
         </p>
 
-        <div>
-          {" "}
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div> Funds are held
-            in escrow until buyers confirm delivery.{" "}
-          </div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>
-            Faster pay-outs for sellers once transactions are completed.{" "}
-          </div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>
+        <ul className="list-disc pl-5">
+          <li>Funds are held in escrow until buyers confirm delivery. </li>
+          <li>Faster pay-outs for sellers once transactions are completed. </li>
+          <li>
             Multiple payment options including digital wallets and direct
             transfers.
-          </div>
-        </div>
+          </li>
+        </ul>
         <p>
           {" "}
           This update ensures peace of mind for both buyers and sellers, making
@@ -268,25 +233,22 @@ function page() {
           We’re committed to making fashion more sustainable, and we’re
           introducing features to help our community shop and sell responsibly.
         </p>
-        <div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>
+        <ul className="list-disc pl-5">
+          <li>
             Carbon-neutral shipping options for a more eco-conscious delivery
             process.{" "}
-          </div>
+          </li>
 
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>
+          <li>
             Rewards for sustainable packaging—sellers who ship in reusable or
             eco-friendly materials will get special recognition.
-          </div>
+          </li>
 
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>
+          <li>
             Donation & recycling program—easily donate unsold items to partnered
             charities instead of discarding them.{" "}
-          </div>
-        </div>
+          </li>
+        </ul>
 
         <p>
           Together, we can extend the life of fashion and reduce waste, one
@@ -299,24 +261,19 @@ function page() {
           This update is just the beginning! Here’s what’s on the horizon for
           Prelura:
         </p>
-        <div>
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>
+        <ul className="list-disc pl-5">
+          <li>
             AI-powered virtual try-ons – See how items might look on you before
             buying.{" "}
-          </div>
+          </li>
 
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>
-            Live seller auctions – Bid in real-time for unique finds.{" "}
-          </div>
+          <li>Live seller auctions – Bid in real-time for unique finds. </li>
 
-          <div className="flex gap-1 text-center items-center">
-            <div className="bg-white rounded-lg w-2 h-2 "></div>
+          <li>
             Loyalty rewards – Earn points for buying and selling, redeemable for
             exclusive perks.
-          </div>
-        </div>
+          </li>
+        </ul>
       </section>
       <section className="text-white mb-20">
         <p>
