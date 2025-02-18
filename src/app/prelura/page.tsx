@@ -42,9 +42,6 @@ function page() {
   ))}
 </div>
 
-
-
-       
       </section>
       <section className="text-white mb-10">
         <h1 className="font-medium text-[18px]">Hi Preluvas</h1>
@@ -77,19 +74,17 @@ function page() {
           you discover pieces that truly match your style and preferences.
         </p>
         <ul className="list-disc pl-5">
-          <li >
-           
-            Refined search
-            filters allow you to browse by brand, condition, size, and more.
+          <li>
+            Refined search filters allow you to browse by brand, condition,
+            size, and more.
           </li>
           <li>
-         Smart
-            recommendations curate personalized selections based on your past
-            searches and purchases.
+            Smart recommendations curate personalized selections based on your
+            past searches and purchases.
           </li>
           <li>
-           Saved searches &
-            alerts notify you when an item you’re looking for becomes available.
+            Saved searches & alerts notify you when an item you’re looking for
+            becomes available.
           </li>
         </ul>
       </section>
@@ -103,18 +98,12 @@ function page() {
           that helps you stay ahead of trends, explore curated collections, and
           connect with sellers whose style matches yours.
         </p>
-        <ul className="list-disc pl-5" >
+        <ul className="list-disc pl-5">
+          <li>Follow sellers to get notified when they list new items.</li>
+          <li>Daily trend highlights showcase the most sought-after pieces.</li>
           <li>
-            Follow sellers
-            to get notified when they list new items.
-          </li>
-          <li>
-            Daily trend
-            highlights showcase the most sought-after pieces.
-          </li>
-          <li>
-            Community
-            favourites help you discover what’s trending across Prelura.
+            Community favourites help you discover what’s trending across
+            Prelura.
           </li>
         </ul>
         <p>
@@ -135,18 +124,16 @@ function page() {
         </p>
         <ul className="list-disc pl-5">
           <li>
-            Auto-enhanced
-            photos ensure your listings look professional with minimal effort.
+            Auto-enhanced photos ensure your listings look professional with
+            minimal effort.
           </li>
           <li>
-            Smart price
-            suggestions show you what similar items have sold for, so you can
-            price competitively.
+            Smart price suggestions show you what similar items have sold for,
+            so you can price competitively.
           </li>
           <li>
-            Condition
-            grading system makes it clear to buyers what they’re getting (New,
-            Like New, Gently Used, Well-Loved).
+            Condition grading system makes it clear to buyers what they’re
+            getting (New, Like New, Gently Used, Well-Loved).
           </li>
         </ul>
         <p>
@@ -174,9 +161,10 @@ function page() {
         customer engagement.</li>
        
           <li>
-           Exclusive seller badges to boost credibility and
-        attract more buyers.</li>
-        
+            Verified seller badges highlight sellers with a strong track record.
+          </li>
+          <li>Instant refunds for items that don’t match the description.</li>
+          <li>Stronger dispute resolution to quickly resolve any issues.</li>
         </ul>
        
         <p> Whether you’re selling casually or as a business,
