@@ -32,7 +32,6 @@ function Content() {
             src="../image/safety.png"
             alt="Icon"
             className="w-full h-64 md:h-96 lg:h-[30rem] object-cover rounded-lg"
-            
           />
         </div>
       </section>

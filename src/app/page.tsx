@@ -78,9 +78,11 @@ export default function Home() {
           {About.map((text, index) => (
             <div
               key={index}
-              className="flex flex-col md:flex-1 min-w-[200px] gap-3 px-4 md:px-8"
+              className="flex flex-col md:flex-1 min-w-[200px] md:gap-3 gap-1 px-4 md:px-8"
             >
-              <p className="text-white text-2xl font-medium">{text.title}</p>
+              <p className="text-white md:text-[1.5rem] text-[1.4rem] font-medium">
+                {text.title}
+              </p>
               <Link
                 href={text.route}
                 className="text-white underline font-normal text-sm    mt-2 cursor-pointer  sm:mt-0  hover:text-blue-500 "
@@ -94,29 +96,33 @@ export default function Home() {
         <div className="border-white border-[1px] w-[full] mb-6"></div>
         <section className="mb-20">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white mb-10">
-            <h2 className="font-normal text-xl sm:text-2xl">Latest updates</h2>
+            <h2 className="font-normal md:text-[1.7rem] text-[1.6rem]">
+              Latest updates
+            </h2>
             <p className="font-normal text-sm underline mt-2 sm:mt-0">
               See all
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {updates.map((text, index) => (
-              <div
-                key={index}
-                className="flex flex-col gap-3 items-center text-center md:items-start md:text-left"
-              >
-                <Image
-                  src={text.img}
-                  alt="Icon"
-                  width={450}
-                  height={300}
-                  className="transition-transform duration-300 ease-in-out hover:scale-110 rounded-lg"
-                />
-                <p className="text-white text-sm">{text.message}</p>
-                <p className="text-white text-sm">{text.time}</p>
-              </div>
-            ))}
+          <div className="overflow-x-scroll md:min-w-[28rem] no-scrollbar min-w-[20rem] flex items-center">
+            <div className="flex flex-nowrap gap-8 h-full">
+              {updates.map((text, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col w-[15rem] gap-3 text-left items-start"
+                >
+                  <Image
+                    src={text.img}
+                    alt="Icon"
+                    width={450}
+                    height={300}
+                    className="transition-transform duration-300 ease-in-out hover:scale-110 rounded-lg"
+                  />
+                  <p className="text-white text-sm">{text.message}</p>
+                  <p className="text-white text-sm">{text.time}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
         <Content />
