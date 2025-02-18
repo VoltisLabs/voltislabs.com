@@ -2,7 +2,7 @@ import React from 'react'
 
 function page() {
   return (
-    <div className="px-8">
+    <div className="px-8 md:px-8  pt-[.1rem] ">
       <section className="text-white my-8  mb-10">
       <div className="text-center px-4 mt-10 mb-6">
           <h1 className="font-medium md:text-[2.5rem] mt-2 cursor-pointer ">

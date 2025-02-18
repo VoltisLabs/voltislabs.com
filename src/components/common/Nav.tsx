@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
 import Link from "next/link";
@@ -32,12 +32,12 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
     {
       name: "Afrogarm",
-      route: "/",
+      route: "/afrogarm",
     },
 
     {
       name: "Research",
-      route: "/",
+      route: "/research",
       icon: <IoIosArrowDown />,
     },
 
@@ -60,8 +60,10 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     visible: { opacity: 1 },
   };
 
+  const pathname = usePathname();
+
   return (
-    <div className="page-container border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black/70 backdrop-blur-sm">
+    <div className="page-container md:static fixed top-0 left-0 z-30 border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black/70 backdrop-blur-sm">
       <div className="">
         <div
           onClick={() => router.push("/")}
@@ -83,7 +85,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           <Link
             href={item.route}
             key={item.name}
-            className="card-container hover:underline cursor-pointer text-white text-[1rem] flex"
+            className={`${
+              item.route === pathname ? "underline" : ""
+            } card-container hover:underline cursor-pointer text-white text-[1rem] flex`}
           >
             {item.name}
           </Link>
@@ -110,7 +114,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
         {toggle && (
           <>
             <motion.div
-              className="section-container top-0 absolute md:hidden h-screen bg-black/30 backdrop-blur-sm z-100 left-0 block w-full"
+              className="section-container top-0 absolute md:hidden h-screen bg-black/70 backdrop-blur-lg z-100 left-0 block w-full"
               initial="hidden"
               animate="visible"
               exit="hidden"
@@ -119,7 +123,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
               onClick={() => setToggle(false)}
             />
             <motion.nav
-              className="nav-container bg-black py-[3.5rem] h-full px-[2rem] w-[66%] fixed top-0 left-0 z-110"
+              className="nav-container bg-black py-[3.5rem] h-screen px-[2rem] w-[66%] fixed top-0 left-0 z-110"
               initial="hidden"
               animate="visible"
               exit="hidden"
@@ -130,7 +134,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                 <Link
                   href={item.route}
                   key={item.name}
-                  className="card-container mb-[2rem] text-[1.2rem] hover:underline cursor-pointer text-white flex"
+                  className={`${
+                    item.route === pathname ? "underline" : ""
+                  } card-container mb-[2rem] text-[1.2rem] hover:underline cursor-pointer text-white flex`}
                 >
                   {item.name}
                 </Link>

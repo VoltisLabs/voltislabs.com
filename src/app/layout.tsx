@@ -37,13 +37,13 @@ export default function RootLayout({
       </head>
 
       <body className={`bg-black`}>
-        <div className="mx-auto max-w-[120rem] w-full">
+        <div className="mx-auto max-w-[130rem] w-full">
           <main className="content bg-black w-full">
             <div className="nav-container">
               <Nav setToggle={setToggle} toggle={toggle} />
             </div>
 
-            <div className="item-container">{children}</div>
+            <div className="item-container md:mt-0 mt-[6rem]">{children}</div>
           </main>
         </div>
       </body>
