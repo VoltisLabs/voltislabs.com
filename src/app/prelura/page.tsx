@@ -44,26 +44,7 @@ function page() {
 
 
 
-        {/*
-
-        <div className="flex flex-col md:flex-row gap-4 px-4 md:px-12 lg:px-24">
-  <div className="space-y-2">
-    <div className="flex gap-1 items-center text-sm md:text-base">
-      <div className="bg-white rounded-lg w-2 h-2"></div>
-      <span>Refined search filters allow you to browse by brand, condition, size, and more.</span>
-    </div>
-    <div className="flex gap-1 items-center text-sm md:text-base">
-      <div className="bg-white rounded-lg w-2 h-2"></div>
-      <span>Smart recommendations curate personalized selections based on your past searches and purchases.</span>
-    </div>
-    <div >
-      <div className="bg-white rounded-lg w-2 h-2"></div>
-      <span>Saved searches & alerts notify you when an item you’re looking for becomes available.</span>
-    </div>
-  </div>
-</div>
-
- */}
+       
       </section>
       <section className="text-white mb-10">
         <h1 className="font-medium text-[18px]">Hi Preluvas</h1>

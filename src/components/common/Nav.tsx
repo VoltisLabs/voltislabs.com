@@ -43,7 +43,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
     {
       name: "About Us",
-      route: "/",
+      route: "/Aboutus",
       icon: <IoIosArrowDown />,
     },
   ];
