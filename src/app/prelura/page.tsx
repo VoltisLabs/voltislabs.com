@@ -20,32 +20,28 @@ function page() {
             </small>
           </div>
         </div>
-        <div className="flex gap-5  flex-wrap justify-center">
-          {prelura.map((img, index) => (
-            <div
-              key={index}
-              className="flex rounded-[9px] overflow-hidden md:w-[25%] w-full md:h-[30rem] h-[20rem]"
-            >
-              <img
-                src={img.img}
-                alt="item-image"
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-          ))}
-        </div>
 
-        {/*
+       
 
-        <div className="flex flex-col md:flex-row gap-4 px-4 md:px-12 lg:px-24">
-  <div className="space-y-2">
-    <div className="flex gap-1 items-center text-sm md:text-base">
-      <div className="bg-white rounded-lg w-2 h-2"></div>
-      <span>Refined search filters allow you to browse by brand, condition, size, and more.</span>
+
+
+
+
+
+        <div className="flex flex-wrap gap-4 px-4 sm:px-0 md:px-24 justify-center">
+  {prelura.map((img, index) => (
+    <div key={index} className="w-full sm:w-1/2 md:w-[32%] ">
+      <Image
+        src={img.img}
+        alt="reluraimg"
+        className=" rounded-lg object-cover"
+        width={500}
+        height={500}
+      />
     </div>
   ))}
 </div>
-*/}
+
       </section>
       <section className="text-white mb-10">
         <h1 className="font-medium text-[18px]">Hi Preluvas</h1>
@@ -147,53 +143,52 @@ function page() {
       </section>
 
       <section className="text-white mb-10">
-        <h1 className="font-normal text-[18px]">
-          Prelura Pro – The Ultimate Seller Toolkit{" "}
-        </h1>
-        <p>
-          {" "}
-          For those who sell regularly or want to grow their shop, we’re
-          introducing Prelura Pro, a premium toolkit with advanced seller
-          features:
-        </p>
-
-        <ul className="list-disc pl-5">
-          <li>Bulk listing & auto-relist for high-volume sellers.</li>
-
+        <h1 className="font-normal text-[18px]">Prelura Pro – The Ultimate Seller Toolkit </h1>
+         <p> For those who sell regularly
+        or want to grow their shop, we’re introducing Prelura Pro, a premium
+        toolkit with advanced seller features:</p>
+       
+       
+        <ul className="list-disc pl-5">   
           <li>
-            Advanced shop analytics to track sales, views, and customer
-            engagement.
-          </li>
-
+          Bulk listing & auto-relist for
+        high-volume sellers.</li>
+        
+         
+        
           <li>
-            Exclusive seller badges to boost credibility and attract more
-            buyers.
-          </li>
-        </ul>
-
-        <p>
-          {" "}
-          Whether you’re selling casually or as a business, Prelura Pro gives
-          you the tools to grow your presence and increase your earnings.
-        </p>
-      </section>
-      <section className="text-white mb-10">
-        <h1 className="font-normal text-[18px]">
-          Stronger Protections for Buyers & Sellers Verified Sellers & Secure
-        </h1>
-        <p>
-          {" "}
-          Transactions Trust is a top priority, and we’re rolling out new
-          features to ensure a safe, transparent marketplace for everyone.
-        </p>
-
-        <ul className="list-disc pl-5">
+           Advanced shop analytics to track sales, views, and
+        customer engagement.</li>
+       
           <li>
             Verified seller badges highlight sellers with a strong track record.
           </li>
           <li>Instant refunds for items that don’t match the description.</li>
           <li>Stronger dispute resolution to quickly resolve any issues.</li>
         </ul>
+       
+        <p> Whether you’re selling casually or as a business,
+        Prelura Pro gives you the tools to grow your presence and increase your
+        earnings.</p>
+      </section>
+      <section className="text-white mb-10">
+      <h1 className="font-normal text-[18px]">Stronger Protections for Buyers & Sellers Verified Sellers & Secure</h1>
+       <p> Transactions Trust is a top priority, and we’re rolling out new features
+        to ensure a safe, transparent marketplace for everyone.</p>
+        
+        
+        <ul className="list-disc pl-5">
+        <li>
+         
+         Verified seller
+        badges highlight sellers with a strong track record.</li>
+        <li >
+           Instant refunds for
+        items that don’t match the description.</li>
+        <li>
+          Stronger dispute resolution to
+        quickly resolve any issues.</li></ul>
+
       </section>
 
       <section className="text-white mb-10">
@@ -207,86 +202,76 @@ function page() {
           and more convenient.
         </p>
 
-        <ul className="list-disc pl-5">
-          <li>Funds are held in escrow until buyers confirm delivery. </li>
-          <li>Faster pay-outs for sellers once transactions are completed. </li>
+        <ul className="list-disc pl-5"> 
           <li>
-            Multiple payment options including digital wallets and direct
-            transfers.
-          </li>
-        </ul>
-        <p>
-          {" "}
-          This update ensures peace of mind for both buyers and sellers, making
-          every transaction smoother and more secure.
-        </p>
+         Funds are
+        held in escrow until buyers confirm delivery. </li>
+        <li>
+       
+        Faster pay-outs for
+        sellers once transactions are completed. </li>
+        <li >
+      
+        Multiple payment options
+        including digital wallets and direct transfers.</li></ul>
+        <p> This update ensures
+        peace of mind for both buyers and sellers, making every transaction
+        smoother and more secure.</p>
       </section>
 
       <section className="text-white mb-10">
-        <h1 className="font-normal text-[18px]"> Sustainability at the Core</h1>
-        <h5 className="text-[#858585] font-normal">
-          {" "}
-          Eco-Friendly Shipping & Circular Fashion Initiatives
-        </h5>
-        <p>
-          {" "}
-          We’re committed to making fashion more sustainable, and we’re
-          introducing features to help our community shop and sell responsibly.
-        </p>
+      <h1 className="font-normal text-[18px]"> Sustainability at the Core</h1>
+      <h5 className="text-[#858585] font-normal"> Eco-Friendly Shipping & Circular Fashion
+        Initiatives</h5>
+        <p> We’re committed to making fashion more sustainable, and
+        we’re introducing features to help our community shop and sell
+        responsibly.</p>
         <ul className="list-disc pl-5">
           <li>
-            Carbon-neutral shipping options for a more eco-conscious delivery
-            process.{" "}
-          </li>
-
+            
+         Carbon-neutral shipping options for a more eco-conscious
+        delivery process. </li>
+        
+       
           <li>
-            Rewards for sustainable packaging—sellers who ship in reusable or
-            eco-friendly materials will get special recognition.
-          </li>
-
-          <li>
-            Donation & recycling program—easily donate unsold items to partnered
-            charities instead of discarding them.{" "}
-          </li>
-        </ul>
-
-        <p>
-          Together, we can extend the life of fashion and reduce waste, one
-          purchase at a time.
-        </p>
+          
+        Rewards for sustainable packaging—sellers who ship in
+        reusable or eco-friendly materials will get special recognition.</li>
+       
+          <li> 
+        Donation & recycling program—easily donate unsold items to partnered
+        charities instead of discarding them. </li></ul>
+        
+        
+        <p>Together, we can extend the life
+        of fashion and reduce waste, one purchase at a time.</p>
       </section>
       <section className="text-white mb-10">
-        <h1 className="font-medium text-[18px]"> What’s Coming Next? </h1>
-        <p>
-          This update is just the beginning! Here’s what’s on the horizon for
-          Prelura:
-        </p>
+      <h1 className="font-medium text-[18px]"> What’s Coming Next? </h1>
+      <p>This update is just the beginning! Here’s what’s on
+        the horizon for Prelura:</p>
         <ul className="list-disc pl-5">
+          <li >
+         AI-powered virtual try-ons – See how items
+        might look on you before buying. </li>
+       
+          <li >
+        Live seller auctions – Bid in real-time
+        for unique finds. </li>
+        
+        
           <li>
-            AI-powered virtual try-ons – See how items might look on you before
-            buying.{" "}
-          </li>
-
-          <li>Live seller auctions – Bid in real-time for unique finds. </li>
-
-          <li>
-            Loyalty rewards – Earn points for buying and selling, redeemable for
-            exclusive perks.
-          </li>
-        </ul>
+        Loyalty rewards – Earn points for buying and selling,
+        redeemable for exclusive perks.</li></ul>
       </section>
       <section className="text-white mb-20">
-        <p>
-          {" "}
-          We’re shaping the future of second-hand fashion, and your feedback
-          plays a huge role in making Prelura the best it can be. Let us know
-          what you think of these updates, and stay tuned for even more exciting
-          features!
-        </p>
-        <p>
-          Thank you for being part of Prelura—where preloved finds a new home.
-        </p>
+       <p > We’re shaping the future of second-hand fashion, and your feedback plays
+        a huge role in making Prelura the best it can be. Let us know what you
+        think of these updates, and stay tuned for even more exciting features!</p>
+        <p>Thank you for being part of Prelura—where preloved finds a new home.</p>
       </section>
+
+      
     </div>
   );
 }

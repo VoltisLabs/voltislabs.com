@@ -2,28 +2,28 @@ import React from 'react'
 
 function page() {
   return (
-    <div className="px-8">
+    <div className="px-8 md:px-8  pt-[.1rem] ">
       <section className="text-white my-8  mb-10">
       <div className="text-center px-4 mt-10 mb-6">
-          <h1 className="font-medium md:text-[2.5rem] mt-2 cursor-pointer ">
+          <h1 className="font-medium md:text-[2.5rem] mt-2   text-[1.5rem] cursor-pointer ">
           About us 
           </h1>
-          <div className="text-center  sm:px-10   mt-2  ">
-            <h5 className="text-[#858585] font-normal">
+          <div className="text-center     mt-2  ">
+            <h5 className="text-[#858585] font-normal  md:text-[1.1rem] text-[1rem]">
             Published on Monday 9th February, 2025
             </h5>
           </div>
         </div>
       </section>
 
-      <section className="text-white my-8  mb-10 font-normal">
+      <section className="text-white my-8  mb-10 font-normal  md:text-[1.1rem] text-[1rem]">
      <p> At Voltis Labs, we <span className='font-semibold'>believe</span> technology has the power to unlock human potential. We are a company built on the idea that innovation should serve a purpose—solving real problems, empowering creators, and shaping a more connected future.</p>
 
 <p>Our journey began with a simple yet powerful belief: great ideas deserve the right platform to thrive. Frustrated by outdated systems and missed opportunities, a small group of visionaries came together to rethink how technology could empower individuals and businesses alike. </p>
 
 <p>The result was Voltis Labs—a place where bold ideas are turned into reality, where barriers are broken, and where technology serves people, not the other way around.</p>
       </section>
-      <section className="text-white my-8  mb-20 font-normal">
+      <section className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem]">
       <h6 className="font-semibold text-[18px]">Our Mission</h6>
 
       <p>We are here to build the next generation of digital platforms—ones that are intuitive, scalable, and designed to make life easier. Our approach is rooted in innovation, but more importantly, in impact. Every product we create is built to solve a problem, to simplify complexity, and to open new doors for those who dare to dream big.</p>
