@@ -132,6 +132,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
             >
               {links.map((item) => (
                 <Link
+                  onClick={() => setToggle(false)}
                   href={item.route}
                   key={item.name}
                   className={`${
