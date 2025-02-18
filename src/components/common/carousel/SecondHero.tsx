@@ -4,12 +4,12 @@ import React from "react";
 const SecondHero = () => {
   return (
     <section className="hero-section-container md:h-[42rem] h-[37rem] flex items-center relative">
-      <div className="left-section h-full w-[50%] bg-[#AB28B280] p-7 md:pb-[4rem] flex items-end">
+      <div className="left-section h-full w-[50%] bg-[#AB28B280] md:p-7 p-4 md:pb-[4rem] flex items-end">
         <div className="item-container  md:mb-[4.5rem]">
           <span className="block md:static absolute top-[36%] mx-auto z-50 md:mb-[5rem] mb-[3rem] text-center md:text-left text-white md:text-[3rem] text-[1.7rem]">
             A New Home for Your Fashion Finds.
           </span>
-          <div className="item-container flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 w-[14rem] h-[2rem] rounded-[4px]">
+          <div className="item-container flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 md:w-[14rem] h-[2rem] rounded-[4px]">
             <span className="block text-white text-[.8rem]">
               Learn More about Prelura
             </span>
