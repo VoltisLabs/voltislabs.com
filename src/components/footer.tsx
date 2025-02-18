@@ -52,19 +52,21 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col">
-              <p>Research</p>
+              <p>ChatGPT</p>
               <p>Overview</p>
-              <p>Index</p>
-              <p>GPT-4</p>
-              <p>DALL.E 3</p>
+              <p>Enterprise</p>
+              <p>Try ChatGPT</p>
             </div>
 
             <div className="flex flex-col">
-              <p>Research</p>
-              <p>Overview</p>
-              <p>Index</p>
-              <p>GPT-4</p>
-              <p>DALL.E 3</p>
+              <p>Company</p>
+              <p>About</p>
+              <p>Blog</p>
+              <p>Careers</p>
+              <p>Charter</p>
+              <p>Security</p>
+              <p>Customer stories</p>
+              <p>Safety</p>
             </div>
           </div>
         </div>
