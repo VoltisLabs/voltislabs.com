@@ -97,7 +97,7 @@ export default function Home() {
         </section>
 
         <div className="border-white border-[1px] w-[full] mb-6"></div>
-        <section className="mb-20 md:px-[2rem] px-[1rem]">
+        <section className="mb-20 md:px-[2rem]  md:h-[34rem] h-[23rem] px-[1rem]">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white mb-10">
             <h2 className="font-normal md:text-[1.7rem] text-[1.6rem]">
               Latest updates
@@ -110,12 +110,12 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="overflow-x-scroll md:min-w-[43rem]  no-scrollbar min-w-[20rem] flex items-center">
+          <div className="overflow-x-scroll md:min-w-[43rem] no-scrollbar min-w-[20rem] flex items-center">
             <div className="flex flex-nowrap gap-8 h-full md:w-full">
               {updates.map((text, index) => (
                 <div
                   key={index}
-                  className="md:min-w-[22rem] w-[15rem] text-left !min-h-[25rem] overflow-hidden items-start"
+                  className="md:min-w-[22rem] w-[12.5rem] text-left !min-h-[25rem] overflow-hidden items-start"
                 >
                   <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
                     <Image
