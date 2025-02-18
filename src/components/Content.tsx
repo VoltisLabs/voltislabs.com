@@ -4,8 +4,8 @@ import { products, research } from "../app/data";
 
 function Content() {
   return (
-    <div>
-      <div className=" border-white border-[1px] w-[full] mb-6"></div>
+    <>
+      <div className="border-white border-[1px] w-[full] mb-6"></div>
       <section className="mb-20 ">
         <div className="flex flex-col lg:flex-row justify-between text-white mb-10">
           <h2 className="font-normal text-3xl mb-4 lg:mb-0">
@@ -159,7 +159,7 @@ function Content() {
         </div>
       </section>
       <div className=" border-[#FFFFFF] border-[1px] w-[full] mb-3"></div>
-    </div>
+    </>
   );
 }
 
