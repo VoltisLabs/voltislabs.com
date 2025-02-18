@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function page() {
   return (
-    <div className="md:px-8 px-5 pt-[.1rem] ">
+    <div className="md:px-8 px-4 pt-[.1rem] ">
       <section className="text-white my-8  mb-10">
         <div className="text-center px-4 mt-10 mb-6">
           <h1 className="font-medium md:text-[2.5rem] text-[1.5rem] mt-2 cursor-pointer ">
@@ -114,7 +114,7 @@ function page() {
 
       <section className="text-white mb-10">
         <h1 className="font-normal text-[18px]">
-          {" "}
+        
           Selling Made Simple & More Rewarding
         </h1>
         <p className="text-[#858585]">Faster Listing & Smarter Pricing</p>
@@ -193,11 +193,11 @@ function page() {
 
       <section className="text-white mb-10">
         <h1 className="font-normal text-[18px]">
-          {" "}
+        
           Prelura Secure Pay – A Safer Way to Transact
         </h1>
         <p>
-          {" "}
+        
           With our new in-app Prelura Secure Pay system, transactions are safer
           and more convenient.
         </p>
