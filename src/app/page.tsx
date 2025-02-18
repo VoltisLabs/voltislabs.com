@@ -76,8 +76,8 @@ export default function Home() {
         </button>
       </div>
 
-      <div className="content-container md:px-[2rem] px-[1rem]">
-        <section className="flex pt-[3.45rem] flex-col md:flex-row flex-wrap w-full min-h-[150px] gap-4  mb-20">
+      <div className="content-container">
+        <section className="flex md:px-[2rem] px-[1rem] pt-[3.45rem] flex-col md:flex-row flex-wrap w-full min-h-[150px] gap-4  mb-20">
           {About.map((text, index) => (
             <div
               key={index}
@@ -97,7 +97,7 @@ export default function Home() {
         </section>
 
         <div className="border-white border-[1px] w-[full] mb-6"></div>
-        <section className="mb-20">
+        <section className="mb-20 md:px-[2rem] px-[1rem]">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white mb-10">
             <h2 className="font-normal md:text-[1.7rem] text-[1.6rem]">
               Latest updates

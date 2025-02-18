@@ -29,7 +29,7 @@ export const updates = [
     subText: "Services updates and more",
   },
   {
-    img: "/image/afrogam.png",
+    img: "/image/afrogramLogo.png",
     message: "",
     time: "Nov 17, 2023",
   },

@@ -6,8 +6,8 @@ function Content() {
   return (
     <>
       <div className="border-white border-[1px] w-[full] mb-6"></div>
-      <section className="mb-20 ">
-        <div className="flex flex-col lg:flex-row justify-between text-white mb-10">
+      <section className="mb-20">
+        <div className="flex md:px-[2rem] px-[1rem] flex-col lg:flex-row justify-between text-white mb-10">
           <h2 className="font-normal text-3xl mb-4 lg:mb-0 ">
             Responsible Innovation
           </h2>
@@ -27,24 +27,24 @@ function Content() {
             </p>
           </div>
         </div>
-        <div className="w-full md:h-screen">
+        <div className="w-full md:px-[2rem] px-0 h-[30rem] rounded-lg overflow-hidden">
           <img
             src="../image/safety.png"
             alt="Icon"
-            className="w-full h-64 md:h-96 lg:h-[30rem] object-cover rounded-lg"
+            className="w-full h-full object-cover"
           />
         </div>
       </section>
 
       <div className=" border-white border-[1px] w-[full] mb-6"></div>
-      <section className="mb-20">
+      <section className="mb-20 md:px-[2rem] px-[1rem]">
         <div className="flex flex-col md:flex-row justify-between text-white mb-12">
-          <h2 className="font-normal text-3xl text-center md:text-left">
+          <h2 className="font-normal mb-[1rem] text-[1.875rem] text-left">
             Research
           </h2>
 
           <div className="lg:w-1/2">
-            <p className="font-normal text-xl md:text-2xl">
+            <p className="md:font-normal text-[1.09rem] md:text-2xl">
               We research generative models and how to align them with human
               values.
             </p>
@@ -54,30 +54,34 @@ function Content() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {research.map((text, index) => (
-            <div
-              key={index}
-              className="flex flex-col gap-3 items-center text-center md:items-start md:text-left"
-            >
-              <Image
-                src={text.img}
-                alt="Icon"
-                width={450}
-                height={300}
-                className="transition-transform duration-300 ease-in-out hover:scale-110 rounded-lg"
-              />
-              <p className="text-white text-sm font-normal text-[14px] mt-2">
-                {text.message}
-              </p>
-              <p className="text-white text-sm">{text.time}</p>
-            </div>
-          ))}
+        <div className="overflow-x-scroll md:min-w-[43rem]  no-scrollbar min-w-[20rem] flex items-center">
+          <div className="flex flex-nowrap gap-8 h-full md:w-full">
+            {research.map((text, index) => (
+              <div
+                key={index}
+                className="md:min-w-[22rem] w-[15rem] text-left !min-h-[25rem] overflow-hidden items-start"
+              >
+                <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
+                  <Image
+                    src={text.img}
+                    alt="Icon"
+                    width={450}
+                    height={300}
+                    className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
+                  />
+                </div>
+
+                <p className="text-white text-[.9rem] mt-3">{text.message}</p>
+
+                <p className="text-white text-[.7rem]">{text.time}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <div className="border-white border-[1px] w-[full] mb-6"></div>
-      <section className="mb-20">
+      <section className="mb-20 md:px-[2rem] px-[1rem]">
         <div className="flex flex-col md:flex-row justify-between text-white mb-10">
           <h2 className="font-normal text-3xl mb-4 md:mb-0">Products</h2>
           <div className="md:w-1/2">
@@ -91,31 +95,37 @@ function Content() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {products.map((text, index) => (
-            <div
-              key={index}
-              className="flex flex-col gap-3 items-center text-center md:items-start md:text-left"
-            >
-              <Image
-                src={text.img}
-                alt="Icon"
-                width={450}
-                height={300}
-                className="transition-transform duration-300 ease-in-out hover:scale-110 rounded-lg"
-              />
-              <p className="text-white text-sm font-normal">{text.message}</p>
-              <p className="text-white text-sm">{text.time}</p>
-            </div>
-          ))}
+        <div className="overflow-x-scroll md:min-w-[43rem]  no-scrollbar min-w-[20rem] flex items-center">
+          <div className="flex flex-nowrap gap-8 h-full md:w-full">
+            {products.map((text, index) => (
+              <div
+                key={index}
+                className="md:min-w-[22rem] w-[15rem] text-left !min-h-[25rem] overflow-hidden items-start"
+              >
+                <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
+                  <Image
+                    src={text.img}
+                    alt="Icon"
+                    width={310}
+                    height={300}
+                    className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
+                  />
+                </div>
+
+                <p className="text-white text-[.9rem] mt-3">{text.message}</p>
+
+                <p className="text-white text-[.7rem]">{text.time}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <div className="border-white border-[1px] w-[full] mb-6"></div>
       <section className="mb-20">
-        <div className="flex flex-col md:flex-row justify-between text-white mb-10">
+        <div className="flex md:px-[2rem] px-[1rem] flex-col md:flex-row justify-between text-white mb-10">
           <h2 className="font-normal text-2xl md:text-3xl">
-            Careers at OpenAI
+            Careers at Voltis-Labs
           </h2>
           <div className="md:w-1/2 mt-4 md:mt-0">
             <p className="font-normal text-lg md:text-2xl">
@@ -127,20 +137,20 @@ function Content() {
             </p>
           </div>
         </div>
-        <div>
+        <div className="md:px-[2rem] px-0">
           <img
             src="../image/career.png"
             alt="Icon"
-            className="w-full h-64 md:h-96 lg:h-[30rem] object-cover rounded-lg"
+            className="w-full h-[32rem] object-cover md:rounded-lg"
           />
         </div>
       </section>
 
       <div className=" border-[#333333] border-[1px] w-[full] mb-6"></div>
 
-      <section className="mb-20 ">
+      <section className="mb-20">
         <div className="flex md:flex-row flex-col w-full gap-8">
-          <div className="flex flex-col w-full md:w-[48.5%] mb-6 md:mb-0">
+          <div className="flex md:px-[2rem] px-[1rem] flex-col w-full md:w-[48.5%] mb-6 md:mb-0">
             <p className="text-white font-normal text-2xl">
               “I encourage my team to keep learning. Ideas in different topics
               or fields can often inspire new ideas and broaden the potential
