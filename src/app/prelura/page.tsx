@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function page() {
   return (
-    <div className="md:px-8 px-5 pt-[.1rem] ">
+    <div className="md:px-8 px-4 pt-[.1rem]  ">
       <section className="text-white my-8  mb-10">
         <div className="text-center px-4 mt-10 mb-6">
           <h1 className="font-medium md:text-[2.5rem] text-[1.5rem] mt-2 cursor-pointer ">
@@ -44,9 +44,9 @@ function page() {
 
       </section>
       <section className="text-white mb-10">
-        <h1 className="font-medium text-[18px]">Hi Preluvas</h1>
+        <h1 className="font-bold text-[18px]">Hi Preluvas</h1>
 
-        <p>
+        <p className="font-normal">
           We’re excited to introduce a major update packed with new features,
           improvements, and innovations designed to make buying and selling
           preloved fashion easier, safer, and more rewarding.
@@ -59,16 +59,16 @@ function page() {
           hunting for rare finds, or running a thriving second hand business,
           these updates are designed with you in mind.
         </p>
-        <p>Here’s what’s new, what’s improved, and what’s coming next:</p>
+        <p className="font-normal">Here’s what’s new, what’s improved, and what’s coming next:</p>
       </section>
 
       <section className="text-white mb-10">
-        <h1 className="font-normal text-[18px]">
+        <h1 className="font-semibold text-[18px]">
           A Smarter, More Personalized Shopping Experience
         </h1>
 
-        <p>AI-Powered Search & Smart Recommendations</p>
-        <p>
+        <p className="font-normal">AI-Powered Search & Smart Recommendations</p>
+        <p className="font-normal">
           Finding the perfect item has never been easier. Our improved
           AI-powered search engine now delivers more accurate results, helping
           you discover pieces that truly match your style and preferences.
@@ -90,10 +90,10 @@ function page() {
       </section>
 
       <section className="text-white mb-10">
-        <h1 className="font-normal text-[18px]">
+        <h1 className="font-semibold text-[18px]">
           New Discover Feed – Follow, Favourite & Explore
         </h1>
-        <p>
+        <p className="font-normal">
           We’re making shopping more interactive with a dynamic discover feed
           that helps you stay ahead of trends, explore curated collections, and
           connect with sellers whose style matches yours.
@@ -106,19 +106,19 @@ function page() {
             Prelura.
           </li>
         </ul>
-        <p>
+        <p className="font-normal">
           Shopping preloved fashion should feel like an exciting treasure hunt,
           and this new update makes the journey even more engaging.
         </p>
       </section>
 
       <section className="text-white mb-10">
-        <h1 className="font-normal text-[18px]">
-          {" "}
+        <h1 className="font-semibold text-[18px]">
+        
           Selling Made Simple & More Rewarding
         </h1>
         <p className="text-[#858585]">Faster Listing & Smarter Pricing</p>
-        <p>
+        <p className="font-normal">
           Selling on Prelura is now easier than ever with streamlined listing
           tools that help you price and present your items effectively.
         </p>
@@ -136,15 +136,15 @@ function page() {
             getting (New, Like New, Gently Used, Well-Loved).
           </li>
         </ul>
-        <p>
+        <p className="font-normal">
           With these updates, listing an item takes just seconds, and you get
           all the insights you need to sell faster.
         </p>
       </section>
 
       <section className="text-white mb-10">
-        <h1 className="font-normal text-[18px]">Prelura Pro – The Ultimate Seller Toolkit </h1>
-         <p> For those who sell regularly
+        <h1 className="font-semibold text-[18px]">Prelura Pro – The Ultimate Seller Toolkit </h1>
+         <p className="font-normal"> For those who sell regularly
         or want to grow their shop, we’re introducing Prelura Pro, a premium
         toolkit with advanced seller features:</p>
        
@@ -167,13 +167,13 @@ function page() {
           <li>Stronger dispute resolution to quickly resolve any issues.</li>
         </ul>
        
-        <p> Whether you’re selling casually or as a business,
+        <p className="font-normal"> Whether you’re selling casually or as a business,
         Prelura Pro gives you the tools to grow your presence and increase your
         earnings.</p>
       </section>
       <section className="text-white mb-10">
-      <h1 className="font-normal text-[18px]">Stronger Protections for Buyers & Sellers Verified Sellers & Secure</h1>
-       <p> Transactions Trust is a top priority, and we’re rolling out new features
+      <h1 className="font-semibold text-[18px]">Stronger Protections for Buyers & Sellers Verified Sellers & Secure</h1>
+       <p className="font-normal"> Transactions Trust is a top priority, and we’re rolling out new features
         to ensure a safe, transparent marketplace for everyone.</p>
         
         
@@ -192,12 +192,12 @@ function page() {
       </section>
 
       <section className="text-white mb-10">
-        <h1 className="font-normal text-[18px]">
-          {" "}
+        <h1 className="font-semibold text-[18px]">
+        
           Prelura Secure Pay – A Safer Way to Transact
         </h1>
-        <p>
-          {" "}
+        <p className="font-normal">
+        
           With our new in-app Prelura Secure Pay system, transactions are safer
           and more convenient.
         </p>
@@ -214,16 +214,16 @@ function page() {
       
         Multiple payment options
         including digital wallets and direct transfers.</li></ul>
-        <p> This update ensures
+        <p className="font-normal"> This update ensures
         peace of mind for both buyers and sellers, making every transaction
         smoother and more secure.</p>
       </section>
 
       <section className="text-white mb-10">
-      <h1 className="font-normal text-[18px]"> Sustainability at the Core</h1>
+      <h1 className="font-semibold text-[18px]"> Sustainability at the Core</h1>
       <h5 className="text-[#858585] font-normal"> Eco-Friendly Shipping & Circular Fashion
         Initiatives</h5>
-        <p> We’re committed to making fashion more sustainable, and
+        <p className="font-normal"> We’re committed to making fashion more sustainable, and
         we’re introducing features to help our community shop and sell
         responsibly.</p>
         <ul className="list-disc pl-5">
@@ -243,12 +243,12 @@ function page() {
         charities instead of discarding them. </li></ul>
         
         
-        <p>Together, we can extend the life
+        <p className="font-normal">Together, we can extend the life
         of fashion and reduce waste, one purchase at a time.</p>
       </section>
       <section className="text-white mb-10">
-      <h1 className="font-medium text-[18px]"> What’s Coming Next? </h1>
-      <p>This update is just the beginning! Here’s what’s on
+      <h1 className="font-semibold text-[18px]"> What’s Coming Next? </h1>
+      <p className="font-normal">This update is just the beginning! Here’s what’s on
         the horizon for Prelura:</p>
         <ul className="list-disc pl-5">
           <li >
@@ -268,7 +268,7 @@ function page() {
        <p > We’re shaping the future of second-hand fashion, and your feedback plays
         a huge role in making Prelura the best it can be. Let us know what you
         think of these updates, and stay tuned for even more exciting features!</p>
-        <p>Thank you for being part of Prelura—where preloved finds a new home.</p>
+        <p className="font-normal">Thank you for being part of Prelura—where preloved finds a new home.</p>
       </section>
 
       

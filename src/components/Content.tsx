@@ -66,7 +66,7 @@ function Content() {
                 alt="Icon"
                 width={450}
                 height={300}
-                className="transition-transform duration-300 ease-in-out hover:scale-95 rounded-lg"
+                className="transition-transform duration-300 ease-in-out hover:scale-110 rounded-lg"
               />
               <p className="text-white text-sm font-normal text-[14px] mt-2">
                 {text.message}
@@ -103,7 +103,7 @@ function Content() {
                 alt="Icon"
                 width={450}
                 height={300}
-                className="transition-transform duration-300 ease-in-out hover:scale-95 rounded-lg"
+                className="transition-transform duration-300 ease-in-out hover:scale-110 rounded-lg"
               />
               <p className="text-white text-sm font-normal">{text.message}</p>
               <p className="text-white text-sm">{text.time}</p>

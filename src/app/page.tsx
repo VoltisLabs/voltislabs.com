@@ -95,7 +95,9 @@ export default function Home() {
         <section className="mb-20">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white mb-10">
             <h2 className="font-normal text-xl sm:text-2xl">Latest updates</h2>
-            <p className="font-normal text-sm underline mt-2 sm:mt-0">Söhne</p>
+            <p className="font-normal text-sm underline mt-2 sm:mt-0">
+              See all
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -109,7 +111,7 @@ export default function Home() {
                   alt="Icon"
                   width={450}
                   height={300}
-                  className="transition-transform duration-300 ease-in-out hover:scale-95 rounded-lg"
+                  className="transition-transform duration-300 ease-in-out hover:scale-110 rounded-lg"
                 />
                 <p className="text-white text-sm">{text.message}</p>
                 <p className="text-white text-sm">{text.time}</p>
