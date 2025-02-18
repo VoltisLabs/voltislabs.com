@@ -5,10 +5,10 @@ function page() {
     <div className="px-8 md:px-8  pt-[.1rem] ">
       <section className="text-white my-8  mb-10">
       <div className="text-center px-4 mt-10 mb-6">
-          <h1 className="font-medium md:text-[2.5rem] mt-2   text-[1.5rem] cursor-pointer ">
+          <h1 className="font-medium md:text-[2rem] mt-2  text-[1.5rem] cursor-pointer ">
           About us 
           </h1>
-          <div className="text-center     mt-2  ">
+          <div className="text-center   mt-1  ">
             <h5 className="text-[#858585] font-normal  md:text-[1.1rem] text-[1rem]">
             Published on Monday 9th February, 2025
             </h5>
