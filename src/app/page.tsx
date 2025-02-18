@@ -115,7 +115,7 @@ export default function Home() {
               {updates.map((text, index) => (
                 <div
                   key={index}
-                  className="md:min-w-[22rem]  w-[15rem] text-left !min-h-[25rem] overflow-hidden items-start"
+                  className="md:min-w-[22rem] w-[15rem] text-left !min-h-[25rem] overflow-hidden items-start"
                 >
                   <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
                     <Image
@@ -123,7 +123,7 @@ export default function Home() {
                       alt="Icon"
                       width={310}
                       height={300}
-                      className="transition-all w-full duration-300 ease-in-out hover:scale-110"
+                      className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
                     />
                   </div>
 
