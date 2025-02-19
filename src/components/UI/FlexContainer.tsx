@@ -20,14 +20,14 @@ const FlexContainer = ({ array }: FlexContainerProps) => {
         {array.map((text, index) => (
           <div
             key={index}
-            className="text-left w-full h-[25rem] overflow-hidden items-start"
+            className="text-left w-[25rem] h-[25rem] overflow-hidden items-start"
           >
             <div className="image-container w-full h-[66%] overflow-hidden rounded-[10px]">
               <Image
                 src={text.img}
                 alt="Icon"
                 width={350}
-                height={300}
+                height={350}
                 className="transition-all w-full h-full object-cover duration-[.85s] ease-in-out hover:scale-110"
               />
             </div>
