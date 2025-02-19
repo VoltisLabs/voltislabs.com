@@ -77,13 +77,13 @@ export default function Home() {
       </div>
 
       <div className="content-container">
-        <section className="flex md:px-[2rem] px-[1rem] pt-[3.45rem] flex-col md:flex-row flex-wrap w-full min-h-[150px] gap-4  mb-20">
+        <section className="overflow-x-scroll no-scrollbar flex md:px-[2rem] px-[1rem] pt-[3.45rem]   w-full min-h-[150px] gap-4  mb-20">
           {About.map((text, index) => (
             <div
               key={index}
-              className="flex flex-col md:flex-1 min-w-[200px] md:gap-3 gap-1 px-4 md:px-8"
+              className="flex flex-col md:flex-1 min-w-[200px] md:gap-3 gap-1 px-4 md:px-8 overflow-hidden"
             >
-              <p className="text-white md:text-[1.5rem] text-[1.4rem] font-medium">
+              <p className="text-white md:text-[1.5rem] text-[1.2rem] font-medium">
                 {text.title}
               </p>
               <Link

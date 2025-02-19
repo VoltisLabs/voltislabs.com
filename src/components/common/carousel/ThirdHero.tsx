@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const ThirdHero = () => {
@@ -39,10 +40,10 @@ const ThirdHero = () => {
           </span>
         </div>
 
-        <div className="item-container self-end flex items-center gap-2 p-1 border-solid border-black border-[1px] px-2 min-w-[10rem] h-[2rem] rounded-[4px]">
-          <span className="block text-black text-[.8rem]">
+        <div className="item-container self-end  flex items-center gap-2 p-1 border-solid border-black border-[1px] px-2 min-w-[10rem] h-[2rem] rounded-[4px]">
+          <Link href={"/vmodel"} className="block text-black text-[.8rem]">
             Learn More about VModel
-          </span>
+          </Link>
           <Image
             src={"/icons/arrow-dark.svg"}
             alt="arrow-icon"

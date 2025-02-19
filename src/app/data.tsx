@@ -30,7 +30,7 @@ export const updates = [
   },
   {
     img: "/image/afrogramLogo.png",
-    message: "",
+    message: "Afrogarm web updates",
     time: "Nov 17, 2023",
   },
   {
