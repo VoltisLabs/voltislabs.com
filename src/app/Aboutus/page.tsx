@@ -18,13 +18,16 @@ function page() {
       </section>
 
       <section className="text-white my-8  mb-10 font-normal  md:text-[1.1rem] text-[1rem]">
-        <div className="flex flex-wrap md:flex-nowrap gap-4 mb-10 w-full">
+        <div className="flex items-center md:justify-between justify-center gap-4 mb-10 md:flex-row flex-col  w-full">
           {Aboutus.map((img, index) => (
-            <div key={index} className="w-full md:w-1/2">
+            <div
+              key={index}
+              className="w-full md:h-[38rem] h-[25rem] rounded-[9px] overflow-hidden md:w-[46%]"
+            >
               <img
                 src={img.img}
                 alt="reluraimg"
-                className="w-full h-[500px] rounded-lg object-cover object-top"
+                className="w-full h-full object-cover object-top"
               />
             </div>
           ))}

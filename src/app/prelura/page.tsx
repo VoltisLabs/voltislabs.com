@@ -20,13 +20,16 @@ function page() {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-4 px-0 sm:px-0 justify-center">
+        <div className="flex items-center gap-6 md:flex-row flex-col">
           {prelura.map((img, index) => (
-            <div key={index} className="w-full sm:w-1/2 md:w-[32%]">
+            <div
+              key={index}
+              className="w-full overflow-hidden rounded-[10px] md:h-[35rem] h-[23rem]"
+            >
               <Image
                 src={img.img}
                 alt="reluraimg"
-                className="rounded-lg object-cover"
+                className="w-full h-full object-cover object-top"
                 width={500}
                 height={500}
               />
