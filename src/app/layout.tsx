@@ -28,10 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
+        {/* <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
           rel="stylesheet"
-        />
+        /> */}
         <title>Voltis-Labs</title>
         <meta name="description" content="Software Development Company" />
       </head>

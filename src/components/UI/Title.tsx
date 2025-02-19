@@ -10,7 +10,7 @@ const Title = ({ children, className, props }: TitleProp) => {
   return (
     <h1
       {...props}
-      className={`md:text-[3.2rem] font-medium text-[2rem] ${className}`}
+      className={`md:text-[4rem] font-medium text-[2rem] ${className}`}
     >
       {children}
     </h1>
