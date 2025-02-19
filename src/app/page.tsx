@@ -76,7 +76,7 @@ export default function Home() {
         </button>
       </div>
 
-      <div className="content-container1">
+      <div className="content-container">
        
 
 
