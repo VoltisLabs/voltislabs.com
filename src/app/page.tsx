@@ -84,7 +84,7 @@ export default function Home() {
           {About.map((text, index) => (
             <div
               key={index}
-              className="flex flex-col md:flex-1 min-w-[200px] md:gap-3 gap-1 px-4 md:px-8 overflow-hidden"
+              className="flex flex-col md:flex-1 min-w-[200px] md:gap-3 gap-1  overflow-hidden"
             >
               <p className="text-white md:text-[1.5rem] text-[1.2rem] font-medium">
                 {text.title}
