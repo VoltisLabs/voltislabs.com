@@ -11,6 +11,7 @@ const FirstHero = () => {
           text="Learn More about VModel"
           borderColor="border-white"
           textColor="text-white"
+          route="http://vmodelapp.com"
         />
       </div>
       <div className="right-section h-full w-[50%]"></div>

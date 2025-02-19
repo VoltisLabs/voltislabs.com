@@ -20,9 +20,9 @@ const FlexContainer = ({ array }: FlexContainerProps) => {
         {array.map((text, index) => (
           <div
             key={index}
-            className="text-left w-full h-[26rem] overflow-hidden items-start"
+            className="text-left w-full h-[25rem] overflow-hidden items-start"
           >
-            <div className="image-container w-full h-[80%] overflow-hidden rounded-[10px]">
+            <div className="image-container w-full h-[66%] overflow-hidden rounded-[10px]">
               <Image
                 src={text.img}
                 alt="Icon"

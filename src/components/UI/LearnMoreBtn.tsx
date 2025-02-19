@@ -1,15 +1,24 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface LearnMoreProps {
   text: string;
   borderColor: string;
   textColor: string;
+  route?: string;
 }
 
-const LearnMoreBtn = ({ text, borderColor, textColor }: LearnMoreProps) => {
+const LearnMoreBtn = ({
+  text,
+  borderColor,
+  textColor,
+  route,
+}: LearnMoreProps) => {
+  const router = useRouter();
   return (
     <div
+      onClick={() => router.push(route ?? "/")}
       className={`item-container flex items-center gap-2 p-1 border-solid ${borderColor} border-[1px] px-2 min-w-[9rem] h-[2rem] rounded-[4px]`}
     >
       <span className={`block ${textColor} md:text-[.8rem] text-[.6rem]`}>

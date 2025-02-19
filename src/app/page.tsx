@@ -104,7 +104,7 @@ export default function Home() {
               Latest updates
             </h2>
             <Link
-              href={"http://vmodelapp.com"}
+              href={""}
               className="font-normal text-sm underline mt-2 sm:mt-0"
             >
               See all
