@@ -25,7 +25,7 @@ const ThirdHero = () => {
         />
       </div>
 
-      <div className="item-container py-[1.5rem] md:px-[2rem] bg-[#FFF1F1] md:w-[40%] w-full h-full flex flex-col items-center justify-between">
+      <div className="item-container py-[1.5rem] md:px-[2rem] px-[1rem] bg-[#FFF1F1] md:w-[40%] w-full h-full flex flex-col items-center justify-between">
         <div className="item-container mt-[8rem]">
           <Image
             src={"/icons/hero.svg"}
@@ -41,7 +41,7 @@ const ThirdHero = () => {
         </div>
 
         <div className="item-container self-end  flex items-center gap-2 p-1 border-solid border-black border-[1px] px-2 min-w-[10rem] h-[2rem] rounded-[4px]">
-          <Link  href={"/vmodel"} className="block text-black text-[.8rem]">
+          <Link href={"/vmodel"} className="block text-black text-[.8rem]">
             Learn More about VModel
           </Link>
           <Image

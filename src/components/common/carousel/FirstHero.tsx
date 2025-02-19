@@ -1,22 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import LearnMoreBtn from "../../UI/LearnMoreBtn";
 
 const FirstHero = () => {
   return (
     <section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative">
       <div className="left-section h-full w-[50%] bg-[#503C3B] md:p-7 p-2 flex items-end">
-        <div className="item-container flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 min-w-[10rem] h-[2rem] rounded-[4px]">
-          <Link  href={"/vmodel"} className="block text-white md:text-[.8rem] text-[.6rem]">
-            Learn More about VModel
-          </Link>
-          <Image
-            src={"/icons/arrow.svg"}
-            alt="arrow-icon"
-            width={20}
-            height={20}
-          />
-        </div>
+        <LearnMoreBtn
+          text="Learn More about VModel"
+          borderColor="border-white"
+          textColor="text-white"
+          route="http://vmodelapp.com"
+        />
       </div>
       <div className="right-section h-full w-[50%]"></div>
       <section className="text-container absolute md:top-[30%] top-[26.5%] left-0 md:px-0 px-[1rem] w-full flex items-center justify-center mx-auto">

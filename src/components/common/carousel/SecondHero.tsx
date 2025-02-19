@@ -1,26 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import LearnMoreBtn from "../../UI/LearnMoreBtn";
 
 const SecondHero = () => {
   return (
     <section className="hero-section-container md:h-[42rem] h-[37rem] flex items-center relative">
-      <div className="left-section h-full w-[50%] bg-[#AB28B280] md:p-7 p-4 flex items-end">
-        <div className="item-container flex flex-col  md:justify-between justify-end h-[57%]">
+      <div className="left-section h-full w-[50%] bg-[#AB28B280] md:p-7 p-2 flex items-end">
+        <div className="item-container flex flex-col md:justify-between justify-end h-[57%]">
           <span className="block md:static absolute top-[36%] mx-auto z-50 md:mb-[5rem] mb-[3rem] text-center md:text-left text-white md:text-[3rem] text-[1.7rem]">
             A New Home for Your Fashion Finds.
           </span>
-          <div className="item-container flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 md:w-[14rem] h-[2rem] rounded-[4px]">
-            <Link href={"/prelura"} className="block text-white md:text-[.8rem] text-[.6rem]">
-              Learn More about Prelura
-            </Link>
-            <Image
-              src={"/icons/arrow.svg"}
-              alt="arrow-icon"
-              width={20}
-              height={20}
-            />
-          </div>
+          <LearnMoreBtn
+            text="Learn More about VModel"
+            borderColor="border-white md:w-[12.7rem] w-[10.3rem]"
+            textColor="text-white"
+          />
         </div>
       </div>
       <div className="right-section md:flex hidden md:w-[50%] bg-black h-full w-full">
