@@ -1,6 +1,5 @@
 import React from "react";
 import { Aboutus } from "../data";
-import Image from "next/image";
 import Title from "@/src/components/UI/Title";
 
 function page() {
@@ -9,11 +8,11 @@ function page() {
       <section className="text-white my-8  mb-14">
         <div className="text-center px-4 mt-10 mb-6">
           <Title className="mt-2">We are Voltis Labs</Title>
-          <div className="text-center   mt-1  ">
-            <h5 className="text-[#858585] font-normal  md:text-[1.1rem] text-[1rem]">
-              Published on Monday 9th February, 2025
-            </h5>
-          </div>
+
+          <small className="text-[#858585] font-normal">
+          Published on Monday 9th February, 2025
+          </small>
+          
         </div>
       </section>
 
@@ -34,7 +33,7 @@ function page() {
         </div>
 
         <p className="font-normal text-[1.125rem] mb-5">
-          At Voltis Labs, we <span className="font-semibold">believe</span>{" "}
+          At Voltis Labs, we <span className="font-semibold">believe</span>
           technology has the power to unlock human potential. We are a company
           built on the idea that innovation should serve a purpose—solving real
           problems, empowering creators, and shaping a more connected future.
@@ -102,7 +101,7 @@ function page() {
               className="w-full md:h-[35rem] h-[25rem] object-cover object-top rounded-lg"
             />
           </div>
-        </div>{" "}
+        </div>
       </section>
 
       <section className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem]">

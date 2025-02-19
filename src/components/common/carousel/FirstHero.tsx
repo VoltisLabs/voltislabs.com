@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const FirstHero = () => {
@@ -6,9 +7,9 @@ const FirstHero = () => {
     <section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative">
       <div className="left-section h-full w-[50%] bg-[#503C3B] md:p-7 p-2 flex items-end">
         <div className="item-container flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 min-w-[10rem] h-[2rem] rounded-[4px]">
-          <span className="block text-white md:text-[.8rem] text-[.6rem]">
+          <Link  href={"/vmodel"} className="block text-white md:text-[.8rem] text-[.6rem]">
             Learn More about VModel
-          </span>
+          </Link>
           <Image
             src={"/icons/arrow.svg"}
             alt="arrow-icon"

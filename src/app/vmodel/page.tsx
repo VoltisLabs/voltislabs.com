@@ -6,18 +6,21 @@ import React, { useState } from "react";
 function Vmodel() {
   return (
     <div className="pt-[1rem] text-white">
-      <div className="text-center px-4 mt-10 mb-6">
+      <div className="text-center  mt-10 mb-6 ">
         <Title className="mt-2">A New Era for Creators</Title>
         <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
-          <h4 className="font-medium text-xs sm:text-lg md:text-base">
+          <h4 className="font-medium text-xs sm:text-lg md:text-base mb-3">
             Exciting updates are here for VModel! Enjoy a fresh UI, AI job
             matching, real-time messaging, an enhanced portfolio, and easier
             payments. More to come soon!
           </h4>
+          <small className="text-[#858585] font-normal ">
+          Published on Monday 17th February, 2025
+            </small>
         </div>
       </div>
 
-      <div className="mb-16 md:px-10 px-5">
+      <div className="mb-16 md:px-[2rem] px-[1rem]">
         <div className="mb-8 font-normal">
           <h1 className="font-bold text-[18px] mb-8">
             Hello, VModel community! ✨
