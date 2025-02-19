@@ -139,10 +139,9 @@ function page() {
 
       <section className="text-white mb-10">
         <h1 className="font-semibold text-[16px]">
-          Prelura Pro – The Ultimate Seller Toolkit{" "}
+          Prelura Pro – The Ultimate Seller Toolkit
         </h1>
         <p className="font-normal">
-          {" "}
           For those who sell regularly or want to grow their shop, we’re
           introducing Prelura Pro, a premium toolkit with advanced seller
           features:
@@ -164,7 +163,6 @@ function page() {
         </ul>
 
         <p className="font-normal">
-          {" "}
           Whether you’re selling casually or as a business, Prelura Pro gives
           you the tools to grow your presence and increase your earnings.
         </p>
@@ -174,7 +172,6 @@ function page() {
           Stronger Protections for Buyers & Sellers Verified Sellers & Secure
         </h1>
         <p className="font-normal">
-          {" "}
           Transactions Trust is a top priority, and we’re rolling out new
           features to ensure a safe, transparent marketplace for everyone.
         </p>
@@ -206,7 +203,6 @@ function page() {
           </li>
         </ul>
         <p className="font-normal">
-          {" "}
           This update ensures peace of mind for both buyers and sellers, making
           every transaction smoother and more secure.
         </p>
@@ -214,22 +210,19 @@ function page() {
 
       <section className="text-white mb-10">
         <h1 className="font-semibold text-[16px]">
-          {" "}
           Sustainability at the Core
         </h1>
         <h5 className="text-[#858585] font-normal">
-          {" "}
           Eco-Friendly Shipping & Circular Fashion Initiatives
         </h5>
         <p className="font-normal">
-          {" "}
           We’re committed to making fashion more sustainable, and we’re
           introducing features to help our community shop and sell responsibly.
         </p>
         <ul className="list-disc pl-5">
           <li>
             Carbon-neutral shipping options for a more eco-conscious delivery
-            process.{" "}
+            process.
           </li>
 
           <li>
@@ -239,7 +232,7 @@ function page() {
 
           <li>
             Donation & recycling program—easily donate unsold items to partnered
-            charities instead of discarding them.{" "}
+            charities instead of discarding them.
           </li>
         </ul>
 
@@ -257,7 +250,7 @@ function page() {
         <ul className="list-disc pl-5">
           <li>
             AI-powered virtual try-ons – See how items might look on you before
-            buying.{" "}
+            buying.
           </li>
 
           <li>Live seller auctions – Bid in real-time for unique finds. </li>
@@ -270,7 +263,6 @@ function page() {
       </section>
       <section className="text-white mb-20">
         <p>
-          {" "}
           We’re shaping the future of second-hand fashion, and your feedback
           plays a huge role in making Prelura the best it can be. Let us know
           what you think of these updates, and stay tuned for even more exciting

@@ -5,19 +5,20 @@ import { products, research } from "../app/data";
 function Content() {
   return (
     <>
-      <div className="border-white border-[1px] w-[full] mb-6"></div>
-      <section className="mb-20">
-        <div className="flex md:px-[2rem] px-[1rem] flex-col lg:flex-row justify-between text-white mb-10">
-          <h2 className="font-normal text-3xl mb-4 lg:mb-0 ">
+      
+      <section className="mb-20 md:px-[2rem] px-[1rem]">
+      <div className="border-white border-[1px] w-[full] mb-6 "></div>
+        <div className="flex  flex-col lg:flex-row justify-between text-white mb-10">
+          <h2 className="font-normal text-[25.6px] md:text-[30px] mb-4 lg:mb-0 ">
             Responsible Innovation
           </h2>
           <div className="lg:w-1/2">
-            <p className="font-normal mb-[2rem] text-xl md:text-2xl">
+            <p className="font-normal mb-[2rem] text-[20px] md:text-[24px] ">
               At Voltis Labs, we innovate with purpose and responsibility —
               crafting technology that enhances lives while considering its
               long-term impact on people and the planet."
             </p>
-            <p className="font-normal mb-[3rem] text-xl md:text-2xl">
+            <p className="font-normal mb-[3rem] text-[20px] md:text-[24px]">
               We believe in building technology that empowers, disrupts, and
               transforms—always with a thoughtful approach to its risks and
               rewards."
@@ -26,6 +27,11 @@ function Content() {
               Learn about safety
             </p>
           </div>
+
+
+
+
+
         </div>
         <div className="w-full px-0 md:h-[58rem] h-[40rem] rounded-lg overflow-hidden">
           <img
@@ -36,8 +42,9 @@ function Content() {
         </div>
       </section>
 
-      <div className=" border-white border-[1px] w-[full] mb-6"></div>
+     
       <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[37rem] h-[27rem]">
+      <div className=" border-white border-[1px] w-[full] mb-6"></div>
         <div className="flex flex-col md:flex-row justify-between text-white mb-12">
           <h2 className="font-normal mb-[1rem] text-[1.875rem] text-left">
             Research
@@ -80,8 +87,9 @@ function Content() {
         </div>
       </section>
 
-      <div className="border-white border-[1px] w-[full] mb-6"></div>
       <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[36rem] h-[29rem]">
+      <div className="border-white border-[1px] w-[full] mb-6"></div>
+    
         <div className="flex flex-col md:flex-row justify-between text-white mb-10">
           <h2 className="font-normal text-3xl mb-4 md:mb-0">Products</h2>
           <div className="md:w-1/2">
@@ -121,9 +129,10 @@ function Content() {
         </div>
       </section>
 
+      <section className="mb-20 md:px-[2rem] px-[1rem]">
+        
       <div className="border-white border-[1px] w-[full] mb-6"></div>
-      <section className="mb-20">
-        <div className="flex md:px-[2rem] px-[1rem] flex-col md:flex-row justify-between text-white mb-10">
+        <div className="flex  flex-col md:flex-row justify-between text-white mb-10">
           <h2 className="font-normal text-2xl md:text-3xl">
             Careers at Voltis-Labs
           </h2>
@@ -141,15 +150,16 @@ function Content() {
           <img
             src="../image/career.png"
             alt="Icon"
-            className="w-full h-[32rem] object-cover md:rounded-lg"
+            className="w-full h-[32rem] object-cover rounded-lg"
           />
         </div>
       </section>
 
-      <div className=" border-[#333333] border-[1px] w-[full] mb-6"></div>
+     
 
-      {/* <section className="mb-20">
-        <div className="flex md:flex-row flex-col w-full gap-8">
+       <section className="mb-20 md:px-[2rem] px-[1rem]">
+       <div className=" border-[#333333] border-[1px] w-[full] mb-6 "></div>
+      {/*  <div className="flex md:flex-row flex-col w-full gap-8">
           <div className="flex md:px-[2rem] px-[1rem] flex-col w-full md:w-[48.5%] mb-6 md:mb-0">
             <blockquote className="text-white font-normal text-2xl">
               “I encourage my team to keep learning. Ideas in different topics
@@ -166,10 +176,10 @@ function Content() {
               className="w-full md:h-[30rem] h-[25rem] object-cover"
             />
           </div>
-        </div>
-      </section> */}
+        </div> */}
+      </section>
 
-      <div className=" border-[#FFFFFF] border-[1px] w-[full] mb-[2rem]"></div>
+    {/*  <div className=" border-[#FFFFFF] border-[1px] w-[full] mb-[2rem]"></div>*/}
     </>
   );
 }
