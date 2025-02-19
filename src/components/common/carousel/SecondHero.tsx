@@ -9,7 +9,7 @@ const SecondHero = () => {
           <span className="block md:static absolute top-[36%] mx-auto z-50 md:mb-[5rem] mb-[3rem] text-center md:text-left text-white md:text-[3rem] text-[1.7rem]">
             A New Home for Your Fashion Finds.
           </span>
-          <div className="item-container self-end flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 md:w-[14rem] h-[2rem] rounded-[4px]">
+          <div className="item-container flex items-center gap-2 p-1 border-solid border-white border-[1px] px-2 md:w-[14rem] h-[2rem] rounded-[4px]">
             <span className="block text-white md:text-[.8rem] text-[.6rem]">
               Learn More about Prelura
             </span>

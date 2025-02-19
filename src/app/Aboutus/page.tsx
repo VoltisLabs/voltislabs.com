@@ -22,7 +22,7 @@ function page() {
           {Aboutus.map((img, index) => (
             <div
               key={index}
-              className="w-full md:h-[38rem] h-[25rem] rounded-[9px] overflow-hidden md:w-[46%]"
+              className="w-full md:h-[38rem] h-[25rem] rounded-[9px] overflow-hidden md:w-[47.5%]"
             >
               <img
                 src={img.img}
@@ -33,8 +33,7 @@ function page() {
           ))}
         </div>
 
-        <p className="font-normal text-lg mb-5">
-          {" "}
+        <p className="font-normal text-[1.125rem] mb-5">
           At Voltis Labs, we <span className="font-semibold">believe</span>{" "}
           technology has the power to unlock human potential. We are a company
           built on the idea that innovation should serve a purpose—solving real
@@ -46,7 +45,7 @@ function page() {
           deserve the right platform to thrive. Frustrated by outdated systems
           and missed opportunities, a small group of visionaries came together
           to rethink how technology could empower individuals and businesses
-          alike.{" "}
+          alike
         </p>
 
         <p className="font-normal">

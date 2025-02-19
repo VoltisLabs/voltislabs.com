@@ -27,11 +27,11 @@ function Content() {
             </p>
           </div>
         </div>
-        <div className="w-full md:px-[2rem] px-0 h-[30rem] rounded-lg overflow-hidden">
+        <div className="w-full px-0 md:h-[58rem] h-[40rem] rounded-lg overflow-hidden">
           <img
             src="../image/safety.png"
             alt="Icon"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
         </div>
       </section>
@@ -132,12 +132,12 @@ function Content() {
               Developing safe and beneficial AI requires people from a wide
               range of disciplines and backgrounds.
             </p>
-            <p className="text-sm underline mt-2    font-normal text-white sm:mt-0  cursor-pointer hover:text-blue-500 visited:text-red-500">
+            <p className="text-sm underline mt-2 font-normal text-white sm:mt-0  cursor-pointer hover:text-blue-500 visited:text-red-500">
               View careers
             </p>
           </div>
         </div>
-        <div className="md:px-[2rem] px-0">
+        <div className="px-0">
           <img
             src="../image/career.png"
             alt="Icon"
@@ -148,18 +148,18 @@ function Content() {
 
       <div className=" border-[#333333] border-[1px] w-[full] mb-6"></div>
 
-      <section className="mb-20">
+      {/* <section className="mb-20">
         <div className="flex md:flex-row flex-col w-full gap-8">
           <div className="flex md:px-[2rem] px-[1rem] flex-col w-full md:w-[48.5%] mb-6 md:mb-0">
-            <p className="text-white font-normal text-2xl">
+            <blockquote className="text-white font-normal text-2xl">
               “I encourage my team to keep learning. Ideas in different topics
               or fields can often inspire new ideas and broaden the potential
               solution space.”
-            </p>
+            </blockquote>
             <p className="text-white font-normal mt-1">Lilian Weng</p>
             <p className="text-white font-normal">Applied AI at OpenAI</p>
           </div>
-          <div className="w-full md:w-[55%] flex justify-center md:justify-end">
+          <div className="w-full md:pr-[2rem] pr-0 md:w-[55%] flex justify-center md:justify-end">
             <img
               src="/image/team.png"
               alt="Icon"
@@ -167,9 +167,9 @@ function Content() {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <div className=" border-[#FFFFFF] border-[1px] w-[full] mb-3"></div>
+      <div className=" border-[#FFFFFF] border-[1px] w-[full] mb-[2rem]"></div>
     </>
   );
 }
