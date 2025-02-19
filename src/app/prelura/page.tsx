@@ -2,21 +2,22 @@ import React from "react";
 import { prelura } from "../data";
 import Image from "next/image";
 import Title from "@/src/components/UI/Title";
+import Subtitle from "@/src/components/UI/subtitle";
 
 function page() {
   return (
-    <div className="md:px-8 px-5 pt-[.1rem]">
-      <section className="text-white my-8  mb-10">
-        <div className="text-center px-4 mt-10 mb-6">
+    <div className="md:px-8 px-5 pt-[1rem]">
+      <section className="text-white mt-10">
+        <div className="text-center px-4 mb-6">
           <Title className="mt-2">Dont wear it? Sell it!</Title>
-          <div className="text-center  sm:px-6 mt-4">
-            <h4 className="font-normal text-base sm:text-lg md:text-lg !text-[.9rem] mb-3">
+          <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4">
+            <Subtitle className="font-normal  mb-8">
               Prelura makes it easy to pass on the pieces you no longer wear,
               giving them a new home while putting money back in your pocket
-            </h4>
-            <small className="text-[#858585] font-normal">
+            </Subtitle>
+            <Subtitle className="text-[#858585] font-normal ">
               Published on Monday 17th February, 2025
-            </small>
+            </Subtitle>
           </div>
         </div>
 
@@ -37,6 +38,9 @@ function page() {
           ))}
         </div>
       </section>
+
+      <div className="mb-16 md:px-[4rem] lg:px-[10rem] px-[2rem]">
+
       <section className="text-white mb-10">
         <h1 className="font-bold text-[16px]">Hi Preluvas</h1>
 
@@ -272,6 +276,7 @@ function page() {
           Thank you for being part of Prelura—where preloved finds a new home.
         </p>
       </section>
+      </div>
     </div>
   );
 }
