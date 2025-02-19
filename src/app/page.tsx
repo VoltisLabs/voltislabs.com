@@ -14,6 +14,7 @@ import Content from "../components/Content";
 import Footer from "../components/footer";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import FlexContainer from "../components/UI/FlexContainer";
 
 export default function Home() {
   const sliderRef = useRef<Slider>(null);
@@ -97,7 +98,7 @@ export default function Home() {
         </section>
 
         <div className="border-white border-[1px] w-[full] mb-6"></div>
-        <section className="mb-20 md:px-[2rem]  md:h-[25rem] h-[23rem] px-[1rem]">
+        <section className="mb-20 md:px-[2rem] md:h-[27.8rem] h-[23rem] px-[1rem]">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white mb-10">
             <h2 className="font-normal md:text-[1.7rem] text-[1.6rem]">
               Latest updates
@@ -110,34 +111,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="overflow-x-scroll md:min-w-[43rem] no-scrollbar min-w-[20rem] flex items-center">
-            <div className="flex md:justify-between justify-center flex-nowrap gap-8 h-full md:w-full">
-              {updates.map((text, index) => (
-                <div
-                  key={index}
-                  className="md:min-w-[15rem] w-[12.5rem] text-left !min-h-[25rem] overflow-hidden items-start"
-                >
-                  <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
-                    <Image
-                      src={text.img}
-                      alt="Icon"
-                      width={310}
-                      height={300}
-                      className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
-                    />
-                  </div>
-
-                  <p className="text-white text-[.9rem] mt-3">{text.message}</p>
-                  {text.subText && (
-                    <p className="text-[.9rem] text-[#535353]">
-                      {text.subText}
-                    </p>
-                  )}
-                  <p className="text-white text-[.7rem]">{text.time}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <FlexContainer array={updates} />
         </section>
         <Content />
         <Footer />

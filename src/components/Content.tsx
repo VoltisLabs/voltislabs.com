@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { products, research } from "../app/data";
+import FlexContainer from "./UI/FlexContainer";
 
 function Content() {
   return (
@@ -37,7 +38,7 @@ function Content() {
       </section>
 
       <div className=" border-white border-[1px] w-[full] mb-6"></div>
-      <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[30rem] h-[27rem]">
+      <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[35rem] h-[27rem]">
         <div className="flex flex-col md:flex-row justify-between text-white mb-12">
           <h2 className="font-normal mb-[1rem] text-[1.875rem] text-left">
             Research
@@ -54,34 +55,11 @@ function Content() {
           </div>
         </div>
 
-        <div className="overflow-x-scroll md:min-w-[43rem]  no-scrollbar min-w-[20rem] flex items-center">
-          <div className="flex md:justify-between justify-center flex-nowrap gap-8 h-full md:w-full">
-            {research.map((text, index) => (
-              <div
-                key={index}
-                className="md:min-w-[15rem] w-[12.5rem] text-left !min-h-[25rem] overflow-hidden items-start"
-              >
-                <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
-                  <Image
-                    src={text.img}
-                    alt="Icon"
-                    width={450}
-                    height={300}
-                    className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
-                  />
-                </div>
-
-                <p className="text-white text-[.9rem] mt-3">{text.message}</p>
-
-                <p className="text-white text-[.7rem]">{text.time}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <FlexContainer array={research} />
       </section>
 
       <div className="border-white border-[1px] w-[full] mb-6"></div>
-      <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[28rem] h-[29rem]">
+      <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[33rem] h-[29rem]">
         <div className="flex flex-col md:flex-row justify-between text-white mb-10">
           <h2 className="font-normal text-3xl mb-4 md:mb-0">Products</h2>
           <div className="md:w-1/2">
@@ -95,30 +73,7 @@ function Content() {
           </div>
         </div>
 
-        <div className="overflow-x-scroll md:min-w-[43rem]  no-scrollbar min-w-[20rem] flex items-center">
-          <div className="flex md:justify-between justify-center flex-nowrap gap-8 h-full md:w-full">
-            {products.map((text, index) => (
-              <div
-                key={index}
-                className="md:min-w-[15rem] w-[12.5rem] text-left !min-h-[25rem] overflow-hidden items-start"
-              >
-                <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
-                  <Image
-                    src={text.img}
-                    alt="Icon"
-                    width={310}
-                    height={300}
-                    className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
-                  />
-                </div>
-
-                <p className="text-white text-[.9rem] mt-3">{text.message}</p>
-
-                <p className="text-white text-[.7rem]">{text.time}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <FlexContainer array={products} />
       </section>
 
       <section className="mb-20 md:px-[2rem] px-[1rem]">
