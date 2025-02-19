@@ -38,7 +38,7 @@ function Content() {
       </section>
 
       <div className=" border-white border-[1px] w-[full] mb-6"></div>
-      <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[35rem] h-[27rem]">
+      <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[27rem] min-h-[32.8rem]">
         <div className="flex flex-col md:flex-row justify-between text-white mb-12">
           <h2 className="font-normal mb-[1rem] text-[1.875rem] text-left">
             Research
@@ -59,7 +59,7 @@ function Content() {
       </section>
 
       <div className="border-white border-[1px] w-[full] mb-6"></div>
-      <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[33rem] h-[29rem]">
+      <section className="mb-20 md:px-[2rem] px-[1rem] md:min-h-[33rem] min-h-[29rem]">
         <div className="flex flex-col md:flex-row justify-between text-white mb-10">
           <h2 className="font-normal text-3xl mb-4 md:mb-0">Products</h2>
           <div className="md:w-1/2">

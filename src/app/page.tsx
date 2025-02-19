@@ -98,17 +98,14 @@ export default function Home() {
         </section>
 
         <div className="border-white border-[1px] w-[full] mb-6"></div>
-        <section className="mb-20 md:px-[2rem] md:h-[27.8rem] h-[23rem] px-[1rem]">
+        <section className="mb-20 md:px-[2rem] md:h-[29rem]  h-[29rem] px-[1rem]">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white mb-10">
             <h2 className="font-normal md:text-[1.7rem] text-[1.6rem]">
               Latest updates
             </h2>
-            <Link
-              href={""}
-              className="font-normal text-sm underline mt-2 sm:mt-0"
-            >
+            <div className="font-normal text-sm underline mt-2 sm:mt-0">
               See all
-            </Link>
+            </div>
           </div>
 
           <FlexContainer array={updates} />
