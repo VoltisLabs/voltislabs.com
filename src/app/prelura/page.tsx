@@ -26,7 +26,7 @@ function page() {
               <Image
                 src={img.img}
                 alt="reluraimg"
-                className=" rounded-lg object-cover"
+                className="rounded-lg object-cover"
                 width={500}
                 height={500}
               />
