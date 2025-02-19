@@ -23,7 +23,7 @@ function Vmodel() {
         </div>
       </div>
 
-      <div className="mb-16 md:px-[4rem] lg:px-[10rem] px-[2rem]">
+      <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem]">
         <div className="mb-8 font-normal">
           <h1 className={titleClassName}>
             Hello, VModel community! ✨
