@@ -3,11 +3,10 @@ import { prelura } from "../data";
 import Image from "next/image";
 import Title from "@/src/components/UI/Title";
 import Subtitle from "@/src/components/UI/subtitle";
+import { paragrapghClassName, titleClassName } from "../data";
 
 function page() {
-  const titleClassName = "text-white font-bold text-lg";
-  const paragrapghClassName =
-    "text-white font-normal text-sm/4 md:text-base/5 text-wrap break-all";
+
 
   return (
     <div className=" pt-[1rem] ">
@@ -43,7 +42,7 @@ function page() {
         </div>
       </section>
 
-      <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
+      <div className="mb-16 mx-auto max-w-xl px-[2rem] md:px-0 ">
         <section className="text-white mb-8">
           <h1 className={titleClassName}>Hi Preluvas</h1>
 
@@ -51,7 +50,7 @@ function page() {
             We’re excited to introduce a major update packed with new features,
             improvements, and innovations designed to make buying and selling
             preloved fashion easier, safer, and more rewarding.
-          </span>
+          </span> 
           <span className={`mb-6 $paragrapghClassName`}>
             Over the past few months, we’ve listened to your feedback and worked
             on ways to enhance your experience, ensuring that Prelura remains
