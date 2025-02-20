@@ -100,7 +100,7 @@ function page() {
 
         <section className="text-white my-8  mb-20 font-normal  ">
           <h1 className="font-bold text-2xl mb-8  text-white">Our Mission</h1>
-          <div className="flex md:flex-row flex-col w-full gap-4">
+          <div className="flex md:flex-row flex-col w-full gap-[22px] ">
             <div className="w-full md:w-[60%] ">
               <span className={paragrapghClassName}>
                 We are here to build the next generation of digital
