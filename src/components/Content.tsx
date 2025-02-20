@@ -9,7 +9,7 @@ function Content() {
       <section className="mb-20 md:px-[2rem] px-[1rem]">
         <div className="border-white border-[1px] w-[full] mb-6 "></div>
         <div className="flex  flex-col lg:flex-row justify-between text-white mb-10">
-          <h2 className="font-normal text-[25.6px] md:text-[30px] mb-4 lg:mb-0 ">
+          <h2 className="font-normal   md:text-[1.7rem] text-[1.6rem] mb-4 lg:mb-0 ">
             Responsible Innovation
           </h2>
           <div className="lg:w-1/2">
@@ -40,12 +40,12 @@ function Content() {
       <div className=" border-white border-[1px] w-[full] mb-6"></div>
       <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[27rem] min-h-[32.8rem]">
         <div className="flex flex-col md:flex-row justify-between text-white mb-12">
-          <h2 className="font-normal mb-[1rem] text-[1.875rem] text-left">
+          <h2 className="font-normal mb-[1rem]  md:text-[1.7rem] text-[1.6rem] text-left">
             Research
           </h2>
 
           <div className="lg:w-1/2">
-            <p className="md:font-normal text-[1.09rem] md:text-2xl">
+            <p className="md:font-normal text-[20px] md:text-[24px]">
               We research generative models and how to align them with human
               values.
             </p>
@@ -61,9 +61,9 @@ function Content() {
       <div className="border-white border-[1px] w-[full] mb-6"></div>
       <section className="mb-20 md:px-[2rem] px-[1rem] md:min-h-[33rem] min-h-[29rem]">
         <div className="flex flex-col md:flex-row justify-between text-white mb-10">
-          <h2 className="font-normal text-3xl mb-4 md:mb-0">Products</h2>
+          <h2 className="font-normal  md:text-[1.7rem] text-[1.6rem] mb-4 md:mb-0">Products</h2>
           <div className="md:w-1/2">
-            <p className="font-normal text-xl md:text-2xl">
+            <p className="font-normal text-[20px] md:text-[24px]">
               Our API platform offers our latest models and guides for safety
               best practices.
             </p>
@@ -79,11 +79,11 @@ function Content() {
       <section className="mb-20 md:px-[2rem] px-[1rem]">
         <div className="border-white border-[1px] w-[full] mb-6"></div>
         <div className="flex  flex-col md:flex-row justify-between text-white mb-10">
-          <h2 className="font-normal text-2xl md:text-3xl">
+          <h2 className="font-normal  md:text-[1.7rem] text-[1.6rem]">
             Careers at Voltis-Labs
           </h2>
           <div className="md:w-1/2 mt-4 md:mt-0">
-            <p className="font-normal text-lg md:text-2xl">
+            <p className="font-normal text-lg text-[20px] md:text-[24px]">
               Developing safe and beneficial AI requires people from a wide
               range of disciplines and backgrounds.
             </p>
@@ -105,7 +105,7 @@ function Content() {
         <div className=" border-[#333333] border-[1px] w-[full] mb-6 "></div>
         {/*  <div className="flex md:flex-row flex-col w-full gap-8">
           <div className="flex md:px-[2rem] px-[1rem] flex-col w-full md:w-[48.5%] mb-6 md:mb-0">
-            <blockquote className="text-white font-normal text-2xl">
+            <blockquote className="text-white font-normal text-[20px] md:text-[24px]">
               “I encourage my team to keep learning. Ideas in different topics
               or fields can often inspire new ideas and broaden the potential
               solution space.”

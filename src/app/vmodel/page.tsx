@@ -6,9 +6,10 @@ import React, { useState } from "react";
 
 function Vmodel() {
   const titleClassName = "text-white font-bold text-lg";
-  const paragrapghClassName = "text-white font-normal text-sm/4 md:text-base/5 text-wrap break-all";
+  const paragrapghClassName =
+    "text-white font-normal text-sm/4 md:text-base/5 text-wrap break-all";
   return (
-    <div className="pt-[1rem] text-white">
+    <div className="pt-[1rem] text-white ">
       <div className="text-center mt-10 px-4 mb-6 ">
         <Title className="mt-2">A New Era for Creators</Title>
         <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
@@ -23,11 +24,9 @@ function Vmodel() {
         </div>
       </div>
 
-      <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem]">
+      <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
         <div className="mb-8 font-normal">
-          <h1 className={titleClassName}>
-            Hello, VModel community! ✨
-          </h1>
+          <h1 className={titleClassName}>Hello, VModel community! ✨</h1>
           <br />
           <br />
           <span className={paragrapghClassName}>
@@ -71,7 +70,8 @@ function Vmodel() {
             of your most important notifications, pending job applications, and
             service requests all in one place. This allows you to jump right
             into action without losing any time.
-          </span><br />
+          </span>
+          <br />
           <span className={paragrapghClassName}>
             The improvements don’t just focus on aesthetics; we’ve made sure
             that functionality remains our top priority. Whether you’re in the
@@ -109,7 +109,8 @@ function Vmodel() {
             suggestions you receive will become more tailored and aligned with
             the types of work you’re best suited for. It’s all about reducing
             the noise and delivering the opportunities that matter.
-          </span><br />
+          </span>
+          <br />
           <span className={paragrapghClassName}>
             And the best part? Applying for these jobs has never been easier.
             With the new features, you can apply to multiple opportunities at
@@ -147,7 +148,9 @@ function Vmodel() {
             finalizing a deal with a client? You can do all of this directly
             within VModel, keeping the creative momentum going without the
             interruptions of back-and-forth emails or slow file transfers.
-          </span><br /><br />
+          </span>
+          <br />
+          <br />
           <span className={paragrapghClassName}>
             This feature fosters a more transparent and efficient workflow,
             enabling creators and clients to work together in real-time,
@@ -216,9 +219,7 @@ function Vmodel() {
         </div>
 
         <div className="mb-8 font-normal">
-          <h1 className={titleClassName}>
-            Looking Ahead – What's Next?
-          </h1>
+          <h1 className={titleClassName}>Looking Ahead – What's Next?</h1>
           <span className={paragrapghClassName}>
             The updates you see today are just the beginning. We’re continuously
             working on new features and improvements to make VModel even better.
@@ -240,7 +241,9 @@ function Vmodel() {
             see the amazing things you’ll create next!
           </span>
           <br />
-          <span className={paragrapghClassName}>With passion and innovation,</span>
+          <span className={paragrapghClassName}>
+            With passion and innovation,
+          </span>
           <br />
           <br />
           <span className={paragrapghClassName}> The VModel Team ✨</span>

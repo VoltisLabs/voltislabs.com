@@ -12,7 +12,7 @@ export default function Footer() {
         </div>
 
         <div className="border-[#FFFFFF] border-[1px] w-full text-center py-4 px-1 h-16 rounded mt-10 mb-28">
-          <p className="font-normal text-white sm:mt-0 text-sm underline mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500">
+          <p className="font-normal text-white sm:mt-0 text-sm  mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500">
             View careers
           </p>
         </div>
