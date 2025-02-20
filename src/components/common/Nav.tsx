@@ -94,7 +94,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
         ))}
       </nav>
 
-      <div className="md:flex hidden items-center gap-4">
+      <div className="lg:flex hidden items-center gap-4">
         <button className="outline-none border-none text-[.9rem] text-white">
           Search
         </button>
@@ -105,11 +105,12 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
       <section
         onClick={() => setToggle(true)}
-        className="burger-container md:hidden block"
+        className="burger-container lg:hidden block"
       >
         <RxHamburgerMenu size={25} color="white" />
       </section>
 
+      {/* mobile nav */}
       <AnimatePresence>
         {toggle && (
           <>
@@ -151,8 +152,3 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 };
 
 export default Nav;
-
-
-
-
-
