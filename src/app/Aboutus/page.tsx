@@ -3,13 +3,25 @@ import { Aboutus,prelura } from "../data";
 import Title from "@/src/components/UI/Title";
 import Subtitle from "@/src/components/UI/subtitle";
 import { paragrapghClassName, titleClassName } from "../data";
+import Sidebar from "@/src/components/UI/SideBar";
 
 function page() {
 
+
+  const menuItems = [
+    { name: "Home", route: "#about-home" },
+    { name: "About Us", route: "#about" },
+    { name: "Our Mission", route: "#mission" },
+    { name: "Looking Ahead", route: "#looking-ahead" },
+  ];
+  
+  
+
   return (
     <div className="pt-[.1rem] text-white ">
+      <Sidebar tbList={menuItems} />
 
-<section className="text-center mt-10 px-4 mb-6 text-white">
+<section id="prelura-home" className="text-center mt-10 px-4 mb-6 text-white">
         <Title className="mt-2">We are Voltis Labs</Title>
         <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
           <Subtitle className="text-[#858585] font-normal ">
@@ -98,10 +110,10 @@ function page() {
           </span>
         </section>
 
-        <section className="text-white my-8  mb-20 font-normal  ">
-          <h1 className="font-bold text-2xl mb-8  text-white">Our Mission</h1>
-          <div className="flex md:flex-row flex-col w-full gap-[22px] ">
-            <div className="w-full md:w-[60%] ">
+ <section className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem] ">
+          <h1 id="mission" className="font-bold text-3xl mb-8  text-white">Our Mission</h1>
+          <div className="flex md:flex-row flex-col w-full gap-8">
+            <div className="w-full md:w-[48.5%]">
               <span className={paragrapghClassName}>
                 We are here to build the next generation of digital
                 platforms—ones that are intuitive, scalable, and designed to
@@ -111,7 +123,7 @@ function page() {
                 for those who dare to dream big.
               </span>
               <br />
-              <span className={paragrapghClassName}>Our Values</span>
+              <span id="values" className={paragrapghClassName}>Our Values</span>
               <ul className="list-disc pl-4">
                 <li>
                   <span className={titleClassName}>
@@ -177,7 +189,7 @@ function page() {
         </section>
 
         <section className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem]">
-          <h1 className="font-bold text-[30px] mb-8">Looking Ahead</h1>
+          <h1 id="looking-ahead" className="font-bold text-[30px] mb-8">Looking Ahead</h1>
           <span className={paragrapghClassName}>
             Voltis Labs isn’t just a tech company—it’s a movement. We are here
             to redefine what’s possible, to bridge the gap between vision and

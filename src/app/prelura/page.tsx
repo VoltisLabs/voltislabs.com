@@ -4,17 +4,21 @@ import Image from "next/image";
 import Title from "@/src/components/UI/Title";
 import Subtitle from "@/src/components/UI/subtitle";
 import { paragrapghClassName, titleClassName } from "../data";
+import Sidebar from "@/src/components/UI/SideBar";
 
 function page() {
 
-
+  const menuItems = [
+    { name: "Home", route: "#prelura-home", Icon:'' },
+    { name: "From prelura", route: "#prelura-more", Icon: '' },
+  ];
+  
   return (
-    <div className=" pt-[1rem] ">
-
-
+    <div id="prelura-home" className="pt-[1rem] ">
+        <Sidebar tbList={menuItems} />
       <section className="text-center mt-10 px-4 mb-6 text-white">
         <Title className="mt-2">Dont wear it? Sell it!</Title>
-        <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
+        <div  className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
           <Subtitle className="font-medium mb-8">
             Prelura makes it easy to pass on the pieces you no longer wear,
             giving them a new home while putting money back in your pocket
@@ -66,7 +70,7 @@ function page() {
           </span>
         </section>
 
-        <section className="text-white mb-8">
+        <section id="prelura-more" className="text-white mb-8">
           <h1 className={titleClassName}>
             A Smarter, More Personalized Shopping Experience
           </h1>
