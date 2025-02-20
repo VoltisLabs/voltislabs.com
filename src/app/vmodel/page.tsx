@@ -3,11 +3,10 @@
 import Subtitle from "@/src/components/UI/subtitle";
 import Title from "@/src/components/UI/Title";
 import React, { useState } from "react";
+import { paragrapghClassName, titleClassName } from "../data";
 
 function Vmodel() {
-  const titleClassName = "text-white font-bold text-lg";
-  const paragrapghClassName =
-    "text-white font-normal text-sm/4 md:text-base/5 text-wrap break-all";
+
   return (
     <div className="pt-[1rem] text-white ">
       <div className="text-center mt-10 px-4 mb-6 ">
@@ -24,7 +23,7 @@ function Vmodel() {
         </div>
       </div>
 
-      <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
+      <div className="mb-16 mx-auto max-w-xl px-[2rem] md:px-0">
         <div className="mb-8 font-normal">
           <h1 className={titleClassName}>Hello, VModel community! ✨</h1>
           <br />
