@@ -12,8 +12,8 @@ const SecondHero = () => {
             A New Home for Your Fashion Finds.
           </span>
           <LearnMoreBtn
-            text="Learn More about VModel"
-            borderColor="border-white md:w-[12.7rem] w-[10.3rem]"
+            text="Learn More about Prelura"
+            borderColor="border-white md:w-[12.7rem] w-[10.45rem]"
             textColor="text-white"
           />
         </div>
