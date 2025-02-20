@@ -2,6 +2,7 @@ import React from "react";
 import { Aboutus } from "../data";
 import Title from "@/src/components/UI/Title";
 import Subtitle from "@/src/components/UI/subtitle";
+import { paragrapghClassName, titleClassName } from "../data";
 
 function page() {
   const titleClassName = "text-white font-bold text-lg";
