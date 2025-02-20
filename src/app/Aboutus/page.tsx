@@ -1,28 +1,62 @@
 import React from "react";
-import { Aboutus } from "../data";
+import { Aboutus,prelura } from "../data";
 import Title from "@/src/components/UI/Title";
 import Subtitle from "@/src/components/UI/subtitle";
+import Image from "next/image";
 import { paragrapghClassName, titleClassName } from "../data";
 
 function page() {
-  const titleClassName = "text-white font-bold text-lg";
-  const paragrapghClassName =
-    " font-normal text-sm/4 md:text-base/5 text-wrap break-all";
 
   return (
     <div className="pt-[.1rem] text-white ">
-      <div className="text-center mt-10 px-4 mb-6 ">
+
+<section className="text-center mt-10 px-4 mb-6 text-white">
         <Title className="mt-2">We are Voltis Labs</Title>
         <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
           <Subtitle className="text-[#858585] font-normal ">
-            Published on Monday 9th February, 2025
+          Published on Monday 9th February, 2025
           </Subtitle>
         </div>
-      </div>
+      </section>
 
-      <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
-        <section className="text-white my-8  mb-20 font-normal  md:text-[1.1rem] text-[1rem]">
-          <div className="flex items-center md:justify-between justify-center gap-4 mb-10 md:flex-row flex-col  w-full">
+
+
+
+      
+<section className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] mb-10">
+        <div className="flex items-center gap-6 md:flex-row flex-col">
+         
+
+
+
+{Aboutus.map((img, index) => (
+              <div
+                key={index}
+                className="w-full md:h-[38rem] h-[25rem] rounded-[9px] overflow-hidden md:w-[50%]"
+              >
+                <img
+                  src={img.img}
+                  alt="reluraimg"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            ))}
+        </div>
+      </section>
+
+{/*
+  <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] "  >
+*/}
+
+
+
+
+    
+      <div className="mb-16 mx-auto max-w-xl px-[2rem] md:px-0  ">
+      
+        <section className="text-white my-8  mb-20 font-normal ">
+         
+         {/**  <div className="flex items-center md:justify-between justify-center gap-4 mb-10 md:flex-row flex-col  w-full">
             {Aboutus.map((img, index) => (
               <div
                 key={index}
@@ -35,7 +69,9 @@ function page() {
                 />
               </div>
             ))}
-          </div>
+          </div>*/}
+         
+         
 
           <span className={`mb-5  ${paragrapghClassName}`}>
             At Voltis Labs, we <span className="font-semibold">believe </span>
@@ -64,10 +100,10 @@ function page() {
           </span>
         </section>
 
-        <section className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem] ">
+        <section className="text-white my-8  mb-20 font-normal  ">
           <h1 className="font-bold text-3xl mb-8  text-white">Our Mission</h1>
-          <div className="flex md:flex-row flex-col w-full gap-8">
-            <div className="w-full md:w-[48.5%]">
+          <div className="flex md:flex-row flex-col w-full gap-4">
+            <div className="w-full md:w-[60%] ">
               <span className={paragrapghClassName}>
                 We are here to build the next generation of digital
                 platforms—ones that are intuitive, scalable, and designed to
@@ -129,7 +165,7 @@ function page() {
                 </li>
               </ul>
             </div>
-            <div className="w-full md:w-[55%] flex justify-center md:justify-end ">
+            <div className="w-full md:w-[40%] flex justify-center md:justify-end ">
               <img
                 src="../image/landingimg3.png"
                 alt="Icon"

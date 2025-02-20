@@ -10,6 +10,8 @@ function page() {
 
   return (
     <div className=" pt-[1rem] ">
+
+
       <section className="text-center mt-10 px-4 mb-6 text-white">
         <Title className="mt-2">Dont wear it? Sell it!</Title>
         <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
@@ -42,7 +44,7 @@ function page() {
         </div>
       </section>
 
-      <div className="mb-16 mx-auto max-w-xl px-[2rem] md:px-0 ">
+      <div className="mb-16 mx-auto max-w-xl px-[2rem] md:px-0">
         <section className="text-white mb-8">
           <h1 className={titleClassName}>Hi Preluvas</h1>
 
@@ -50,8 +52,8 @@ function page() {
             We’re excited to introduce a major update packed with new features,
             improvements, and innovations designed to make buying and selling
             preloved fashion easier, safer, and more rewarding.
-          </span> 
-          <span className={`mb-6 $paragrapghClassName`}>
+          </span> <br/>
+          <span className={`mb-6 ${paragrapghClassName}`}>
             Over the past few months, we’ve listened to your feedback and worked
             on ways to enhance your experience, ensuring that Prelura remains
             the go-to platform for discovering unique fashion while promoting a

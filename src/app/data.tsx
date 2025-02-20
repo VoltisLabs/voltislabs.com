@@ -1,7 +1,15 @@
 
-export const titleClassName = "text-white font-bold text-lg";
+export const titleClassName = "text-white font-bold text-base";
+export const paragrapghClassName =
+  "text-white font-normal text-xs md:text-sm text-balance break-normal";
+
+
+/*
+  export const titleClassName = "text-white font-bold text-lg";
 export const paragrapghClassName =
   "text-white font-normal text-sm/4 md:text-base/5 text-balance break-normal";
+*/
+
 
 interface AboutItem {
   title: string;
