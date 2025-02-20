@@ -1,5 +1,5 @@
 
-export const titleClassName = "text-white font-bold text-base";
+export const titleClassName = "text-white font-bold text-[14.5px]";
 export const paragrapghClassName =
   "text-white font-normal text-xs md:text-sm text-balance break-normal";
 
