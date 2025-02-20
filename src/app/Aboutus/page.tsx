@@ -63,7 +63,7 @@ function page() {
       </section>
 
       <section className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem] ">
-        <h1 className="font-bold text-[30px] mb-8">Our Mission</h1>
+        <h1 className="font-bold text-3xl mb-8  text-white">Our Mission</h1>
         <div className="flex md:flex-row flex-col w-full gap-8">
           <div className="w-full md:w-[48.5%]">
            <span className={paragrapghClassName}>
@@ -74,7 +74,8 @@ function page() {
               simplify complexity, and to open new doors for those who dare to
               dream big.
             </span>
-           <p className={paragrapghClassName}>Our Values</p>
+            <br/>
+           <span  className={paragrapghClassName}>Our Values</span>
             <ul className="list-disc pl-4">
               <li>
                 <span className={titleClassName}>Empowerment Through Technology</span> –<span className={paragrapghClassName}>We believe that technology
@@ -121,7 +122,7 @@ function page() {
           execution, and to create technology that truly matters. Whether it’s
           enabling new ways to work, connect, or create, we are building a
           future where digital solutions empower, rather than complicate.
-        </span>
+        </span><br/>
        <span className={paragrapghClassName}>
           This is just the beginning. The future is being written now, and at
           Voltis Labs, we are here to shape it.
