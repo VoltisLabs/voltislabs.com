@@ -7,7 +7,7 @@ function page() {
   
   const titleClassName = "text-white font-bold text-lg";
   const paragrapghClassName =
-    "text-white font-normal text-sm/4 md:text-base/5 text-wrap break-all";
+    " font-normal text-sm/4 md:text-base/5 text-wrap break-all";
     
   return (
     <div className="pt-[.1rem] text-white ">
@@ -39,20 +39,21 @@ function page() {
           ))}
         </div>
 
-        <p className="font-normal text-[1.125rem] mb-5">
+        <span className={`mb-5  ${paragrapghClassName}`}>
           At Voltis Labs, we <span className="font-semibold">believe </span>
           technology has the power to unlock human potential. We are a company
           built on the idea that innovation should serve a purpose—solving real
           problems, empowering creators, and shaping a more connected future.
-        </p>
+        </span>
+        <br/><br/>
 
-        <p className="font-normal mb-5">
+        <span className={`mb-5  ${paragrapghClassName}`}>
           Our journey began with a simple yet powerful belief: great ideas
           deserve the right platform to thrive. Frustrated by outdated systems
           and missed opportunities, a small group of visionaries came together
           to rethink how technology could empower individuals and businesses
           alike
-        </p>
+        </span><br/><br/>
 
        <span className={paragrapghClassName}>
           The result was Voltis Labs—a place where bold ideas are turned into
@@ -73,32 +74,32 @@ function page() {
               simplify complexity, and to open new doors for those who dare to
               dream big.
             </span>
-           <span className={paragrapghClassName}>Our Values</span>
+           <p className={paragrapghClassName}>Our Values</p>
             <ul className="list-disc pl-4">
               <li>
-                <span className={titleClassName}>Empowerment Through Technology</span> – We believe that technology
+                <span className={titleClassName}>Empowerment Through Technology</span> –<span className={paragrapghClassName}>We believe that technology
                 should give people more control over their lives, their work,
                 and their creativity. Every solution we build is designed to
-                help individuals and businesses do more with less friction.
+                help individuals and businesses do more with less friction.</span>
               </li>
               
-              <li ><span  className={titleClassName}>Innovation Without Limits </span>– The digital landscape is constantly
+              <li ><span  className={titleClassName}>Innovation Without Limits </span>–<span className={paragrapghClassName}>The digital landscape is constantly
                 evolving, and so are we. We push boundaries, challenge the
                 status quo, and embrace the unknown in pursuit of groundbreaking
-                solutions.
+                solutions.</span>
               </li>
               <li><span className={titleClassName}>
-                A People-First Approach </span>– Technology is only as powerful as the
+                A People-First Approach </span>– <span className={paragrapghClassName}>Technology is only as powerful as the
                 people who use it. That’s why everything we create is built with
                 a deep understanding of real-world needs, ensuring that our
-                platforms are as intuitive as they are transformative.
+                platforms are as intuitive as they are transformative.</span>
               </li>
 
               <li>
               <span className={titleClassName}>
-                Sustainability & Inclusion </span>– We don’t believe in building for a
+                Sustainability & Inclusion </span>–<span className={paragrapghClassName}> We don’t believe in building for a
                 select few. Our goal is to create ecosystems that are
-                accessible, diverse, and built to last.
+                accessible, diverse, and built to last.</span>
               </li>
             </ul>
           </div>
