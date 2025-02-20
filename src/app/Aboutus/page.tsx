@@ -2,7 +2,6 @@ import React from "react";
 import { Aboutus,prelura } from "../data";
 import Title from "@/src/components/UI/Title";
 import Subtitle from "@/src/components/UI/subtitle";
-import Image from "next/image";
 import { paragrapghClassName, titleClassName } from "../data";
 
 function page() {
@@ -44,10 +43,6 @@ function page() {
         </div>
       </section>
 
-{/*
-  <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] "  >
-*/}
-
 
 
 
@@ -56,7 +51,11 @@ function page() {
       
         <section className="text-white my-8  mb-20 font-normal ">
          
-         {/**  <div className="flex items-center md:justify-between justify-center gap-4 mb-10 md:flex-row flex-col  w-full">
+         {/** 
+          *
+  <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] "  >
+
+          *  <div className="flex items-center md:justify-between justify-center gap-4 mb-10 md:flex-row flex-col  w-full">
             {Aboutus.map((img, index) => (
               <div
                 key={index}
@@ -73,7 +72,7 @@ function page() {
          
          
 
-          <span className={`mb-5  ${paragrapghClassName}`}>
+          <span className={`mb-5 ${paragrapghClassName}`}>
             At Voltis Labs, we <span className="font-semibold">believe </span>
             technology has the power to unlock human potential. We are a company
             built on the idea that innovation should serve a purpose—solving
@@ -82,7 +81,6 @@ function page() {
           </span>
           <br />
           <br />
-
           <span className={`mb-5  ${paragrapghClassName}`}>
             Our journey began with a simple yet powerful belief: great ideas
             deserve the right platform to thrive. Frustrated by outdated systems
@@ -165,12 +163,14 @@ function page() {
                 </li>
               </ul>
             </div>
-            <div className="w-full md:w-[40%] flex justify-center md:justify-end ">
+            <div className="w-full md:w-[40%] flex justify-center md:justify-end pt-2 ">
+              
               <img
                 src="../image/landingimg3.png"
                 alt="Icon"
-                className="w-full md:h-[35rem] h-[25rem] object-cover object-top rounded-lg"
-              />
+                className="w-full h-full md:h-[35rem] object-cover object-center rounded-lg"
+
+            />
             </div>
           </div>
         </section>
