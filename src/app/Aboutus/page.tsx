@@ -163,7 +163,8 @@ function page() {
                 </li>
               </ul>
             </div>
-            <div className="w-full md:w-[40%] flex justify-center md:justify-end pt-2 ">
+            
+            <div className="w-full md:w-[47%] flex justify-center md:justify-end pt-2 ">
               
               <img
                 src="../image/landingimg3.png"
