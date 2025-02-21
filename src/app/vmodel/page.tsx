@@ -4,11 +4,22 @@ import Subtitle from "@/src/components/UI/subtitle";
 import Title from "@/src/components/UI/Title";
 import React, { useState } from "react";
 import { paragrapghClassName, titleClassName } from "../data";
+import Sidebar from "@/src/components/UI/SideBar";
 
 function Vmodel() {
+  const menuItems = [
+    { name: "Home", route: "#", Icon:'' },
+    { name: "Tab1", route: "#", Icon: '' },
+    { name: "Tab2", route: "#", Icon: '' },
+    { name: "Tab3", route: "#", Icon: '' },
+    { name: "Tab4", route: "#", Icon: '' },
+   
 
+  ];
+  
   return (
     <div className="pt-[1rem] text-white ">
+        <Sidebar tbList={menuItems} />
       <div className="text-center mt-10 px-4 mb-6 ">
         <Title className="mt-2">A New Era for Creators</Title>
         <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">

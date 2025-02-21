@@ -63,7 +63,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   const pathname = usePathname();
 
   return (
-    <div className="page-container md:static fixed top-0 left-0 z-30 border-b-[1px] border-gray-600 md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black/70 backdrop-blur-sm">
+    <div className="page-container md:static fixed top-0 left-0 z-30  md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black/70 backdrop-blur-sm">
       <div className="">
         <div
           onClick={() => router.push("/")}
