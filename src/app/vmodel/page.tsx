@@ -30,11 +30,23 @@ import FlatList from "@/src/components/UI/FlatList";
 
 function Vmodel() {
   const menuItems = [
-    { name: "Home", route: "#", Icon: "" },
-    { name: "Tab1", route: "#", Icon: "" },
-    { name: "Tab2", route: "#", Icon: "" },
-    { name: "Tab3", route: "#", Icon: "" },
-    { name: "Tab4", route: "#", Icon: "" },
+    { name: "What is VModel?", route: "#firstSection", Icon: "" },
+    { name: "Who is VModel For?", route: "#secondSection", Icon: "" },
+    { name: "Why VModel?", route: "#thirdSection", Icon: "" },
+    { name: "How It Works", route: "#", Icon: "" },
+    { name: "Ideology", route: "#fifthSection", Icon: "" },
+    { name: "The Inspiration Behind VModel", route: "#sixthSection", Icon: "" },
+    {
+      name: "The Challenges Creators Face Today",
+      route: "#seventhSection",
+      Icon: "",
+    },
+    {
+      name: "The Research: What the Industry Says",
+      route: "#eighthSection",
+      Icon: "",
+    },
+    { name: "A New Era for Creative Talent", route: "#lastSection", Icon: "" },
   ];
 
   return (
@@ -56,7 +68,10 @@ function Vmodel() {
 
       <div className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0">
         <div className="flex-container flex items-start  justify-start gap-6 mb-8">
-          <div className="text-section md:w-[60%] mt-1 w-[50%]">
+          <div
+            id="firstSection"
+            className="text-section md:w-[60%] mt-1 w-[50%]"
+          >
             <h1 className={`${sectionTitleClassName}`}>What is VModel?</h1>
             <span className={`${paragrapghClassName} mb-6`}>
               VModel is the go-to platform for models, photographers, stylists,
@@ -143,7 +158,7 @@ function Vmodel() {
           </span>
         </div>
 
-        <div className="mb-8 font-normal">
+        <div id="secondSection" className="mb-8 font-normal">
           <h1 className={secondaryTitleClassName}>Who is VModel For?</h1>
 
           <br />
@@ -199,7 +214,7 @@ function Vmodel() {
           <br />
         </div>
 
-        <div className="mb-8 font-normal">
+        <div id="thirdSection" className="mb-8 font-normal">
           <h1 className={secondaryTitleClassName}>Why VModel?</h1>
 
           <div className="section-container mt-4">
@@ -280,7 +295,7 @@ function Vmodel() {
         <br />
         {/* <br /> */}
 
-        <div className="mb-8 font-normal">
+        <div id="fifthSection" className="mb-8 font-normal">
           <h1 className={secondaryTitleClassName}>
             Ideology: Redefining the Creative Industry
           </h1>
@@ -318,7 +333,7 @@ function Vmodel() {
           <br />
         </div>
 
-        <div className="sectional-page-container">
+        <div id="sixthSection" className="sectional-page-container">
           <h1 className={secondaryTitleClassName}>
             The Inspiration: Why We Built VModel
           </h1>
@@ -346,7 +361,7 @@ function Vmodel() {
         </div>
         <br />
         <br />
-        <div className="section-page-container">
+        <div id="seventhSection" className="section-page-container">
           <h1 className={secondaryTitleClassName}>
             The Problem: The Industry’s Biggest Challenges and How VModel Solves
             Them
@@ -500,7 +515,7 @@ function Vmodel() {
         </div>
         <br />
         <br />
-        <div className="section-container">
+        <div id="eighthSection" className="section-container">
           <h1 className={secondaryTitleClassName}>
             The Research Behind VModel
           </h1>
@@ -534,7 +549,7 @@ function Vmodel() {
         <br />
         <br />
 
-        <div className="section-container">
+        <div id="lastSection" className="section-container">
           <h1 className={secondaryTitleClassName}>What's Next For VModel</h1>
           <br />
           <span className={paragrapghClassName}>
