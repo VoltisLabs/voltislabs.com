@@ -1,15 +1,11 @@
-
 export const titleClassName = "text-white font-bold text-[14.5px]";
 export const paragrapghClassName =
-  "text-white font-normal text-xs md:text-sm text-balance break-normal";
+  "text-white font-normal block !text-justify text-xs md:text-sm";
 
+export const sectionTitleClassName = "text-white font-bold text-[15.5px]";
 
-/*
-  export const titleClassName = "text-white font-bold text-lg";
-export const paragrapghClassName =
-  "text-white font-normal text-sm/4 md:text-base/5 text-balance break-normal";
-*/
-
+export const secondaryTitleClassName =
+  "text-white text-center font-bold text-[19.5px]";
 
 interface AboutItem {
   title: string;
@@ -116,9 +112,6 @@ export const prelura = [
     img: "/image/landingimg3.png",
   },
 ];
-
-
-
 
 export const Aboutus = [
   {

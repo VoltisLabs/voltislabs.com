@@ -12,6 +12,10 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  .justified-text {
+    text-align: justify;
+  }
 }
 
 /* body {

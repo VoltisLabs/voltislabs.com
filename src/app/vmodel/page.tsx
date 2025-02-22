@@ -3,25 +3,29 @@
 import Subtitle from "@/src/components/UI/subtitle";
 import Title from "@/src/components/UI/Title";
 import React, { useState } from "react";
-import { paragrapghClassName, titleClassName } from "../data";
+import {
+  paragrapghClassName,
+  secondaryTitleClassName,
+  sectionTitleClassName,
+  titleClassName,
+} from "../data";
 import Sidebar from "@/src/components/UI/SideBar";
+import Image from "next/image";
 
 function Vmodel() {
   const menuItems = [
-    { name: "Home", route: "#", Icon:'' },
-    { name: "Tab1", route: "#", Icon: '' },
-    { name: "Tab2", route: "#", Icon: '' },
-    { name: "Tab3", route: "#", Icon: '' },
-    { name: "Tab4", route: "#", Icon: '' },
-   
-
+    { name: "Home", route: "#", Icon: "" },
+    { name: "Tab1", route: "#", Icon: "" },
+    { name: "Tab2", route: "#", Icon: "" },
+    { name: "Tab3", route: "#", Icon: "" },
+    { name: "Tab4", route: "#", Icon: "" },
   ];
-  
+
   return (
-    <div className="pt-[1rem] text-white ">
-        <Sidebar tbList={menuItems} />
-      <div className="text-center mt-10 px-4 mb-6 ">
-        <Title className="mt-2">A New Era for Creators</Title>
+    <div className="pt-[1rem] text-white">
+      <Sidebar tbList={menuItems} />
+      <div className="text-center mt-10 px-4 mb-6">
+        <Title className="mt-2">Your creative career, your way!</Title>
         <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
           <Subtitle className="font-medium mb-8">
             Exciting updates are here for VModel! Enjoy a fresh UI, AI job
@@ -34,152 +38,163 @@ function Vmodel() {
         </div>
       </div>
 
-      <div className="mb-16 mx-auto max-w-xl px-[2rem] md:px-0">
-        <div className="mb-8 font-normal">
-          <h1 className={titleClassName}>Hello, VModel community! ✨</h1>
-          <br />
-          <br />
+      <div className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0">
+        <div className="flex-container flex items-start  justify-start gap-6 mb-8">
+          <div className="text-section md:w-[60%] mt-1 w-[50%]">
+            <h1 className={`${sectionTitleClassName}`}>What is VModel?</h1>
+            <span className={`${paragrapghClassName} mb-6`}>
+              VModel is the go-to platform for models, photographers, stylists,
+              makeup artists, and brands looking to connect, collaborate, and
+              create without limits. Whether you're an aspiring model trying to
+              land your first gig, a seasoned photographer building your brand,
+              or a creative director scouting the perfect talent for a campaign,
+              VModel streamlines the process—so you can focus on what truly
+              matters: your craft.
+            </span>
+
+            <span className={paragrapghClassName}>
+              This isn’t just another job board. VModel is a dynamic ecosystem
+              where creativity meets opportunity. It’s built for freelancers,
+              professionals, and emerging talents who want to take control of
+              their careers, build meaningful collaborations, and get paid
+              securely for their work—all in one place.
+            </span>
+
+            <span className={`${paragrapghClassName} my-7`}>
+              <span className={`${titleClassName} text-xs md:text-sm`}>
+                Find Work That Matches Your Skills & Style:
+              </span>
+              Tired of endless searching? With VModel's intelligent job-matching
+              system, you’ll discover job opportunities tailored to your
+              profile, experience, and interests. Whether you’re looking for
+              runway gigs, editorial shoots, brand campaigns, commercial
+              projects, or artistic collaborations, our platform helps you
+              connect with the right opportunities—fast.
+            </span>
+
+            <div className="section-container">
+              <span className={`${paragrapghClassName} !font-bold`}>
+                Book & Get Booked Seamlessly
+              </span>
+
+              <span className={paragrapghClassName}>
+                Forget the hassle of back-and-forth emails, unverified contacts,
+                and confusing contracts. VModel simplifies the booking process,
+                ensuring secure, direct communication between talent and
+                clients. Whether you’re a model accepting a shoot request or a
+                brand hiring a team for a campaign, everything happens smoothly
+                within the platform.
+              </span>
+            </div>
+          </div>
+          <div className="image-container md:w-[40%] w-[50%]">
+            <Image
+              src={"/image/CREATIVE.png"}
+              alt="section-image"
+              width={300}
+              height={300}
+            />
+          </div>
+        </div>
+
+        <div className="mb-12 mt-[3rem]">
+          <h1 className={titleClassName}>Get Paid Safely & On Time</h1>
           <span className={paragrapghClassName}>
-            We’re thrilled to announce a major update to the VModel app! After
-            months of planning, developing, and incorporating your invaluable
-            feedback, we are excited to share an array of new features designed
-            to enhance your experience and elevate your creative career. This
-            update brings meaningful improvements across the board, making it
-            easier than ever to connect, collaborate, and thrive on VModel.
+            Say goodbye to unpaid invoices and sketchy payment processes.
+            VModel's built-in secure payment system ensures that funds are held
+            safely and released once the job is completed. No more chasing
+            payments or worrying about getting scammed—just clear, transparent
+            transactions that protect both talent and clients.
           </span>
           <br />
+          <h1 className={titleClassName}>
+            Create & Build Your Professional Reputation
+          </h1>
           <span className={paragrapghClassName}>
-            We know how important it is to feel empowered, inspired, and ready
-            to take your work to the next level. Whether you’re a seasoned pro
-            or just starting out, we’re committed to giving you the best
-            platform to showcase your talent and unlock new opportunities.
-            Here’s a deeper dive into the most exciting updates that will
-            reshape the way you use VModel.
+            Your work should speak for itself—and on VModel, it does. Build a
+            professional profile that showcases your portfolio, experience, and
+            unique style. Let brands and clients see your best work at a glance,
+            helping you stand out in a competitive industry.
+          </span>
+          <br />
+          <h1 className={titleClassName}>Collaborate Without Limits</h1>
+          <span className={paragrapghClassName}>
+            Creativity thrives on collaboration, and VModel makes it easy to
+            connect with like-minded professionals worldwide. Whether you’re a
+            photographer looking for models, a stylist searching for the right
+            makeup artist, or a brand assembling the perfect creative team,
+            VModel’s tools help you bring your vision to life.
           </span>
         </div>
 
-        <div className="mb-8 ">
-          <h1 className={titleClassName}>
-            A Refined, Sleek User Interface for Effortless Navigation
-          </h1>
-          <span className={paragrapghClassName}>
-            Our design overhaul is here, and it’s all about streamlining your
-            journey through the app. We’ve completely redesigned the user
-            interface to make navigation as intuitive and efficient as possible.
-            From the moment you open VModel, you’ll notice a cleaner, more
-            modern look—everything is easier to find and access.
-          </span>
-          <br />
-          <br />
-          <span className={paragrapghClassName}>
-            The new layout ensures that every interaction feels smooth and
-            natural. You can now quickly navigate between job opportunities,
-            creator services, and your profile with just a few taps. We’ve
-            reduced the clutter, so every button, link, and menu serves a clear
-            purpose. The “quick-access” dashboard provides you with a snapshot
-            of your most important notifications, pending job applications, and
-            service requests all in one place. This allows you to jump right
-            into action without losing any time.
-          </span>
-          <br />
-          <span className={paragrapghClassName}>
-            The improvements don’t just focus on aesthetics; we’ve made sure
-            that functionality remains our top priority. Whether you’re in the
-            app for a quick check-in or ready to dive deep into a project, the
-            streamlined experience ensures that you can work efficiently and
-            focus on your creative endeavors.
-          </span>
-        </div>
-
         <div className="mb-8 font-normal">
-          <h1 className={titleClassName}>
-            Personalized Job Matching – Tailored Opportunities, Just for You
-          </h1>
+          <h1 className={secondaryTitleClassName}>Who is VModel For?</h1>
+
+          <br />
+          <div className="image-container h-[38rem] rounded-[10px] overflow-hidden">
+            <Image
+              src={"/image/vmodel4.jpeg"}
+              alt="page-image"
+              width={500}
+              height={500}
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
+          <br />
+          <br />
+
+          <h1 className={titleClassName}>Models</h1>
           <span className={paragrapghClassName}>
-            We know that finding the right job opportunities is a priority for
-            creators, so we’ve upgraded our job matching algorithm to make the
-            process even easier. Thanks to the power of artificial intelligence,
-            we’ve made job recommendations more personalized than ever before.
+            Break free from traditional agency constraints. Whether you're new
+            to modeling or an established professional, VModel helps you get
+            discovered, apply for gigs, and work with top brands on your terms.
           </span>
           <br />
+          <h1 className={titleClassName}>Photographers</h1>
           <span className={paragrapghClassName}>
-            When you log into VModel, the new matching algorithm takes a close
-            look at your profile—considering your past activity, skills,
-            interests, and preferences—to suggest jobs that are most relevant to
-            your expertise. Whether you’re a photographer looking for a gig or a
-            content creator seeking new collaborations, VModel now prioritizes
-            opportunities that fit your unique profile.
-          </span>
-          <br />
-          <br />
-          <span className={paragrapghClassName}>
-            This algorithm isn’t static—it learns as you interact with the app.
-            Each job you apply for and each service you offer teaches the system
-            more about what works for you. Over time, this means that the
-            suggestions you receive will become more tailored and aligned with
-            the types of work you’re best suited for. It’s all about reducing
-            the noise and delivering the opportunities that matter.
-          </span>
-          <br />
-          <span className={paragrapghClassName}>
-            And the best part? Applying for these jobs has never been easier.
-            With the new features, you can apply to multiple opportunities at
-            once without having to fill out the same information repeatedly.
-            Everything you need is synced to your profile, saving you valuable
-            time and energy.
+            No more waiting for the right connections—VModel puts you directly
+            in touch with models, stylists, and brands. Whether you're shooting
+            high fashion, commercial work, or personal projects, finding the
+            right talent has never been easier.
           </span>
         </div>
 
         <div className="mb-8">
-          <h1 className={titleClassName}>
-            Instant Messaging & Real-Time Collaboration – Connect and Create
-            Together
-          </h1>
-          <span className={paragrapghClassName}>
-            Collaboration is at the heart of what we do on VModel. Whether
-            you’re working with a client, collaborating with another creator, or
-            brainstorming ideas with a team, communication should be quick and
-            seamless. That’s why we’ve introduced real-time messaging and
-            collaboration tools within the app.
-          </span>
-          <span className={paragrapghClassName}>
-            With real-time chat, you can now communicate instantly with anyone
-            on the platform. No more waiting for emails or jumping between apps.
-            You can send text messages, share media, and even create group chats
-            specific to the projects you’re working on. This keeps everything
-            organized in one place and eliminates the need to manage multiple
-            conversations on different platforms.
-          </span>
-          <span className={paragrapghClassName}>
-            To take collaboration even further, we’ve added real-time editing
-            and sharing options, making it easy to review documents, give
-            feedback, or share resources on the fly. Need to collaborate on a
-            design project with a colleague? Want to tweak a contract before
-            finalizing a deal with a client? You can do all of this directly
-            within VModel, keeping the creative momentum going without the
-            interruptions of back-and-forth emails or slow file transfers.
-          </span>
+          <div className="section-container mb-6">
+            <h1 className={titleClassName}>Stylists & Makeup Artists</h1>
+            <span className={paragrapghClassName}>
+              Your artistry deserves to be seen. VModel connects you with
+              models, photographers, and brands looking for creative
+              professionals to bring their vision to life. Whether it's fashion
+              week, an editorial campaign, or a brand launch, VModel helps you
+              land high-quality gigs.
+            </span>
+          </div>
+
+          <div className="section-container">
+            <h1 className={titleClassName}>Brands & Creative Directors</h1>
+
+            <span className={paragrapghClassName}>
+              Need talent for your next campaign? VModel makes scouting
+              effortless. Browse profiles, review portfolios, and book
+              professionals instantly—all in one secure, streamlined platform.
+            </span>
+          </div>
           <br />
-          <br />
-          <span className={paragrapghClassName}>
-            This feature fosters a more transparent and efficient workflow,
-            enabling creators and clients to work together in real-time,
-            wherever they are. Your creative projects will progress faster and
-            with more clarity, thanks to this powerful new tool.
-          </span>
         </div>
 
         <div className="mb-8 font-normal">
-          <h1 className={titleClassName}>
-            A Portfolio That Truly Represents You
-          </h1>
-          <span className={paragrapghClassName}>
-            Your portfolio is your opportunity to showcase your work, and we
-            want to make sure it’s doing everything it can to highlight your
-            talent. That’s why we’ve redesigned the creator portfolio to help
-            you present your projects in the most dynamic, visually appealing
-            way possible.
-          </span>
+          <h1 className={secondaryTitleClassName}>Why VModel?</h1>
+
+          <div className="section-container mt-4">
+            <span className={titleClassName}>Empowering Creators</span>
+            <span className={paragrapghClassName}>
+              The creative industry has changed. Traditional agencies and
+              networks no longer control who gets booked and who doesn’t. VModel
+              puts the power back in your hands, giving you the tools,
+              connections, and freedom to grow your career on your own terms.
+            </span>
+          </div>
 
           <span className={paragrapghClassName}>
             With the new updates, you can now add more diverse content types to
@@ -190,60 +205,92 @@ function Vmodel() {
             else entirely.
           </span>
           <br />
+
+          <div className="section-container">
+            <h1 className={titleClassName}>
+              No Middlemen, No Delays—Just Pure Creative Collaboration
+            </h1>
+            <span className={paragrapghClassName}>
+              We believe that creators should own their careers and keep their
+              earnings. With VModel, you don’t need an agent or third-party
+              negotiator to land work. You control your rates, your gigs, and
+              your collaborations.
+            </span>
+          </div>
           <br />
-          <span className={paragrapghClassName}>
-            This is more than just a showcase of finished work—it’s an
-            opportunity to tell the story behind the project. You can share your
-            creative process, explain your inspiration, and show how you solved
-            problems during the project’s development. The more detailed and
-            personalized your portfolio is, the more it will resonate with
-            potential clients.
-          </span>
-          <span className={paragrapghClassName}>
-            Plus, you can now track portfolio performance with new analytics.
-            This feature allows you to see how many views your work is getting,
-            what’s attracting the most attention, and which projects are driving
-            the most engagement. With these insights, you can fine-tune your
-            portfolio to make it even more compelling.
-          </span>
+          <div className="section-container">
+            <h1 className={titleClassName}>A Platform That Grows With You</h1>
+
+            <span className={paragrapghClassName}>
+              Whether you’re just starting out or an industry veteran, VModel
+              evolves with your career. As you gain experience and expand your
+              network, the platform adapts to offer even better opportunities
+              that match your skills, preferences, and goals.
+            </span>
+          </div>
         </div>
 
-        <div className="mb-8 ">
+        <div className="mb-8">
           <h1 className={titleClassName}>
-            Streamlined Payment System & Enhanced Security
+            A Global Community of Talent & Brands
           </h1>
           <span className={paragrapghClassName}>
-            Getting paid for your work should be a seamless process. That’s why
-            we’ve simplified the payment system within VModel. Now, you can
-            receive payments directly through the app, with multiple payment
-            options available for your convenience.
+            Creativity has no borders. VModel connects you with professionals
+            worldwide, opening doors to opportunities you never imagined. Work
+            with international brands, collaborate across industries, and build
+            a career that transcends limitations.
           </span>
           <br />
+
+          <div className="section-container">
+            <h1 className={titleClassName}>
+              Join the Future of the Creative Industry
+            </h1>
+            <span className={paragrapghClassName}>
+              The way creators work is evolving, and VModel is at the forefront
+              of this transformation. Whether you’re here to find work, hire
+              talent, or build your network, we’re committed to providing a
+              platform that supports and empowers you every step of the way.
+            </span>
+          </div>
+
+          <br />
+
           <span className={paragrapghClassName}>
-            In addition, we’ve enhanced the security of all transactions,
-            ensuring that both creators and clients feel confident and protected
-            when conducting business. Our new secure payment system makes sure
-            that funds are transferred quickly and safely, so you can focus on
-            your creative projects without worrying about logistics.
+            Your career. Your way. Your VModel.
           </span>
         </div>
 
+        <br />
+        <br />
+
         <div className="mb-8 font-normal">
-          <h1 className={titleClassName}>Looking Ahead – What's Next?</h1>
-          <span className={paragrapghClassName}>
-            The updates you see today are just the beginning. We’re continuously
-            working on new features and improvements to make VModel even better.
-            Your feedback has been instrumental in shaping this update, and
-            we’re eager to hear what you think as you begin exploring these new
-            tools.
-          </span>
+          <h1 className={secondaryTitleClassName}>
+            Ideology: Redefining the Creative Industry
+          </h1>
+
+          <br />
+          <div className="image-container h-[38rem] rounded-[10px] overflow-hidden">
+            <Image
+              src={"/image/vmodel5.jpeg"}
+              alt="page-image"
+              width={500}
+              height={500}
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
           <br />
           <span className={paragrapghClassName}>
-            As we look ahead, we’re excited to continue expanding the
-            possibilities for creators and clients alike. Our mission is to
-            provide a platform that not only helps you connect with new
-            opportunities but also fosters collaboration, growth, and
-            creativity.
+            For decades, the creative industry - spanning fashion, photography,
+            styling, and content creation—has remained tightly controlled by
+            traditional agencies and outdated gatekeeping systems. While the
+            digital era has democratized many industries, creatives still
+            struggle with limited access to opportunities, inconsistent income,
+            and inefficient hiring processes. At VModel, we believe the future
+            of creative work should be fair, accessible, and technology-driven.
+            Our platform empowers models, photographers, stylists, and brands by
+            removing unnecessary middlemen and placing control directly in the
+            hands of those who create and hire.
           </span>
           <br />
           <span className={paragrapghClassName}>

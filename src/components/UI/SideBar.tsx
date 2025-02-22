@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -15,7 +15,6 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ tbList }) => {
   const [isOpen, setIsOpen] = useState(true);
-
 
   useEffect(() => {
     const handleFocus = () => {
