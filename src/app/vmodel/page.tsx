@@ -4,15 +4,19 @@ import Subtitle from "@/src/components/UI/subtitle";
 import Title from "@/src/components/UI/Title";
 import React, { useState } from "react";
 import {
+  constantlyInnovating,
   fragmentWork,
+  keyFindings,
   lackOfDiversity,
   manyCreatives,
   paragrapghClassName,
   secondaryTitleClassName,
   sectionTitleClassName,
   slowExpensiveHiring,
+  techBehind,
   titleClassName,
   unfairPayment,
+  vmodelResearch,
   vmodelSolution4,
   vmodelSolution5,
   vmodelSolution6,
@@ -274,7 +278,7 @@ function Vmodel() {
         </div>
 
         <br />
-        <br />
+        {/* <br /> */}
 
         <div className="mb-8 font-normal">
           <h1 className={secondaryTitleClassName}>
@@ -493,6 +497,71 @@ function Vmodel() {
               talent from every background gets seen
             </span>
           </div>
+        </div>
+        <br />
+        <br />
+        <div className="section-container">
+          <h1 className={secondaryTitleClassName}>
+            The Research Behind VModel
+          </h1>
+          <br />
+          <div className="text-section">
+            <span className={paragrapghClassName}>
+              To ensure VModel meets real industry needs, we conducted extensive
+              research, including:
+            </span>
+
+            <FlatList listItems={vmodelResearch} />
+          </div>
+
+          <br />
+
+          <div className="text-section">
+            <h1 className={titleClassName}>Key Findings:</h1>
+            <FlatList listItems={keyFindings} />
+          </div>
+
+          <br />
+          <div className="text-section">
+            <h1 className={titleClassName}>Technology Behind VModel</h1>
+            <span className={paragrapghClassName}>
+              VModel is built for speed, scalability, and security.
+            </span>
+            <FlatList listItems={techBehind} />
+          </div>
+        </div>
+
+        <br />
+        <br />
+
+        <div className="section-container">
+          <h1 className={secondaryTitleClassName}>What's Next For VModel</h1>
+          <br />
+          <span className={paragrapghClassName}>
+            We’re constantly innovating, with upcoming features like:
+          </span>
+          <FlatList listItems={constantlyInnovating} />
+          <br />
+
+          <span className={paragrapghClassName}>
+            VModel isn’t just a platform -{" "}
+            <span className="font-bold">it’s a revolution.</span>
+          </span>
+
+          <span className={paragrapghClassName}>
+            For creatives, <span className="font-bold">it’s freedom</span> to
+            work on their own terms.
+          </span>
+
+          <span className={paragrapghClassName}>
+            For brands, <span className="font-bold">it’s the fastest</span> way
+            to find and book top-tier talent.
+          </span>
+
+          <span className={paragrapghClassName}>
+            The future of creative work starts here.{" "}
+            <span className="font-bold">Welcome to VModel.</span>
+          </span>
         </div>
       </div>
     </div>

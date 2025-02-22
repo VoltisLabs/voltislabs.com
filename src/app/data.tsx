@@ -5,7 +5,7 @@ export const paragrapghClassName =
 export const sectionTitleClassName = "text-white font-bold text-[15.5px]";
 
 export const secondaryTitleClassName =
-  "text-white w-full max-w-[40rem] mx-auto text-center font-extrabold text-[21px]";
+  "text-white w-full max-w-[40rem] mx-auto text-center font-extrabold text-[24px]";
 
 interface AboutItem {
   title: string;
@@ -314,5 +314,86 @@ export const vmodelSolution6 = [
   {
     id: 3,
     name: "A diversity search feature, allowing brands to find talent based on their specific inclusivity goals.",
+  },
+];
+
+export const vmodelResearch = [
+  {
+    id: 1,
+    name: "Surveys with 500+ models, photographers, and stylists to understand their biggest pain points.",
+  },
+
+  {
+    id: 2,
+    name: "Interviews with brands and agencies to identify hiring inefficiencies.",
+  },
+
+  {
+    id: 3,
+
+    name: "Case studies on industry trends, confirming the demand for a tech-driven, decentralized hiring model.",
+  },
+];
+
+export const keyFindings = [
+  {
+    id: 1,
+
+    name: "84% of creatives want full control over their pricing and schedule.",
+  },
+
+  {
+    id: 2,
+
+    name: "92% of brands would book talent faster if a verified talent pool was available.",
+  },
+
+  {
+    id: 3,
+
+    name: "60% of creatives prefer direct client relationships over agency representation.",
+  },
+];
+
+export const techBehind = [
+  {
+    id: 1,
+
+    name: "Frontend: Being redeveloped in Swift and Flutter for a seamless platform friendly experience.",
+  },
+
+  {
+    id: 2,
+
+    name: "Backend: Powered by Python Django and GraphQL, ensuring efficiency and data integrity.",
+  },
+
+  {
+    id: 3,
+    name: "Payments: A built-in escrow system secures all transactions.",
+  },
+
+  {
+    id: 4,
+
+    name: "Live Collaboration: Real-time messaging & notifications keep clients and talent connected.",
+  },
+];
+
+export const constantlyInnovating = [
+  {
+    id: 1,
+
+    name: "AI-powered job matching for personalized gig recommendations.",
+  },
+
+  {
+    id: 2,
+    name: "Augmented reality (AR) try-ons, allowing brands to preview talent in campaigns before booking.",
+  },
+
+  {
+    id: 3,
+    name: "Exclusive brand partnerships, bringing even more work opportunities.",
   },
 ];
