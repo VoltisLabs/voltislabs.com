@@ -5,7 +5,7 @@ export const paragrapghClassName =
 export const sectionTitleClassName = "text-white font-bold text-[15.5px]";
 
 export const secondaryTitleClassName =
-  "text-white text-center font-bold text-[19.5px]";
+  "text-white w-full max-w-[40rem] mx-auto text-center font-extrabold text-[21px]";
 
 interface AboutItem {
   title: string;
@@ -119,5 +119,200 @@ export const Aboutus = [
   },
   {
     img: "/image/landingimg2.png",
+  },
+];
+
+export const manyCreatives = [
+  {
+    id: 1,
+    name: "They don’t have agency representation, which is often expensive and selective.",
+  },
+  {
+    id: 2,
+    name: "They lack industry connections, making it hard to find work outside personal networks.",
+  },
+  {
+    id: 3,
+    name: "They rely on social media and scattered gig platforms, which are unreliable for securing professional jobs.",
+  },
+];
+
+export const vmodelSolutions = [
+  {
+    id: 1,
+    name: "A centralized marketplace where models, photographers, and creatives can build an interactive portfolio and apply for jobs directly—no agency needed.",
+  },
+  {
+    id: 2,
+    name: "Real-time job listings from brands and businesses, ensuring constant opportunities.",
+  },
+  {
+    id: 3,
+    name: "Verified client reviews, allowing creatives to build credibility and secure more work.",
+  },
+];
+
+export const slowExpensiveHiring = [
+  {
+    id: 1,
+    name: "According to a Business of Fashion report, brands spend an average of 4-6 weeks securing talent for campaigns due to:",
+  },
+  {
+    id: 2,
+    name: "Agency fees and commissions, which inflate hiring costs.",
+  },
+  {
+    id: 3,
+    name: "Lengthy negotiations, delaying project timelines.",
+  },
+
+  {
+    id: 4,
+    name: "Limited access to verified portfolios, making it difficult to assess talent efficiently.",
+  },
+];
+
+export const vmodelSolutions2 = [
+  {
+    id: 1,
+    name: "A smart search and booking system that allows businesses to instantly find talent based on location, experience, and project requirements.",
+  },
+  {
+    id: 2,
+    name: "Pre-verified creatives, ensuring authenticity and credibility.",
+  },
+  {
+    id: 3,
+    name: "Instant hiring capabilities, reducing the typical booking process from weeks to minutes.",
+  },
+
+  {
+    id: 4,
+    name: "Limited access to verified portfolios, making it difficult to assess talent efficiently.",
+  },
+];
+
+export const unfairPayment = [
+  {
+    id: 1,
+    name: "Takes commissions of up to 40%, significantly reducing a creative’s earnings.",
+  },
+  {
+    id: 2,
+    name: "Delays payments, with some agencies holding funds for months",
+  },
+  {
+    id: 3,
+    name: "Lacks transparency, leaving creatives unsure about their actual pay.",
+  },
+];
+
+export const vmodelSolutions3 = [
+  {
+    id: 1,
+    name: "Zero agency fees – Talent set their own rates and receive 100% of their earnings.",
+  },
+
+  {
+    id: 2,
+    name: "Secure escrow payments, ensuring funds are released only when work is completed.",
+  },
+
+  {
+    id: 3,
+    name: "Automatic invoicing, eliminating the risk of missed or delayed payments.",
+  },
+];
+
+export const fragmentWork = [
+  {
+    id: 1,
+
+    name: "Missed job opportunities due to lack of organization.",
+  },
+
+  {
+    id: 2,
+
+    name: "Lost invoices and payment tracking issues.",
+  },
+
+  {
+    id: 3,
+
+    name: "Difficulty maintaining a professional portfolio in one place.",
+  },
+];
+
+export const vmodelSolution4 = [
+  {
+    id: 1,
+
+    name: "A fully integrated workspace with messaging, contracts, payments, and job applications all in one place.",
+  },
+
+  {
+    id: 2,
+
+    name: "No agency bias – Clients see talent based on merit, not stereotypes.",
+  },
+
+  {
+    id: 3,
+
+    name: "A diversity search feature, allowing brands to find talent based on their specific inclusivity goals.",
+  },
+];
+
+export const vmodelSolution5 = [
+  {
+    id: 1,
+
+    name: "A mobile-first platform built specifically for the creative industry.",
+  },
+
+  {
+    id: 2,
+
+    name: "Advanced AI job matching, automatically connecting creatives with relevant gigs.",
+  },
+
+  {
+    id: 3,
+
+    name: "Integrated project management tools, streamlining collaboration between talent and brands.",
+  },
+];
+
+export const lackOfDiversity = [
+  {
+    id: 1,
+
+    name: "Only 48% of models in major fashion campaigns were people of colour.",
+  },
+
+  {
+    id: 2,
+
+    name: "Plus-size, disabled, and gender-diverse models make up less than 10% of industry representation.",
+  },
+];
+
+export const vmodelSolution6 = [
+  {
+    id: 1,
+
+    name: "An inclusive hiring system where talent of all backgrounds are equally represented.",
+  },
+
+  {
+    id: 2,
+
+    name: "No agency bias – Clients see talent based on merit, not stereotypes.",
+  },
+
+  {
+    id: 3,
+    name: "A diversity search feature, allowing brands to find talent based on their specific inclusivity goals.",
   },
 ];

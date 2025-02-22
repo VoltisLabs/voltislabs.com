@@ -4,13 +4,25 @@ import Subtitle from "@/src/components/UI/subtitle";
 import Title from "@/src/components/UI/Title";
 import React, { useState } from "react";
 import {
+  fragmentWork,
+  lackOfDiversity,
+  manyCreatives,
   paragrapghClassName,
   secondaryTitleClassName,
   sectionTitleClassName,
+  slowExpensiveHiring,
   titleClassName,
+  unfairPayment,
+  vmodelSolution4,
+  vmodelSolution5,
+  vmodelSolution6,
+  vmodelSolutions,
+  vmodelSolutions2,
+  vmodelSolutions3,
 } from "../data";
 import Sidebar from "@/src/components/UI/SideBar";
 import Image from "next/image";
+import FlatList from "@/src/components/UI/FlatList";
 
 function Vmodel() {
   const menuItems = [
@@ -294,16 +306,193 @@ function Vmodel() {
           </span>
           <br />
           <span className={paragrapghClassName}>
-            Thank you for being part of the VModel community. We can’t wait to
-            see the amazing things you’ll create next!
+            We’re not just a platform; we’re a movement designed to break
+            barriers, champion fair pay, and enable creatives to build
+            sustainable careers on their own terms.
           </span>
+
+          <br />
+        </div>
+
+        <div className="sectional-page-container">
+          <h1 className={secondaryTitleClassName}>
+            The Inspiration: Why We Built VModel
+          </h1>
           <br />
           <span className={paragrapghClassName}>
-            With passion and innovation,
+            VModel was born out of frustration with the outdated and
+            exclusionary nature of the creative industry. We saw talented
+            individuals unable to land jobs—not because of their skills or
+            dedication, but because they lacked industry connections or the
+            financial means to work with agencies.
           </span>
+
+          <br />
+          <span className={paragrapghClassName}>
+            We recognized the same issues on the hiring side—businesses
+            struggling to find verified, high-quality talent in an increasingly
+            fast-paced digital world. Traditional agencies often create
+            bottlenecks, slowing down hiring and making creative work
+            unnecessarily expensive. The creative industry was long overdue for
+            a digital transformation. “The world is evolving, and yet the way we
+            hire and collaborate in creative industries remains stuck in the
+            past. VModel is our answer to a future where talent meets
+            opportunity - instantly, fairly, and without barriers.”
+          </span>
+        </div>
+        <br />
+        <br />
+        <div className="section-page-container">
+          <h1 className={secondaryTitleClassName}>
+            The Problem: The Industry’s Biggest Challenges and How VModel Solves
+            Them
+          </h1>
           <br />
           <br />
-          <span className={paragrapghClassName}> The VModel Team ✨</span>
+          <div className="image-container h-[38rem] rounded-[10px] overflow-hidden">
+            <Image
+              src={"/image/vmodel6.jpeg"}
+              alt="page-image"
+              width={500}
+              height={500}
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
+
+          <br />
+
+          <div className="text-container">
+            <h1 className={titleClassName}>
+              1. Lack of Accessible Opporunities for Talent
+            </h1>
+            {/* <br /> */}
+            <span className={paragrapghClassName}>
+              A report by the British Fashion Council found that 70% of aspiring
+              models, photographers, and stylists struggle to find consistent
+              work due to industry gatekeeping.
+            </span>
+            <br />
+
+            <span className={paragrapghClassName}>
+              Many creatives remain undiscovered simply because:
+            </span>
+
+            <FlatList listItems={manyCreatives} />
+          </div>
+
+          <br />
+
+          <div className="text-section">
+            <h1 className={titleClassName}>VModel’s Solution:</h1>
+            <FlatList listItems={vmodelSolutions} />
+          </div>
+
+          <br />
+
+          <div className="text-secti">
+            <h1 className={titleClassName}>
+              A Slow, Expensive Hiring Process for Brands
+            </h1>
+            <FlatList listItems={slowExpensiveHiring} />
+          </div>
+
+          <br />
+          <div className="text-secti">
+            <h1 className={titleClassName}>VModel’s Solution:</h1>
+            <FlatList listItems={vmodelSolutions2} />
+          </div>
+
+          <br />
+          <div className="text-secti">
+            <h1 className={titleClassName}>
+              Unfair Payment Structures and Late Payments
+            </h1>
+            <span className={paragrapghClassName}>
+              A survey by Freelancers Union found that 71% of creatives
+              experience delayed or missing payments at least once in their
+              careers.
+            </span>
+
+            <br />
+
+            <span className={paragrapghClassName}>
+              The traditionally agency model often:
+            </span>
+            <FlatList listItems={unfairPayment} />
+          </div>
+
+          <br />
+
+          <div className="text-section">
+            <h1 className={titleClassName}>VModel's Solution:</h1>
+            <FlatList listItems={vmodelSolutions3} />
+          </div>
+          <br />
+          <div className="text-section">
+            <h1 className={titleClassName}>
+              4. Fragmented Work Management & Lack of Professional Tools
+            </h1>
+            <span className={paragrapghClassName}>
+              Most creatives use multiple platforms—Instagram for exposure,
+              emails for client communication, and third-party sites for
+              payments. This leads to:
+            </span>
+
+            <FlatList listItems={fragmentWork} />
+          </div>
+
+          <br />
+
+          <div className="text-section">
+            <h1 className={titleClassName}>VModel's Solution:</h1>
+
+            <FlatList listItems={vmodelSolution4} />
+            <span className={paragrapghClassName}>
+              “True representation starts with accessibility. VModel makes sure
+              talent from every background gets seen.”
+            </span>
+          </div>
+          <br />
+          <div className="text-section">
+            <h1 className={titleClassName}>
+              The Shift to Digital-First Workflows
+            </h1>
+
+            <span className={paragrapghClassName}>
+              A 2023 Statista report found that over 55% of creative
+              professionals prefer digital platforms over traditional agencies.
+              However, most existing platforms are either too broad (general
+              freelancing sites) or too niche (agency-run networks).
+            </span>
+          </div>
+          <br />
+          <div className="text-section">
+            <h1 className={titleClassName}>VModel's Solution:</h1>
+            <FlatList listItems={vmodelSolution5} />
+          </div>
+          <br />
+          <div className="text-section">
+            <h1 className={titleClassName}>
+              Lack of Diversity & Inclusivity in the Industry
+            </h1>
+
+            <span className={paragrapghClassName}>
+              A 2022 report by The Fashion Spot revealed that:
+            </span>
+
+            <FlatList listItems={lackOfDiversity} />
+          </div>
+
+          <br />
+
+          <div className="text-section">
+            <h1 className={titleClassName}>VModel's Solution</h1>
+            <FlatList listItems={vmodelSolution6} />
+            <span className={paragrapghClassName}>
+              “True representation starts with accessibility. VModel makes sure
+              talent from every background gets seen
+            </span>
+          </div>
         </div>
       </div>
     </div>
