@@ -162,7 +162,7 @@ function Vmodel() {
           <h1 className={secondaryTitleClassName}>Who is VModel For?</h1>
 
           <br />
-          <div className="image-container h-[38rem] rounded-[10px] overflow-hidden">
+          <div className="image-container h-[30rem] rounded-[8px] overflow-hidden">
             <Image
               src={"/image/vmodel4.jpeg"}
               alt="page-image"
@@ -301,7 +301,7 @@ function Vmodel() {
           </h1>
 
           <br />
-          <div className="image-container h-[38rem] rounded-[10px] overflow-hidden">
+          <div className="image-container h-[30rem] rounded-[8px] overflow-hidden">
             <Image
               src={"/image/vmodel5.jpeg"}
               alt="page-image"
@@ -368,7 +368,7 @@ function Vmodel() {
           </h1>
           <br />
           <br />
-          <div className="image-container h-[38rem] rounded-[10px] overflow-hidden">
+          <div className="image-container h-[30rem] rounded-[8px] overflow-hidden">
             <Image
               src={"/image/vmodel6.jpeg"}
               alt="page-image"
