@@ -47,7 +47,7 @@ function page() {
         </div>
       </section>
 
-      <div className="mb-16 mx-auto max-w-xl px-[2rem] md:px-0">
+      <div className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0">
         <section className="text-white mb-8">
           <h1 className={titleClassName}>Hi Preluvas</h1>
           <span className={paragrapghClassName}>

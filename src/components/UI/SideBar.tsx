@@ -35,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({ tbList }) => {
   };
 
   return (
-    <div className="relative ">
+    <div className="relative">
       <div className="fixed left-0 hidden top-1/2 transform -translate-y-1/2 2xl:flex flex-col justify-center items-start pl-6">
         <ul className="space-y-4">
           {tbList.map((item, index) => (
