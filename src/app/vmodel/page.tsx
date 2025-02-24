@@ -33,7 +33,7 @@ function Vmodel() {
     { name: "What is VModel?", route: "firstSection", Icon: "" },
     { name: "Who is VModel For?", route: "secondSection", Icon: "" },
     { name: "Why VModel?", route: "thirdSection", Icon: "" },
-    { name: "How It Works", route: "", Icon: "" },
+    { name: "How It Works", route: "firstSection", Icon: "" },
     { name: "Ideology", route: "fifthSection", Icon: "" },
     { name: "The Inspiration Behind VModel", route: "sixthSection", Icon: "" },
     {
