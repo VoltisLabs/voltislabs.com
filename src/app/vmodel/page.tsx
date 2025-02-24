@@ -30,23 +30,23 @@ import FlatList from "@/src/components/UI/FlatList";
 
 function Vmodel() {
   const menuItems = [
-    { name: "What is VModel?", route: "#firstSection", Icon: "" },
-    { name: "Who is VModel For?", route: "#secondSection", Icon: "" },
-    { name: "Why VModel?", route: "#thirdSection", Icon: "" },
-    { name: "How It Works", route: "#", Icon: "" },
-    { name: "Ideology", route: "#fifthSection", Icon: "" },
-    { name: "The Inspiration Behind VModel", route: "#sixthSection", Icon: "" },
+    { name: "What is VModel?", route: "firstSection", Icon: "" },
+    { name: "Who is VModel For?", route: "secondSection", Icon: "" },
+    { name: "Why VModel?", route: "thirdSection", Icon: "" },
+    { name: "How It Works", route: "", Icon: "" },
+    { name: "Ideology", route: "fifthSection", Icon: "" },
+    { name: "The Inspiration Behind VModel", route: "sixthSection", Icon: "" },
     {
       name: "The Challenges Creators Face Today",
-      route: "#seventhSection",
+      route: "seventhSection",
       Icon: "",
     },
     {
       name: "The Research: What the Industry Says",
-      route: "#eighthSection",
+      route: "eighthSection",
       Icon: "",
     },
-    { name: "A New Era for Creative Talent", route: "#lastSection", Icon: "" },
+    { name: "A New Era for Creative Talent", route: "lastSection", Icon: "" },
   ];
 
   return (
