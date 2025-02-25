@@ -19,7 +19,7 @@ const LearnMoreBtn = ({
   return (
     <div
       onClick={() => router.push(route ?? "/")}
-      className={`item-container flex items-center gap-2 p-1 border-solid ${borderColor} border-[1px] px-2 min-w-[9rem] h-[2rem] rounded-[4px]`}
+      className={`item-container cursor-pointer flex items-center gap-2 p-1 border-solid ${borderColor} border-[1px] px-2 min-w-[9rem] h-[2rem] rounded-[4px]`}
     >
       <span className={`block ${textColor} md:text-[.8rem] text-[.6rem]`}>
         {text}
