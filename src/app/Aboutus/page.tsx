@@ -1,69 +1,50 @@
 import React from "react";
-import { Aboutus,prelura } from "../data";
+import { Aboutus, prelura } from "../data";
 import Title from "@/src/components/UI/Title";
 import Subtitle from "@/src/components/UI/subtitle";
 import { paragrapghClassName, titleClassName } from "../data";
 import Sidebar from "@/src/components/UI/SideBar";
+import TitleSection from "@/src/components/UI/TitleSection";
 
 function page() {
-
-
   const menuItems = [
     { name: "Home", route: "#about-home" },
     { name: "About Us", route: "#about" },
     { name: "Our Mission", route: "#mission" },
     { name: "Looking Ahead", route: "#looking-ahead" },
   ];
-  
-  
 
   return (
     <div className="pt-[.1rem] text-white ">
       <Sidebar tbList={menuItems} />
 
-<section id="prelura-home" className="text-center mt-10 px-4 mb-6 text-white">
-        <Title className="mt-2">We are Voltis Labs</Title>
-        <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
-          <Subtitle className="text-[#858585] font-normal ">
-          Published on Monday 9th February, 2025
-          </Subtitle>
-        </div>
-      </section>
+      <TitleSection
+        title="We are Voltis Labs"
+        subTitle=""
+        secondaryText="Published on Monday 9th February, 2025"
+        containerStyle="mb-6"
+      />
 
-
-
-
-      
-<section className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] mb-10">
+      <section className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] mb-10">
         <div className="flex items-center gap-6 md:flex-row flex-col">
-         
-
-
-
-{Aboutus.map((img, index) => (
-              <div
-                key={index}
-                className="w-full md:h-[38rem] h-[25rem] rounded-[9px] overflow-hidden md:w-[50%]"
-              >
-                <img
-                  src={img.img}
-                  alt="reluraimg"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-            ))}
+          {Aboutus.map((img, index) => (
+            <div
+              key={index}
+              className="w-full md:h-[38rem] h-[25rem] rounded-[9px] overflow-hidden md:w-[50%]"
+            >
+              <img
+                src={img.img}
+                alt="reluraimg"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+          ))}
         </div>
       </section>
 
-
-
-
-    
-      <div className="mb-16 mx-auto max-w-xl px-[2rem] md:px-0  ">
-      
+      <div className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0  ">
         <section className="text-white my-8  mb-20 font-normal ">
-         
-         {/** 
+          {/** 
           *
   <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] "  >
 
@@ -81,8 +62,6 @@ function page() {
               </div>
             ))}
           </div>*/}
-         
-         
 
           <span className={`mb-5 ${paragrapghClassName}`}>
             At Voltis Labs, we <span className="font-semibold">believe </span>
@@ -110,8 +89,10 @@ function page() {
           </span>
         </section>
 
- <section className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem] ">
-          <h1 id="mission" className="font-bold text-3xl mb-8  text-white">Our Mission</h1>
+        <section className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem] ">
+          <h1 id="mission" className="font-bold text-3xl mb-8  text-white">
+            Our Mission
+          </h1>
           <div className="flex md:flex-row flex-col w-full gap-8">
             <div className="w-full md:w-[48.5%]">
               <span className={paragrapghClassName}>
@@ -123,7 +104,9 @@ function page() {
                 for those who dare to dream big.
               </span>
               <br />
-              <span id="values" className={paragrapghClassName}>Our Values</span>
+              <span id="values" className={paragrapghClassName}>
+                Our Values
+              </span>
               <ul className="list-disc pl-4">
                 <li>
                   <span className={titleClassName}>
@@ -175,21 +158,21 @@ function page() {
                 </li>
               </ul>
             </div>
-            
+
             <div className="w-full md:w-[40%] flex justify-center md:justify-end pt-2 ">
-              
               <img
                 src="../image/landingimg3.png"
                 alt="Icon"
                 className="w-full h-full md:h-[35rem] object-cover object-center rounded-lg"
-
-            />
+              />
             </div>
           </div>
         </section>
 
         <section className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem]">
-          <h1 id="looking-ahead" className="font-bold text-[30px] mb-8">Looking Ahead</h1>
+          <h1 id="looking-ahead" className="font-bold text-[30px] mb-8">
+            Looking Ahead
+          </h1>
           <span className={paragrapghClassName}>
             Voltis Labs isn’t just a tech company—it’s a movement. We are here
             to redefine what’s possible, to bridge the gap between vision and

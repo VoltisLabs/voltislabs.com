@@ -27,6 +27,7 @@ import {
 import Sidebar from "@/src/components/UI/SideBar";
 import Image from "next/image";
 import FlatList from "@/src/components/UI/FlatList";
+import TitleSection from "@/src/components/UI/TitleSection";
 
 function Vmodel() {
   const menuItems = [
@@ -52,19 +53,14 @@ function Vmodel() {
   return (
     <div className="pt-[1rem] text-white">
       <Sidebar tbList={menuItems} />
-      <div className="text-center mt-10 px-4 mb-6">
-        <Title className="mt-2">Your creative career, your way!</Title>
-        <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
-          <Subtitle className="font-medium mb-8">
-            Exciting updates are here for VModel! Enjoy a fresh UI, AI job
-            matching, real-time messaging, an enhanced portfolio, and easier
-            payments. More to come soon!
-          </Subtitle>
-          <Subtitle className="text-[#858585] font-normal ">
-            Published on Monday 17th February, 2025
-          </Subtitle>
-        </div>
-      </div>
+      <TitleSection
+        title="Your creative career, your way!"
+        subTitle="Exciting updates are here for VModel! Enjoy a fresh UI, AI job
+          matching, real-time messaging, an enhanced portfolio, and easier
+          payments. More to come soon!"
+        secondaryText="Published on Monday 17th February, 2025"
+        containerStyle="mb-[4rem]"
+      />
 
       <div className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0">
         <div className="flex-container flex items-start  justify-start gap-6 mb-8">

@@ -8,7 +8,10 @@ interface TitleProp {
 
 const Subtitle = ({ children, className, props }: TitleProp) => {
   return (
-    <h1 {...props} className={`md:text-lg text-base ${className}`}>
+    <h1
+      {...props}
+      className={`md:text-[.9rem] mx-auto md:w-[80%] w-[90%] text-base ${className}`}
+    >
       {children}
     </h1>
   );
