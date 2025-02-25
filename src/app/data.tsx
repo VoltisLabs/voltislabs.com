@@ -103,13 +103,16 @@ export const products = [
 
 export const prelura = [
   {
-    img: "/image/landing1.png",
+    img: "/image/preluraslider1.jpeg",
   },
   {
-    img: "/image/landingimg2.png",
+    img: "/image/prelureslider2.jpeg",
   },
   {
-    img: "/image/landingimg3.png",
+    img: "/image/preluraslider3.jpeg",
+  },
+  {
+    img: "/image/preluraslider4.jpeg",
   },
 ];
 
@@ -395,5 +398,66 @@ export const constantlyInnovating = [
   {
     id: 3,
     name: "Exclusive brand partnerships, bringing even more work opportunities.",
+  },
+];
+
+export const forSellers = [
+  {
+    id: 1,
+    name: "List in Minutes – Snap photos, add details, and set a price in a few taps.",
+  },
+
+  {
+    id: 2,
+    name: "Smart Pricing Insights – Get help pricing items competitively.",
+  },
+
+  {
+    id: 3,
+    name: "Quick & Secure Payments – No waiting weeks for payouts. Sell, ship, and get paid fast.",
+  },
+
+  {
+    id: 4,
+    name: "Seamless Buyer Interaction – Manage orders, respond to offers, and keep track of sales.",
+  },
+];
+
+export const forBuyers = [
+  {
+    id: 1,
+    name: "Discover Unique Finds – Browse high-quality secondhand and vintage pieces.",
+  },
+
+  {
+    id: 2,
+    name: "Graded Condition System – Clear item condition labels for total transparency.",
+  },
+
+  {
+    id: 3,
+    name: "Personalized Shopping – Follow sellers, save favorite items, and get tailored recommendations.",
+  },
+
+  {
+    id: 4,
+    name: "Safe & Secure Transactions – Buyer protection ensures a worry-free experience.",
+  },
+];
+
+export const trustedCommunity = [
+  {
+    id: 1,
+    name: "Buyer & Seller Protection – Secure transactions, clear policies, and dispute resolution.",
+  },
+
+  {
+    id: 2,
+    name: "Authenticity & Quality – Our grading system ensures buyers know exactly what they’re getting.",
+  },
+
+  {
+    id: 3,
+    name: "Fair Pricing – No inflated markups or unfair cuts. Sellers keep more of what they earn.",
   },
 ];

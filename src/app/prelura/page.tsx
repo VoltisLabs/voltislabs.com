@@ -1,26 +1,39 @@
 import React from "react";
-import { prelura } from "../data";
+import {
+  forBuyers,
+  forSellers,
+  prelura,
+  secondaryTitleClassName,
+  trustedCommunity,
+} from "../data";
 import Image from "next/image";
 import Title from "@/src/components/UI/Title";
 import Subtitle from "@/src/components/UI/subtitle";
 import { paragrapghClassName, titleClassName } from "../data";
 import Sidebar from "@/src/components/UI/SideBar";
+import FlatList from "@/src/components/UI/FlatList";
+import Marquee from "react-fast-marquee";
 
 function page() {
   const menuItems = [
-    { name: "Home", route: "#prelura-home", Icon: "" },
-    { name: "From prelura", route: "#prelura-more", Icon: "" },
+    { name: "About Prelura", route: "#prelura-home", Icon: "" },
+    { name: "How It Works", route: "#prelura-more", Icon: "" },
+    { name: "Why Choose Prelura?", route: "#prelura-more", Icon: "" },
+    { name: "Prelura For Sellers", route: "#prelura-more", Icon: "" },
+    { name: "Prelura For Buyers", route: "#prelura-more", Icon: "" },
+    { name: "FAQs & Help Center", route: "#prelura-more", Icon: "" },
   ];
 
   return (
     <div id="prelura-home" className="pt-[1rem] ">
       <Sidebar tbList={menuItems} />
       <section className="text-center mt-10 px-4 mb-6 text-white">
-        <Title className="mt-2">Dont wear it? Sell it!</Title>
+        <Title className="mt-2">Prelura: A New Era of Secondhand Fashion</Title>
         <div className="text-center px-4 sm:px-10 md:px-20  xl:px-56 mt-4 ">
           <Subtitle className="font-medium mb-8">
-            Prelura makes it easy to pass on the pieces you no longer wear,
-            giving them a new home while putting money back in your pocket
+            Exciting updates are here for VModel! Enjoy a fresh UI, AI job
+            matching, real-time messaging, an enhanced portfolio, and easier
+            payments. More to come soon!
           </Subtitle>
           <Subtitle className="text-[#858585] font-normal ">
             Published on Monday 17th February, 2025
@@ -30,354 +43,238 @@ function page() {
 
       <section className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
         <div className="flex items-center gap-6 md:flex-row flex-col">
-          {prelura.map((img, index) => (
-            <div
-              key={index}
-              className="w-full overflow-hidden rounded-[10px] md:h-[35rem] h-[23rem]"
-            >
-              <Image
-                src={img.img}
-                alt="reluraimg"
-                className="w-full h-full object-cover object-top"
-                width={500}
-                height={500}
-              />
-            </div>
-          ))}
+          <Marquee
+            className="slider-statement cursor-default bg-carpet-green relative"
+            speed={50}
+            direction="right"
+          >
+            {prelura.map((img, index) => (
+              <div
+                key={index}
+                className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
+              >
+                <Image
+                  src={img.img}
+                  alt="reluraimg"
+                  className="w-full h-full object-cover object-top"
+                  width={500}
+                  height={500}
+                />
+              </div>
+            ))}
+          </Marquee>
         </div>
       </section>
 
       <div className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0">
         <section className="text-white mb-8">
-          <h1 className={titleClassName}>Hi Preluvas</h1>
+          <h1 className={titleClassName}>
+            Reimagining Preloved, One Item at a Time
+          </h1>
           <span className={paragrapghClassName}>
-            We’re excited to introduce a major update packed with new features,
-            improvements, and innovations designed to make buying and selling
-            preloved fashion easier, safer, and more rewarding.
+            Fashion is more than just clothing—it’s a reflection of personality,
+            creativity, and individuality. But the way we consume fashion has
+            changed drastically. Overproduction, impulse shopping, and
+            short-lived trends have created a wasteful cycle where clothes are
+            discarded faster than ever before. At Prelura, we’re flipping the
+            script.
           </span>{" "}
           <br />
-          <span className={`mb-6 ${paragrapghClassName}`}>
-            Over the past few months, we’ve listened to your feedback and worked
-            on ways to enhance your experience, ensuring that Prelura remains
-            the go-to platform for discovering unique fashion while promoting a
-            more sustainable way to shop. Whether you’re clearing out your
-            closet, hunting for rare finds, or running a thriving second hand
-            business, these updates are designed with you in mind.
+          <span className={`mb-2 ${paragrapghClassName}`}>
+            Prelura isn’t just another resale platform. We’re redefining
+            secondhand fashion by making it simpler, smarter, and more rewarding
+            for both buyers and sellers. We believe in quality over quantity,
+            sustainability over waste, and individuality over mass production.
           </span>
           <span className={paragrapghClassName}>
-            Here’s what’s new, what’s improved, and what’s coming next:
+            Every piece of clothing has a story, and we’re here to help it
+            continue—through new owners, new styles, and new possibilities.
           </span>
         </section>
 
         <section id="prelura-more" className="text-white mb-8">
-          <h1 className={titleClassName}>
-            A Smarter, More Personalized Shopping Experience
-          </h1>
+          <h1 className={secondaryTitleClassName}>The Problem We're Solving</h1>
 
-          <span className={paragrapghClassName}>
-            AI-Powered Search & Smart Recommendations
-          </span>
-          <span className={paragrapghClassName}>
-            Finding the perfect item has never been easier. Our improved
-            AI-powered search engine now delivers more accurate results, helping
-            you discover pieces that truly match your style and preferences.
-          </span>
-          <ul className="list-disc pl-5">
-            <li>
-              <span className={paragrapghClassName}>
-                Refined search filters allow you to browse by brand, condition,
-                size, and more.
-              </span>
-            </li>
-            <li>
-              <span className={paragrapghClassName}>
-                Smart recommendations curate personalized selections based on
-                your past searches and purchases.
-              </span>
-            </li>
-            <li>
-              <span className={paragrapghClassName}>
-                Saved searches & alerts notify you when an item you’re looking
-                for becomes available.
-              </span>
-            </li>
-          </ul>
-        </section>
-
-        <section className="text-white mb-8">
-          <h1 className={titleClassName}>
-            New Discover Feed – Follow, Favourite & Explore
-          </h1>
-          <span className={paragrapghClassName}>
-            We’re making shopping more interactive with a dynamic discover feed
-            that helps you stay ahead of trends, explore curated collections,
-            and connect with sellers whose style matches yours.
-          </span>
-          <ul className="list-disc pl-5">
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Follow sellers to get notified when they list new items.
-              </span>
-            </li>
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Daily trend highlights showcase the most sought-after pieces.
-              </span>
-            </li>
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Community favourites help you discover what’s trending across
-                Prelura.
-              </span>
-            </li>
-          </ul>
-          <span className={paragrapghClassName}>
-            Shopping preloved fashion should feel like an exciting treasure
-            hunt, and this new update makes the journey even more engaging.
-          </span>
-        </section>
-
-        <section className="text-white mb-8">
-          <h1 className={titleClassName}>
-            Selling Made Simple & More Rewarding
-          </h1>
-          <span className="text-[#858585] font-normal text-sm/4 md:text-base/5 text-wrap break-all">
-            Faster Listing & Smarter Pricing
-          </span>
+          <div className="text-section">
+            <span className={titleClassName}>Fast Fashion Impact</span>
+            <span className={paragrapghClassName}>
+              The fashion industry produces 92 million tons of textile waste
+              every year. Mass production has made clothing cheaper and more
+              disposable, leading to overfilled closets and landfills packed
+              with barely worn garments.
+            </span>
+          </div>
           <br />
-          <span className={paragrapghClassName}>
-            Selling on Prelura is now easier than ever with streamlined listing
-            tools that help you price and present your items effectively.
-          </span>
-          <ul className="list-disc pl-5">
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Auto-enhanced photos ensure your listings look professional with
-                minimal effort.
-              </span>
-            </li>
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Smart price suggestions show you what similar items have sold
-                for, so you can price competitively.
-              </span>
-            </li>
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Condition grading system makes it clear to buyers what they’re
-                getting (New, Like New, Gently Used, Well-Loved).
-              </span>
-            </li>
-          </ul>
-          <span className={paragrapghClassName}>
-            With these updates, listing an item takes just seconds, and you get
-            all the insights you need to sell faster.
-          </span>
-        </section>
-
-        <section className="text-white mb-8">
-          <h1 className={titleClassName}>
-            Prelura Pro – The Ultimate Seller Toolkit
-          </h1>
-          <span className={paragrapghClassName}>
-            For those who sell regularly or want to grow their shop, we’re
-            introducing Prelura Pro, a premium toolkit with advanced seller
-            features:
-          </span>
-
-          <ul className="list-disc pl-5">
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Bulk listing & auto-relist for high-volume sellers.
-              </span>
-            </li>
-
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Advanced shop analytics to track sales, views, and customer
-                engagement.
-              </span>
-            </li>
-
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Verified seller badges highlight sellers with a strong track
-                record.
-              </span>
-            </li>
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Instant refunds for items that don’t match the description.
-              </span>
-            </li>
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Stronger dispute resolution to quickly resolve any issues.
-              </span>
-            </li>
-          </ul>
-
-          <span className={paragrapghClassName}>
-            Whether you’re selling casually or as a business, Prelura Pro gives
-            you the tools to grow your presence and increase your earnings.
-          </span>
-        </section>
-        <section className="text-white mb-8">
-          <h1 className={titleClassName}>
-            Stronger Protections for Buyers & Sellers Verified Sellers & Secure
-          </h1>
-          <span className={paragrapghClassName}>
-            Transactions Trust is a top priority, and we’re rolling out new
-            features to ensure a safe, transparent marketplace for everyone.
-          </span>
-
-          <ul className="list-disc pl-5">
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Verified seller badges highlight sellers with a strong track
-                record.
-              </span>
-            </li>
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Instant refunds for items that don’t match the description.
-              </span>
-            </li>
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Stronger dispute resolution to quickly resolve any issues.
-              </span>
-            </li>
-          </ul>
-        </section>
-
-        <section className="text-white mb-8">
-          <h1 className={titleClassName}>
-            Prelura Secure Pay – A Safer Way to Transact
-          </h1>
-          <span className={paragrapghClassName}>
-            With our new in-app Prelura Secure Pay system, transactions are
-            safer and more convenient.
-          </span>
-
-          <ul className="list-disc pl-5">
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Funds are held in escrow until buyers confirm delivery.{" "}
-              </span>
-            </li>
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Faster pay-outs for sellers once transactions are completed.
-              </span>
-            </li>
-            <li>
-              {" "}
-              <span className={paragrapghClassName}>
-                Multiple payment options including digital wallets and direct
-                transfers.
-              </span>
-            </li>
-          </ul>
-          <span className={paragrapghClassName}>
-            This update ensures peace of mind for both buyers and sellers,
-            making every transaction smoother and more secure.
-          </span>
-        </section>
-
-        <section className="text-white mb-8">
-          <h1 className={titleClassName}>Sustainability at the Core</h1>
-          <span className="text-[#858585] font-normal text-sm/4 md:text-base/5 text-wrap break-all">
-            Eco-Friendly Shipping & Circular Fashion Initiatives
-          </span>
+          <div className="text-section">
+            <span className={titleClassName}>
+              Impulse Shopping & Unworn Clothing
+            </span>
+            <span className={paragrapghClassName}>
+              The average person wears only 20% of their wardrobe regularly. The
+              rest sits untouched, often forgotten until it’s time to declutter.
+              But instead of tossing items away or hoarding them indefinitely,
+              what if there was a better option?
+            </span>
+          </div>
           <br />
-          <span className={paragrapghClassName}>
-            We’re committed to making fashion more sustainable, and we’re
-            introducing features to help our community shop and sell
-            responsibly.
-          </span>
-          <ul className="list-disc pl-5">
-            <li>
-              <span className={paragrapghClassName}>
-                Carbon-neutral shipping options for a more eco-conscious
-                delivery process.
-              </span>
-            </li>
-
-            <li>
-              <span className={paragrapghClassName}>
-                Rewards for sustainable packaging—sellers who ship in reusable
-                or eco-friendly materials will get special recognition.
-              </span>
-            </li>
-
-            <li>
-              <span className={paragrapghClassName}>
-                Donation & recycling program—easily donate unsold items to
-                partnered charities instead of discarding them.
-              </span>
-            </li>
-          </ul>
-
-          <span className={paragrapghClassName}>
-            Together, we can extend the life of fashion and reduce waste, one
-            purchase at a time.
-          </span>
+          <div className="text-section">
+            <span className={titleClassName}>
+              Challenges in the Resale Market
+            </span>
+            <span className={paragrapghClassName}>
+              Many existing resale platforms are complicated, impersonal, and
+              frustrating to navigate. Sellers struggle with slow sales,
+              unreliable buyers, and pricing confusion. Buyers worry about
+              product authenticity, item condition, and getting fair deals.
+              Fashion should be sustainable, stylish, and accessible. That’s
+              where Prelura comes in.
+            </span>
+          </div>
         </section>
+        <br />
+
+        <section className="">
+          <h1 className={secondaryTitleClassName}>Our Vision</h1>
+          <br />
+          <div className="flex-section flex items-start gap-3 justify-between w-full">
+            <div className="text-section w-[55%]">
+              <span className={paragrapghClassName}>
+                We see a future where second-hand fashion is the first choice. A
+                future where selling your clothes is as easy as posting a photo,
+                and finding unique, high-quality items feels as effortless as
+                browsing your favourite store.
+              </span>
+
+              <span className={paragrapghClassName}>
+                Prelura is built for people who love fashion but want a smarter,
+                more sustainable way to shop and sell. We’re here to make
+                resale:
+              </span>
+              <br />
+              <div className="title-text-section ">
+                <ul className="list-disc pl-5 text-white">
+                  <li>
+                    <span className={`${paragrapghClassName}`}>
+                      <span className="font-bold">Effortless - </span>
+                      No confusing steps or unnecessary friction. Just list,
+                      sell, and ship.
+                    </span>
+                  </li>
+                  <br />
+                  <li>
+                    <span className={`${paragrapghClassName}`}>
+                      <span className="font-bold">Enjoyable - </span>A
+                      beautifully designed platform that makes buying and
+                      selling feel exciting.
+                    </span>
+                  </li>
+                  <br />
+                  <li>
+                    <span className={`${paragrapghClassName}`}>
+                      <span className="font-bold">Empowering - </span>
+                      Helping people make money from clothes they no longer
+                      wear.
+                    </span>
+                  </li>
+                  <li>
+                    <span className={`${paragrapghClassName}`}>
+                      <span className="font-bold">Ethical - </span>
+                      Fighting fashion waste and supporting a more sustainable
+                      industry.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="image-section rounded-[9px] overflow-hidden bg-yellow-300 h-[22rem] md:w-[40%]">
+              <Image
+                src={"/image/prelura2.jpeg"}
+                alt="section-image"
+                width={300}
+                height={300}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </section>
+        <br />
+        <br />
         <section className="text-white mb-8">
-          <h1 className={titleClassName}> What’s Coming Next? </h1>
-          <span className={paragrapghClassName}>
-            This update is just the beginning! Here’s what’s on the horizon for
-            Prelura:
-          </span>
-          <ul className="list-disc pl-5">
-            <li>
-              <span className={paragrapghClassName}>
-                AI-powered virtual try-ons – See how items might look on you
-                before buying.
-              </span>
-            </li>
+          <h1 className={secondaryTitleClassName}>How Prelura Works</h1>
+          <br />
 
-            <li>
-              <span className={paragrapghClassName}>
-                Live seller auctions – Bid in real-time for unique finds.{" "}
-              </span>
-            </li>
+          <div className="text-section">
+            <span className={titleClassName}>For Sellers</span>
+            <FlatList listItems={forSellers} />
+          </div>
+          <br />
+          <div className="text-section">
+            <span className={titleClassName}>For Buyers</span>
+            <FlatList listItems={forBuyers} />
+          </div>
 
-            <li>
-              <span className={paragrapghClassName}>
-                Loyalty rewards – Earn points for buying and selling, redeemable
-                for exclusive perks.
-              </span>
-            </li>
-          </ul>
+          <br />
+          <br />
+          <div className="image-container h-[30rem] rounded-[8px] overflow-hidden">
+            <Image
+              src={"/image/prelura3.jpeg"}
+              alt="page-image"
+              width={500}
+              height={500}
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
+
+          <br />
+
+          <h1 className={secondaryTitleClassName}>What Sets Prelura Apart?</h1>
+
+          <br />
+
+          <div className="text-container">
+            <span className={titleClassName}>Simplicity First</span>
+            <span className={paragrapghClassName}>
+              Unlike other platforms, we designed Prelura to feel as easy and
+              enjoyable as shopping online—no unnecessary complexity, no
+              frustration.
+            </span>
+          </div>
+          <br />
+          <div className="text-container">
+            <span className={titleClassName}>Sustainablity at the core</span>
+            <span className={paragrapghClassName}>
+              We believe in circular fashion. Every purchase helps reduce
+              fashion waste, giving clothes a second life instead of
+              contributing to landfills
+            </span>
+          </div>
+
+          <br />
+          <div className="text-container">
+            <span className={titleClassName}>A Trusted Community</span>
+            <FlatList listItems={trustedCommunity} />
+          </div>
+
+          <br />
+
+          <div className="text-section">
+            <span className={titleClassName}>
+              A Future of Conscious Fashion
+            </span>
+            <span className={paragrapghClassName}>
+              As second-hand fashion grows, we’re shaping a world where resale
+              isn’t just an afterthought—it’s the future of shopping.
+            </span>
+          </div>
         </section>
-        <section className="text-white mb-20">
-          <span className={paragrapghClassName}>
-            We’re shaping the future of second-hand fashion, and your feedback
-            plays a huge role in making Prelura the best it can be. Let us know
-            what you think of these updates, and stay tuned for even more
-            exciting features!
-          </span>
-          <span className={paragrapghClassName}>
-            Thank you for being part of Prelura—where preloved finds a new home.
-          </span>
+
+        <section className="final-section">
+          <blockquote className="font-bold text-center text-white text-[1.4rem] mx-auto w-[90%]">
+            "Clothing is a form of self-expression. Let’s express ourselves
+            while making a difference." -{" "}
+            <span className="text-gray-500">Voltis Labs</span>
+          </blockquote>
         </section>
       </div>
     </div>
