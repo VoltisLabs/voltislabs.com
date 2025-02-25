@@ -28,6 +28,7 @@ import Sidebar from "@/src/components/UI/SideBar";
 import Image from "next/image";
 import FlatList from "@/src/components/UI/FlatList";
 import TitleSection from "@/src/components/UI/TitleSection";
+import Marquee from "react-fast-marquee";
 
 function Vmodel() {
   const menuItems = [
@@ -50,6 +51,21 @@ function Vmodel() {
     { name: "A New Era for Creative Talent", route: "lastSection", Icon: "" },
   ];
 
+  const vmodelImages = [
+    {
+      img: "/image/vmodelslider1.jpeg",
+    },
+    {
+      img: "/image/vmodelslider2.png",
+    },
+    {
+      img: "/image/vmodelslider3.png",
+    },
+    {
+      img: "/image/vmodelslider4.jpeg",
+    },
+  ];
+
   return (
     <div className="pt-[1rem] text-white">
       <Sidebar tbList={menuItems} />
@@ -59,15 +75,35 @@ function Vmodel() {
           matching, real-time messaging, an enhanced portfolio, and easier
           payments. More to come soon!"
         secondaryText="Published on Monday 17th February, 2025"
-        containerStyle="mb-[4rem]"
+        containerStyle="mb-[2.8rem]"
       />
 
+      <div className="image-section mb-[4.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
+        <Marquee
+          className="slider-statement cursor-default bg-carpet-green relative"
+          speed={50}
+          direction="right"
+        >
+          {vmodelImages.map((img, index) => (
+            <div
+              key={index}
+              className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
+            >
+              <Image
+                src={img.img}
+                alt="reluraimg"
+                className="w-full h-full object-cover object-top"
+                width={500}
+                height={500}
+              />
+            </div>
+          ))}
+        </Marquee>
+      </div>
+
       <div className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0">
-        <div className="flex-container flex items-start  justify-start gap-6 mb-8">
-          <div
-            id="firstSection"
-            className="text-section md:w-[60%] mt-1 w-[50%]"
-          >
+        <div className="flex-container mb-8">
+          <div id="firstSection" className="text-section mt-1">
             <h1 className={`${sectionTitleClassName}`}>What is VModel?</h1>
             <span className={`${paragrapghClassName} mb-6`}>
               VModel is the go-to platform for models, photographers, stylists,
@@ -99,7 +135,7 @@ function Vmodel() {
               connect with the right opportunities—fast.
             </span>
 
-            <div className="section-container">
+            <div className="section-container mb-[6.5rem]">
               <span className={`${paragrapghClassName} !font-bold`}>
                 Book & Get Booked Seamlessly
               </span>
@@ -113,14 +149,6 @@ function Vmodel() {
                 within the platform.
               </span>
             </div>
-          </div>
-          <div className="image-container md:w-[40%] w-[50%]">
-            <Image
-              src={"/image/CREATIVE.png"}
-              alt="section-image"
-              width={300}
-              height={300}
-            />
           </div>
         </div>
 
