@@ -17,26 +17,28 @@ import TitleSection from "@/src/components/UI/TitleSection";
 
 function page() {
   const menuItems = [
-    { name: "About Prelura", route: "#prelura-home", Icon: "" },
-    { name: "How It Works", route: "#prelura-more", Icon: "" },
-    { name: "Why Choose Prelura?", route: "#prelura-more", Icon: "" },
-    { name: "Prelura For Sellers", route: "#prelura-more", Icon: "" },
-    { name: "Prelura For Buyers", route: "#prelura-more", Icon: "" },
-    { name: "FAQs & Help Center", route: "#prelura-more", Icon: "" },
+    { name: "About Prelura", route: "prelura-home", Icon: "" },
+    { name: "How It Works", route: "prelura-more", Icon: "" },
+    { name: "Why Choose Prelura?", route: "prelura-vision", Icon: "" },
+    { name: "Prelura For Sellers", route: "prelura-sellers", Icon: "" },
+    { name: "Prelura For Buyers", route: "prelura-buyer", Icon: "" },
+    { name: "FAQs & Help Center", route: "prelura-more", Icon: "" },
   ];
 
   return (
     <div id="prelura-home" className="pt-[1rem] ">
       <Sidebar tbList={menuItems} />
 
-      <TitleSection
-        title="Prelura: A New Era of Secondhand Fashion"
-        subTitle=" Exciting updates are here for VModel! Enjoy a fresh UI, AI job
+      <section id="prelura-home">
+        <TitleSection
+          title="Prelura: A New Era of Secondhand Fashion"
+          subTitle=" Exciting updates are here for VModel! Enjoy a fresh UI, AI job
             matching, real-time messaging, an enhanced portfolio, and easier
             payments. More to come soon!"
-        secondaryText="Published on Monday 17th February, 2025"
-        containerStyle="mb-4"
-      />
+          secondaryText="Published on Monday 17th February, 2025"
+          containerStyle="mb-4"
+        />
+      </section>
 
       <section className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
         <div className="flex items-center gap-6 md:flex-row flex-col">
@@ -63,7 +65,10 @@ function page() {
         </div>
       </section>
 
-      <div className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0">
+      <div
+        id="prelura-more"
+        className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0"
+      >
         <section className="text-white mb-8">
           <h1 className={titleClassName}>
             Reimagining Preloved, One Item at a Time
@@ -130,7 +135,7 @@ function page() {
         </section>
         <br />
 
-        <section className="">
+        <section id="prelura-vision" className="">
           <h1 className={secondaryTitleClassName}>Our Vision</h1>
           <br />
           <div className="flex-section flex items-start gap-3 justify-between w-full">
@@ -197,7 +202,7 @@ function page() {
         </section>
         <br />
         <br />
-        <section className="text-white mb-8">
+        <section id="prelura-sellers" className="text-white mb-8">
           <h1 className={secondaryTitleClassName}>How Prelura Works</h1>
           <br />
 
@@ -206,7 +211,7 @@ function page() {
             <FlatList listItems={forSellers} />
           </div>
           <br />
-          <div className="text-section">
+          <div id="prelura-buyer" className="text-section">
             <span className={titleClassName}>For Buyers</span>
             <FlatList listItems={forBuyers} />
           </div>
@@ -225,45 +230,49 @@ function page() {
 
           <br />
 
-          <h1 className={secondaryTitleClassName}>What Sets Prelura Apart?</h1>
+          <section id="prelura-help">
+            <h1 className={secondaryTitleClassName}>
+              What Sets Prelura Apart?
+            </h1>
 
-          <br />
+            <br />
 
-          <div className="text-container">
-            <span className={titleClassName}>Simplicity First</span>
-            <span className={paragrapghClassName}>
-              Unlike other platforms, we designed Prelura to feel as easy and
-              enjoyable as shopping online—no unnecessary complexity, no
-              frustration.
-            </span>
-          </div>
-          <br />
-          <div className="text-container">
-            <span className={titleClassName}>Sustainablity at the core</span>
-            <span className={paragrapghClassName}>
-              We believe in circular fashion. Every purchase helps reduce
-              fashion waste, giving clothes a second life instead of
-              contributing to landfills
-            </span>
-          </div>
+            <div className="text-container">
+              <span className={titleClassName}>Simplicity First</span>
+              <span className={paragrapghClassName}>
+                Unlike other platforms, we designed Prelura to feel as easy and
+                enjoyable as shopping online—no unnecessary complexity, no
+                frustration.
+              </span>
+            </div>
+            <br />
+            <div className="text-container">
+              <span className={titleClassName}>Sustainablity at the core</span>
+              <span className={paragrapghClassName}>
+                We believe in circular fashion. Every purchase helps reduce
+                fashion waste, giving clothes a second life instead of
+                contributing to landfills
+              </span>
+            </div>
 
-          <br />
-          <div className="text-container">
-            <span className={titleClassName}>A Trusted Community</span>
-            <FlatList listItems={trustedCommunity} />
-          </div>
+            <br />
+            <div className="text-container">
+              <span className={titleClassName}>A Trusted Community</span>
+              <FlatList listItems={trustedCommunity} />
+            </div>
 
-          <br />
+            <br />
 
-          <div className="text-section">
-            <span className={titleClassName}>
-              A Future of Conscious Fashion
-            </span>
-            <span className={paragrapghClassName}>
-              As second-hand fashion grows, we’re shaping a world where resale
-              isn’t just an afterthought—it’s the future of shopping.
-            </span>
-          </div>
+            <div className="text-section">
+              <span className={titleClassName}>
+                A Future of Conscious Fashion
+              </span>
+              <span className={paragrapghClassName}>
+                As second-hand fashion grows, we’re shaping a world where resale
+                isn’t just an afterthought—it’s the future of shopping.
+              </span>
+            </div>
+          </section>
         </section>
 
         <section className="final-section">

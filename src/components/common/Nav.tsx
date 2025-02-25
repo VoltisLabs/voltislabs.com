@@ -86,8 +86,8 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
             href={item.route}
             key={item.name}
             className={`${
-              item.route === pathname ? "underline" : ""
-            } card-container hover:underline cursor-pointer text-white text-[1rem] flex`}
+              item.route === pathname ? "font-bold" : ""
+            } card-container cursor-pointer text-white text-[1rem] flex`}
           >
             {item.name}
           </Link>
@@ -137,8 +137,8 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                   href={item.route}
                   key={item.name}
                   className={`${
-                    item.route === pathname ? "underline" : ""
-                  } card-container mb-[2rem] text-[1.2rem] hover:underline cursor-pointer text-white flex`}
+                    item.route === pathname ? "font-bold" : ""
+                  } card-container mb-[2rem] text-[1.2rem] cursor-pointer text-white flex`}
                 >
                   {item.name}
                 </Link>
