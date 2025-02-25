@@ -37,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({ tbList }) => {
   return (
     <div className="relative">
       <div className="fixed left-0 hidden top-1/2 transform -translate-y-1/2 lg:flex flex-col justify-center items-start">
-        <ul className="space-y-4">
+        <ul className="space-y-2">
           {tbList.map((item, index) => (
             <motion.li
               key={index}
@@ -46,10 +46,13 @@ const Sidebar: React.FC<SidebarProps> = ({ tbList }) => {
               transition={{ delay: index * 0.2, duration: 0.5 }}
               onClick={() => scrollToSection(item.route)}
             >
-              <div className="group flex items-center gap-2 text-white text-[.8rem] font-semibold px-4 py-2 rounded-full hover:shadow-lg transition-all duration-300 relative cursor-pointer">
+              <div className="group flex items-center gap-2 text-white text-[.8rem] font-semibold px-4 py-3 rounded-[9px] transition-all duration-300 relative cursor-pointer hover:bg-[#151515]">
                 {item.name}
-                <span className="absolute right-[-4px] top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ChevronRight size={20} className="text-white opacity-60" />
+                <span className="absolute right-[-3px] top-[52%] transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:text-gray-300">
+                  <ChevronRight
+                    size={20}
+                    className="text-white opacity-60 group-hover:text-gray-300"
+                  />
                 </span>
               </div>
             </motion.li>
