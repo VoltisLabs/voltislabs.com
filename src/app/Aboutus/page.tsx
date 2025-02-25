@@ -8,22 +8,24 @@ import TitleSection from "@/src/components/UI/TitleSection";
 
 function page() {
   const menuItems = [
-    { name: "Home", route: "#about-home" },
-    { name: "About Us", route: "#about" },
-    { name: "Our Mission", route: "#mission" },
-    { name: "Looking Ahead", route: "#looking-ahead" },
+    { name: "Home", route: "about-home" },
+    { name: "About Us", route: "about" },
+    { name: "Our Mission", route: "mission" },
+    { name: "Looking Ahead", route: "looking-ahead" },
   ];
 
   return (
     <div className="pt-[.1rem] text-white ">
       <Sidebar tbList={menuItems} />
 
-      <TitleSection
-        title="We are Voltis Labs"
-        subTitle=""
-        secondaryText="Published on Monday 9th February, 2025"
-        containerStyle="mb-6"
-      />
+      <div id="about-home">
+        <TitleSection
+          title="We are Voltis Labs"
+          subTitle=""
+          secondaryText="Published on Monday 9th February, 2025"
+          containerStyle="mb-6"
+        />
+      </div>
 
       <section className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] mb-10">
         <div className="flex items-center gap-6 md:flex-row flex-col">
@@ -43,7 +45,7 @@ function page() {
       </section>
 
       <div className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0  ">
-        <section className="text-white my-8  mb-20 font-normal ">
+        <section id="about" className="text-white my-8  mb-20 font-normal ">
           {/** 
           *
   <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] "  >
@@ -89,7 +91,10 @@ function page() {
           </span>
         </section>
 
-        <section className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem] ">
+        <section
+          id="mission"
+          className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem] "
+        >
           <h1 id="mission" className="font-bold text-3xl mb-8  text-white">
             Our Mission
           </h1>
@@ -169,7 +174,10 @@ function page() {
           </div>
         </section>
 
-        <section className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem]">
+        <section
+          id="looking-ahead"
+          className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem]"
+        >
           <h1 id="looking-ahead" className="font-bold text-[30px] mb-8">
             Looking Ahead
           </h1>
