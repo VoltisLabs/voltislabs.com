@@ -35,7 +35,7 @@ function page() {
             matching, real-time messaging, an enhanced portfolio, and easier
             payments. More to come soon!"
         secondaryText="Published on Monday 17th February, 2025"
-        containerStyle=""
+        containerStyle="mb-4"
       />
 
       <section className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
