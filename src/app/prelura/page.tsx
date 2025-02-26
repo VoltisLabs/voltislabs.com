@@ -86,7 +86,7 @@ function page() {
 
       <div
         id="prelura-more"
-        className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0"
+        className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0"
       >
         <section className="text-white mb-8">
           <h1 className={titleClassName}>

@@ -44,7 +44,7 @@ function page() {
         </div>
       </section>
 
-      <div className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0  ">
+      <div className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0  ">
         <section id="about" className="text-white my-8  mb-20 font-normal ">
           {/** 
           *
