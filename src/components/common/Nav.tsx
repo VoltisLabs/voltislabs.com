@@ -80,8 +80,8 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           <Image
             src={"/icons/voltis.svg"}
             alt="company-logo"
-            width={74}
-            height={70}
+            width={85}
+            height={85}
             className="md:hidden block"
           />
         </div>
