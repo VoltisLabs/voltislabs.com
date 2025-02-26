@@ -5,7 +5,7 @@ export const paragrapghClassName =
 export const sectionTitleClassName = "text-white font-bold text-[15.5px]";
 
 export const secondaryTitleClassName =
-  "text-white w-full max-w-[40rem] mx-auto text-center font-extrabold text-[24px]";
+  "text-white w-full max-w-[40rem] mx-auto text-center font-extrabold md:text-[24px] text-[19px]";
 
 interface AboutItem {
   title: string;

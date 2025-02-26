@@ -113,7 +113,7 @@ function Vmodel() {
         />
       </section>
 
-      <div className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0">
+      <div className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0">
         <div className="flex-container mb-8">
           <div id="firstSection" className="text-section mt-1">
             <h1 className={`${sectionTitleClassName}`}>What is VModel?</h1>
@@ -198,7 +198,7 @@ function Vmodel() {
           <h1 className={secondaryTitleClassName}>Who is VModel For?</h1>
 
           <br />
-          <div className="image-container h-[30rem] rounded-[8px] overflow-hidden">
+          <div className="image-container md:h-[30rem] h-[15rem] rounded-[8px] overflow-hidden">
             <Image
               src={"/image/vmodel4.jpeg"}
               alt="page-image"
@@ -337,7 +337,7 @@ function Vmodel() {
           </h1>
 
           <br />
-          <div className="image-container h-[30rem] rounded-[8px] overflow-hidden">
+          <div className="image-container md:h-[30rem] h-[15rem] rounded-[8px] overflow-hidden">
             <Image
               src={"/image/vmodel5.jpeg"}
               alt="page-image"
@@ -404,7 +404,7 @@ function Vmodel() {
           </h1>
           <br />
           <br />
-          <div className="image-container h-[30rem] rounded-[8px] overflow-hidden">
+          <div className="image-container md:h-[30rem] h-[15rem] rounded-[8px] overflow-hidden">
             <Image
               src={"/image/vmodel6.jpeg"}
               alt="page-image"
