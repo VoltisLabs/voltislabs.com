@@ -95,7 +95,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
             key={item.name}
             className={`${
               item.route === pathname ? "font-bold" : ""
-            } card-container cursor-pointer text-white text-[1rem] flex`}
+            } card-container hover:text-gray-200 cursor-pointer text-white text-[1rem] flex`}
           >
             {item.name}
           </Link>
@@ -146,7 +146,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                   key={item.name}
                   className={`${
                     item.route === pathname ? "font-bold" : ""
-                  } card-container mb-[2rem] text-[1.2rem] cursor-pointer !text-white flex`}
+                  } card-container hover:text-gray-200 mb-[2rem] text-[1.2rem] cursor-pointer !text-white flex`}
                 >
                   {item.name}
                 </Link>

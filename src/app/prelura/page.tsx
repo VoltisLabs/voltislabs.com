@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
   forBuyers,
   forSellers,
@@ -26,6 +28,8 @@ function page() {
     { name: "FAQs & Help Center", route: "prelura-more", Icon: "" },
   ];
 
+  const [isPlaying, setIsplaying] = useState(false);
+
   return (
     <div id="prelura-home" className="pt-[1rem] ">
       <Sidebar tbList={menuItems} />
@@ -42,10 +46,15 @@ function page() {
       </section>
 
       <section className="mb-16 md:block hidden md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
-        <div className="flex items-center gap-6 md:flex-row flex-col">
+        <div
+          onMouseEnter={() => setIsplaying(true)}
+          onMouseLeave={() => setIsplaying(false)}
+          onClick={() => setIsplaying(!isPlaying)}
+          className="flex items-center gap-6 md:flex-row flex-col"
+        >
           <Marquee
             className="slider-statement cursor-default bg-carpet-green relative"
-            speed={50}
+            speed={isPlaying ? 0 : 50}
             direction="right"
           >
             {prelura.map((img, index) => (
