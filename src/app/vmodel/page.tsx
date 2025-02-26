@@ -29,6 +29,7 @@ import Image from "next/image";
 import FlatList from "@/src/components/UI/FlatList";
 import TitleSection from "@/src/components/UI/TitleSection";
 import Marquee from "react-fast-marquee";
+import SliderBackground from "@/src/components/UI/SliderBackground";
 
 function Vmodel() {
   const menuItems = [
@@ -70,17 +71,16 @@ function Vmodel() {
     <div className="pt-[1rem] text-white">
       <Sidebar tbList={menuItems} />
 
-     
       <TitleSection
         title="Your creative career, your way!"
         subTitle="Exciting updates are here for VModel! Enjoy a fresh UI, AI job
           matching, real-time messaging, an enhanced portfolio, and easier
           payments. More to come soon!"
         secondaryText="Published on Monday 17th February, 2025"
-        containerStyle="mb-[2.8rem]"
+        containerStyle="mb-[2.8rem] hidden md:block"
       />
 
-      <div className="image-section mb-[4.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
+      <section className="image-section hidden md:block mb-[4.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
         <Marquee
           className="slider-statement cursor-default bg-carpet-green relative"
           speed={50}
@@ -101,7 +101,17 @@ function Vmodel() {
             </div>
           ))}
         </Marquee>
-      </div>
+      </section>
+
+      <section className="mobile-screen md:hidden block mb-9">
+        <SliderBackground
+          containerStyle="bg-[#503C3B] w-full"
+          imagesArray={vmodelImages}
+          titleText="Your creative career, your way!"
+          vmodel
+          smallBtnText="Visit Vmodel"
+        />
+      </section>
 
       <div className="mb-16 mx-auto max-w-[45rem] px-[2rem] md:px-0">
         <div className="flex-container mb-8">
@@ -606,7 +616,6 @@ function Vmodel() {
         </div>
       </div>
     </div>
- 
   );
 }
 

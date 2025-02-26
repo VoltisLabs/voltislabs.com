@@ -14,6 +14,7 @@ import Sidebar from "@/src/components/UI/SideBar";
 import FlatList from "@/src/components/UI/FlatList";
 import Marquee from "react-fast-marquee";
 import TitleSection from "@/src/components/UI/TitleSection";
+import SliderBackground from "@/src/components/UI/SliderBackground";
 
 function page() {
   const menuItems = [
@@ -29,18 +30,18 @@ function page() {
     <div id="prelura-home" className="pt-[1rem] ">
       <Sidebar tbList={menuItems} />
 
-      <section id="prelura-home">
+      <section id="prelura-home md:block hidden">
         <TitleSection
           title="Prelura: A New Era of Secondhand Fashion"
           subTitle=" Exciting updates are here for VModel! Enjoy a fresh UI, AI job
             matching, real-time messaging, an enhanced portfolio, and easier
             payments. More to come soon!"
           secondaryText="Published on Monday 17th February, 2025"
-          containerStyle="mb-4"
+          containerStyle="mb-4 md:block hidden"
         />
       </section>
 
-      <section className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
+      <section className="mb-16 md:block hidden md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
         <div className="flex items-center gap-6 md:flex-row flex-col">
           <Marquee
             className="slider-statement cursor-default bg-carpet-green relative"
@@ -63,6 +64,15 @@ function page() {
             ))}
           </Marquee>
         </div>
+      </section>
+
+      <section className="mobile-slider mb-7 md:hidden block">
+        <SliderBackground
+          containerStyle="bg-[#AB28B280] w-full"
+          imagesArray={prelura}
+          titleText="A New Home for Your Fashion Finds"
+          smallBtnText="Learn More"
+        />
       </section>
 
       <div
