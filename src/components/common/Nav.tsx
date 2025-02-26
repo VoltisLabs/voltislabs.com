@@ -76,12 +76,12 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
             height={80}
             className="hidden md:block"
           />
-
+          {/* mobile */}
           <Image
             src={"/icons/voltis.svg"}
             alt="company-logo"
-            width={60}
-            height={60}
+            width={74}
+            height={70}
             className="md:hidden block"
           />
         </div>
