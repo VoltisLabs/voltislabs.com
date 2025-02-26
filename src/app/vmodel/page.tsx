@@ -37,18 +37,18 @@ function Vmodel() {
     { name: "Why VModel?", route: "thirdSection", Icon: "" },
     { name: "How It Works", route: "firstSection", Icon: "" },
     { name: "Ideology", route: "fifthSection", Icon: "" },
-    { name: "The Inspiration Behind VModel", route: "sixthSection", Icon: "" },
+    { name: "The Inspiration", route: "sixthSection", Icon: "" },
     {
-      name: "The Challenges Creators Face Today",
+      name: "Challenges Faced",
       route: "seventhSection",
       Icon: "",
     },
     {
-      name: "The Research: What the Industry Says",
+      name: "The Research",
       route: "eighthSection",
       Icon: "",
     },
-    { name: "A New Era for Creative Talent", route: "lastSection", Icon: "" },
+    { name: "A New Era", route: "lastSection", Icon: "" },
   ];
 
   const vmodelImages = [
@@ -69,6 +69,8 @@ function Vmodel() {
   return (
     <div className="pt-[1rem] text-white">
       <Sidebar tbList={menuItems} />
+
+     
       <TitleSection
         title="Your creative career, your way!"
         subTitle="Exciting updates are here for VModel! Enjoy a fresh UI, AI job
@@ -604,6 +606,7 @@ function Vmodel() {
         </div>
       </div>
     </div>
+ 
   );
 }
 
