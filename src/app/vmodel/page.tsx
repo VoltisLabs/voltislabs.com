@@ -67,6 +67,8 @@ function Vmodel() {
     },
   ];
 
+  const [isPlaying, setIsplaying] = useState(false);
+
   return (
     <div className="pt-[1rem] text-white">
       <Sidebar tbList={menuItems} />
@@ -81,26 +83,33 @@ function Vmodel() {
       />
 
       <section className="image-section hidden md:block mb-[4.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
-        <Marquee
-          className="slider-statement cursor-default bg-carpet-green relative"
-          speed={50}
-          direction="right"
+        <div
+          onMouseEnter={() => setIsplaying(true)}
+          onMouseLeave={() => setIsplaying(false)}
+          onClick={() => setIsplaying(!isPlaying)}
+          className="slider-statement z-10 cursor-default relative"
         >
-          {vmodelImages.map((img, index) => (
-            <div
-              key={index}
-              className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
-            >
-              <Image
-                src={img.img}
-                alt="reluraimg"
-                className="w-full h-full object-cover object-top"
-                width={500}
-                height={500}
-              />
-            </div>
-          ))}
-        </Marquee>
+          <Marquee
+            className="slider-statement z-20 cursor-default bg-carpet-green relative"
+            speed={isPlaying ? 0 : 50}
+            direction="right"
+          >
+            {vmodelImages.map((img, index) => (
+              <div
+                key={index}
+                className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
+              >
+                <Image
+                  src={img.img}
+                  alt="reluraimg"
+                  className="w-full h-full object-cover object-top"
+                  width={500}
+                  height={500}
+                />
+              </div>
+            ))}
+          </Marquee>
+        </div>
       </section>
 
       <section className="mobile-screen md:hidden block mb-9">

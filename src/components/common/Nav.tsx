@@ -72,9 +72,17 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           <Image
             src={"/icons/voltis.svg"}
             alt="company-logo"
-            width={100}
+            width={90}
             height={80}
-            // className="hover:scale-90 transition-all ease-in-out delay-75"
+            className="hidden md:block"
+          />
+
+          <Image
+            src={"/icons/voltis.svg"}
+            alt="company-logo"
+            width={60}
+            height={60}
+            className="md:hidden block"
           />
         </div>
       </div>
@@ -115,21 +123,21 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
         {toggle && (
           <>
             <motion.div
-              className="section-container top-0 absolute md:hidden h-screen bg-black/70 backdrop-blur-lg z-100 left-0 block w-full"
+              className="section-container top-0 absolute md:hidden h-screen bg-black/70 backdrop-blur-lg z-20 left-0 block w-full"
               initial="hidden"
               animate="visible"
               exit="hidden"
               variants={overlayVariants}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
               onClick={() => setToggle(false)}
             />
             <motion.nav
-              className="nav-container bg-black py-[3.5rem] h-screen px-[2rem] w-[66%] fixed top-0 left-0 z-110"
+              className="nav-container bg-black py-[5rem] h-screen px-[2rem] w-[66%] fixed top-0 left-0 !z-[1000] text-white"
               initial="hidden"
               animate="visible"
               exit="hidden"
               variants={navVariants}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
             >
               {links.map((item) => (
                 <Link
@@ -138,7 +146,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                   key={item.name}
                   className={`${
                     item.route === pathname ? "font-bold" : ""
-                  } card-container mb-[2rem] text-[1.2rem] cursor-pointer text-white flex`}
+                  } card-container mb-[2rem] text-[1.2rem] cursor-pointer !text-white flex`}
                 >
                   {item.name}
                 </Link>
