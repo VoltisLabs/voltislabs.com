@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -49,6 +50,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   ];
 
   const router = useRouter();
+  const pathname = usePathname();
 
   const navVariants = {
     hidden: { x: "-100%", opacity: 0 },
@@ -60,10 +62,29 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     visible: { opacity: 1 },
   };
 
-  const pathname = usePathname();
+  const [navBackground, setNavBackground] = useState("bg-transparent");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.querySelector(".hero-section");
+      if (heroSection && window.scrollY > heroSection.clientHeight) {
+        setNavBackground("bg-black");
+      } else {
+        setNavBackground("bg-transparent");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <div className="page-container md:static fixed top-0 left-0 z-30  md:px-[4rem] px-[1rem] min-h-[6rem] w-full flex items-center justify-between bg-black/70 backdrop-blur-sm">
+    <div
+      className={`page-container md:static fixed top-0 left-0 z-30  md:px-[4rem] px-[1rem] ${navBackground} min-h-[5rem] w-full flex items-center justify-between transition-colors duration-300`}
+    >
       <div className="">
         <div
           onClick={() => router.push("/")}

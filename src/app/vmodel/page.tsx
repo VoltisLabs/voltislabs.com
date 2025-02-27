@@ -70,7 +70,7 @@ function Vmodel() {
   const [isPlaying, setIsplaying] = useState(false);
 
   return (
-    <div className="pt-[1rem] text-white">
+    <div className="text-white">
       <Sidebar tbList={menuItems} />
 
       <TitleSection
@@ -112,7 +112,7 @@ function Vmodel() {
         </div>
       </section>
 
-      <section className="mobile-screen md:hidden block mb-9">
+      <section className="mobile-screen hero-section md:hidden block mb-9">
         <SliderBackground
           containerStyle="bg-[#503C3B] w-full"
           imagesArray={vmodelImages}

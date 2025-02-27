@@ -31,7 +31,7 @@ function page() {
   const [isPlaying, setIsplaying] = useState(false);
 
   return (
-    <div id="prelura-home" className="pt-[1rem] ">
+    <div id="prelura-home" className="">
       <Sidebar tbList={menuItems} />
 
       <section id="prelura-home md:block hidden">
@@ -75,7 +75,7 @@ function page() {
         </div>
       </section>
 
-      <section className="mobile-slider mb-7 md:hidden block">
+      <section className="mobile-slider hero-section mb-7 md:hidden block">
         <SliderBackground
           containerStyle="bg-[#AB28B280] w-full"
           imagesArray={prelura}
@@ -158,7 +158,7 @@ function page() {
           <h1 className={secondaryTitleClassName}>Our Vision</h1>
           <br />
           <div className="flex-section flex items-start gap-3 justify-between w-full">
-            <div className="text-section w-[55%]">
+            <div className="text-section w-[45%]">
               <span className={paragrapghClassName}>
                 We see a future where second-hand fashion is the first choice. A
                 future where selling your clothes is as easy as posting a photo,
@@ -172,7 +172,7 @@ function page() {
                 resale:
               </span>
               <br />
-              <div className="title-text-section ">
+              <div className="title-text-section md:block hidden">
                 <ul className="list-disc pl-5 text-white">
                   <li>
                     <span className={`${paragrapghClassName}`}>
@@ -208,17 +208,49 @@ function page() {
               </div>
             </div>
 
-            <div className="image-section rounded-[9px] overflow-hidden bg-yellow-300 h-[22rem] md:w-[40%]">
+            <div className="image-section rounded-[9px] overflow-hidden bg-yellow-300 md:h-[22rem] h-[15rem] md:w-[40%] w-[50%]">
               <Image
                 src={"/image/prelura2.jpeg"}
                 alt="section-image"
-                width={300}
-                height={300}
+                width={500}
+                height={500}
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
         </section>
+        <div className="title-text-section md:hidden block">
+          <ul className="list-disc pl-5 text-white">
+            <li>
+              <span className={`${paragrapghClassName}`}>
+                <span className="font-bold">Effortless - </span>
+                No confusing steps or unnecessary friction. Just list, sell, and
+                ship.
+              </span>
+            </li>
+            <br />
+            <li>
+              <span className={`${paragrapghClassName}`}>
+                <span className="font-bold">Enjoyable - </span>A beautifully
+                designed platform that makes buying and selling feel exciting.
+              </span>
+            </li>
+            <br />
+            <li>
+              <span className={`${paragrapghClassName}`}>
+                <span className="font-bold">Empowering - </span>
+                Helping people make money from clothes they no longer wear.
+              </span>
+            </li>
+            <li>
+              <span className={`${paragrapghClassName}`}>
+                <span className="font-bold">Ethical - </span>
+                Fighting fashion waste and supporting a more sustainable
+                industry.
+              </span>
+            </li>
+          </ul>
+        </div>
         <br />
         <br />
         <section id="prelura-sellers" className="text-white mb-8">
@@ -237,7 +269,7 @@ function page() {
 
           <br />
           <br />
-          <div className="image-container h-[30rem] rounded-[8px] overflow-hidden">
+          <div className="image-container md:h-[30rem] h-[15rem] rounded-[8px] overflow-hidden">
             <Image
               src={"/image/prelura3.jpeg"}
               alt="page-image"
@@ -294,8 +326,8 @@ function page() {
           </section>
         </section>
 
-        <section className="final-section">
-          <blockquote className="font-bold text-center text-white text-[1.4rem] mx-auto w-[90%]">
+        <section className="final-section ">
+          <blockquote className="font-bold text-center text-white md:text-[1.4rem] text-[1rem] mx-auto md:w-[90%] w-full">
             "Clothing is a form of self-expression. Let’s express ourselves
             while making a difference." -{" "}
             <span className="text-gray-500">Voltis Labs</span>

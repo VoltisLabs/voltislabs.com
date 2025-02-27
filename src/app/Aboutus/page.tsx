@@ -15,34 +15,36 @@ function page() {
   ];
 
   return (
-    <div className="pt-[.1rem] text-white ">
+    <div className="pt-[6rem] text-white">
       <Sidebar tbList={menuItems} />
 
-      <div id="about-home">
-        <TitleSection
-          title="We are Voltis Labs"
-          subTitle=""
-          secondaryText="Published on Monday 9th February, 2025"
-          containerStyle="mb-6"
-        />
-      </div>
-
-      <section className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] mb-10">
-        <div className="flex items-center gap-6 md:flex-row flex-col">
-          {Aboutus.map((img, index) => (
-            <div
-              key={index}
-              className="w-full md:h-[38rem] h-[25rem] rounded-[9px] overflow-hidden md:w-[50%]"
-            >
-              <img
-                src={img.img}
-                alt="reluraimg"
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-          ))}
+      <div className="hero-section">
+        <div id="about-home">
+          <TitleSection
+            title="We are Voltis Labs"
+            subTitle=""
+            secondaryText="Published on Monday 9th February, 2025"
+            containerStyle="mb-6"
+          />
         </div>
-      </section>
+
+        <section className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] mb-10">
+          <div className="flex items-center gap-6 md:flex-row flex-col">
+            {Aboutus.map((img, index) => (
+              <div
+                key={index}
+                className="w-full md:h-[38rem] h-[15rem] rounded-[9px] overflow-hidden md:w-[50%]"
+              >
+                <img
+                  src={img.img}
+                  alt="reluraimg"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
 
       <div className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0  ">
         <section id="about" className="text-white my-8  mb-20 font-normal ">
@@ -168,7 +170,7 @@ function page() {
               <img
                 src="../image/landingimg3.png"
                 alt="Icon"
-                className="w-full h-full md:h-[35rem] object-cover object-center rounded-lg"
+                className="w-full md:h-[35rem] h-[15rem] object-cover object-top rounded-lg"
               />
             </div>
           </div>

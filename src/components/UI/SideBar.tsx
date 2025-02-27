@@ -48,12 +48,13 @@ const Sidebar: React.FC<SidebarProps> = ({ tbList }) => {
             >
               <div className="group flex hover:text-gray-200 items-center gap-2 text-white text-[.8rem] font-semibold px-4 py-3 rounded-[9px] transition-all duration-300 relative cursor-pointer hover:bg-transparent">
                 {item.name}
-                <span className="absolute right-[-3px] top-[52%] transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:text-gray-300">
-                  <ChevronRight
-                    size={20}
-                    className="text-white opacity-60 group-hover:text-gray-300"
-                  />
-                </span>
+                {/* <span className="absolute right-[-3px] top-[52%] transform -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:text-gray-300"> */}
+                <ChevronRight
+                  size={20}
+                  className="text-[#A9A9A9] group-hover:opacity-100 opacity-0 group-hover:text-gray-300"
+                  color="#A9A9A9"
+                />
+                {/* </span> */}
               </div>
             </motion.li>
           ))}
