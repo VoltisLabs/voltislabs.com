@@ -112,7 +112,7 @@ function Vmodel() {
         </div>
       </section>
 
-      <section className="mobile-screen hero-section md:hidden block mb-9">
+      <section className="hero-section md:hidden block mb-9">
         <SliderBackground
           containerStyle="bg-[#503C3B] w-full"
           imagesArray={vmodelImages}

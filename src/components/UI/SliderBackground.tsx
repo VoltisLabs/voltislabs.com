@@ -27,7 +27,7 @@ const SliderBackground = ({
 
   return (
     <div
-      className={`component-container min-h-[35rem] flex items-end justify-end ${containerStyle}`}
+      className={`component-container min-h-[41rem] flex items-end justify-end ${containerStyle}`}
     >
       <div className="item-container flex items-center flex-col justify-between h-[25rem] ">
         <div className="imageslider-container w-full">

@@ -83,7 +83,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
   return (
     <div
-      className={`page-container md:static fixed top-0 left-0 z-30  md:px-[4rem] px-[1rem] ${navBackground} min-h-[5rem] w-full flex items-center justify-between transition-colors duration-300`}
+      className={`page-container md:static fixed top-0 left-0 z-30 backdrop-blur-sm  md:px-[4rem] px-[1rem] ${navBackground} min-h-[5rem] w-full flex items-center justify-between transition-colors duration-300`}
     >
       <div className="">
         <div
@@ -168,6 +168,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                   className={`${
                     item.route === pathname ? "font-bold" : ""
                   } card-container hover:text-gray-200 mb-[2rem] text-[1.2rem] cursor-pointer !text-white flex`}
+                  style={item.route === pathname ? { fontWeight: "bold" } : {}}
                 >
                   {item.name}
                 </Link>
