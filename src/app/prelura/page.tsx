@@ -159,7 +159,7 @@ function page() {
           <br />
           <div className="flex-section flex items-start gap-3 justify-between w-full">
             <div className="text-section w-[45%]">
-              <span className={paragrapghClassName}>
+              <span className={`${paragrapghClassName} !text-justify`}>
                 We see a future where second-hand fashion is the first choice. A
                 future where selling your clothes is as easy as posting a photo,
                 and finding unique, high-quality items feels as effortless as

@@ -28,7 +28,7 @@ function page() {
           />
         </div>
 
-        <section className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] mb-10">
+        <section className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[1.4rem] mb-10">
           <div className="flex items-center gap-6 md:flex-row flex-col">
             {Aboutus.map((img, index) => (
               <div
@@ -47,7 +47,7 @@ function page() {
       </div>
 
       <div className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0  ">
-        <section id="about" className="text-white my-8  mb-20 font-normal ">
+        <section id="about" className="text-white my-8 mb-20 font-normal ">
           {/** 
           *
   <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] "  >
