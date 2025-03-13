@@ -27,12 +27,10 @@ import {
 import Sidebar from "@/src/components/UI/SideBar";
 import Image from "next/image";
 import FlatList from "@/src/components/UI/FlatList";
-import Slider from "react-slick";
 import TitleSection from "@/src/components/UI/TitleSection";
 import Marquee from "react-fast-marquee";
 import SliderBackground from "@/src/components/UI/SliderBackground";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 function Vmodel() {
   const menuItems = [
     { name: "What is VModel?", route: "firstSection", Icon: "" },
@@ -69,21 +67,7 @@ function Vmodel() {
     },
   ];
 
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 1000, // smooth transition speed
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    pauseOnHover: true,
-    swipe: true,
-    adaptiveHeight: true,
-  };
-
-
+  const [isPlaying, setIsplaying] = useState(false);
 
   return (
     <div className="text-white">
@@ -99,26 +83,35 @@ function Vmodel() {
       />
 
       <section className="image-section hidden md:block mb-[4.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
-      <div
-      className="slider-container w-full max-w-[85%] mx-auto overflow-hidden rounded-lg transition-all duration-500 ease-in-out"
-     
-    >
-      <Slider {...settings}>
-        {vmodelImages.map((img, index) => (
-          <div key={index} className="p-2">
-            <div className="w-full h-[22rem] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
-              <Image
-                src={img.img}
-                alt={`Vmodel slider ${index + 1}`}
-                width={500}
-                height={500}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        ))}
-      </Slider>
-    </div>
+        <div
+          onMouseEnter={() => setIsplaying(true)}
+          onMouseLeave={() => setIsplaying(false)}
+          onClick={() => setIsplaying(!isPlaying)}
+          className="slider-statement z-10 cursor-default relative"
+        >
+          <Marquee
+            className="slider-statement z-20 cursor-default bg-carpet-green relative"
+            speed={50}
+            pauseOnHover
+            pauseOnClick
+            direction="right"
+          >
+            {vmodelImages.map((img, index) => (
+              <div
+                key={index}
+                className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
+              >
+                <Image
+                  src={img.img}
+                  alt="reluraimg"
+                  className="w-full h-full object-cover object-top"
+                  width={500}
+                  height={500}
+                />
+              </div>
+            ))}
+          </Marquee>
+        </div>
       </section>
 
       <section className="hero-section md:hidden block mb-9">
