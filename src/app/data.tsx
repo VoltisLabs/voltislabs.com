@@ -11,7 +11,6 @@ interface AboutItem {
   title: string;
   message: string;
   route: string;
-
 }
 export const About: AboutItem[] = [
   {
@@ -39,11 +38,9 @@ export const updates = [
     subText: "Services updates and more",
   },
   {
-    img: "/image/vmodel.png",
-    message: "Earn from your skills with VModel",
+    img: "/image/afrogramLogo.png",
+    message: "Afrogarm web updates",
     time: "Nov 17, 2023",
-    spotify:true,
-    spotifyLink:"https://creators.spotify.com/pod/show/vmodel"
   },
   {
     img: "/image/voltis.png",

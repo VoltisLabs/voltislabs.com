@@ -14,7 +14,6 @@ import Content from "../components/Content";
 import Footer from "../components/footer";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FaSpotify } from "react-icons/fa";
 
 export default function Home() {
   const sliderRef = useRef<Slider>(null);
@@ -123,48 +122,32 @@ export default function Home() {
           </div>
 
           <div className="overflow-x-scroll md:min-w-[43rem] no-scrollbar min-w-[20rem] flex items-center">
-          <div className="flex flex-nowrap gap-8 h-full md:w-full">
-  {updates.map((text, index) => (
-    <div
-      key={index}
-      className="md:min-w-[22rem] w-[12.5rem] text-left !min-h-[25rem] overflow-hidden items-start"
-    >
-      <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
-        <Image
-          src={text.img}
-          alt="Icon"
-          width={310}
-          height={300}
-          className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
-        />
-      </div>
+            <div className="flex flex-nowrap gap-8 h-full md:w-full">
+              {updates.map((text, index) => (
+                <div
+                  key={index}
+                  className="md:min-w-[22rem] w-[12.5rem] text-left !min-h-[25rem] overflow-hidden items-start"
+                >
+                  <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
+                    <Image
+                      src={text.img}
+                      alt="Icon"
+                      width={310}
+                      height={300}
+                      className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
+                    />
+                  </div>
 
-      <p className="text-white text-[.9rem] mt-3">{text.message}</p>
-      {text.subText && (
-        <p className="text-[.9rem] text-[#535353]">{text.subText}</p>
-      )}
-      <p className="text-white text-[.7rem]">{text.time}</p>
-      {text.spotify && (
-  <a
-    href={text.spotifyLink} // Ensure this points to a valid Spotify link
-    target="_blank"
-    rel="noopener noreferrer"
-    className="relative inline-flex items-center gap-2 mt-4 py-2 px-4 rounded-full border hover:border-transparent border-white text-white text-[.9rem] font-medium overflow-hidden w-fit cursor-pointer group"
-  >
-    <span className="absolute inset-0 bg-[#1DB954] scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
-    <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
-    <span className="relative z-10 transition-all duration-300 group-hover:text-black">
-      Listen on Spotify
-    </span>
-  </a>
-)}
-
-
-
-    </div>
-  ))}
-</div>
-
+                  <p className="text-white text-[.9rem] mt-3">{text.message}</p>
+                  {text.subText && (
+                    <p className="text-[.9rem] text-[#535353]">
+                      {text.subText}
+                    </p>
+                  )}
+                  <p className="text-white text-[.7rem]">{text.time}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
         <Content />
