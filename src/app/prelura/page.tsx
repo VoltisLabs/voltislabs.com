@@ -54,7 +54,9 @@ function page() {
         >
           <Marquee
             className="slider-statement cursor-default bg-carpet-green relative"
-            speed={isPlaying ? 0 : 50}
+            speed={50}
+            pauseOnHover
+            pauseOnClick
             direction="right"
           >
             {prelura.map((img, index) => (

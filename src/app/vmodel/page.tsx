@@ -91,7 +91,9 @@ function Vmodel() {
         >
           <Marquee
             className="slider-statement z-20 cursor-default bg-carpet-green relative"
-            speed={isPlaying ? 0 : 50}
+            speed={50}
+            pauseOnHover
+            pauseOnClick
             direction="right"
           >
             {vmodelImages.map((img, index) => (
