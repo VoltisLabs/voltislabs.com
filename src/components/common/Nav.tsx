@@ -25,6 +25,11 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       route: "/prelura",
       icon: <IoIosArrowDown />,
     },
+    {
+      name: "Spinnersonic",
+      route: "/spinnersonic",
+      icon: <IoIosArrowDown />,
+    },
     // {
     //   name: "Vell Magazine",
     //   route: "/",
