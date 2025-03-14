@@ -75,7 +75,7 @@ export default function Footer() {
 
       <footer className="flex flex-col md:flex-row justify-between text-white mb-20 ">
         <div className="flex flex-col space-y-2">
-          <p>OpenAI 2015 – 2023</p>
+        <p>© 2025 Voltis Labs. All rights reserved.</p>
           <p>Terms & policies</p>
           <p>Privacy policy</p>
           <p>Brand guidelines</p>
