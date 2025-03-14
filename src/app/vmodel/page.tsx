@@ -30,6 +30,7 @@ import FlatList from "@/src/components/UI/FlatList";
 import TitleSection from "@/src/components/UI/TitleSection";
 import Marquee from "react-fast-marquee";
 import SliderBackground from "@/src/components/UI/SliderBackground";
+import InfiniteMarqueeSlider from "@/src/components/common/autoSlider";
 
 function Vmodel() {
   const menuItems = [
@@ -81,7 +82,7 @@ function Vmodel() {
         secondaryText="Published on Monday 17th February, 2025"
         containerStyle="mb-[2.8rem] hidden md:block"
       />
-
+      {/* <InfiniteMarqueeSlider/> */}
       <section className="image-section hidden md:block mb-[4.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
         <div
           onMouseEnter={() => setIsplaying(true)}
