@@ -114,12 +114,12 @@ export default function Home() {
             <h2 className="font-normal md:text-[1.7rem] text-[1.6rem]">
               Latest updates
             </h2>
-            <Link
+            {/* <Link
               href={"http://vmodelapp.com"}
               className="font-normal text-sm underline mt-2 sm:mt-0"
             >
               See all
-            </Link>
+            </Link> */}
           </div>
 
           <div className="overflow-x-scroll md:min-w-[43rem] no-scrollbar min-w-[20rem] flex items-center">

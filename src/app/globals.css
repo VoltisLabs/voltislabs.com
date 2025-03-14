@@ -33,3 +33,7 @@ body {
     font-family: "Inter", sans-serif; /* Set Inter with weight 500 globally */
   }
 }
+
+.slick-slide {
+  margin: 0 10px;
+}

@@ -121,10 +121,17 @@ export const prelura = [
 
 export const Aboutus = [
   {
-    img: "/image/landing1.png",
+    img: "/image/about-04.jpg",
+  },
+  
+  {
+    img: "/image/about-03.jpg",
   },
   {
-    img: "/image/landingimg2.png",
+    img: "/image/about-02.jpg",
+  },
+  {
+    img: "/image/about-4.jpg",
   },
 ];
 

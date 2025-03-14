@@ -53,7 +53,7 @@ function page() {
           className="flex items-center gap-6 md:flex-row flex-col"
         >
           <Marquee
-            className="slider-statement cursor-default bg-carpet-green relative"
+            className="overflow-x-scroll no-scrollbar slider-statement cursor-default bg-carpet-green relative"
             speed={50}
             pauseOnHover
             pauseOnClick

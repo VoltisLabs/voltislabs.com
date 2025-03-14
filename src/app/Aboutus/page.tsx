@@ -5,6 +5,8 @@ import Subtitle from "@/src/components/UI/subtitle";
 import { paragrapghClassName, titleClassName } from "../data";
 import Sidebar from "@/src/components/UI/SideBar";
 import TitleSection from "@/src/components/UI/TitleSection";
+import Marquee from "react-fast-marquee";
+import Image from "next/image";
 
 function page() {
   const menuItems = [
@@ -28,22 +30,37 @@ function page() {
           />
         </div>
 
-        <section className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[1.4rem] mb-10">
-          <div className="flex items-center gap-6 md:flex-row flex-col">
+        <section className="image-section hidden md:block mb-[4.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
+        <div
+          // onMouseEnter={() => setIsplaying(true)}
+          // onMouseLeave={() => setIsplaying(false)}
+          // onClick={() => setIsplaying(!isPlaying)}
+          className="slider-statement z-10 cursor-default relative"
+        >
+          <Marquee
+            className="slider-statement z-20 cursor-default bg-carpet-green relative"
+            speed={50}
+            pauseOnHover
+            pauseOnClick
+            direction="right"
+          >
             {Aboutus.map((img, index) => (
               <div
                 key={index}
-                className="w-full md:h-[38rem] h-[15rem] rounded-[9px] overflow-hidden md:w-[50%]"
+                className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
               >
-                <img
+                <Image
                   src={img.img}
                   alt="reluraimg"
                   className="w-full h-full object-cover object-top"
+                  width={500}
+                  height={500}
                 />
               </div>
             ))}
-          </div>
-        </section>
+          </Marquee>
+        </div>
+      </section>
       </div>
 
       <div className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0  ">
