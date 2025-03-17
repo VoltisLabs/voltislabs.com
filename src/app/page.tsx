@@ -9,15 +9,38 @@ import ThirdHero from "../components/common/carousel/ThirdHero";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Content from "../components/Content";
 import Footer from "../components/footer";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FaSpotify } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaSpotify } from "react-icons/fa";
 
 export default function Home() {
   const sliderRef = useRef<Slider>(null);
+  const updatesContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  // Function to check scroll position and update arrow visibility
+  const checkScrollPosition = () => {
+    const container = updatesContainerRef.current;
+    if (container) {
+      setCanScrollLeft(container.scrollLeft > 0);
+      setCanScrollRight(
+        container.scrollLeft + container.clientWidth < container.scrollWidth
+      );
+    }
+  };
+
+  useEffect(() => {
+    const container = updatesContainerRef.current;
+    if (container) {
+      checkScrollPosition(); // Initial check
+      container.addEventListener("scroll", checkScrollPosition); // Listen for scroll events
+      return () => container.removeEventListener("scroll", checkScrollPosition);
+    }
+  }, []);
 
   const settings = {
     dots: false,
@@ -106,67 +129,94 @@ export default function Home() {
       
 
 
-        
-        <section className="mb-20 md:px-[2rem] px-[1rem]  md:h-[34rem] h-[23rem] ">
-          
-        <div className="border-white border-[1px] w-[full] mb-6"></div>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white mb-10">
-            <h2 className="font-normal md:text-[1.7rem] text-[1.6rem]">
-              Latest updates
-            </h2>
-            {/* <Link
-              href={"http://vmodelapp.com"}
-              className="font-normal text-sm underline mt-2 sm:mt-0"
-            >
-              See all
-            </Link> */}
-          </div>
-
-          <div className="overflow-x-scroll md:min-w-[43rem] no-scrollbar min-w-[20rem] flex items-center">
-          <div className="flex flex-nowrap gap-8 h-full md:w-full">
-  {updates.map((text, index) => (
-    <div
-      key={index}
-      className="md:min-w-[22rem] w-[12.5rem] text-left !min-h-[25rem] overflow-hidden items-start"
-    >
-      <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
-        <Image
-          src={text.img}
-          alt="Icon"
-          width={310}
-          height={300}
-          className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
-        />
+        <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[34rem] h-[23rem] relative">
+      <div className="border-white border-[1px] w-full mb-6"></div>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white mb-10">
+        <h2 className="font-normal md:text-[1.7rem] text-[1.6rem]">Latest Updates</h2>
+        <Link
+          href={"/latest-updates"}
+          className="font-normal text-sm underline mt-2 sm:mt-0"
+        >
+          See all
+        </Link>
       </div>
 
-      <p className="text-white text-[.9rem] mt-3">{text.message}</p>
-      {text.subText && (
-        <p className="text-[.9rem] text-[#535353]">{text.subText}</p>
-      )}
-      <p className="text-white text-[.7rem]">{text.time}</p>
-      {text.spotify && (
-  <a
-    href={text.spotifyLink} // Ensure this points to a valid Spotify link
-    target="_blank"
-    rel="noopener noreferrer"
-    className="relative inline-flex items-center gap-2 mt-4 py-2 px-4 rounded-full border hover:border-transparent border-white text-white text-[.9rem] font-medium overflow-hidden w-fit cursor-pointer group"
+      {/* Scrollable Section with Arrows */}
+      <div className="relative">
+        {/* Left Arrow */}
+        {/* Left Arrow */}
+{canScrollLeft && (
+  <button
+    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 text-black rounded-full p-3 z-10 hover:bg-white focus:outline-none shadow-md"
+    onClick={() => {
+      const container = updatesContainerRef.current;
+      container?.scrollBy({ left: -300, behavior: "smooth" });
+    }}
   >
-    <span className="absolute inset-0 bg-[#1DB954] scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
-    <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
-    <span className="relative z-10 transition-all duration-300 group-hover:text-black">
-      Listen on Spotify
-    </span>
-  </a>
+    <FaChevronLeft size={20} />
+  </button>
 )}
 
+{/* Scrollable Content */}
+<div
+  id="updates-container"
+  ref={updatesContainerRef}
+  className="overflow-x-scroll md:min-w-[43rem] no-scrollbar min-w-[20rem] flex items-center"
+>
+  <div className="flex flex-nowrap gap-8 h-full md:w-full">
+    {updates.map((text, index) => (
+      <div
+        key={index}
+        className="md:min-w-[22rem] w-[12.5rem] text-left !min-h-[25rem] overflow-hidden items-start"
+      >
+        <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
+          <Image
+            src={text.img}
+            alt="Icon"
+            width={310}
+            height={300}
+            className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
+          />
+        </div>
 
-
-    </div>
-  ))}
+        <p className="text-white text-[.9rem] mt-3">{text.message}</p>
+        {text.subText && (
+          <p className="text-[.9rem] text-[#535353]">{text.subText}</p>
+        )}
+        <p className="text-white text-[.7rem]">{text.time}</p>
+        {text.spotify && (
+          <a
+            href={text.spotifyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative inline-flex items-center gap-2 mt-4 py-2 px-4 rounded-full border hover:border-transparent border-white text-white text-[.9rem] font-medium overflow-hidden w-fit cursor-pointer group"
+          >
+            <span className="absolute inset-0 bg-[#1DB954] scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+            <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
+            <span className="relative z-10 transition-all duration-300 group-hover:text-black">
+              Listen on Spotify
+            </span>
+          </a>
+        )}
+      </div>
+    ))}
+  </div>
 </div>
 
-          </div>
-        </section>
+{/* Right Arrow */}
+{canScrollRight && (
+  <button
+    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 text-black rounded-full p-3 z-10 hover:bg-white focus:outline-none shadow-md"
+    onClick={() => {
+      const container = updatesContainerRef.current;
+      container?.scrollBy({ left: 300, behavior: "smooth" });
+    }}
+  >
+    <FaChevronRight size={20} />
+  </button>
+)}
+      </div>
+    </section>
         <Content />
         <Footer />
       </div>

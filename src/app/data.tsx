@@ -37,23 +37,27 @@ export const updates = [
     message: "VModel 4.15 is here!",
     time: "Nov 29, 2023",
     subText: "Services updates and more",
+    description: "Discover the latest features and improvements in VModel 4.15, designed to enhance your experience.",
   },
   {
     img: "/image/vmodel.png",
     message: "Earn from your skills with VModel",
     time: "Nov 17, 2023",
-    spotify:true,
-    spotifyLink:"https://creators.spotify.com/pod/show/vmodel"
+    spotify: true,
+    spotifyLink: "https://creators.spotify.com/pod/show/vmodel",
+    description: "Learn how to monetize your skills and grow your career with VModel's innovative platform.",
   },
   {
     img: "/image/voltis.png",
     message: "Voltis Labs Updates",
     time: "Nov 9, 2023",
+    description: "Stay informed about the latest developments and breakthroughs at Voltis Labs.",
   },
   {
     img: "/image/prelura.jpeg",
     message: "Introducing Prelura Pro",
     time: "Nov 6, 2023",
+    description: "Explore the advanced features of Prelura Pro, tailored for professionals and creators.",
   },
 ];
 
