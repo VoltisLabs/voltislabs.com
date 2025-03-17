@@ -7,7 +7,7 @@ function Content() {
   return (
     <>
       <section className="mb-20 md:px-[2rem] px-[1rem]">
-        <div className="border-white border-[1px] w-[full] mb-6 "></div>
+        <div className="border-white  border-[1px] w-[full] mb-6 "></div>
         <div className="flex flex-col text-white mb-10 gap-8">
   {/* Title Section */}
   <h2 className="font-normal md:text-[1.7rem] text-[1.6rem] text-center lg:text-left">

@@ -131,7 +131,7 @@ export default function Home() {
 
         <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[34rem] h-[23rem] relative">
       <div className="border-white border-[1px] w-full mb-6"></div>
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white mb-10">
+      <div className="flex flex-row justify-between items-start sm:items-center text-white mb-10">
         <h2 className="font-normal md:text-[1.7rem] text-[1.6rem]">Latest Updates</h2>
         <Link
           href={"/latest-updates"}
