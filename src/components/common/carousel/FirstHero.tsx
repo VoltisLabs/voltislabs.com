@@ -6,16 +6,18 @@ import LearnMoreBtn from "../../UI/LearnMoreBtn";
 const FirstHero = () => {
   return (
     <section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative">
+    
       {/* Left Section */}
-      <div className="hidden md:flex left-section h-full md:w-[50%] w-full bg-[#503C3B] md:p-7 p-2 flex items-end">
-        <LearnMoreBtn
-          text="Learn More about VModel"
-          borderColor="border-white"
-          textColor="text-white"
-          route="http://vmodelapp.com"
-        />
-      </div>
-
+	<div className="hidden md:flex left-section h-full md:w-[50%] w-full bg-[#503C3B] md:p-7 p-2 flex items-end justify-center">
+  	<LearnMoreBtn
+    	text="Visit Website"
+    	borderColor="border-white"
+    	textColor="text-white"
+    	route="http://vmodelapp.com"
+    	className="mb-10"
+  	/>
+	</div>
+      
       {/* Right Section with Overlay */}
       <div className="right-section h-full md:w-[50%] w-full flex items-center justify-center relative">
         {/* Overlay */}
