@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import {
   forBuyers,
   forSellers,
+  outfeatz,
   prelura,
   secondaryTitleClassName,
   trustedCommunity,
@@ -27,6 +28,9 @@ function page() {
     // { name: "Prelura For Buyers", route: "prelura-buyer", Icon: "" },
     // { name: "FAQs & Help Center", route: "prelura-more", Icon: "" },
   ];
+
+
+
 
   const [isPlaying, setIsplaying] = useState(false);
 
@@ -57,7 +61,7 @@ function page() {
             pauseOnClick
             direction="right"
           >
-            {prelura.map((img, index) => (
+            {outfeatz.map((img, index) => (
               <div
                 key={index}
                 className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"

@@ -47,11 +47,6 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     },
 	
     {
-      name: "Outfeatz",
-      route: "/outfeatz",
-      icon: <IoIosArrowDown />,
-    },
-    {
       name: "Research",
       route: "/research",
       icon: <IoIosArrowDown />,
