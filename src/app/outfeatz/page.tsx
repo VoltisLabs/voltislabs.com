@@ -82,7 +82,7 @@ function page() {
       <section className="mobile-slider hero-section mb-7 md:hidden block">
         <SliderBackground
           containerStyle="bg-[#AB28B280] w-full"
-          imagesArray={prelura}
+          imagesArray={outfeatz}
           titleText="A New Home for Your Fashion Finds"
           smallBtnText="Learn More"
         />
@@ -145,6 +145,34 @@ function page() {
           </div>
         </div>
         <br />
+        </section>
+
+
+        <section className="text-white mb-8">
+            <h2 className={secondaryTitleClassName}>Showcase Your Style</h2>
+            <div className="flex flex-row gap-4 mt-6">
+                {/* First Image */}
+                <div className="w-1/2  rounded-lg overflow-hidden">
+                <Image
+                    src="/image/out-3.jpg"
+                    alt="Showcase Image 1"
+                    className="w-full h-full object-cover"
+                    width={500}
+                    height={500}
+                />
+                </div>
+
+                {/* Second Image */}
+                <div className="w-1/2  rounded-lg overflow-hidden">
+                <Image
+                    src="/image/out-4.jpg" 
+                    alt="Showcase Image 2"
+                    className="w-full h-full object-cover"
+                    width={500}
+                    height={700}
+                />
+                </div>
+            </div>
         </section>
 
 
