@@ -6,9 +6,11 @@ import LearnMoreBtn from "../../UI/LearnMoreBtn";
 const SecondHero = () => {
   return (
     <section className="hero-section-container md:h-[42rem] h-[37rem] flex items-center relative">
+	
       <div className="left-section h-full w-[50%] bg-[#AB28B280] md:p-7 p-2 flex items-end">
         <div className="item-container flex flex-col md:justify-between justify-end h-[57%]">
-          <span className="block md:static absolute top-[36%] mx-auto z-50 md:mb-[5rem] mb-[3rem] text-center md:text-left text-white md:text-[3rem] text-[1.7rem]">
+          <span 
+		  className="block md:static absolute top-[36%] mx-auto z-50 md:mb-[5rem] mb-[3rem] text-center md:text-left text-white md:text-[3rem] text-[1.7rem]">
             A New Home for Your Fashion Finds.
           </span>
           <LearnMoreBtn
@@ -18,6 +20,7 @@ const SecondHero = () => {
           />
         </div>
       </div>
+	  
       <div className="right-section md:flex hidden md:w-[50%] bg-black h-full w-full">
         <div className="image-container h-full px-2 gap-2 w-[20rem] flex flex-col justify-between">
           <div className="image-wrapper h-[50%] w-full rounded-[4px] overflow-hidden relative">
