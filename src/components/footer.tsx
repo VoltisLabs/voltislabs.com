@@ -12,7 +12,7 @@ export default function Footer() {
         </div>
 
         <div className="border-[#FFFFFF] border-[1px] w-full text-center py-4 px-1 h-16 rounded mt-10 mb-28">
-          <p className="font-normal text-white sm:mt-0 text-sm  mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500">
+          <p className="font-normal text-white sm:mt-0 text-sm mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500">
             View careers
           </p>
         </div>
@@ -43,8 +43,8 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 <p>Docs</p>
                 <Image
-                  src={"../image/ArrowUpRight.svg"}
-                  alt="GFY"
+                  src={"/image/ArrowUpRight.svg"}
+                  alt="Arrow"
                   width={10}
                   height={10}
                 />
@@ -71,15 +71,17 @@ export default function Footer() {
           </div>
         </div>
       </section>
-      <div className=" border-[#ffffff] border-[1px] w-[full] mb-3 "></div>
 
-      <footer className="flex flex-col md:flex-row justify-between text-white mb-20 ">
+      {/* Footer Section */}
+      <div className="border-[#ffffff] border-[1px] w-full mb-3"></div>
+      <footer className="flex flex-col md:flex-row justify-between text-white w-full py-6">
         <div className="flex flex-col space-y-2">
-        <p>© 2025 Voltis Labs. All rights reserved.</p>
           <p>Terms & policies</p>
           <p>Privacy policy</p>
           <p>Brand guidelines</p>
         </div>
+
+
         <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
           <p>Twitter</p>
           <p>Youtube</p>
@@ -88,6 +90,11 @@ export default function Footer() {
           <p>LinkedIn</p>
         </div>
       </footer>
+      
+        {/* Centered Copyright */}
+        <p className="text-center relative bottom-0 text-white md:text-xl w-full md:w-auto">
+          © 2025 Voltis Labs. All rights reserved.
+        </p>
     </div>
   );
 }
