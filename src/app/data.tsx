@@ -125,6 +125,12 @@ export const prelura = [
 
 export const outfeatz = [
   {
+    img: "/image/out-5.png",
+  },
+  {
+    img: "/image/out-6.png",
+  },
+  {
     img: "/image/out-1.jpg",
   },
   {
