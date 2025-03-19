@@ -20,12 +20,12 @@ import SliderBackground from "@/src/components/UI/SliderBackground";
 
 function page() {
   const menuItems = [
-    { name: "About Prelura", route: "prelura-home", Icon: "" },
+    { name: "About Outfeatz", route: "outfeatz-home", Icon: "" },
     { name: "How It Works", route: "prelura-more", Icon: "" },
     { name: "Why Choose Prelura?", route: "prelura-vision", Icon: "" },
-    { name: "Prelura For Sellers", route: "prelura-sellers", Icon: "" },
-    { name: "Prelura For Buyers", route: "prelura-buyer", Icon: "" },
-    { name: "FAQs & Help Center", route: "prelura-more", Icon: "" },
+    // { name: "Prelura For Sellers", route: "prelura-sellers", Icon: "" },
+    // { name: "Prelura For Buyers", route: "prelura-buyer", Icon: "" },
+    // { name: "FAQs & Help Center", route: "prelura-more", Icon: "" },
   ];
 
   const [isPlaying, setIsplaying] = useState(false);
@@ -34,12 +34,10 @@ function page() {
     <div id="Outfeatz-home" className="">
       <Sidebar tbList={menuItems} />
 
-      <section id="prelura-home md:block hidden">
+      <section id="outfeatz-home md:block hidden">
         <TitleSection
-          title="Prelura: A New Era of Secondhand Fashion"
-          subTitle=" Exciting updates are here for VModel! Enjoy a fresh UI, AI job
-            matching, real-time messaging, an enhanced portfolio, and easier
-            payments. More to come soon!"
+          title=" Outfeatz – Curate Your Style, Your Way"
+          subTitle="Turn Your Outfits into Stunning Digital Galleries"
           secondaryText="Published on Monday 17th February, 2025"
           containerStyle="mb-4 md:block hidden"
         />
