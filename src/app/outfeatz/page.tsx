@@ -154,9 +154,9 @@ function page() {
                 {/* First Image */}
                 <div className="w-1/2  rounded-lg overflow-hidden">
                 <Image
-                    src="/image/out-3.jpg"
+                    src="/image/phone-1.png"
                     alt="Showcase Image 1"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     width={500}
                     height={500}
                 />
@@ -165,11 +165,11 @@ function page() {
                 {/* Second Image */}
                 <div className="w-1/2  rounded-lg overflow-hidden">
                 <Image
-                    src="/image/out-4.jpg" 
+                    src="/image/phone-2.png" 
                     alt="Showcase Image 2"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     width={500}
-                    height={700}
+                    height={500}
                 />
                 </div>
             </div>
