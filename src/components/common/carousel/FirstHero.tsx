@@ -5,9 +5,10 @@ import LearnMoreBtn from "../../UI/LearnMoreBtn";
 
 const FirstHero = () => {
   return (
-    <section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative">
-      {/* Left Section */}
-      <div className="hidden md:flex left-section h-full md:w-[50%] w-full bg-[#503C3B] md:p-7 p-2 flex items-end">
+    <section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative flex-row">
+	
+      {/* Button */}
+      <div className="left-section h-full w-1/2 bg-[#503C3B] md:p-7 p-2 flex items-end">
         <LearnMoreBtn
           text="Learn More about VModel"
           borderColor="border-white"
