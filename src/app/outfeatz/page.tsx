@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import {
   forBuyers,
   forSellers,
@@ -9,6 +9,7 @@ import {
   secondaryTitleClassName,
   trustedCommunity,
 } from "../data";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Title from "@/src/components/UI/Title";
 import Subtitle from "@/src/components/UI/subtitle";
@@ -149,31 +150,57 @@ function page() {
 
 
         <section className="text-white mb-8">
-            <h2 className={secondaryTitleClassName}>Showcase Your Style</h2>
-            <div className="flex flex-row gap-4 mt-6">
-                {/* First Image */}
-                <div className="w-1/2  rounded-lg overflow-hidden">
-                <Image
-                    src="/image/phone-1.png"
-                    alt="Showcase Image 1"
-                    className="w-full h-full object-contain"
-                    width={500}
-                    height={500}
-                />
-                </div>
+  <motion.h2
+    className={secondaryTitleClassName}
+    initial={{ opacity: 0, y: -50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
+    Showcase Your Style
+  </motion.h2>
+  <motion.div
+    className="flex flex-row gap-4 mt-6"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1, delay: 0.2 }}
+  >
+    {/* First Image */}
+    <motion.div
+      className="w-1/2 rounded-lg overflow-hidden"
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <Image
+        src="/image/phone-1.png"
+        alt="Showcase Image 1"
+        className="w-full h-full object-contain"
+        width={500}
+        height={500}
+      />
+    </motion.div>
 
-                {/* Second Image */}
-                <div className="w-1/2  rounded-lg overflow-hidden">
-                <Image
-                    src="/image/phone-2.png" 
-                    alt="Showcase Image 2"
-                    className="w-full h-full object-contain"
-                    width={500}
-                    height={500}
-                />
-                </div>
-            </div>
-        </section>
+    {/* Second Image */}
+    <motion.div
+      className="w-1/2 rounded-lg overflow-hidden"
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+    >
+      <Image
+        src="/image/phone-2.png"
+        alt="Showcase Image 2"
+        className="w-full h-full object-contain"
+        width={500}
+        height={500}
+      />
+    </motion.div>
+  </motion.div>
+</section>
 
 
         <section id="prelura-vision text-white mb-8" className="">
