@@ -46,7 +46,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 	
     {
       name: "Outfeatz",
-      route: "/afrogarm",
+      route: "/",
       icon: <IoIosArrowDown />,
     },
 
