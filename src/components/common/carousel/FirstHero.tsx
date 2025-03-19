@@ -24,7 +24,7 @@ const FirstHero = () => {
         <iframe
           width="100%"
           height="100%"
-          src="https://www.youtube.com/embed/7-YJ-1sG3sw?autoplay=1&mute=1&controls=0&showinfo=0"
+          src="https://www.youtube.com/embed/YPnXibHk3FQ?autoplay=1&mute=1&controls=0&showinfo=0"
           title="YouTube video player"
           frameBorder="0"
           allow="autoplay; encrypted-media"
