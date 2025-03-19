@@ -44,10 +44,10 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       route: "/afrogarm",
     },
 	
-	{
-	   name: "Outfeatz",
-	   route: "/afrogarm",
-	   icon: <IoIosArrowDown />,
+    {
+      name: "Outfeatz",
+      route: "/afrogarm",
+      icon: <IoIosArrowDown />,
     },
 
     {
