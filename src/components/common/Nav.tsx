@@ -95,28 +95,31 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     <div
       className={`page-container md:static fixed top-0 left-0 z-30 backdrop-blur-sm  md:px-[4rem] px-[1rem] ${navBackground} min-h-[5rem] w-full flex items-center justify-between transition-colors duration-300`}
     >
-      <div className="">
-        <div
-          onClick={() => router.push("/")}
-          className="logo-container cursor-pointer"
-        >
-          <Image
-            src={"/icons/voltis.svg"}
-            alt="company-logo"
-            width={90}
-            height={80}
-            className="hidden md:block"
-          />
-          {/* mobile */}
-          <Image
-            src={"/icons/voltis.svg"}
-            alt="company-logo"
-            width={85}
-            height={85}
-            className="md:hidden block"
-          />
-        </div>
-      </div>
+     <div className="">
+  <motion.div
+    onClick={() => router.push("/")}
+    className="logo-container cursor-pointer"
+    whileHover={{ scale: 1.1 }} // Scale up the logo slightly on hover
+    whileTap={{ scale: 0.95 }} // Add a slight scale-down effect on click
+    transition={{ type: "spring", stiffness: 300, damping: 20 }} // Smooth animation
+  >
+    <Image
+      src={"/icons/voltis.svg"}
+      alt="company-logo"
+      width={90}
+      height={80}
+      className="hidden md:block"
+    />
+    {/* mobile */}
+    <Image
+      src={"/icons/voltis.svg"}
+      alt="company-logo"
+      width={85}
+      height={85}
+      className="md:hidden block"
+    />
+  </motion.div>
+</div>
 
       {/* desktop links */}
       <nav className="nav-container lg:flex gap-6 hidden items-center">

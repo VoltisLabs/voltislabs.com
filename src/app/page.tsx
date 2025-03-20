@@ -21,7 +21,7 @@ export default function Home() {
   const updatesContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
-
+  const [currentSlide, setCurrentSlide] = useState(0); 
   // Function to check scroll position and update arrow visibility
   const checkScrollPosition = () => {
     const container = updatesContainerRef.current;
@@ -52,6 +52,7 @@ export default function Home() {
     autoplaySpeed: 4500,
     arrows: false,
     fade: true,
+    afterChange: (current) => setCurrentSlide(current),
   };
 
   const slides = [
@@ -74,15 +75,32 @@ export default function Home() {
       sliderRef.current.slickNext();
     }
   };
-
+  const handlePrevClick = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
   const router = useRouter();
-
+console.log(currentSlide)
   return (
     <div className="page-container bg-black w-full min-h-screen">
       <div className="item-container relative">
-        <Slider ref={sliderRef} {...settings}>
+          <button
+            className="absolute left-4 md:top-[49%] top-[41%] bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none z-10"
+            onClick={handlePrevClick}
+          >
+            <Image
+            src={"/icons/button-arrow.svg"}
+            alt="button-icon"
+            width={30}
+            height={30}
+              className="rotate-180"
+          />
+          </button>
+     
+        <Slider  ref={sliderRef} {...settings}>
           {slides.map((item) => (
-            <div key={item.text} className="item-container">
+            <div key={item.text} className="item-container w-full">
               {item.image}
             </div>
           ))}

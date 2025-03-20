@@ -70,7 +70,7 @@ function Content() {
       <section className="mb-20 md:px-[2rem] px-[1rem] md:min-h-[33rem] min-h-[29rem]">
         <div className="flex flex-col md:flex-row justify-between text-white mb-10">
           <h2 className="font-normal  md:text-[1.7rem] text-[1.6rem] mb-4 md:mb-0">Products</h2>
-          <div className="md:w-1/2">
+          {/* <div className="md:w-1/2">
             <p className="font-normal text-[20px] md:text-[24px]">
               Our API platform offers our latest models and guides for safety
               best practices.
@@ -78,7 +78,7 @@ function Content() {
             <p className="text-sm underline mt-2 cursor-pointer  font-normal text-white sm:mt-0  hover:text-blue-500 visited:text-red-500">
               Explore our products
             </p>
-          </div>
+          </div> */}
         </div>
 
         <FlexContainer array={products} />

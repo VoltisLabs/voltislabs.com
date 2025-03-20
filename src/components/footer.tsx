@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function Footer() {
@@ -12,9 +13,11 @@ export default function Footer() {
         </div>
 
         <div className="border-[#FFFFFF] border-[1px] w-full text-center py-4 px-1 h-16 rounded mt-10 mb-28">
-          <p className="font-normal text-white sm:mt-0 text-sm  mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500">
-            View careers
-          </p>
+          <Link href="/careers">
+            <p className="font-normal text-white sm:mt-0 text-sm mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500">
+              View careers
+            </p>
+          </Link>
         </div>
 
         <div className="flex flex-wrap justify-between items-start gap-6">
@@ -28,20 +31,22 @@ export default function Footer() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-white">
             <div className="flex flex-col">
-              <p>Research</p>
-              <p>Overview</p>
-              <p>Index</p>
-              <p>GPT-4</p>
-              <p>DALL.E 3</p>
+              <Link href="/research"><p>Research</p></Link>
+              <Link href="/overview"><p>Overview</p></Link>
+              <Link href="/index"><p>Index</p></Link>
+              <Link href="/gpt-4"><p>GPT-4</p></Link>
+              <Link href="/dalle-3"><p>DALL.E 3</p></Link>
             </div>
 
             <div className="flex flex-col">
-              <p>API</p>
-              <p>Overview</p>
-              <p>Data privacy</p>
-              <p>Pricing</p>
+              <Link href="/api"><p>API</p></Link>
+              <Link href="/api-overview"><p>Overview</p></Link>
+              <Link href="/data-privacy"><p>Data privacy</p></Link>
+              <Link href="/pricing"><p>Pricing</p></Link>
               <div className="flex items-center gap-2">
-                <p>Docs</p>
+                <Link href="/docs">
+                  <p>Docs</p>
+                </Link>
                 <Image
                   src={"../image/ArrowUpRight.svg"}
                   alt="GFY"
@@ -52,44 +57,39 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col">
-              <p>ChatGPT</p>
-              <p>Overview</p>
-              <p>Enterprise</p>
-              <p>Try ChatGPT</p>
+              <Link href="/chatgpt"><p>ChatGPT</p></Link>
+              <Link href="/chatgpt-overview"><p>Overview</p></Link>
+              <Link href="/enterprise"><p>Enterprise</p></Link>
+              <Link href="/try-chatgpt"><p>Try ChatGPT</p></Link>
             </div>
 
             <div className="flex flex-col">
-              <p>Company</p>
-              <p>About</p>
-              <p>Blog</p>
-              <p>Careers</p>
-              <p>Charter</p>
-              <p>Security</p>
-              <p>Customer stories</p>
-              <p>Safety</p>
+              <Link href="/about"><p>Company</p></Link>
+              <Link href="/about"><p>About</p></Link>
+              <Link href="/blog"><p>Blog</p></Link>
+              <Link href="/careers"><p>Careers</p></Link>
+              <Link href="/charter"><p>Charter</p></Link>
+              <Link href="/security"><p>Security</p></Link>
+              <Link href="/customer-stories"><p>Customer stories</p></Link>
+              <Link href="/safety"><p>Safety</p></Link>
             </div>
           </div>
         </div>
       </section>
-      <div className=" border-[#ffffff] border-[1px] w-[full] mb-3 "></div>
+      <div className="border-[#ffffff] border-[1px] w-full mb-3"></div>
 
-      <footer className="flex flex-col md:flex-row justify-between text-white mb-20 ">
+      <footer className="flex flex-col md:flex-row justify-between text-white mb-20">
         <div className="flex flex-col space-y-2">
-        
-          <p>Terms & policies</p>
-          <p>Privacy policy</p>
-          <p>Brand guidelines</p>
+          <Link href="/terms"><p>Terms & policies</p></Link>
+          <Link href="/privacy"><p>Privacy policy</p></Link>
+          <Link href="/brand-guidelines"><p>Brand guidelines</p></Link>
         </div>
         <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
-          <p>Twitter</p>
-          <p>Youtube</p>
-          <p>GitHub</p>
-          <p>SoundCloud</p>
-          <p>LinkedIn</p>
+          <Link target="_blank" rel="noopener noreferrer" href="https://x.com"><p>X</p></Link>
+          <Link target="_blank" rel="noopener noreferrer" href="https://linkedin.com"><p>LinkedIn</p></Link>
         </div>
-        
       </footer>
-      <p className="text-center text-white mt-10">© 2025 Voltis Labs. All rights reserved.</p>
+      <p className="text-center pb-10 text-white mt-10">© 2025 Voltis Labs. All rights reserved.</p>
     </div>
   );
 }

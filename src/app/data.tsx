@@ -87,23 +87,23 @@ export const research = [
 
 export const products = [
   {
-    img: "/image/image (10).svg",
-    message: "Introducing GPTs",
+    img: "/image/prelura-icon.jpg",
+    message: "Prelura",
     time: "Nov 6, 2023",
   },
   {
-    img: "/image/image (11).svg",
-    message: "New models and developer products announced at DevDay",
+    img: "/image/vmodel-icon.png",
+    message: "Vmodel",
     time: "Nov 6, 2023",
   },
   {
-    img: "/image/image (12).svg",
-    message: "DALL·E 3 is now available in ChatGPT Plus and Enterprise",
+    img: "/image/afrogarm-icon.png",
+    message: "Afrogarm",
     time: "Oct 19, 2023",
   },
   {
     img: "/image/image (13).svg",
-    message: "ChatGPT can now see, hear, and speak",
+    message: "Games",
     time: "Sep 25, 2023",
   },
 ];

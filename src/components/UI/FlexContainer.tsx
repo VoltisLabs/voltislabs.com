@@ -22,7 +22,7 @@ const FlexContainer = ({ array }: FlexContainerProps) => {
             key={index}
             className="text-left w-[25rem] h-[25rem] overflow-hidden items-start"
           >
-            <div className="image-container w-full h-[66%] overflow-hidden rounded-[10px]">
+            <div className="image-container bg-[white] w-full h-[66%] overflow-hidden rounded-[10px]">
               <Image
                 src={text.img}
                 alt="Icon"
@@ -33,7 +33,7 @@ const FlexContainer = ({ array }: FlexContainerProps) => {
             </div>
 
             <p className="text-white text-[.9rem] mt-3">{text.message}</p>
-            <p className="text-white text-[.7rem]">{text.time}</p>
+            {/* <p className="text-white text-[.7rem]">{text.time}</p> */}
           </div>
         ))}
       </div>
