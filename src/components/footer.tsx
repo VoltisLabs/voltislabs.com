@@ -86,7 +86,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
           <Link target="_blank" rel="noopener noreferrer" href="https://x.com"><p>X</p></Link>
-          <Link target="_blank" rel="noopener noreferrer" href="https://https://www.linkedin.com/company/voltis-labs"><p>LinkedIn</p></Link>
+          <Link target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/voltis-labs"><p>LinkedIn</p></Link>
         </div>
       </footer>
       <p className="text-center pb-10 text-white mt-10">© 2025 Voltis Labs. All rights reserved.</p>
