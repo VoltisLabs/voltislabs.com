@@ -5,16 +5,21 @@ import LearnMoreBtn from "../../UI/LearnMoreBtn";
 
 const FirstHero = () => {
   return (
+<<<<<<< HEAD
     <section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative flex-row">
 	
       {/* Button */}
       <div className="left-section h-full w-1/2 bg-[#503C3B] md:p-7 p-2 flex items-end">
+=======
+    <><section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative">
+      {/* Left Section */}
+      <div className="hidden md:flex left-section h-full md:w-[50%] w-full bg-[#503C3B] md:p-7 p-2 flex items-end">
+>>>>>>> b05d131b9f90b346783ab2179836463336946867
         <LearnMoreBtn
           text="Learn More about VModel"
           borderColor="border-white"
           textColor="text-white"
-          route="http://vmodelapp.com"
-        />
+          route="http://vmodelapp.com" />
       </div>
 
       {/* Right Section with Overlay */}
@@ -25,7 +30,7 @@ const FirstHero = () => {
         <iframe
           width="100%"
           height="100%"
-          src="https://www.youtube.com/embed/7-YJ-1sG3sw?autoplay=1&mute=1&controls=0&showinfo=0"
+          src="https://www.youtube.com/embed/YPnXibHk3FQ?autoplay=1&mute=1&controls=0&showinfo=0"
           title="YouTube video player"
           frameBorder="0"
           allow="autoplay; encrypted-media"
@@ -42,8 +47,7 @@ const FirstHero = () => {
               src={"/icons/vmodel.svg"}
               alt="vmodel-logo"
               width={30}
-              height={30}
-            />
+              height={30} />
             <span className="block text-[#EDCEAB] font-semibold md:text-[1.15rem] text-[.85rem]">
               VMODEL
             </span>
@@ -56,7 +60,15 @@ const FirstHero = () => {
           </div>
         </div>
       </section>
-    </section>
+
+
+    </section><div className=" md:hidden left-section h-full md:w-[50%] w-full md:p-7 p-2 flex items-end">
+        <LearnMoreBtn
+          text="Visit VModel"
+          borderColor="border-white"
+          textColor="text-white"
+          route="http://vmodelapp.com" />
+      </div></>
   );
 };
 

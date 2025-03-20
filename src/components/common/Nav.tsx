@@ -30,6 +30,11 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       route: "/spinnersonic",
       icon: <IoIosArrowDown />,
     },
+    {
+      name: "Outfeatz",
+      route: "/outfeatz",
+      icon: <IoIosArrowDown />,
+    },
     // {
     //   name: "Vell Magazine",
     //   route: "/",
@@ -40,7 +45,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       name: "Afrogarm",
       route: "/afrogarm",
     },
-
+	
     {
       name: "Research",
       route: "/research",

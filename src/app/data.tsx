@@ -123,6 +123,23 @@ export const prelura = [
   },
 ];
 
+export const outfeatz = [
+  {
+    img: "/image/out-5.png",
+  },
+  {
+    img: "/image/out-6.png",
+  },
+  {
+    img: "/image/out-1.jpg",
+  },
+  {
+    img: "/image/out.jpg",
+  },
+];
+
+
+
 export const Aboutus = [
   {
     img: "/image/about-04.jpg",
