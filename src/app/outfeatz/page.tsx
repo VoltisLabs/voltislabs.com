@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState,useRef } from "react";
+import React, { useState } from "react";
 import {
   forBuyers,
   forSellers,
@@ -19,6 +19,7 @@ import FlatList from "@/src/components/UI/FlatList";
 import Marquee from "react-fast-marquee";
 import TitleSection from "@/src/components/UI/TitleSection";
 import SliderBackground from "@/src/components/UI/SliderBackground";
+import LearnMoreBtn from "@/src/components/UI/LearnMoreBtn";
 
 function page() {
   const menuItems = [
@@ -80,12 +81,21 @@ function page() {
         </div>
       </section>
 
+      <div className="hidden md:flex h-full  md:p-7 p-2 flex justify-center items-center">
+  <LearnMoreBtn
+    text={` Visit website`}
+    borderColor="border-white"
+    textColor="text-white"
+    route="https://outfeatz.com"
+  />
+</div>
+
       <section className="mobile-slider hero-section mb-7 md:hidden block">
         <SliderBackground
-          containerStyle="bg-[#AB28B280] w-full"
+          containerStyle=" w-full"
           imagesArray={outfeatz}
           titleText="A New Home for Your Fashion Finds"
-          smallBtnText="Learn More"
+          smallBtnText="Visit Website"
         />
       </section>
 

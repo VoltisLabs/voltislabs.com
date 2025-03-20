@@ -6,7 +6,7 @@ import FlexContainer from "./UI/FlexContainer";
 function Content() {
   return (
     <>
-      <section className="mb-20 md:px-[2rem] px-[1rem]">
+      <section className="mb-20 md:px-[2rem] ">
         <div className="border-white  border-[1px] w-[full] mb-6 "></div>
         <div className="flex flex-col text-white mb-10 gap-8">
   {/* Title Section */}
@@ -17,16 +17,16 @@ function Content() {
   {/* Parent Container for Image and Text */}
   <div className="flex flex-col lg:flex-row items-start gap-8">
     {/* Image Section */}
-    <div className="w-full lg:w-1/2 h-[30rem] rounded-lg overflow-hidden">
-      <img
-        src="../image/safety.png"
-        alt="Responsible Innovation"
-        className="w-full h-full object-cover object-top"
-      />
-    </div>
+    <div className="w-full lg:w-1/2 aspect-w-16 aspect-h-9 md:rounded-lg overflow-hidden">
+  <img
+    src="../image/safety.png"
+    alt="Responsible Innovation"
+    className="w-full h-full object-cover object-center"
+  />
+</div>
 
     {/* Text Section */}
-    <div className="flex flex-col lg:w-1/2 justify-center gap-6">
+    <div className="flex px-[1rem] flex-col lg:w-1/2 justify-center gap-6">
       <p className="font-normal text-[20px] md:text-[28px]">
         At Voltis Labs, we innovate with purpose and responsibility — crafting
         technology that enhances lives while considering its long-term impact

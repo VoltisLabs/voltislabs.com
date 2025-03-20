@@ -31,6 +31,7 @@ import TitleSection from "@/src/components/UI/TitleSection";
 import Marquee from "react-fast-marquee";
 import SliderBackground from "@/src/components/UI/SliderBackground";
 import InfiniteMarqueeSlider from "@/src/components/common/autoSlider";
+import LearnMoreBtn from "@/src/components/UI/LearnMoreBtn";
 
 function Vmodel() {
   const menuItems = [
@@ -114,7 +115,14 @@ function Vmodel() {
           </Marquee>
         </div>
       </section>
-
+      <div className="hidden md:flex h-full  md:p-7 p-2 flex justify-center items-center">
+  <LearnMoreBtn
+    text="Visit Website"
+    borderColor="border-white"
+    textColor="text-white"
+    route="http://vmodelapp.com"
+  />
+</div>
       <section className="hero-section md:hidden block mb-9">
         <SliderBackground
           containerStyle="bg-[#503C3B] w-full"

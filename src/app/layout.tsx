@@ -6,6 +6,7 @@ import Aside from "../components/common/Aside";
 import { useState } from "react";
 import Nav from "../components/common/Nav";
 import { motion } from "framer-motion";
+import Footer from "../components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,6 +45,7 @@ export default function RootLayout({
             </div>
 
             <div className="item-container mt-0">{children}</div>
+            <Footer />
           </main>
         </div>
       </body>
