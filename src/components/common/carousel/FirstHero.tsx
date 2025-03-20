@@ -5,15 +5,14 @@ import LearnMoreBtn from "../../UI/LearnMoreBtn";
 
 const FirstHero = () => {
   return (
-    <section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative">
+    <><section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative">
       {/* Left Section */}
       <div className="hidden md:flex left-section h-full md:w-[50%] w-full bg-[#503C3B] md:p-7 p-2 flex items-end">
         <LearnMoreBtn
           text="Learn More about VModel"
           borderColor="border-white"
           textColor="text-white"
-          route="http://vmodelapp.com"
-        />
+          route="http://vmodelapp.com" />
       </div>
 
       {/* Right Section with Overlay */}
@@ -41,8 +40,7 @@ const FirstHero = () => {
               src={"/icons/vmodel.svg"}
               alt="vmodel-logo"
               width={30}
-              height={30}
-            />
+              height={30} />
             <span className="block text-[#EDCEAB] font-semibold md:text-[1.15rem] text-[.85rem]">
               VMODEL
             </span>
@@ -55,7 +53,15 @@ const FirstHero = () => {
           </div>
         </div>
       </section>
-    </section>
+
+
+    </section><div className=" md:hidden left-section h-full md:w-[50%] w-full md:p-7 p-2 flex items-end">
+        <LearnMoreBtn
+          text="Visit VModel"
+          borderColor="border-white"
+          textColor="text-white"
+          route="http://vmodelapp.com" />
+      </div></>
   );
 };
 
