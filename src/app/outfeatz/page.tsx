@@ -185,7 +185,7 @@ function page() {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <Image
-        src="/image/phone-1.png"
+        src="/image/phone-3.png"
         alt="Showcase Image 1"
         className="w-full h-full object-contain"
         width={500}
