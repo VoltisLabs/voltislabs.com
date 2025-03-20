@@ -52,7 +52,7 @@ export default function Home() {
     autoplaySpeed: 4500,
     arrows: false,
     fade: true,
-    afterChange: (current) => setCurrentSlide(current),
+    afterChange: (current:any) => setCurrentSlide(current),
   };
 
   const slides = [
