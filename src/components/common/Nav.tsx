@@ -16,25 +16,25 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       category: "Fashion",
       image: "/images/fashion.jpg",
       items: [
-        { name: "Prelura", route: "https://prelura.com" },
-        { name: "Outfeatz", route: "https://outfeatz.com" },
-        { name: "Afrogarm", route: "https://afrogarm.com" },
+        { name: "Prelura", route: "/prelura" },
+        { name: "Outfeatz", route: "/outfeatz" },
+        { name: "Afrogarm", route: "/afrogarm" },
       ],
     },
     {
       category: "Fun and Casual",
       image: "/images/fun-casual.jpg",
-      items: [{ name: "Spinnersonic", route: "https://spinnersonic.com" }],
+      items: [{ name: "Spinnersonic", route: "/spinnersonic" }],
     },
     {
       category: "Social Media",
       image: "/images/social.jpg",
-      items: [{ name: "VModel", route: "https://vmodel.com" }],
+      items: [{ name: "VModel", route: "/vmodel" }],
     },
     {
       category: "Productivity",
       image: "/images/productivity.jpg",
-      items: [{ name: "BG Remover", route: "https://bg-remover.com" }],
+      items: [{ name: "BG Remover", route: "/bg-remover" }],
     },
   ];
 
@@ -63,7 +63,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
             {activeCategory === category.category && (
               <motion.div
-                className="absolute h-[10rem] top-full left-0 bg-black text-white p-4 shadow-lg rounded-lg w-[20rem] flex gap-4"
+                className="absolute h-[7rem] top-full left-0 bg-black text-white p-4 shadow-lg rounded-lg w-[20rem] flex gap-4"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
@@ -73,7 +73,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                 <ul className="space-y-2 flex-1">
                   {category.items.map((item) => (
                     <li key={item.name}>
-                      <a href={item.route} target="_blank" rel="noopener noreferrer" className="block hover:text-gray-200">
+                      <a href={item.route}  className="block hover:text-gray-200">
                         {item.name}
                       </a>
                     </li>
@@ -127,8 +127,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                       <li key={item.name}>
                         <a
                           href={item.route}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                         
                           className="block hover:text-gray-200"
                           onClick={() => setToggle(false)}
                         >
