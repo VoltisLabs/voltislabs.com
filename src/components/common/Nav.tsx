@@ -1,12 +1,7 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { IoIosArrowDown } from "react-icons/io";
-import Link from "next/link";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+// import Image from "next/image";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 interface NavProps {
   setToggle: (value: boolean) => void;
@@ -14,177 +9,141 @@ interface NavProps {
 }
 
 const Nav = ({ setToggle, toggle }: NavProps) => {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
   const links = [
     {
-      name: "VModel",
-      route: "/vmodel",
-      icon: <IoIosArrowDown />,
+      category: "Fashion",
+      image: "/images/fashion.jpg",
+      items: [
+        { name: "Prelura", route: "https://prelura.com" },
+        { name: "Outfeatz", route: "https://outfeatz.com" },
+        { name: "Afrogarm", route: "https://afrogarm.com" },
+      ],
     },
     {
-      name: "Prelura",
-      route: "/prelura",
-      icon: <IoIosArrowDown />,
+      category: "Fun and Casual",
+      image: "/images/fun-casual.jpg",
+      items: [{ name: "Spinnersonic", route: "https://spinnersonic.com" }],
     },
     {
-      name: "Spinnersonic",
-      route: "/spinnersonic",
-      icon: <IoIosArrowDown />,
+      category: "Social Media",
+      image: "/images/social.jpg",
+      items: [{ name: "VModel", route: "https://vmodel.com" }],
     },
     {
-      name: "Outfeatz",
-      route: "/outfeatz",
-      icon: <IoIosArrowDown />,
-    },
-    // {
-    //   name: "Vell Magazine",
-    //   route: "/",
-    //   icon: <IoIosArrowDown />,
-    // },
-
-    {
-      name: "Afrogarm",
-      route: "/afrogarm",
-    },
-	
-    {
-      name: "Research",
-      route: "/research",
-      icon: <IoIosArrowDown />,
-    },
-
-    {
-      name: "About Us",
-      route: "/Aboutus",
-      icon: <IoIosArrowDown />,
+      category: "Productivity",
+      image: "/images/productivity.jpg",
+      items: [{ name: "BG Remover", route: "https://bg-remover.com" }],
     },
   ];
 
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const navVariants = {
-    hidden: { x: "-100%", opacity: 0 },
-    visible: { x: 0, opacity: 1 },
-  };
-
-  const overlayVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
-
-  const [navBackground, setNavBackground] = useState("bg-transparent");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroSection = document.querySelector(".hero-section");
-      if (heroSection && window.scrollY > heroSection.clientHeight) {
-        setNavBackground("bg-black");
-      } else {
-        setNavBackground("bg-transparent");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <div
-      className={`page-container md:static fixed top-0 left-0 z-30 backdrop-blur-sm  md:px-[4rem] px-[1rem] ${navBackground} min-h-[5rem] w-full flex items-center justify-between transition-colors duration-300`}
-    >
-     <div className="">
-  <motion.div
-    onClick={() => router.push("/")}
-    className="logo-container cursor-pointer"
-    whileHover={{ scale: 1.1 }} // Scale up the logo slightly on hover
-    whileTap={{ scale: 0.95 }} // Add a slight scale-down effect on click
-    transition={{ type: "spring", stiffness: 300, damping: 20 }} // Smooth animation
-  >
-    <Image
-      src={"/icons/voltis.svg"}
-      alt="company-logo"
-      width={90}
-      height={80}
-      className="hidden md:block"
-    />
-    {/* mobile */}
-    <Image
-      src={"/icons/voltis.svg"}
-      alt="company-logo"
-      width={85}
-      height={85}
-      className="md:hidden block"
-    />
-  </motion.div>
-</div>
+    <div className="fixed top-0 left-0 z-30 backdrop-blur-sm bg-black min-h-[5rem] w-full flex items-center justify-between px-4 md:px-16 transition-colors duration-300">
+      {/* Logo */}
+      <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+        <a href="https://voltis.com">
+          <Image src="/icons/voltis.svg" alt="logo" width={90} height={80} className="hidden md:block" />
+          <Image src="/icons/voltis.svg" alt="logo" width={85} height={85} className="md:hidden block" />
+        </a>
+      </motion.div>
 
-      {/* desktop links */}
-      <nav className="nav-container lg:flex gap-6 hidden items-center">
-        {links.map((item) => (
-          <Link
-            href={item.route}
-            key={item.name}
-            className={`${
-              item.route === pathname ? "font-bold" : ""
-            } card-container hover:text-gray-200 cursor-pointer text-white text-[1rem] flex`}
+      {/* Desktop Navigation */}
+      <nav className="hidden lg:flex gap-8 items-center">
+        {links.map((category) => (
+          <div
+            key={category.category}
+            className="relative group"
+            onMouseEnter={() => setActiveCategory(category.category)}
+            onMouseLeave={() => setActiveCategory(null)}
           >
-            {item.name}
-          </Link>
+            <a href="#" className="text-white text-[1rem] font-medium hover:text-gray-200">
+              {category.category}
+            </a>
+
+            {activeCategory === category.category && (
+              <motion.div
+                className="absolute top-full left-0 bg-black text-white p-4 shadow-lg rounded-lg w-[24rem] flex gap-4"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* <Image
+                  src={category.image}
+                  alt={category.category}
+                  width={100}
+                  height={100}
+                  className="rounded-lg w-[6rem] h-[6rem] object-cover"
+                /> */}
+                <ul className="space-y-2 flex-1">
+                  {category.items.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.route} target="_blank" rel="noopener noreferrer" className="block hover:text-gray-200">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </div>
         ))}
       </nav>
 
-      <div className="lg:flex hidden items-center gap-4">
-        <button className="outline-none border-none text-[.9rem] text-white">
+      {/* Action Buttons */}
+      <div className="hidden lg:flex items-center gap-4">
+        <a href="https://voltis.com/search" className="text-white text-sm">
           Search
-        </button>
-        <button className="outline-none border-none text-[.9rem] text-white">
+        </a>
+        <a href="https://voltis.com/login" className="text-white text-sm">
           Login
-        </button>
+        </a>
       </div>
 
-      <section
-        onClick={() => setToggle(true)}
-        className="burger-container lg:hidden block"
-      >
+      {/* Mobile Menu Button */}
+      <div onClick={() => setToggle(true)} className="lg:hidden cursor-pointer">
         <RxHamburgerMenu size={25} color="white" />
-      </section>
+      </div>
 
-      {/* mobile nav */}
+      {/* Mobile Navigation */}
       <AnimatePresence>
         {toggle && (
           <>
             <motion.div
-              className="section-container top-0 absolute md:hidden h-screen bg-black/70 backdrop-blur-lg z-20 left-0 block w-full"
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              variants={overlayVariants}
+              className="absolute inset-0 bg-black/70 backdrop-blur-lg z-20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={() => setToggle(false)}
             />
             <motion.nav
-              className="nav-container bg-black py-[5rem] h-screen px-[2rem] w-[66%] fixed top-0 left-0 !z-[1000] text-white"
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              variants={navVariants}
+              className="fixed top-0 left-0 h-screen w-[70%] bg-black text-white py-20 px-6 z-50"
+              initial={{ x: "-100%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "-100%", opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              {links.map((item) => (
-                <Link
-                  onClick={() => setToggle(false)}
-                  href={item.route}
-                  key={item.name}
-                  className={`${
-                    item.route === pathname ? "font-bold" : ""
-                  } card-container hover:text-gray-200 mb-[2rem] text-[1.2rem] cursor-pointer !text-white flex`}
-                  style={item.route === pathname ? { fontWeight: "bold" } : {}}
-                >
-                  {item.name}
-                </Link>
+              {links.map((category) => (
+                <div key={category.category} className="mb-6">
+                  <h3 className="font-bold text-lg mb-4">{category.category}</h3>
+                  <ul className="space-y-2">
+                    {category.items.map((item) => (
+                      <li key={item.name}>
+                        <a
+                          href={item.route}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block hover:text-gray-200"
+                          onClick={() => setToggle(false)}
+                        >
+                          {item.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </motion.nav>
           </>
