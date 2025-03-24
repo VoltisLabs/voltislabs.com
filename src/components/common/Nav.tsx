@@ -63,19 +63,13 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
             {activeCategory === category.category && (
               <motion.div
-                className="absolute top-full left-0 bg-black text-white p-4 shadow-lg rounded-lg w-[24rem] flex gap-4"
+                className="absolute h-[10rem] top-full left-0 bg-black text-white p-4 shadow-lg rounded-lg w-[20rem] flex gap-4"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* <Image
-                  src={category.image}
-                  alt={category.category}
-                  width={100}
-                  height={100}
-                  className="rounded-lg w-[6rem] h-[6rem] object-cover"
-                /> */}
+               
                 <ul className="space-y-2 flex-1">
                   {category.items.map((item) => (
                     <li key={item.name}>
