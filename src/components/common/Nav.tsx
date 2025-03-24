@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// import Image from "next/image";
+import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 interface NavProps {
