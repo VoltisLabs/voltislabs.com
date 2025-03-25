@@ -2,6 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 interface NavProps {
   setToggle: (value: boolean) => void;
@@ -39,10 +40,10 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       
       {/* Logo */}
       <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-        <a href="https://voltis.com">
+        <Link href="/">
           <Image src="/icons/voltis.svg" alt="logo" width={90} height={80} className="hidden md:block" />
           <Image src="/icons/voltis.svg" alt="logo" width={85} height={85} className="md:hidden block" />
-        </a>
+        </Link>
       </motion.div>
 
       {/* Centered Navigation */}
