@@ -98,80 +98,89 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
         </div>
 
         {/* About Us */}
-        <a href="/about" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+        <a href="/Aboutus" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           About Us
         </a>
       </nav>
-
-      {/* Right Side - Search & Login */}
-      <div className="flex gap-6">
-        <a href="/search" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          Search
-        </a>
-        <a href="/login" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          Login
-        </a>
-      </div>
       
-      {/* Hamburger Icon (Mobile) */}
-      <button className="lg:hidden text-white text-2xl" onClick={() => setToggle(!toggle)}>
-        <RxHamburgerMenu size={28} />
-      </button>
-
       {/* Mobile Navigation */}
-      <AnimatePresence>
-        {toggle && (
-          <>
-            {/* Overlay */}
-            <motion.div
-              className="absolute inset-0 bg-black/70 backdrop-blur-lg z-20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={() => setToggle(false)}
-            />
-            
-            {/* Sidebar Navigation */}
-            <motion.nav
-              className="fixed top-0 left-0 h-screen w-[50%] bg-[#0D1117] text-white py-20 px-6 z-50 flex flex-col justify-between"
-              initial={{ x: "-100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "-100%", opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Close Button */}
-              <button className="absolute top-5 right-6 text-white text-2xl" onClick={() => setToggle(false)}>
-                <RxHamburgerMenu size={28} />
-              </button>
+<div className="lg:hidden flex items-center space-x-6">
+  {/* Always visible links */}
+  <a href="/products" className="text-white text-lg font-medium" onClick={(e) => {
+    e.preventDefault(); // Prevent default link behavior
+    setToggle(true); // Open hamburger menu
+  }}>
+    Products
+  </a>
 
-              {/* Links */}
-              <div className="mt-12">
-                {links.map((category) => (
-                  <div key={category.category} className="mb-6">
-                    <h3 className="font-bold text-lg mb-4">{category.category}</h3>
-                    <ul className="space-y-2">
-                      {category.items.map((item) => (
-                        <li key={item.name}>
-                          <a href={item.route} className="block hover:text-gray-200" onClick={() => setToggle(false)}>
-                            {item.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+  <a href="/about-us" className="text-white text-lg font-medium">
+    About Us
+  </a>
+
+  {/* Hamburger Icon (Mobile) */}
+  <button className="text-white text-2xl" onClick={() => setToggle(!toggle)}>
+    <RxHamburgerMenu size={28} />
+  </button>
+</div>
+
+<AnimatePresence>
+  {toggle && (
+    <>
+      {/* Overlay */}
+      <motion.div
+        className="absolute inset-0 bg-black/70 backdrop-blur-lg z-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        onClick={() => setToggle(false)} // Close menu when clicking outside
+      />
+
+      {/* Sidebar Navigation */}
+      <motion.nav
+        className="fixed top-0 left-0 h-screen w-[60%] sm:w-[50%] bg-[#0D1117] text-white py-20 px-6 z-50 flex flex-col justify-between"
+        initial={{ x: "-100%", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: "-100%", opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        {/* Close Button */}
+        <button className="absolute top-5 right-6 text-white text-2xl" onClick={() => setToggle(false)}>
+          ✕
+        </button>
+
+        {/* Navigation Links */}
+        <div className="mt-12">
+          {links.map((category) => (
+            <div key={category.category} className="mb-6">
+              <h3 className="font-bold text-lg mb-4">{category.category}</h3>
+              <ul className="space-y-2">
+                {category.items.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.route}
+                      className="block hover:text-gray-200"
+                      onClick={() => setToggle(false)}
+                    >
+                      {item.name}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
+            </div>
+          ))}
+        </div>
 
-              {/* Footer */}
-              <hr className="border-t border-gray-700 my-6" />
-              <p className="text-center pb-10 text-white mt-10 text-sm">
-                © 2025 Voltis Labs. <br /> All rights reserved.
-              </p>
-            </motion.nav>
-          </>
-        )}
-      </AnimatePresence>
+        {/* Footer */}
+        <hr className="border-t border-gray-700 my-6" />
+        <p className="text-center pb-10 text-white mt-10 text-sm">
+          © 2025 Voltis Labs. <br /> All rights reserved.
+        </p>
+      </motion.nav>
+    </>
+  )}
+</AnimatePresence>
+
     </div>
   );
 };
