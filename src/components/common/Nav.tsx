@@ -113,7 +113,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     Products
   </a>
 
-  <a href="/about-us" className="text-white text-lg font-medium">
+  <a href="/Aboutus" className="text-white text-lg font-medium">
     About Us
   </a>
 
