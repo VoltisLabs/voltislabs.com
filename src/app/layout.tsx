@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Voltis-Labs</title>
+        <title>Voltis Labs</title>
         <meta name="description" content="Software Development Company" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </head>
