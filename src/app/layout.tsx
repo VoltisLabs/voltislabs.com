@@ -24,29 +24,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [toggle, setToggle] = useState<boolean>(false);
-  console.log("RootLayout rendered");
 
   return (
     <html lang="en">
       <head>
-        {/* <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-          rel="stylesheet"
-        /> */}
         <title>Voltis-Labs</title>
         <meta name="description" content="Software Development Company" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </head>
 
-      <body className={`bg-black`}>
-        <div className="mx-auto max-w-[85rem] w-full">
-          <main className="content bg-black w-full">
-            <div className="nav-container">
-              <Nav setToggle={setToggle} toggle={toggle} />
-            </div>
+      <body className="bg-black text-white w-full min-h-screen">
+        <div className="flex flex-col mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8 xl:px-12">
+          {/* Navigation Bar */}
+          <div className="fixed top-0 left-0 w-full z-50 bg-black">
+            <Nav setToggle={setToggle} toggle={toggle} />
+          </div>
 
-            <div className="item-container mt-0">{children}</div>
-            <Footer />
+          {/* Main Content Area */}
+          <main className="flex flex-col items-center justify-center flex-1 mt-[5rem] w-full">
+            {children}
           </main>
+
+          {/* Footer */}
+          <Footer />
         </div>
       </body>
     </html>
