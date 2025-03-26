@@ -3,10 +3,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
+  font-family: "Inter", sans-serif;
   scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Utilities */
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -22,24 +31,84 @@ body {
   }
 }
 
-/* body {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-} */
+/* General Layout */
+.container {
+  max-width: 1400px; /* Adapts to large screens */
+  margin: 0 auto;
+  padding: 1rem;
+}
 
-@layer base {
-  body {
-    font-family: "Inter", sans-serif; /* Set Inter with weight 500 globally */
+/* Responsive Grid Layout */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Flexbox for Layouts */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+/* Media Queries */
+@media (max-width: 1280px) {
+  /* Large screens (laptops, tablets) */
+  .container {
+    max-width: 90%;
   }
 }
 
-.hero-section-container {
-  width: 100%;
-  max-width: 1900px; /* Adjust width as needed */
-  margin: 0 auto; /* Center it */
+@media (max-width: 1024px) {
+  /* Tablets */
+  .grid-layout {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .hero-section {
+    padding: 2rem 1rem;
+  }
 }
 
-.left-section .right-section {
-  width: 50%; /* Make each side wider */
+@media (max-width: 768px) {
+  /* Mobile */
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-section {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Small Phones */
+  .hero-section {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+
+  .grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1920px) {
+  /* Ultra-Wide Screens */
+  .container {
+    max-width: 1600px;
+  }
 }

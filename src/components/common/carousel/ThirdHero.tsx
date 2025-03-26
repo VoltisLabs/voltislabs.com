@@ -4,10 +4,10 @@ import React from "react";
 
 const ThirdHero = () => {
   return (
-    <section className="hero-section-container md:h-[42rem] h-[37rem] w-full  max-full flex items-center relative">
+    <section className="hero-section-container md:h-[42rem] h-[37rem] w-full flex items-center relative">
       
       {/* Left Section (Text + Button) */}
-      <div className="left-section md:p-4 p-1 ml-[-18px] bg-[#FFF1F1] w-2/5 h-full flex flex-col justify-between items-center text-center">
+      <div className="left-section md:p-4 p-2 w-2/5 h-full bg-[#FFF1F1] flex flex-col justify-between items-center text-center">
         
         {/* Hero Icon & Text */}
         <div className="mt-20">
@@ -18,7 +18,7 @@ const ThirdHero = () => {
         </div>
 
         {/* Button - Bottom Left */}
-        <div className="self-start flex items-center gap-2 p-2 ml-5 border border-black rounded-md">
+        <div className="self-start flex items-center gap-2 p-2 border border-black rounded-md">
           <Link href="/vmodel" className="text-black text-sm">
             Visit Website
           </Link>
@@ -27,10 +27,10 @@ const ThirdHero = () => {
 
       </div>
 
-      {/* Right Section (Two Side-by-Side Images) */}
-      <div className="w-4/3 h-full flex">
+      {/* Right Section (Images) */}
+      <div className="w-3/5 h-full flex">
         <Image src="/image/hero4.jpeg" alt="hero-image-1" width={500} height={500} className="w-1/2 h-full object-cover" />
-        <Image src="/image/hero5.jpeg" alt="hero-image-2" width={500} height={500} className="w-1/2 h-full object-cover" />
+        <Image src="/image/hero5.jpeg" alt="hero-image-2" width={500} height={500} className="w-1/2 h-full object-cover md:block hidden" />
       </div>
 
     </section>
