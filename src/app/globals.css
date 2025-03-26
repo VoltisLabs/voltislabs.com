@@ -34,6 +34,12 @@ body {
   }
 }
 
-.slick-slide {
-  margin: 0 10px;
+.hero-section-container {
+  width: 100%;
+  max-width: 1900px; /* Adjust width as needed */
+  margin: 0 auto; /* Center it */
+}
+
+.left-section .right-section {
+  width: 50%; /* Make each side wider */
 }
