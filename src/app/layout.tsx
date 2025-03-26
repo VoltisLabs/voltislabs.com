@@ -38,8 +38,8 @@ export default function RootLayout({
       </head>
 
       <body className={`bg-black`}>
-        <div className="max-w-full w-full">
-          <main className="content bg-black w-full max-w-full">
+        <div className="mx-auto max-w-[85rem] w-full">
+          <main className="content bg-black w-full">
             <div className="nav-container">
               <Nav setToggle={setToggle} toggle={toggle} />
             </div>
