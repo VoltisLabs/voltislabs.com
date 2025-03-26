@@ -5,7 +5,7 @@ import LearnMoreBtn from "../../UI/LearnMoreBtn";
 
 const FirstHero = () => {
   return (
-    <><section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative">
+    <><section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative mr-9">
       {/* Left Section */}
       <div className="hidden md:flex left-section h-full md:w-[50%] w-full bg-[#503C3B] md:p-7 p-2 flex items-end">
         <LearnMoreBtn
