@@ -7,6 +7,7 @@ import { useState } from "react";
 import Nav from "../components/common/Nav";
 import { motion } from "framer-motion";
 import Footer from "../components/footer";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -37,12 +38,12 @@ export default function RootLayout({
       </head>
 
       <body className={`bg-black`}>
-        <div className="mx-auto max-w-full w-full">
-
-          <main className="content bg-black w-full">
+        <div className="max-w-full w-full">
+          <main className="content bg-black w-full max-w-full">
             <div className="nav-container">
               <Nav setToggle={setToggle} toggle={toggle} />
             </div>
+
             <div className="item-container mt-0">{children}</div>
             <Footer />
           </main>
