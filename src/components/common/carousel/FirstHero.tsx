@@ -21,7 +21,7 @@ const FirstHero = () => {
   <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
   {/* Local Video */}
   <video
-    src="/videos/vmodel.mp4" // Replace with the correct path to your local video
+    src="/videos/vmodel1.mp4" // Replace with the correct path to your local video
     autoPlay
     muted
     loop
