@@ -84,7 +84,7 @@ export default function Home() {
 console.log(currentSlide)
   return (
     <div className="page-container bg-black w-full min-h-screen">
-      <div className=" item-container absolute inset-0 w-full h-full">
+     <div className="item-container absolute inset-0 w-full 2xl:w-3/5 h-full mx-auto">
   <button
     className="absolute left-4 md:top-[20rem] top-[30%] bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none z-10"
     onClick={handlePrevClick}
@@ -118,6 +118,8 @@ console.log(currentSlide)
     />
   </button>
 </div>
+
+
       <div className="pt-[42rem] content-container">
        
 
