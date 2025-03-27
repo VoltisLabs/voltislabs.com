@@ -17,20 +17,18 @@ const FirstHero = () => {
 
       {/* Right Section with Overlay */}
       <div className="right-section h-full md:w-[50%] w-full flex items-center justify-center relative">
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
-        {/* Video */}
-        <iframe
-          width="100%"
-          height="100%"
-          src="https://www.youtube.com/embed/YPnXibHk3FQ?autoplay=1&mute=1&controls=0&showinfo=0"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-          className="rounded-lg z-0"
-        ></iframe>
-      </div>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+  {/* Local Video */}
+  <video
+    src="/videos/vmodel.mp4" // Replace with the correct path to your local video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover z-0"
+  ></video>
+</div>
 
       {/* Text Container */}
       <section className="text-container absolute md:top-[30%] top-[26.5%] left-0 md:px-0 px-[1rem] w-full flex items-center justify-center mx-auto z-20">
