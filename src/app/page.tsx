@@ -84,41 +84,41 @@ export default function Home() {
 console.log(currentSlide)
   return (
     <div className="page-container bg-black w-full min-h-screen">
-      <div className="item-container relative">
-          <button
-            className="absolute left-4 md:top-[49%] top-[41%] bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none z-10"
-            onClick={handlePrevClick}
-          >
-            <Image
-            src={"/icons/button-arrow.svg"}
-            alt="button-icon"
-            width={30}
-            height={30}
-              className="rotate-180"
-          />
-          </button>
-     
-        <Slider  ref={sliderRef} {...settings}>
-          {slides.map((item) => (
-            <div key={item.text} className="item-container w-full">
-              {item.image}
-            </div>
-          ))}
-        </Slider>
-        <button
-          className="absolute md:top-[49%] top-[41%] right-4 bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none"
-          onClick={handleNextClick}
-        >
-          <Image
-            src={"/icons/button-arrow.svg"}
-            alt="button-icon"
-            width={30}
-            height={30}
-          />
-        </button>
-      </div>
+      <div className=" item-container absolute inset-0 w-full h-full">
+  <button
+    className="absolute left-4 md:top-[20rem] top-[30%] bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none z-10"
+    onClick={handlePrevClick}
+  >
+    <Image
+      src={"/icons/button-arrow.svg"}
+      alt="button-icon"
+      width={30}
+      height={30}
+      className="rotate-180"
+    />
+  </button>
 
-      <div className="content-container">
+  <Slider ref={sliderRef} {...settings}>
+    {slides.map((item) => (
+      <div key={item.text} className="w-full h-full">
+        {item.image}
+      </div>
+    ))}
+  </Slider>
+
+  <button
+    className="absolute md:top-[20rem] top-[30%] right-4 bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none z-10"
+    onClick={handleNextClick}
+  >
+    <Image
+      src={"/icons/button-arrow.svg"}
+      alt="button-icon"
+      width={30}
+      height={30}
+    />
+  </button>
+</div>
+      <div className="pt-[42rem] content-container">
        
 
 

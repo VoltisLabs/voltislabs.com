@@ -33,6 +33,10 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       category: "Productivity",
       items: [{ name: "BG Remover", route: "/bg-remover" }],
     },
+    {
+      category: "Entertainment",
+      items: [{ name: "AMG records", route: "/bg-remover" }],
+    },
   ];
 
   return (
