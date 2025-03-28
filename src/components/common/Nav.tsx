@@ -106,20 +106,20 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       {/* Mobile Navigation */}
 <div className="lg:hidden flex items-center space-x-6">
   {/* Always visible links */}
-  <a href="/products" className="text-white text-lg font-medium" onClick={(e) => {
+  <a href="/products" className="text-white text-lg text-sm" onClick={(e) => {
     e.preventDefault(); // Prevent default link behavior
     setToggle(true); // Open hamburger menu
   }}>
     Products
   </a>
 
-  <a href="/Aboutus" className="text-white text-lg font-medium">
+  <a href="/Aboutus" className="text-white text-lg text-sm">
     About Us
   </a>
 
   {/* Hamburger Icon (Mobile) */}
-  <button className="text-white text-2xl" onClick={() => setToggle(!toggle)}>
-    <RxHamburgerMenu size={28} />
+  <button className="text-white text-1xl" onClick={() => setToggle(!toggle)}>
+    <RxHamburgerMenu size={25} />
   </button>
 </div>
 
