@@ -23,7 +23,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     },
     {
       category: "Fun and Casual",
-      items: [{ name: "Spinnersonic", route: "/spinnersonic" }],
+      items: [{ name: "Spinnersonic", route: "/spinner" }],
     },
     {
       category: "Social Media",
@@ -31,11 +31,11 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     },
     {
       category: "Productivity",
-      items: [{ name: "BG Remover", route: "/bg-remover" }],
+      items: [{ name: "BG Remover", route: "/bg" }],
     },
     {
       category: "Entertainment",
-      items: [{ name: "AMG records", route: "/bg-remover" }],
+      items: [{ name: "AMG records", route: "/amg" }],
     },
   ];
 
