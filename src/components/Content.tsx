@@ -81,7 +81,7 @@ function Content() {
           </div> */}
         </div>
 
-        <FlexContainer array={products} />
+        <FlexContainer marquee array={products} />
       </section>
 
       <section className="mb-20 md:px-[2rem] ">

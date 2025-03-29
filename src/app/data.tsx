@@ -102,8 +102,13 @@ export const products = [
     time: "Oct 19, 2023",
   },
   {
-    img: "/image/image (13).svg",
-    message: "Games",
+    img: "/image/spinner.png",
+    message: "Spinnersonic",
+    time: "Sep 25, 2023",
+  },
+  {
+    img: "/image/outfeatz.png",
+    message: "Outfeatz",
     time: "Sep 25, 2023",
   },
 ];
