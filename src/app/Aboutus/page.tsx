@@ -22,7 +22,7 @@ function page() {
       <SliderBackground
         containerStyle="bg-[#000] w-full"
         imagesArray={Aboutus}
-        titleText="A New Home for Your Fashion Finds"
+        titleText="A Software Company"
         smallBtnText="Learn More" />
     </section><div className="pt-[6rem] text-white">
         <Sidebar tbList={menuItems} />
