@@ -1,11 +1,10 @@
-import React from "react";
+"use client"
+import dynamic from "next/dynamic";
 
-const Page = () => {
-  return (
-    <div className="flex items-center justify-center h-screen bg-black text-white">
-      <h1 className="text-2xl">BG Remover</h1>
-    </div>
-  );
+const BgRemover = dynamic(() => import("../my-bg-remover/src/app/page"), { ssr: false });
+
+const BgRemoverPage = () => {
+  return <BgRemover />;
 };
 
-export default Page;
+export default BgRemoverPage;
