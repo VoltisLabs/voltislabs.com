@@ -21,15 +21,9 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap justify-between items-start gap-6">
-          <Image
-            src={"/image/logo3.png"}
-            alt="Icon"
-            width={100}
-            height={100}
-            className="mb-6 md:mb-24"
-          />
+          
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-white">
+          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-white">
             <div className="flex flex-col">
               <Link href="/research"><p>Research</p></Link>
               <Link href="/overview"><p>Overview</p></Link>
@@ -73,7 +67,7 @@ export default function Footer() {
               <Link href="/customer-stories"><p>Customer stories</p></Link>
               <Link href="/safety"><p>Safety</p></Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
       <div className="border-[#ffffff] border-[1px] w-full mb-3"></div>
@@ -85,9 +79,17 @@ export default function Footer() {
           <Link href="/brand-guidelines"><p>Brand guidelines</p></Link>
         </div>
         <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
+        
           <Link target="_blank" rel="noopener noreferrer" href="https://x.com"><p>X</p></Link>
           <Link target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/voltis-labs"><p>LinkedIn</p></Link>
         </div>
+        <Image
+            src={"/image/logo3.png"}
+            alt="Icon"
+            width={100}
+            height={100}
+            className="mb-6 mt-6 md:mt-0 md:mb-24"
+          />
       </footer>
       <p className="text-center pb-10 text-white mt-10">© 2025 Voltis Labs. All rights reserved.</p>
     </div>

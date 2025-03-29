@@ -8,7 +8,7 @@ const SecondHero = () => {
     <section className="hero-section-container md:h-[42rem] h-[37rem] flex items-center relative">
       <div className="left-section h-full w-[50%] bg-[#AB28B280] md:p-7 p-2 flex items-end">
         <div className="item-container flex flex-col md:justify-between justify-end h-[57%]">
-          <span className="block md:static absolute top-[36%] mx-auto z-50 md:mb-[5rem] mb-[3rem] text-center md:text-left text-white md:text-[3rem] text-[1.7rem]">
+          <span className="block md:static absolute top-1/2 mx-auto z-50 md:mb-[5rem] mb-[3rem] text-center md:text-left text-white md:text-[3rem] text-[1.7rem]">
             A New Home for Your Fashion Finds.
           </span>
           <LearnMoreBtn

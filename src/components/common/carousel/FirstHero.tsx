@@ -31,26 +31,28 @@ const FirstHero = () => {
 </div>
 
       {/* Text Container */}
-      <section className="text-container absolute md:top-[30%] top-[26.5%] left-0 md:px-0 px-[1rem] w-full flex items-center justify-center mx-auto z-20">
-        <div className="content-container mx-auto md:w-[50%] text-center">
-          <div className="image-container flex items-center md:mb-1 mb-[1.5rem] gap-2">
-            <Image
-              src={"/icons/vmodel.svg"}
-              alt="vmodel-logo"
-              width={30}
-              height={30} />
-            <span className="block text-[#EDCEAB] font-semibold md:text-[1.15rem] text-[.85rem]">
-              VMODEL
-            </span>
-          </div>
+      <section className="text-container absolute top-1/2 left-0 -translate-y-1/2 px-4 w-full flex items-center justify-center z-20">
+  <div className="content-container mx-auto md:w-[50%] w-[90%] text-center">
+    <div className="image-container flex items-center justify-center md:mb-1 mb-[1.5rem] gap-2">
+      <Image
+        src={"/icons/vmodel.svg"}
+        alt="vmodel-logo"
+        width={30}
+        height={30}
+      />
+      <span className="block text-[#EDCEAB] font-semibold md:text-[1.15rem] text-[.85rem]">
+        VMODEL
+      </span>
+    </div>
 
-          <div className="text-section mx-auto">
-            <span className="block text-center text-white md:text-[3rem] text-[1.7rem]">
-              “Designed for Creators, Built for the Future”
-            </span>
-          </div>
-        </div>
-      </section>
+    <div className="text-section mx-auto">
+      <span className="block text-center text-white md:text-[3rem] text-[1.7rem]">
+        “Designed for Creators, Built for the Future”
+      </span>
+    </div>
+  </div>
+</section>
+
 
 
     </section><div className=" md:hidden left-section h-full md:w-[50%] w-full md:p-7 p-2 flex items-end">

@@ -84,9 +84,9 @@ function Content() {
         <FlexContainer array={products} />
       </section>
 
-      <section className="mb-20 md:px-[2rem] px-[1rem]">
+      <section className="mb-20 md:px-[2rem] ">
         <div className="border-white border-[1px] w-[full] mb-6"></div>
-        <div className="flex  flex-col md:flex-row justify-between text-white mb-10">
+        <div className="flex px-[1rem]  flex-col md:flex-row justify-between text-white mb-10">
           <h2 className="font-normal  md:text-[1.7rem] text-[1.6rem]">
             Careers at Voltis-Labs
           </h2>
@@ -104,7 +104,7 @@ function Content() {
           <img
             src="../image/career.png"
             alt="Icon"
-            className="w-full h-[32rem] object-cover rounded-lg"
+            className="w-full h-[32rem] object-cover md:rounded-lg"
           />
         </div>
       </section>

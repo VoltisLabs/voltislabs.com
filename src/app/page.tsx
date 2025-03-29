@@ -86,7 +86,7 @@ console.log(currentSlide)
     <div className="page-container bg-black w-full min-h-screen">
      <div className="item-container absolute inset-0 w-full 2xl:w-3/5 h-full mx-auto">
   <button
-    className="absolute left-4 md:top-[20rem] top-[30%] bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none z-10"
+    className="absolute left-4  top-[20rem] bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none z-10"
     onClick={handlePrevClick}
   >
     <Image
@@ -107,7 +107,7 @@ console.log(currentSlide)
   </Slider>
 
   <button
-    className="absolute md:top-[20rem] top-[30%] right-4 bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none z-10"
+    className="absolute  top-[20rem] right-4 bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none z-10"
     onClick={handleNextClick}
   >
     <Image
@@ -187,34 +187,34 @@ console.log(currentSlide)
     {updates.map((text, index) => (
       <div
         key={index}
-        className="md:min-w-[22rem] w-[12.5rem] text-left !min-h-[25rem] overflow-hidden items-start"
+        className="md:min-w-[18rem] w-[10rem] text-left !min-h-[20rem] overflow-hidden items-start"
       >
-        <div className="image-container w-full h-20rem overflow-hidden rounded-[10px]">
+        <div className="image-container w-full h-8rem overflow-hidden rounded-[10px] flex justify-center">
           <Image
             src={text.img}
             alt="Icon"
-            width={310}
-            height={300}
-            className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
+            width={350}
+            height={350}
+            className="transition-all w-full h-full object-cover duration-[.85s] ease-in-out hover:scale-110"
           />
         </div>
 
-        <p className="text-white text-[.9rem] mt-3">{text.message}</p>
+        <p className="text-white text-[.9rem] mt-2">{text.message}</p>
         {text.subText && (
-          <p className="text-[.9rem] text-[#535353]">{text.subText}</p>
+          <p className="text-[.8rem] text-[#535353]">{text.subText}</p>
         )}
-        <p className="text-white text-[.7rem]">{text.time}</p>
+        <p className="text-white text-[.6rem]">{text.time}</p>
         {text.spotify && (
           <a
             href={text.spotifyLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-flex items-center gap-2 mt-4 py-2 px-4 rounded-full border hover:border-transparent border-white text-white text-[.9rem] font-medium overflow-hidden w-fit cursor-pointer group"
+            className="relative inline-flex items-center gap-2 mt-3 py-1.5 px-3 rounded-full border hover:border-transparent border-white text-white text-[.9rem] font-medium overflow-hidden w-fit cursor-pointer group"
           >
             <span className="absolute inset-0 bg-[#1DB954] scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
-            <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
+            <FaSpotify className="relative z-10 text-[1rem] transition-all duration-300 group-hover:text-black" />
             <span className="relative z-10 transition-all duration-300 group-hover:text-black">
-              Listen on Spotify
+              Listen
             </span>
           </a>
         )}
@@ -222,6 +222,7 @@ console.log(currentSlide)
     ))}
   </div>
 </div>
+
 
 {/* Right Arrow */}
 {canScrollRight && (

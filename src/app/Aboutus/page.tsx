@@ -20,7 +20,7 @@ function page() {
   return (
     <><section className="mobile-slider hero-section mb-7 md:hidden block">
       <SliderBackground
-        containerStyle="bg-[#AB28B280] w-full"
+        containerStyle="bg-[#000] w-full"
         imagesArray={Aboutus}
         titleText="A New Home for Your Fashion Finds"
         smallBtnText="Learn More" />

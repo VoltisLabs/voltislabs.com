@@ -70,7 +70,7 @@ const UpdateItem = ({ img, message, subText, time, description, spotify, spotify
         ))}
       </section>
         <Content/>
-        <Footer />
+    
                     
         </div>
     );
