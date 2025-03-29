@@ -22,15 +22,29 @@ const FlexContainer = ({ array }: FlexContainerProps) => {
             key={index}
             className="text-left w-[25rem] h-[25rem] overflow-hidden items-start"
           >
-            <div className="image-container bg-[white] w-full h-[66%] overflow-hidden rounded-[10px]">
-              <Image
-                src={text.img}
-                alt="Icon"
-                width={350}
-                height={350}
-                className="transition-all w-full h-full object-cover duration-[.85s] ease-in-out hover:scale-110"
-              />
-            </div>
+<div className="hidden md:block image-container bg-[white] w-[150px] h-[150px] md:w-[250px] md:h-[250px] overflow-hidden rounded-[10px] relative">
+  <Image
+    src={text.img}
+    alt="Icon"
+    width={250} // Max size for desktop
+    height={250}
+    className="transition-all w-full h-full object-cover duration-[.85s] ease-in-out hover:scale-110"
+  />
+</div>
+<div className="md:hidden image-container bg-[white] w-[100px] h-[100px] overflow-hidden rounded-[10px] relative">
+  <Image
+    src={text.img}
+    alt="Icon"
+    width={100} // Max size for desktop
+    height={100}
+    className="transition-all w-full h-full object-cover duration-[.85s] ease-in-out hover:scale-110"
+  />
+</div>
+
+
+
+
+
 
             <p className="text-white text-[.9rem] mt-3">{text.message}</p>
             {/* <p className="text-white text-[.7rem]">{text.time}</p> */}

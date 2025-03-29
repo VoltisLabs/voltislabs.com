@@ -101,12 +101,13 @@ function Content() {
           </div>
         </div>
         <div className="px-0">
-          <img
-            src="../image/career.png"
-            alt="Icon"
-            className="w-full h-[32rem] object-cover md:rounded-lg"
-          />
-        </div>
+  <img
+    src="../image/career.png"
+    alt="Icon"
+    className="w-full h-[20rem] md:h-[32rem] object-contain md:object-cover md:rounded-lg"
+  />
+</div>
+
       </section>
 
       <section className="mb-20 md:px-[2rem] px-[1rem]">

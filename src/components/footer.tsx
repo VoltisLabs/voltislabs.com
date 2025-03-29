@@ -12,62 +12,12 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="border-[#FFFFFF] border-[1px] w-full text-center py-4 px-1 h-16 rounded mt-10 mb-28">
+        <div className="border-[#FFFFFF] border-[1px] w-full text-center py-4 px-1 h-16 rounded mt-10 mb-10">
           <Link href="/careers">
             <p className="font-normal text-white sm:mt-0 text-sm mt-2 cursor-pointer hover:text-blue-500 visited:text-red-500">
               View careers
             </p>
           </Link>
-        </div>
-
-        <div className="flex flex-wrap justify-between items-start gap-6">
-          
-
-          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-white">
-            <div className="flex flex-col">
-              <Link href="/research"><p>Research</p></Link>
-              <Link href="/overview"><p>Overview</p></Link>
-              <Link href="/index"><p>Index</p></Link>
-              <Link href="/gpt-4"><p>GPT-4</p></Link>
-              <Link href="/dalle-3"><p>DALL.E 3</p></Link>
-            </div>
-
-            <div className="flex flex-col">
-              <Link href="/api"><p>API</p></Link>
-              <Link href="/api-overview"><p>Overview</p></Link>
-              <Link href="/data-privacy"><p>Data privacy</p></Link>
-              <Link href="/pricing"><p>Pricing</p></Link>
-              <div className="flex items-center gap-2">
-                <Link href="/docs">
-                  <p>Docs</p>
-                </Link>
-                <Image
-                  src={"../image/ArrowUpRight.svg"}
-                  alt="GFY"
-                  width={10}
-                  height={10}
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col">
-              <Link href="/chatgpt"><p>ChatGPT</p></Link>
-              <Link href="/chatgpt-overview"><p>Overview</p></Link>
-              <Link href="/enterprise"><p>Enterprise</p></Link>
-              <Link href="/try-chatgpt"><p>Try ChatGPT</p></Link>
-            </div>
-
-            <div className="flex flex-col">
-              <Link href="/about"><p>Company</p></Link>
-              <Link href="/about"><p>About</p></Link>
-              <Link href="/blog"><p>Blog</p></Link>
-              <Link href="/careers"><p>Careers</p></Link>
-              <Link href="/charter"><p>Charter</p></Link>
-              <Link href="/security"><p>Security</p></Link>
-              <Link href="/customer-stories"><p>Customer stories</p></Link>
-              <Link href="/safety"><p>Safety</p></Link>
-            </div>
-          </div> */}
         </div>
       </section>
       <div className="border-[#ffffff] border-[1px] w-full mb-3"></div>
