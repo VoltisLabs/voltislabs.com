@@ -78,7 +78,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                   <div className="flex flex-row gap-6 justify-center">
                     {links.map((category) => (
                       <div key={category.category} className="relative flex flex-col items-center">
-                        <div className="text-white text-base font-bold cursor-pointer hover:text-gray-400">
+                        <div className="text-gray-600 text-base font-bold cursor-pointer hover:text-gray-400">
                           {category.category}
                         </div>
                         <div className="mt-2">
@@ -157,7 +157,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
         <div className="mt-12">
           {links.map((category) => (
             <div key={category.category} className="mb-6">
-              <h3 className="font-bold text-lg mb-4">{category.category}</h3>
+              <h3 className=" text-gray-600 text-lg mb-4">{category.category}</h3>
               <ul className="space-y-2">
                 {category.items.map((item) => (
                   <li key={item.name}>
