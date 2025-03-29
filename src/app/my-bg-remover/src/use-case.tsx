@@ -10,7 +10,7 @@ const useCases = [
 
 export default function StudioPage() {
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col items-center text-white">
 
       {/* Studio Use Cases Section */}
       <section className="relative py-16 px-12 bg-black rounded-4xl w-full max-w-[96rem] text-center">
