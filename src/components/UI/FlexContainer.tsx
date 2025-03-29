@@ -20,57 +20,42 @@ const FlexContainer = ({ array }: FlexContainerProps) => {
         {array.map((text, index) => (
           <div
             key={index}
-            className="text-left w-[25rem] h-[25rem] overflow-hidden items-start"
+            className="text-left w-[16rem] h-[20rem] overflow-hidden items-start"
           >
-<div className="hidden md:block image-container bg-[white] w-[150px] h-[150px] md:w-[250px] md:h-[250px] overflow-hidden rounded-[10px] relative">
-  <Image
-    src={text.img}
-    alt="Icon"
-    width={250} // Max size for desktop
-    height={250}
-    className="transition-all w-full h-full object-cover duration-[.85s] ease-in-out hover:scale-110"
-  />
-</div>
-<div className="md:hidden image-container bg-[white] w-[100px] h-[100px] overflow-hidden rounded-[10px] relative">
-  <Image
-    src={text.img}
-    alt="Icon"
-    width={100} // Max size for desktop
-    height={100}
-    className="transition-all w-full h-full object-cover duration-[.85s] ease-in-out hover:scale-110"
-  />
-</div>
-
-
-
-
-
+            <div className="image-container bg-[white] w-[14rem] h-[14rem] overflow-hidden rounded-[10px]">
+              <Image
+                src={text.img}
+                alt="Icon"
+                width={192}
+                height={192}
+                className="transition-all w-full h-full object-cover duration-[.85s] ease-in-out hover:scale-110"
+              />
+            </div>
 
             <p className="text-white text-[.9rem] mt-3">{text.message}</p>
-            {/* <p className="text-white text-[.7rem]">{text.time}</p> */}
           </div>
         ))}
       </div>
 
       {/* Mobile View */}
-      <div className="overflow-x-scroll md:hidden md:min-w-[43rem] no-scrollbar min-w-[20rem] flex items-center">
-        <div className="flex flex-nowrap gap-8 h-full md:w-full">
+      <div className="overflow-x-scroll md:hidden no-scrollbar min-w-[20rem] flex items-center">
+        <div className="flex flex-nowrap gap-6 h-full">
           {array.map((text, index) => (
             <div
               key={index}
-              className="w-[15rem] text-left min-h-[20rem] overflow-hidden items-start"
+              className="w-[12rem] text-left min-h-[15rem] overflow-hidden items-start"
             >
-              <div className="image-container h-[78%] w-full overflow-hidden rounded-[10px]">
+              <div className="image-container w-[10rem] h-[10rem] overflow-hidden rounded-[10px]">
                 <Image
                   src={text.img}
                   alt="Icon"
-                  width={350}
-                  height={350}
-                  className="transition-all h-full w-full duration-[.85s] ease-in-out hover:scale-110"
+                  width={160}
+                  height={160}
+                  className="transition-all w-full h-full object-cover duration-[.85s] ease-in-out hover:scale-110"
                 />
               </div>
 
-              <p className="text-white text-[.9rem] mt-3">{text.message}</p>
+              <p className="text-white text-[.8rem] mt-2">{text.message}</p>
               <p className="text-white text-[.7rem]">{text.time}</p>
             </div>
           ))}
