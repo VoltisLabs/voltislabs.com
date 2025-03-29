@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
+import { Input } from "./components/ui/input";
 import { Upload } from "lucide-react";
 
 export default function HeroSection() {

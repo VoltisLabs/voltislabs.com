@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { Upload } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Input } from "./components/ui/input";
 
 export default function BottomNav() {
   const [isVisible, setIsVisible] = useState(false); // Initially hidden
