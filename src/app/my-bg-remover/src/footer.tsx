@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 const images = [
   "/slider1.jpg",
@@ -14,36 +14,16 @@ const images = [
 const TOTAL_COLUMNS = 6;
 
 const Footer = () => {
-  const containerRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [offset, setOffset] = useState(0);
+  const speed = 0.5; // Adjust speed
 
   useEffect(() => {
-    let animationFrameId: number;
-    let offset = 0;
-    const speed = 0.5; // Smooth scrolling speed
-
     const animate = () => {
-      offset += speed;
-
-      containerRefs.current.forEach((container) => {
-        if (container) {
-          container.style.transform = `translateY(-${offset}px)`;
-
-          if (offset >= container.scrollHeight / 2) {
-            offset = 0; // Reset smoothly
-          }
-        }
-      });
-
-      animationFrameId = requestAnimationFrame(animate);
+      setOffset((prev) => (prev + speed) % 350); // Reset smoothly
     };
 
-    const startAnimation = () => {
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    setTimeout(startAnimation, 1000); // Delay to prevent jumping
-
-    return () => cancelAnimationFrame(animationFrameId);
+    const interval = setInterval(animate, 16); // Approx 60FPS
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -53,25 +33,35 @@ const Footer = () => {
           {Array.from({ length: TOTAL_COLUMNS }).map((_, columnIndex) => (
             <div
               key={columnIndex}
-              ref={(el) => (containerRefs.current[columnIndex] = el)}
-              className="h-[250px] sm:h-[350px] w-[40%] sm:w-[260px] overflow-hidden transform rotate-[-10deg]"
+              className="h-[300px] sm:h-[400px] w-[40%] sm:w-[260px] overflow-hidden"
               style={{
+                transform: "rotate(-10deg)", // Slant the whole column
                 display: "flex",
                 flexDirection: "column",
-                transition: "transform 0.1s linear",
+                transformOrigin: "center",
+                transformStyle: "preserve-3d",
               }}
             >
-              {[...Array(6)].map((_, rowIndex) => (
-                <div key={rowIndex} className="mb-1">
-                  <Image
-                    src={images[rowIndex % images.length]}
-                    alt={`Carousel ${rowIndex}`}
-                    width={320}
-                    height={90}
-                    className="rounded-lg shadow-lg w-full h-auto"
-                  />
-                </div>
-              ))}
+              <div
+                style={{
+                  transform: `translateY(-${offset}px)`,
+                  transition: "transform 0.1s linear",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                {[...Array(6)].map((_, rowIndex) => (
+                  <div key={rowIndex} className="mb-1">
+                    <Image
+                      src={images[rowIndex % images.length]}
+                      alt={`Carousel ${rowIndex}`}
+                      width={320}
+                      height={90}
+                      className="rounded-lg shadow-lg w-full h-auto"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
