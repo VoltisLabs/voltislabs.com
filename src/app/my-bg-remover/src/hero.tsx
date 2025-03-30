@@ -8,9 +8,10 @@ export default function HeroSection() {
   const [file, setFile] = useState<File | null>(null);
 
   return (
-    <div className="mt-7 relative h-[32rem] bg-gradient-to-r from-blue-500 via-pink-500 to-orange-500 text-white bg-black flex flex-col justify-between overflow-hidden">
+    <div className="mt-5 relative h-[32rem] bg-gradient-to-r from-blue-500 via-pink-500 to-orange-500 text-white bg-black flex flex-col justify-between overflow-hidden md-2 rounded-lg shadow-2xl sm:px-4 md:px-6 lg:px-12">
+
       {/* Breadcrumbs */}
-      <div className="container mx-auto px-4 py-4 text-sm text-white">
+      <div className="container sm:px-4 md:px-6 lg:px-12 mx-auto px-4 py-4 text-sm text-white">
         <span className="opacity-80">Home &gt; Studio &gt; Features &gt; Background Remover</span>
       </div>
 
@@ -38,7 +39,7 @@ export default function HeroSection() {
         </div>
 
         {/* Feature Highlights */}
-        <div className="flex flex-wrap gap-4 justify-center text-white mt-6">
+        <div className="flex flex-wrap gap-4 justify-center text-white mt-3">
           <div className="flex items-center gap-2">
             <span>🖼️</span> Remove Background from Image
           </div>
