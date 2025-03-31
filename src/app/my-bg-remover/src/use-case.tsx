@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const useCases = [
   { title: "Studio for Crafters", image: "/studio1.jpg" },
-  { title: "Studio for Educators", image: "/preluraSlider3.jpg" },
+  { title: "Studio for Educators", image: "/preluraslider3.jpg" },
   { title: "Studio for Print on Demand", image: "/OIP.jpg" },
   { title: "Studio for Business", image: "/studio2.jpg" },
 ];
