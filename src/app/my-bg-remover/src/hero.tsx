@@ -3,12 +3,14 @@ import Image from "next/image";
 import { useState } from "react";
 import { Input } from "./components/ui/input";
 import { Upload } from "lucide-react";
+import LearnMoreBtn from "../../../components/UI/LearnMoreBtn";
+
 
 export default function HeroSection() {
   const [file, setFile] = useState<File | null>(null);
 
   return (
-    <div className="mt-5 relative h-[32rem] bg-gradient-to-r from-blue-500 via-pink-500 to-orange-500 text-white bg-black flex flex-col justify-between overflow-hidden md-2 rounded-lg shadow-2xl sm:px-4 md:px-6 lg:px-12">
+    <div className="mt-5 relative h-[36rem] bg-gradient-to-r from-blue-500 via-pink-500 to-orange-500 text-white bg-black flex flex-col justify-between overflow-hidden md-2 rounded-lg shadow-2xl sm:px-4 md:px-6 lg:px-12">
 
       {/* Breadcrumbs */}
       <div className="container sm:px-4 md:px-6 lg:px-12 mx-auto px-4 py-4 text-sm text-white">
@@ -20,8 +22,7 @@ export default function HeroSection() {
         <div className="bg-purple-900 rounded-lg p-6 lg:p-8 shadow-lg max-w-3xl">
           <h1 className="text-3xl lg:text-4xl font-bold mb-3">Free Image Background Remover</h1>
           <p className="text-gray-200">
-            Get more out of your photos by making them background-free. Easily remove the background
-            from any image with the free online background remover tool.
+          Unlock more from your photos by removing the background in seconds. Instantly create clean, background-free images with our online background remover.
           </p>
 
           {/* Upload Button */}
@@ -52,6 +53,15 @@ export default function HeroSection() {
             <span>⏳</span> Done in 5 seconds
           </div>
         </div>
+
+        <div className="h-full md:w-[50%] md:p-7 p-2 flex text-white justify-center items-end">
+        <LearnMoreBtn
+          text="Visit Website"
+          borderColor="border-white"
+          textColor="text-white"
+          route="http://bgremover.uk" />
+      </div>
+
       </div>
     </div>
   );
