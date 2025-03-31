@@ -5,29 +5,42 @@ import LearnMoreBtn from "../../UI/LearnMoreBtn";
 const ThirdHero = () => {
   return (
     <section className="hero-section-container md:h-[42rem] h-[37rem] flex items-center justify-center relative overflow-hidden">
-      {/* Background Images */}
-      <div className="absolute inset-0 flex">
+      {/* Mobile Background Image (Only visible on small screens) */}
+      <div className="absolute inset-0 md:hidden">
         <Image
           src="/image/hero4.jpeg"
-          alt="hero-image-1"
-          width={500}
-          height={500}
-          className="w-1/3 h-full object-cover"
+          alt="hero-image-mobile"
+          layout="fill"
+          objectFit="cover"
         />
-        <Image
-          src="/image/hero5.jpeg"
-          alt="hero-image-2"
-          width={500}
-          height={500}
-          className="w-1/3 h-full object-cover"
-        />
-        <Image
-          src="/image/garm1.jpg"
-          alt="hero-image-3"
-          width={500}
-          height={500}
-          className="w-1/3 h-full object-cover"
-        />
+      </div>
+
+      {/* Desktop Background Images (Only visible on medium and larger screens) */}
+      <div className="hidden md:flex absolute inset-0">
+        <div className="w-1/3 h-full relative">
+          <Image
+            src="/image/hero4.jpeg"
+            alt="hero-image-1"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+        <div className="w-1/3 h-full relative">
+          <Image
+            src="/image/hero5.jpeg"
+            alt="hero-image-2"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+        <div className="w-1/3 h-full relative">
+          <Image
+            src="/image/garm1.jpg"
+            alt="hero-image-3"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
       </div>
 
       {/* Dark Overlay for better text contrast */}
