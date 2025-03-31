@@ -9,40 +9,40 @@ function Content() {
       <section className="mb-20 md:px-[2rem] ">
         <div className="border-white  border-[1px] w-[full] mb-6 "></div>
         <div className="flex flex-col text-white mb-10 gap-8">
-  {/* Title Section */}
-  <h2 className="font-normal md:text-[1.7rem] text-[1.6rem] text-center lg:text-left">
-    Responsible Innovation
-  </h2>
+          {/* Title Section */}
+          <h2 className="font-normal md:text-[1.7rem] text-[1.6rem] text-center lg:text-left">
+            Responsible Innovation
+          </h2>
 
-  {/* Parent Container for Image and Text */}
-  <div className="flex flex-col lg:flex-row items-start gap-8">
-    {/* Image Section */}
-    <div className="w-full lg:w-1/2 aspect-w-16 aspect-h-9 md:rounded-lg overflow-hidden">
-  <img
-    src="../image/safety.png"
-    alt="Responsible Innovation"
-    className="w-full h-full object-cover object-center"
-  />
-</div>
+          {/* Parent Container for Image and Text */}
+          <div className="flex flex-col lg:flex-row items-start gap-8">
+            {/* Image Section */}
+            <div className="w-full lg:w-1/2 aspect-w-16 aspect-h-9 md:rounded-lg overflow-hidden">
+              <img
+                src="../image/safety.png"
+                alt="Responsible Innovation"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
 
-    {/* Text Section */}
-    <div className="flex px-[1rem] flex-col lg:w-1/2 justify-center gap-6">
-      <p className="font-normal text-[20px] md:text-[28px]">
-        At Voltis Labs, we innovate with purpose and responsibility — crafting
-        technology that enhances lives while considering its long-term impact
-        on people and the planet.
-      </p>
-      <p className="font-normal text-[20px] md:text-[28px]">
-        We believe in building technology that empowers, disrupts, and
-        transforms—always with a thoughtful approach to its risks and rewards.
-      </p>
-      <p className="text-sm md:mt-[120px] underline cursor-pointer font-normal text-white hover:text-blue-500 visited:text-red-500">
-        Learn about safety
-      </p>
-    </div>
-  </div>
-</div>
-        
+            {/* Text Section */}
+            <div className="flex px-[1rem] flex-col lg:w-1/2 justify-center gap-6">
+              <p className="font-normal text-[20px] md:text-[28px]">
+                At Voltis Labs, we innovate with purpose and responsibility — crafting
+                technology that enhances lives while considering its long-term impact
+                on people and the planet.
+              </p>
+              <p className="font-normal text-[20px] md:text-[28px]">
+                We believe in building technology that empowers, disrupts, and
+                transforms—always with a thoughtful approach to its risks and rewards.
+              </p>
+              <p className="text-sm md:mt-[120px] underline cursor-pointer font-normal text-white hover:text-blue-500 visited:text-red-500">
+                Learn about safety
+              </p>
+            </div>
+          </div>
+        </div>
+
       </section>
 
       <div className=" border-white border-[1px] w-[full] mb-6"></div>
@@ -101,12 +101,12 @@ function Content() {
           </div>
         </div>
         <div className="px-0">
-  <img
-    src="../image/career.png"
-    alt="Icon"
-    className="w-full h-[20rem] md:h-[32rem] object-contain md:object-cover md:rounded-lg"
-  />
-</div>
+          <img
+            src="../image/career.png"
+            alt="Icon"
+            className="w-full h-[20rem] md:h-[32rem] object-contain md:object-cover md:rounded-lg"
+          />
+        </div>
 
       </section>
 

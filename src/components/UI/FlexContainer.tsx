@@ -1,12 +1,23 @@
+"use client";
+
+
+
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import Marquee from "react-fast-marquee";
+import "./flexContainer.css"
+import LearnMoreBtn from "./LearnMoreBtn";
+import SmallLearnBtn from "./SmallLearnBtn";
+import { motion } from "framer-motion";
 
 interface Update {
   img: string;
   message: string;
   subText?: string;
   time: string;
+  link?: string;
+  id?: number | null;
+  description?: string | null;
 }
 
 interface FlexContainerProps {
@@ -15,14 +26,59 @@ interface FlexContainerProps {
 }
 
 const FlexContainer = ({ array, marquee = false }: FlexContainerProps) => {
+  const [selected, setSelected] = useState<number | null>(null);
+  const [paused, setPaused] = useState(false);
+  const [selectedLink, setSelectedLink] = useState("");
+  const [seledctedDescription, setSelectedDescription] = useState("");
+
+  const handleClick = (id: number) => {
+    setSelected(selected === id ? null : id);
+    console.log({ id });
+  };
   const desktopContent = (
-    <div className="flex items-center gap-8">
-      {array.map((text, index) => (
-        <div
+    <div className="flex items-center  bg-[#191919]">
+      {array.map((text, index) => {
+        const isBefore = selected !== null && array[index + 1]?.id === selected;
+        const isAfter = selected !== null && array[index - 1]?.id === selected;
+        const isLastContent = selected != null && array[array.length - 1]
+
+        return <div
           key={index}
-          className="text-left w-[16rem] h-[20rem] overflow-hidden items-start"
+          onClick={(evt) => {
+            let cards = [...document.querySelectorAll('.card')]
+            console.log('total cards displayed', cards.length)
+            setSelected(text.id ?? null);
+            setPaused((prev) => true);
+            if (selected == text.id) {
+              setPaused((prev) => false);
+              setSelected(null);
+
+            }
+            console.log('card:', evt.currentTarget)
+            let clickedCardIndex = cards.findIndex(card => card === evt.currentTarget)
+            setSelectedLink(text.link ?? "")
+            setSelectedDescription(text.description ?? "");
+            if (clickedCardIndex > -1) {
+              cards.forEach(card => {
+                card.classList.remove("before")
+                card.classList.remove("after")
+                card.classList.remove("current")
+              })
+              let leftCard = cards[clickedCardIndex - 1]
+              let rightCard = cards[clickedCardIndex + 1]
+              leftCard.classList.add('before')
+              rightCard.classList.add('after')
+              cards[clickedCardIndex].classList.add('current')
+            }
+            console.log({ clickedCardIndex })
+          }}
+
+
+          className={`card text-left w-[16rem] h-[20rem]  items-center px-3 bg-black
+            `}
         >
-          <div className="image-container bg-[white] w-[14rem] h-[14rem] overflow-hidden rounded-[10px]">
+
+          <div className={`image-container bg-[white] w-[14rem] h-[14rem] overflow-hidden rounded-[10px] `}>
             <Image
               src={text.img}
               alt="Icon"
@@ -34,16 +90,15 @@ const FlexContainer = ({ array, marquee = false }: FlexContainerProps) => {
 
           <p className="text-white text-[.9rem] mt-3">{text.message}</p>
         </div>
-      ))}
-    </div>
+      })}
+    </div >
   );
-
   const mobileContent = (
     <div className="flex flex-nowrap gap-6 h-full">
       {array.map((text, index) => (
         <div
           key={index}
-          className="w-[12rem] text-left min-h-[15rem] overflow-hidden items-start"
+          className={`w-[12rem] text-left min-h-[15rem] overflow-hidden items-start `}
         >
           <div className="image-container w-[10rem] h-[10rem] overflow-hidden rounded-[10px]">
             <Image
@@ -62,20 +117,52 @@ const FlexContainer = ({ array, marquee = false }: FlexContainerProps) => {
     </div>
   );
 
+  const formatParagraph = (text: string) => {
+    const words = text.split(" ");
+    return (
+      <>
+        <span className="font-bold">{words[0]}</span>{" "}
+        {words.slice(1).join(" ")}
+      </>
+    );
+  };
+
   return (
     <>
       {/* Desktop View */}
       <div className="hidden md:block">
         {marquee ? (
-          <Marquee
-            className="slider-statement z-20 cursor-default bg-carpet-green relative"
-            speed={50}
-            pauseOnHover
-            pauseOnClick
-            direction="right"
-          >
-            {desktopContent}
-          </Marquee>
+          <div className="flex-col gap-6 bg-[#000000]">
+
+            <Marquee
+              className="slider-statement z-20 cursor-default bg-carpet-green relative overflow-hidden"
+              speed={50}
+              pauseOnHover
+              pauseOnClick={false}
+              direction="right"
+
+              play={!paused} // Control playback with state
+
+            >
+              {desktopContent}
+            </Marquee>
+            {paused && (<motion.div initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }} className="rounded-3xl  bg-[#191919] px-14 py-12">
+              <div className="p-6 bg-[#000000] flex-col justify-center items-center rounded-3xl">
+                <p className="text-white font-normal text-sm">{formatParagraph(seledctedDescription)}</p>
+
+                <div className="my-7 mx-auto w-fit">
+                  <a target="_blank"
+                    href={selectedLink}
+                    rel="noopener noreferrer"
+                    className="p-2 border-white border px-10 py-2 rounded-md text-white text-center font-black ">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </motion.div>)}
+          </div>
         ) : (
           desktopContent
         )}
