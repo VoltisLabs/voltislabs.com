@@ -23,9 +23,10 @@ interface Update {
 interface FlexContainerProps {
   array: Update[];
   marquee?: boolean; // New prop to activate Marquee
+  isClickAble?: Boolean;
 }
 
-const FlexContainer = ({ array, marquee = false }: FlexContainerProps) => {
+const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexContainerProps) => {
   const [selected, setSelected] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
   const [selectedLink, setSelectedLink] = useState("");
@@ -182,6 +183,9 @@ const FlexContainer = ({ array, marquee = false }: FlexContainerProps) => {
             >
               {desktopContent}
             </Marquee>
+            {!paused && isClickAble && (
+              <p className="text-gray-400 text-center ">Click to expand</p>
+            )}
             {paused && (<motion.div initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }} className="rounded-3xl   px-14 py-12">
@@ -220,6 +224,9 @@ const FlexContainer = ({ array, marquee = false }: FlexContainerProps) => {
             >
               {mobileContent}
             </Marquee>
+            {!paused && isClickAble && (
+              <p className="text-gray-400 text-center ">Click to expand</p>
+            )}
             {paused && (<motion.div initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }} className="rounded-3xl px-4 py-6">
