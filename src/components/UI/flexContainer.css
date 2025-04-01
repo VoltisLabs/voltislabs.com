@@ -1,9 +1,9 @@
 .before {
-  border-bottom-right-radius: 20px !important;
+  /* border-bottom-right-radius: 20px !important; */
 }
 
 .after {
-  border-bottom-left-radius: 20px !important;
+  /* border-bottom-left-radius: 20px !important; */
 }
 
 .current {

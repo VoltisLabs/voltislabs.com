@@ -126,6 +126,14 @@ export const products = [
     link: "/outfeatz",
     description: `Outfeatz is a creative styling tool that turns outfit photos into clean, background-free cut-outs. Users can upload pictures, remove the background instantly, and build customised digital galleries of their looks. With the ability to tag brands, create themed collections, and organise their wardrobe visually, Outfeatz empowers users to curate their fashion in a way that’s personal, expressive, and digitally organised.`
   },
+  {
+    id: 5,
+    img: "/image/loyalty_bot.jpg",
+    message: "Loyalty bot",
+    time: "Sep 25, 2023",
+    link: "/loyalty_bot",
+    description: "Loyalty Bot is a productivity-focused Discord bot built to help remote teams stay accountable and on time. Designed for digital workspaces that use Discord as their primary hub, Loyalty Bot tracks break times, monitors lateness, and applies custom consequences such as salary deductions or logged infractions. \n\n Loyalty Bot acts as a quiet but firm supervisor, keeping your team aligned without constant manual checks. It integrates smoothly into your team's daily workflow, offering a subtle but effective layer of structure to how your team collaborates."
+  },
 ];
 
 export const prelura = [
