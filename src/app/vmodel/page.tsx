@@ -129,6 +129,7 @@ function Vmodel() {
           imagesArray={vmodelImages}
           titleText="Your creative career, your way!"
           vmodel
+          route="https://vmodelapp.com"
           smallBtnText="Visit Vmodel"
         />
       </section>

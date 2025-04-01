@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
@@ -40,7 +40,21 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       category: "Entertainment",
       items: [{ name: "AMG records", route: "/amg" }],
     },
+    
   ];
+
+
+  useEffect(() => {
+    if (toggle) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [toggle]);
 
   return (
     <div className="fixed bg-[#0D1117] text-sm top-0 left-0 z-30 backdrop-blur-sm bg-black min-h-[5rem] w-full flex items-center justify-between px-6 md:px-16">
@@ -144,46 +158,49 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       />
 
       {/* Sidebar Navigation */}
-      <motion.nav
-        className="fixed top-0 left-0 h-screen w-[60%] sm:w-[50%] bg-[#0D1117] text-white py-20 px-6 z-50 flex flex-col justify-between"
-        initial={{ x: "-100%", opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        exit={{ x: "-100%", opacity: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        {/* Close Button */}
-        <button className="absolute top-5 right-6 text-white text-2xl" onClick={() => setToggle(false)}>
-          ✕
-        </button>
+     {/* Sidebar Navigation */}
+<motion.nav
+  className="fixed top-0 left-0 h-screen w-[60%] sm:w-[50%] bg-[#0D1117] text-white py-20 px-6 z-50 flex flex-col"
+  initial={{ x: "-100%", opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  exit={{ x: "-100%", opacity: 0 }}
+  transition={{ duration: 0.3 }}
+>
+  {/* Close Button */}
+  <button className="absolute top-5 right-6 text-white text-2xl" onClick={() => setToggle(false)}>
+    ✕
+  </button>
 
-        {/* Navigation Links */}
-        <div className="mt-12">
-          {links.map((category) => (
-            <div key={category.category} className="mb-6">
-              <h3 className=" text-gray-600 font-bold text-lg mb-4">{category.category}</h3>
-              <ul className="space-y-2">
-                {category.items.map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.route}
-                      className="block hover:text-gray-200"
-                      onClick={() => setToggle(false)}
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+  {/* Scrollable Navigation Links */}
+  <div className="mt-12 flex-grow overflow-y-auto">
+    {links.map((category) => (
+      <div key={category.category} className="mb-6">
+        <h3 className="text-gray-600 font-bold text-lg mb-4">{category.category}</h3>
+        <ul className="space-y-2">
+          {category.items.map((item) => (
+            <li key={item.name}>
+              <a
+                href={item.route}
+                className="block hover:text-gray-200"
+                onClick={() => setToggle(false)}
+              >
+                {item.name}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
+      </div>
+    ))}
+  </div>
 
-        {/* Footer */}
-        <hr className="border-t border-gray-700 my-6" />
-        <p className="text-center pb-10 text-white mt-10 text-sm">
-          © 2025 Voltis Labs. <br /> All rights reserved.
-        </p>
-      </motion.nav>
+  {/* Fixed Footer */}
+  <div className="absolute bottom-0 left-0 w-full bg-[#0D1117] py-4 text-center border-t border-gray-700">
+    <p className="text-white text-sm">
+      © 2025 Voltis Labs. <br /> All rights reserved.
+    </p>
+  </div>
+</motion.nav>
+
     </>
   )}
 </AnimatePresence>

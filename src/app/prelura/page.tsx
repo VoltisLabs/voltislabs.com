@@ -91,6 +91,7 @@ function page() {
           imagesArray={prelura}
           titleText="A New Home for Your Fashion Finds"
           smallBtnText="Learn More"
+        route="https://prelura.com"
         />
       </section>
 

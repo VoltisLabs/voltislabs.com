@@ -13,6 +13,7 @@ interface SliderBackgroundProps {
   imagesArray: ImagesArray[];
   titleText: string;
   vmodel?: boolean;
+  route?:string;
   smallBtnText?: string;
 }
 
@@ -20,6 +21,7 @@ const SliderBackground = ({
   containerStyle,
   imagesArray,
   titleText,
+  route,
   vmodel,
   smallBtnText,
 }: SliderBackgroundProps) => {
@@ -80,7 +82,7 @@ const SliderBackground = ({
               text={smallBtnText || "Learn More"}
               textColor="text-white"
               borderColor="border-white"
-              route="http://vmodelapp.com"
+              route={route}
             />
           </div>
         </div>

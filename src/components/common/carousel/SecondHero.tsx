@@ -15,7 +15,7 @@ const SecondHero = () => {
             text="Learn More about Prelura"
             borderColor="border-white md:w-[12.7rem] w-[10.45rem]"
             textColor="text-white"
-          />
+            route="https://prelura.com"          />
         </div>
       </div>
       <div className="right-section md:flex hidden md:w-[50%] bg-black h-full w-full">

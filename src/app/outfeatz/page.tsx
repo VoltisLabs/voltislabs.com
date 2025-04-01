@@ -94,6 +94,7 @@ function page() {
         <SliderBackground
           containerStyle=" w-full"
           imagesArray={outfeatz}
+          route="https://outfeatz.com"
           titleText="A New Home for Your Fashion Finds"
           smallBtnText="Visit Website"
         />

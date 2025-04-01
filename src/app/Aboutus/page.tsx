@@ -22,7 +22,8 @@ function page() {
       <SliderBackground
         containerStyle="bg-[#000] w-full"
         imagesArray={Aboutus}
-        titleText="A Software Company"
+        titleText="We are Voltis Labs"
+        route="/"
         smallBtnText="Learn More" />
     </section><div className="pt-[6rem] text-white">
         <Sidebar tbList={menuItems} />
