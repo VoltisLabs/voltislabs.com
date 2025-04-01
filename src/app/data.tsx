@@ -1,6 +1,6 @@
 export const titleClassName = "text-white font-bold text-[14.5px]";
 export const paragrapghClassName =
-  "text-white font-normal block text-xs md:text-sm";
+  "text-white font-normal mb-3 block text-xs md:text-sm";
 
 export const sectionTitleClassName = "text-white font-bold text-[15.5px]";
 
