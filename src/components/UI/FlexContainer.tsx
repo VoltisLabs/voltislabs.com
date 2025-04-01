@@ -68,7 +68,7 @@ const FlexContainer = ({ array, marquee = false }: FlexContainerProps) => {
               let rightCard = cards[clickedCardIndex + 1]
               leftCard.classList.add('before')
               rightCard.classList.add('after')
-              cards[clickedCardIndex].classList.add('current')
+              // cards[clickedCardIndex].classList.add('current')
             }
             console.log({ clickedCardIndex })
           }}
@@ -94,13 +94,49 @@ const FlexContainer = ({ array, marquee = false }: FlexContainerProps) => {
     </div >
   );
   const mobileContent = (
-    <div className="flex flex-nowrap gap-6 h-full">
+    <div className="flex flex-nowrap  h-full bg-[#191919]">
       {array.map((text, index) => (
         <div
           key={index}
-          className={`w-[12rem] text-left min-h-[15rem] overflow-hidden items-start `}
+          onClick={(evt) => {
+            let cards = [...document.querySelectorAll('.card')]
+            console.log('total cards displayed', cards.length)
+            let clickedCardIndex = cards.findIndex(card => card === evt.currentTarget)
+            setSelected(text.id ?? null);
+            setPaused((prev) => true);
+            if (selected == text.id) {
+              setPaused((prev) => false);
+              setSelected(null);
+              if (clickedCardIndex > -1) {
+                cards.forEach(card => {
+                  card.classList.remove("before")
+                  card.classList.remove("after")
+                  card.classList.remove("current")
+                })
+
+              }
+              return;
+            }
+            console.log('card:', evt.currentTarget)
+            setSelectedLink(text.link ?? "")
+            setSelectedDescription(text.description ?? "");
+            if (clickedCardIndex > -1) {
+              cards.forEach(card => {
+                card.classList.remove("before")
+                card.classList.remove("after")
+                card.classList.remove("current")
+              })
+              let leftCard = cards[clickedCardIndex - 1]
+              let rightCard = cards[clickedCardIndex + 1]
+              leftCard.classList.add('before')
+              rightCard.classList.add('after')
+              // cards[clickedCardIndex].classList.add('current')
+            }
+            console.log({ clickedCardIndex })
+          }}
+          className={`card w-[12rem] text-left min-h-[15rem] overflow-hidden items-start px-3 bg-black`}
         >
-          <div className="image-container w-[10rem] h-[10rem] overflow-hidden rounded-[10px]">
+          <div className="image-container w-[10rem] h-[10rem] overflow-hidden rounded-[10px] bg-white">
             <Image
               src={text.img}
               alt="Icon"
@@ -141,14 +177,14 @@ const FlexContainer = ({ array, marquee = false }: FlexContainerProps) => {
               pauseOnClick={false}
               direction="right"
 
-              play={!paused} // Control playback with state
+              play={!paused}
 
             >
               {desktopContent}
             </Marquee>
             {paused && (<motion.div initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }} className="rounded-3xl  bg-[#191919] px-14 py-12">
+              exit={{ opacity: 0, y: -10 }} className="rounded-3xl   px-14 py-12">
               <div className="p-6 bg-[#000000] flex-col justify-center items-center rounded-3xl">
                 <p className="text-white font-normal text-sm">{formatParagraph(seledctedDescription)}</p>
 
@@ -171,21 +207,43 @@ const FlexContainer = ({ array, marquee = false }: FlexContainerProps) => {
       {/* Mobile View */}
       <div className="md:hidden">
         {marquee ? (
-          <Marquee
-            className="slider-statement z-20 cursor-default bg-carpet-green relative"
-            speed={30}
-            pauseOnHover
-            pauseOnClick
-            direction="left"
-          >
-            {mobileContent}
-          </Marquee>
+          <div className="flex-col gap-6">
+
+            <Marquee
+              className="slider-statement z-20 cursor-default bg-black relative"
+              speed={30}
+              pauseOnHover
+              pauseOnClick={false}
+              direction="left"
+
+              play={!paused}
+            >
+              {mobileContent}
+            </Marquee>
+            {paused && (<motion.div initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }} className="rounded-3xl px-4 py-6">
+              <div className="p-6 bg-[#000000] flex-col justify-center items-center rounded-3xl">
+                <p className="text-white font-normal text-sm leading-6">{formatParagraph(seledctedDescription)}</p>
+
+                <div className="my-7 mx-auto w-fit">
+                  <a target="_blank"
+                    href={selectedLink}
+                    rel="noopener noreferrer"
+                    className="p-2 border-white border px-10 py-2 rounded-md text-white text-center font-black ">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </motion.div>)}
+          </div>
+
         ) : (
           <div className="overflow-x-scroll no-scrollbar min-w-[20rem] flex items-center">
             {mobileContent}
           </div>
         )}
-      </div>
+      </div >
     </>
   );
 };
