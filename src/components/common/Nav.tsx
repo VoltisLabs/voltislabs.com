@@ -194,7 +194,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   </div>
 
   {/* Fixed Footer */}
-  <div className="absolute bottom-[6rem] left-0 w-full bg-[#0D1117] py-4 text-center border-t border-gray-700">
+  <div className="absolute bottom-[6rem] pl-6 left-0 w-full bg-[#0D1117] py-4  border-t border-gray-700">
     <p className="text-white text-sm">
       © 2025 Voltis Labs. <br /> All rights reserved.
     </p>
