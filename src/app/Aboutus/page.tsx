@@ -25,7 +25,9 @@ function page() {
         titleText="We are Voltis Labs"
         route="/"
         smallBtnText="Learn More" />
-    </section><div className="pt-[6rem] text-white">
+    </section>
+    
+    <div className="pt-[6rem] text-white">
         <Sidebar tbList={menuItems} />
 
 
