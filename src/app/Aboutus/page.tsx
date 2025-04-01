@@ -83,7 +83,7 @@ route="/"
 
 
         <div className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0  ">
-          <section id="about" className="text-white my-8 mb-20 font-normal ">
+          <section id="about" className="text-white my-8 mb-10 font-normal ">
             {/**
     *
 <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] "  >
@@ -110,7 +110,7 @@ route="/"
               real problems, empowering creators, and shaping a more connected
               future.
             </span>
-            <br />
+
 
             <span className={`  ${paragrapghClassName}`}>
               Our journey began with a simple yet powerful belief: great ideas
@@ -119,7 +119,7 @@ route="/"
               to rethink how technology could empower individuals and businesses
               alike
             </span>
-            <br />
+    
 
             <span className={paragrapghClassName}>
               The result was Voltis Labs—a place where bold ideas are turned into
@@ -130,11 +130,11 @@ route="/"
 
           <section
             id="mission"
-            className="text-white my-0  mb-20 font-normal md:text-[1.1rem] text-[1rem] "
+            className="text-white my-0  mb-10 font-normal md:text-[1.1rem] text-[1rem] "
           >
-            <h1 id="mission" className="font-bold text-3xl mb-8  text-white">
+            <div id="mission" className="font-bold text-3xl mb-3  text-white">
               Our Mission
-            </h1>
+            </div>
             <div className="flex md:flex-row flex-col w-full gap-8">
               <div className="w-full md:w-[48.5%]">
                 <span className={paragrapghClassName}>
@@ -149,12 +149,12 @@ route="/"
                 <span id="values" className={' text-3xl font-bold'}>
                   Our Values
                 </span>
-                <ul className="list-disc mt-6 pl-4">
+                <ul className="list-disc mt-2 pl-4">
                   <li>
                     <span className={titleClassName}>
                       Empowerment Through Technology
                     </span>
-                    –
+                    
                     <span className={paragrapghClassName}>
                       We believe that technology should give people more control
                       over their lives, their work, and their creativity. Every
@@ -167,7 +167,7 @@ route="/"
                     <span className={titleClassName}>
                       Innovation Without Limits
                     </span>
-                    –
+                    
                     <span className={paragrapghClassName}>
                       The digital landscape is constantly evolving, and so are we.
                       We push boundaries, challenge the status quo, and embrace
@@ -178,7 +178,7 @@ route="/"
                     <span className={titleClassName}>
                       A People-First Approach
                     </span>
-                    –
+                    
                     <span className={paragrapghClassName}>
                       Technology is only as powerful as the people who use it.
                       That’s why everything we create is built with a deep
@@ -191,7 +191,7 @@ route="/"
                     <span className={titleClassName}>
                       Sustainability & Inclusion
                     </span>
-                    –
+                  
                     <span className={paragrapghClassName}>
                       We don’t believe in building for a select few. Our goal is
                       to create ecosystems that are accessible, diverse, and built
@@ -212,11 +212,11 @@ route="/"
 
           <section
             id="looking-ahead"
-            className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem]"
+            className="text-white my-3  mb-10 font-normal md:text-[1.1rem] text-[1rem]"
           >
-            <h1 id="looking-ahead" className="font-bold text-[30px] mb-8">
+            <div id="looking-ahead" className="font-bold text-[30px] mb-2">
               Looking Ahead
-            </h1>
+            </div>
             <span className={paragrapghClassName}>
               Voltis Labs isn’t just a tech company—it’s a movement. We are here
               to redefine what’s possible, to bridge the gap between vision and
@@ -224,7 +224,6 @@ route="/"
               enabling new ways to work, connect, or create, we are building a
               future where digital solutions empower, rather than complicate.
             </span>
-            <br />
             <span className={paragrapghClassName}>
               This is just the beginning. The future is being written now, and at
               Voltis Labs, we are here to shape it.
