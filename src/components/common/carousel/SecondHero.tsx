@@ -19,48 +19,29 @@ const SecondHero = () => {
         </div>
       </div>
       <div className="right-section md:flex hidden md:w-[50%] bg-black h-full w-full">
-        <div className="image-container h-full px-2 gap-2 w-[20rem] flex flex-col justify-between">
-          <div className="image-wrapper h-[50%] w-full rounded-[4px] overflow-hidden relative">
-            <Image
-              src={"/image/hero1.jpeg"}
-              alt="her-section-image"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-          <div className="image-wrapper h-[50%] w-full relative rounded-[4px] overflow-hidden">
-            <Image
-              src={"/image/hero3.jpeg"}
-              alt="her-section-image"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-        </div>
-
-        <div className="big-image-container w-[75%] overflow-hidden relative">
-          <div className="image-wrapper relative w-full h-full">
-            <Image
-              src={"/image/hero2.jpeg"}
-              alt="her-section-image"
-              layout="fill"
-              objectFit="cover"
-              objectPosition="top" // Center the image
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
+      <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+  {/* Local Video */}
+  <video
+    src="/videos/Prelura.mp4" // Replace with the correct path to your local video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className=" w-full h-full object-cover z-0"
+  ></video>
+</div>
 
       <div className="mobile-picture-container relative bg-red-800 h-full md:hidden block !w-[50%]">
         <div className="overlay absolute inset-0 h-full w-full bg-black/50"></div>
-        <Image
-          src={"/image/hero6.jpeg"}
-          alt="her-section-image"
-          width={100}
-          height={100}
-          className="w-full h-full object-cover"
-        />
+        
+        <video
+    src="/videos/Prelura.mp4" // Replace with the correct path to your local video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className=" w-full h-full object-cover z-0"
+  ></video>
       </div>
     </section>
   );
