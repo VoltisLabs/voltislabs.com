@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Aboutus, prelura } from "../data";
 import Title from "@/src/components/UI/Title";
@@ -8,6 +9,7 @@ import TitleSection from "@/src/components/UI/TitleSection";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 import SliderBackground from "@/src/components/UI/SliderBackground";
+import LearnMoreBtn from "@/src/components/UI/LearnMoreBtn";
 
 function page() {
   const menuItems = [
@@ -18,60 +20,65 @@ function page() {
   ];
 
   return (
-    <><section className="mobile-slider hero-section mb-7 md:hidden block">
-      <SliderBackground
-        containerStyle="bg-[#000] w-full"
-        imagesArray={Aboutus}
-        titleText="We are Voltis Labs"
-        route="/"
-        smallBtnText="Learn More" />
-    </section>
-    
-    <div className="pt-[6rem] text-white">
-        <Sidebar tbList={menuItems} />
+    <>
 
+<Sidebar tbList={menuItems} />
 
-        <div className="hero-section">
-          <div id="about-home">
-            <TitleSection
-              title="We are Voltis Labs"
-              subTitle=""
-              secondaryText="Published on Monday 9th February, 2025"
-              containerStyle="mb-6" />
-          </div>
+<section id="prelura-home md:block hidden">
+  <TitleSection
+    title="We are Voltis Labs"
+    subTitle=""
+    secondaryText="Published on Monday 17th February, 2025"
+    containerStyle="mb-4 md:block hidden"
+  />
+</section>
 
-          <section className="image-section hidden md:block mb-[4.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
-            <div
-              // onMouseEnter={() => setIsplaying(true)}
-              // onMouseLeave={() => setIsplaying(false)}
-              // onClick={() => setIsplaying(!isPlaying)}
-              className="slider-statement z-10 cursor-default relative"
-            >
-              <Marquee
-                className="slider-statement z-20 cursor-default bg-carpet-green relative"
-                speed={50}
-                pauseOnHover
-                pauseOnClick
-                direction="right"
-              >
-                {Aboutus.map((img, index) => (
-                  <div
-                    key={index}
-                    className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
-                  >
-                    <Image
-                      src={img.img}
-                      alt="reluraimg"
-                      className="w-full h-full object-cover object-top"
-                      width={500}
-                      height={500} />
-                  </div>
-                ))}
-              </Marquee>
-            </div>
-          </section>
+<section className="mb-16 md:block hidden md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
+  <div
+ 
+    className="flex items-center gap-6 md:flex-row flex-col"
+  >
+    <Marquee
+      className="overflow-x-scroll no-scrollbar slider-statement cursor-default bg-carpet-green relative"
+      speed={50}
+      pauseOnHover
+      pauseOnClick
+      direction="right"
+    >
+      {Aboutus.map((img, index) => (
+        <div
+          key={index}
+          className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
+        >
+          <Image
+            src={img.img}
+            alt="reluraimg"
+            className="w-full h-full object-cover object-top"
+            width={500}
+            height={500}
+          />
         </div>
-
+      ))}
+    </Marquee>
+  </div>
+</section>
+<div className="hidden md:flex h-full  md:p-7 p-2 flex justify-center items-center">
+<LearnMoreBtn
+text="Visit Website"
+borderColor="border-white"
+textColor="text-white"
+route="/"
+/>
+</div>
+<section className="mobile-slider hero-section mb-7 md:hidden block">
+  <SliderBackground
+    containerStyle="bg-[#000] w-full"
+    imagesArray={Aboutus}
+    titleText="We are Voltis Labs"
+    smallBtnText="Learn More"
+  route="/"
+  />
+</section>
 
 
 
@@ -224,7 +231,7 @@ function page() {
               Voltis Labs, we are here to shape it.
             </span>
           </section>
-        </div>
+  
       </div></>
   );
 }
