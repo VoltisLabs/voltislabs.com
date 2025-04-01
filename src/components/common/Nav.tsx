@@ -172,7 +172,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   </button>
 
   {/* Scrollable Navigation Links */}
-  <div className="mt-12 flex-grow max-h-[32rem] overflow-y-auto">
+  <div className="mt-12 flex-grow max-h-[32rem] py-5 overflow-y-auto">
     {links.map((category) => (
       <div key={category.category} className="mb-6">
         <h3 className="text-gray-600 font-bold text-lg mb-4">{category.category}</h3>
