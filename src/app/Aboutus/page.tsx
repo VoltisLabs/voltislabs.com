@@ -103,7 +103,7 @@ route="/"
       ))}
     </div>*/}
 
-            <span className={`mb-5 ${paragrapghClassName}`}>
+            <span className={` ${paragrapghClassName}`}>
               At Voltis Labs, we <span className="font-semibold">believe </span>
               technology has the power to unlock human potential. We are a company
               built on the idea that innovation should serve a purpose—solving
@@ -111,15 +111,14 @@ route="/"
               future.
             </span>
             <br />
-            <br />
-            <span className={`mb-5  ${paragrapghClassName}`}>
+
+            <span className={`  ${paragrapghClassName}`}>
               Our journey began with a simple yet powerful belief: great ideas
               deserve the right platform to thrive. Frustrated by outdated systems
               and missed opportunities, a small group of visionaries came together
               to rethink how technology could empower individuals and businesses
               alike
             </span>
-            <br />
             <br />
 
             <span className={paragrapghClassName}>
@@ -131,7 +130,7 @@ route="/"
 
           <section
             id="mission"
-            className="text-white my-8  mb-20 font-normal md:text-[1.1rem] text-[1rem] "
+            className="text-white my-0  mb-20 font-normal md:text-[1.1rem] text-[1rem] "
           >
             <h1 id="mission" className="font-bold text-3xl mb-8  text-white">
               Our Mission
@@ -147,10 +146,10 @@ route="/"
                   for those who dare to dream big.
                 </span>
                 <br />
-                <span id="values" className={paragrapghClassName}>
+                <span id="values" className={' text-3xl font-bold'}>
                   Our Values
                 </span>
-                <ul className="list-disc pl-4">
+                <ul className="list-disc mt-6 pl-4">
                   <li>
                     <span className={titleClassName}>
                       Empowerment Through Technology
