@@ -172,7 +172,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   </button>
 
   {/* Scrollable Navigation Links */}
-  <div className="mt-12 flex-grow max-h-[32rem] py-5 overflow-y-auto">
+  <div className="mt-12 flex-grow max-h-[35rem] py-5 no-scrollbar overflow-y-auto">
     {links.map((category) => (
       <div key={category.category} className="mb-6">
         <h3 className="text-gray-600 font-bold text-lg mb-4">{category.category}</h3>
@@ -194,7 +194,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   </div>
 
   {/* Fixed Footer */}
-  <div className="absolute bottom-[8rem] left-0 w-full bg-[#0D1117] py-4 text-center border-t border-gray-700">
+  <div className="absolute bottom-[3rem] left-0 w-full bg-[#0D1117] py-4 text-center border-t border-gray-700">
     <p className="text-white text-sm">
       © 2025 Voltis Labs. <br /> All rights reserved.
     </p>
