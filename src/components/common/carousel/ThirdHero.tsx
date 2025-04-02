@@ -49,7 +49,7 @@ const ThirdHero = () => {
       {/* Centered Content */}
       <div className="relative z-10 text-center text-white flex flex-col items-center justify-center w-full px-6">
         <Image
-          src="/icons/hero.svg"
+          src="/image/Frame.jpg"
           alt="hero-icon"
           width={100}
           height={100}
