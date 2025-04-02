@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { products, research } from "../app/data";
 import FlexContainer from "./UI/FlexContainer";
+import ViewAllButton from "./UI/view_all_button";
 
 function Content() {
   return (
@@ -69,7 +70,10 @@ function Content() {
       <div className="border-white border-[1px] w-[full] mb-6"></div>
       <section className="mb-12 md:px-[2rem] px-[1rem] md:min-h-[23rem] min-h-[20rem]">
         <div className="flex flex-col md:flex-row justify-between text-white mb-10">
-          <h2 className="font-normal  md:text-[1.7rem] text-[1.6rem] mb-4 md:mb-0">Products</h2>
+          <div className="flex justify-between w-full">
+            <h2 className="font-normal  md:text-[1.7rem] text-[1.6rem] mb-4 md:mb-0">Products</h2>
+            <ViewAllButton text="view all" />
+          </div>
           {/* <div className="md:w-1/2">
             <p className="font-normal text-[20px] md:text-[24px]">
               Our API platform offers our latest models and guides for safety
