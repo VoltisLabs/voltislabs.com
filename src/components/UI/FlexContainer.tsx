@@ -9,6 +9,7 @@ import "./flexContainer.css"
 import LearnMoreBtn from "./LearnMoreBtn";
 import SmallLearnBtn from "./SmallLearnBtn";
 import { motion } from "framer-motion";
+import TextColorAnimation from "./animating_text";
 
 interface Update {
   img: string;
@@ -193,9 +194,9 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
                 <p className="text-white font-normal text-sm">{formatParagraph(seledctedDescription)}</p>
 
                 <div className="my-7 mx-auto w-fit">
-                  <a target="_blank"
+                  <a
                     href={selectedLink}
-                    rel="noopener noreferrer"
+
                     className="p-2 border-white border px-10 py-2 rounded-md text-white text-center font-black ">
                     Read More
                   </a>
@@ -225,7 +226,23 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
               {mobileContent}
             </Marquee>
             {!paused && isClickAble && (
-              <p className="text-gray-400 text-center ">Click to expand</p>
+
+              <div className="relative text-6xl font-bold text-white overflow-hidden">
+                Click to expand
+                <motion.div
+                  className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent"
+                  initial={{ x: "-100%" }}
+                  animate={{ x: "100%" }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "linear",
+                  }}
+                  style={{ mixBlendMode: "difference" }} // This makes the white effect visible
+                />
+              </div>
+              // <TextColorAnimation text="Click to expand" textAlign="center" color01="#ffffff" color02="grey-400" fontSize={12} fontFamily={"Inter"} fontWeight={500} Duration={300} />
             )}
             {paused && (<motion.div initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
