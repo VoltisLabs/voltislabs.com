@@ -7,6 +7,7 @@ import { useState } from "react";
 import Nav from "../components/common/Nav";
 import { motion } from "framer-motion";
 import Footer from "../components/footer";
+import { usePathname } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [toggle, setToggle] = useState<boolean>(false);
+  const pathname = usePathname();
   console.log("RootLayout rendered");
 
   return (
@@ -37,9 +39,9 @@ export default function RootLayout({
         <meta name="description" content="Software Development Company" />
       </head>
 
-      <body className={`bg-black`}>
+      <body className={`${pathname == "/loyalty_bot" ? "bg-[#1a2081]" : "bg-black"}`}>
         <div className="mx-auto max-w-[85rem] w-full">
-          <main className="content bg-transparent w-full">
+          <main className={`content ${pathname == "/loyalty_bot" ? "bg-[#1a2081]" : "bg-transparent"} w-full`}>
             <div className="nav-container bg-black">
               <Nav setToggle={setToggle} toggle={toggle} />
             </div>

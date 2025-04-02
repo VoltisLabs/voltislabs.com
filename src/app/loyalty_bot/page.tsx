@@ -17,6 +17,11 @@ import FourthSection from "../../components/loyalty_bot_components/fourth_sectio
 import HeroSection from "../../components/loyalty_bot_components/hero_section";
 import SecondSection from "../../components/loyalty_bot_components/second_section";
 import ThirdSection from "../../components/loyalty_bot_components/third_section";
+import { motion } from "framer-motion";
+const sectionVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
 
 function page() {
   const menuItems = [
@@ -30,17 +35,30 @@ function page() {
   const [isPlaying, setIsplaying] = useState(false);
 
   return (
-    <div id="loyalty-home" className="">
+    <div id="loyalty-home" className="pt-14">
       <Sidebar tbList={menuItems} />
       <div className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[20px] bg-[#1a2081] pb-10 flex-col flex">
-        <HeroSection />
-        <Button />
-        <SecondSection />
-        <ThirdSection />
-        <FourthSection />
-        <FifthSection />
-        <Button />
-
+        <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <HeroSection />
+        </motion.div>
+        <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="self-center mt-16">
+          <Button />
+        </motion.div>
+        <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <SecondSection />
+        </motion.div>
+        <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <ThirdSection />
+        </motion.div>
+        <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <FourthSection />
+        </motion.div>
+        <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <FifthSection />
+        </motion.div>
+        <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="self-center mt-16">
+          <Button />
+        </motion.div>
       </div>
     </div>
   );
