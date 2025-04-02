@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 export default function Footer() {
+  const pathname = usePathname();
+  console.log({ pathname })
   return (
-    <div className="md:px-[2rem] px-[1rem]">
+    <div className={`md:px-[2rem] px-[1rem] ${pathname == "/loyalty_bot" ? "bg-[#1a2081]" : "bg-transparent"}`}>
       <section className="mb-40">
         <div className="container mx-auto">
           <p className="text-white text-3xl md:text-4xl text-center md:text-left">
@@ -29,17 +32,17 @@ export default function Footer() {
           <Link href="/brand-guidelines"><p>Brand guidelines</p></Link>
         </div>
         <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
-        
+
           <Link target="_blank" rel="noopener noreferrer" href="https://x.com"><p>X</p></Link>
           <Link target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/voltis-labs"><p>LinkedIn</p></Link>
         </div>
         <Image
-            src={"/image/logo3.png"}
-            alt="Icon"
-            width={100}
-            height={100}
-            className="mb-6 mt-6 md:mt-0 md:mb-24"
-          />
+          src={"/image/logo3.png"}
+          alt="Icon"
+          width={100}
+          height={100}
+          className="mb-6 mt-6 md:mt-0 md:mb-24"
+        />
       </footer>
       <p className="text-center pb-10 text-white mt-10">© 2025 Voltis Labs. All rights reserved.</p>
     </div>
