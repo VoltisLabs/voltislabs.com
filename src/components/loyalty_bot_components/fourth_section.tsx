@@ -3,7 +3,7 @@ import React from 'react'
 const FourthSection = () => {
     return (
         <section id="loyalty-features" className='w-full min-h-screen md:pt-0 md:h-screen 2xl:h-auto flex gap-10 flex-nowrap items-start justify-center pt-16'>
-            <div className=' md:w-3/4 2xl:w-1/3 flex flex-col justify-start items-start gap-7 text-balance mx-auto' >
+            <div className=' md:w-3/4 2xl:w-full zxl:px-auto flex flex-col justify-start items-center gap-7 text-balance mx-auto' >
                 <h1 className='text-white text-2xl md:text-3xl font-extrabold uppercase text-wrap'>
                     KEY features
                 </h1>

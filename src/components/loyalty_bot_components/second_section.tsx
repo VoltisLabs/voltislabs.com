@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const SecondSection = () => {
     return (
-        <section id="loyalty-workspace" className=' md:h-screen 2xl:h-auto flex flex-col gap-10 md:flex-row  flex-nowrap items-start justify-between pt-32'>
+        <section id="loyalty-workspace" className=' md:h-screen 2xl:h-auto flex flex-col gap-10 md:flex-row  flex-nowrap items-start justify-between pt-32 2xl:pb-16'>
             <div className='md:flex-1 relative  md:max-w-lg lg:max-w-xl flex-shrink-0'>
                 <Image
                     src="/ipad_pro.svg"
