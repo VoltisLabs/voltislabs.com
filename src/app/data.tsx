@@ -104,7 +104,7 @@ export const products = [
   },
   {
     id: 3,
-    img: "/image/afrogarm-icon.png",
+    img: "/image/Frame.jpg",
     message: "Afrogarm",
     time: "Oct 19, 2023",
     link: "/afrogram",
