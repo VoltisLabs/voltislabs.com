@@ -72,7 +72,7 @@ function Content() {
         <div className="flex flex-col md:flex-row justify-between text-white mb-10">
           <div className="flex justify-between w-full">
             <h2 className="font-normal  md:text-[1.7rem] text-[1.6rem] mb-4 md:mb-0">Products</h2>
-            <ViewAllButton text="view all" />
+            <ViewAllButton link="/products" text="view all" />
           </div>
           {/* <div className="md:w-1/2">
             <p className="font-normal text-[20px] md:text-[24px]">
