@@ -5,6 +5,7 @@ import HeroSection from "./components/hero_section";
 import SecondSection from "./components/second_section";
 import ThirdSection from "./components/third_section";
 import WordSlider from "./components/word_slider";
+import BulletSlider from "./components/bullet_slider";
 
 const Page = () => {
   return (
@@ -14,7 +15,8 @@ const Page = () => {
       <WordSlider rotate />
       <SecondSection />
       <ThirdSection />
-      <WordSlider />
+      <BulletSlider />
+      {/* <WordSlider /> */}
       <FourthSection />
       <WordSlider />
       <FifthSection />
