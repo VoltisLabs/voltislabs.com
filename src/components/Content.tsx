@@ -70,8 +70,8 @@ function Content() {
       <div className="border-white border-[1px] w-[full] mb-6"></div>
       <section className="mb-12 md:px-[2rem] px-[1rem] md:min-h-[23rem] min-h-[20rem]">
         <div className="flex flex-col md:flex-row justify-between text-white mb-10">
-          <div className="flex justify-between w-full">
-            <h2 className="font-normal  md:text-[1.7rem] text-[1.6rem] mb-4 md:mb-0">Products</h2>
+          <div className="flex justify-between w-full ">
+            <h2 className="font-normal  md:text-[1.7rem] text-[1.6rem] ">Products</h2>
             <ViewAllButton link="/products" text="view all" />
           </div>
           {/* <div className="md:w-1/2">
