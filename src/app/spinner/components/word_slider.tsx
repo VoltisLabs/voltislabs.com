@@ -8,7 +8,7 @@ const WordSlider = ({ rotate = false }) => {
             <Marquee
                 className={` slider-statement overflow-y-hidden z-20 cursor-default bg-black relative my-3 lg:my-10 ${rotate ? "-rotate-3" : ""
                     }`}
-                speed={100}
+                speed={50}
                 direction="left"
                 play
             >
@@ -31,3 +31,12 @@ const WordSlider = ({ rotate = false }) => {
 };
 
 export default WordSlider;
+
+
+// ["Multiple game modes for every playstyle",
+//     "Online multiplayer & leaderboards",
+//     "Customisable spinners & environments",
+//     "Spin miles tracking in all modes",
+//     "ADHD-friendly free play mode",
+//     "Reverse-racing concept in Slow Motion mode",
+//     "Optimised for iOS, Android, and Web"]
