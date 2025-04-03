@@ -90,7 +90,7 @@ export const products = [
     id: 0,
     img: "/image/prelura-icon.jpg",
     message: "Prelura",
-    time: "Nov 6, 2023",
+    time: "Nov 18, 2024",
     link: "/prelura",
     description: `Prelura is a secondhand fashion marketplace designed for style-conscious, sustainability-minded shoppers. It offers a seamless platform to buy and sell preloved clothing and accessories with ease. From everyday essentials to designer pieces, users can list items, grade their condition, create profiles, and manage their wardrobes in a way that feels modern, intuitive, and community-driven.`
   },
@@ -98,7 +98,7 @@ export const products = [
     id: 1,
     img: "/image/vmodel-icon.png",
     message: "Vmodel",
-    time: "Nov 6, 2023",
+    time: "Feb 03, 2021",
     link: "/vmodel",
     description: "VModel is a digital platform designed to connect creators with paid opportunities in a streamlined, visually-driven environment. Blending the functionality of a freelance marketplace with the aesthetic of a social network, VModel empowers creatives—models, photographers, stylists, videographers, and more—to showcase their work, apply for jobs, and offer services all in one place. Through sleek portfolios, verified profiles, and a personalised feed, users can build their reputation and attract brands or clients looking for talent.\n \n Built with simplicity and impact in mind, VModel eliminates the friction between creativity and commerce. The platform encourages authenticity, creativity, and community—supporting both independent creatives and brands seeking fresh, skilled collaborators. Whether you're booking a photoshoot, offering a niche service, or building your creative business, VModel is designed to help you turn your craft into opportunity."
   },
@@ -106,7 +106,7 @@ export const products = [
     id: 3,
     img: "/image/Frame.jpg",
     message: "Afrogarm",
-    time: "Oct 19, 2023",
+    time: "Dec 13, 2019",
     link: "/afrogram",
     description: `Afrogarm is a marketplace for African fashion, connecting talented designers with a global audience. Focused on showcasing authentic, high-quality garments and accessories, the platform celebrates the richness of African style through curated storefronts, vibrant visuals, and smooth shopping experiences. Afrogarm empowers local creators and gives buyers around the world direct access to the continent’s most exciting fashion talent.`
   },
@@ -114,7 +114,7 @@ export const products = [
     id: 4,
     img: "/image/spinner.png",
     message: "Spinnersonic",
-    time: "Sep 25, 2023",
+    time: "Mar 18, 2025",
     link: "/spinnersonic",
     description: `Spinnersonic is a high-energy fidget spinner game built for mobile and web. With multiple game modes—including multiplayer races, leaderboard challenges, and relaxed free play—it offers a fresh, dynamic take on casual gaming. Players can race, customise spinners, track spin miles, and even compete in reverse-style races where being slow is the way to win.`
   },
@@ -122,7 +122,7 @@ export const products = [
     id: 5,
     img: "/image/outfeatz.png",
     message: "Outfeatz",
-    time: "Sep 25, 2023",
+    time: "Mar 20, 2025",
     link: "/outfeatz",
     description: `Outfeatz is a creative styling tool that turns outfit photos into clean, background-free cut-outs. Users can upload pictures, remove the background instantly, and build customised digital galleries of their looks. With the ability to tag brands, create themed collections, and organise their wardrobe visually, Outfeatz empowers users to curate their fashion in a way that’s personal, expressive, and digitally organised.`
   },
@@ -130,7 +130,7 @@ export const products = [
     id: 5,
     img: "/image/loyalty_bot.jpg",
     message: "Loyalty bot",
-    time: "Sep 25, 2023",
+    time: "Mar 10, 2025",
     link: "/loyalty_bot",
     description: "Loyalty Bot is a productivity-focused Discord bot built to help remote teams stay accountable and on time. Designed for digital workspaces that use Discord as their primary hub, Loyalty Bot tracks break times, monitors lateness, and applies custom consequences such as salary deductions or logged infractions. \n\n Loyalty Bot acts as a quiet but firm supervisor, keeping your team aligned without constant manual checks. It integrates smoothly into your team's daily workflow, offering a subtle but effective layer of structure to how your team collaborates."
   },
