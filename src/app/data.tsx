@@ -19,7 +19,7 @@ interface AboutItem {
 export const partners=[
   {
     id: 0,
-    img: "/image/prelura-icon.jpg",
+    img: "/plain.jpeg",
     message: "AMG Records",
     time: "Nov 6, 2023",
     link: "/partners/amg-record",

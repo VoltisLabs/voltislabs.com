@@ -36,10 +36,10 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       ],
 
     },
-    {
-      category: "Entertainment",
-      items: [{ name: "AMG records", route: "/amg" }],
-    },
+    // {
+    //   category: "Entertainment",
+    //   items: [{ name: "AMG records", route: "/amg" }],
+    // },
 
   ];
 
@@ -195,6 +195,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                     </ul>
                   </div>
                 ))}
+                 <a  onClick={() => setToggle(false)} href="/partners"  className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+          Partners
+        </a>
               </div>
 
               {/* Fixed Footer */}
