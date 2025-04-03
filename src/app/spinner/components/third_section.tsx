@@ -7,13 +7,13 @@ const ThirdSection = () => {
             <img src="/svgs/virtual.svg" className="absolute  lg:top-0 left-0 w-full lg:w-1/2 object-cover" />
             <div className="w-full flex lg:justify-end border border-white  py-8 lg:py-16 px-5 lg:px-8 lg:mt-20 rounded-xl pb-[300px] lg:pb-10">
                 <div className='flex flex-col items-start lg:w-1/2  '>
-                    <span className='text-3xl lg:text-6xl font-extrabold text-white uppercase '>discover the <span className="bg-[url('/button_bg.png')] bg-cover  bg-clip-text text-transparent">
-                        Virtual
-                    </span> reality gaming </span>
+                    <span className='text-3xl lg:text-6xl font-extrabold text-white uppercase '>Joint the <span className="bg-[url('/button_bg.png')] bg-cover  bg-clip-text text-transparent">
+                        Community
+                    </span></span>
                     <p className=' mt-4 font-normal text-white text-base lg:text-lg leading-8 mb-9'>
-                        A well-designed gaming header often incorporates elements such as game characters, iconic symbols, vibrant colors, and dynamic visuals to convey excitement, adventure, and the immersive nature of gaming.
+                        Want sneak peeks, updates, and live tournaments?, Join the Spinnersonic Discord and become part of the spin revolution.
                     </p>
-                    <ButtonWithGradientText />
+                    <ButtonWithGradientText text='JOIN' />
                 </div>
             </div>
         </section>

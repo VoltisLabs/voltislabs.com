@@ -68,7 +68,7 @@ const SecondSection = () => {
 
             <div className='flex gap-4 mt-4'>
                 <ButtonWithBackground text={"VIEW ALL"} />
-                <ButtonWithGradientText />
+                <ButtonWithGradientText text='Downloaad' />
             </div>
         </section>
     )
