@@ -1,0 +1,8 @@
+@keyframes counter {
+  from {
+    counter-reset: num 0;
+  }
+  to {
+    counter-increment: num var(--num);
+  }
+}
