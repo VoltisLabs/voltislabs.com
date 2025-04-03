@@ -117,7 +117,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
             )}
           </AnimatePresence>
         </div>
-
+        <a href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+          Partners
+        </a>
         {/* About Us */}
         <a href="/Aboutus" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           About Us
@@ -133,6 +135,8 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
         }}>
           Products
         </a>
+
+       
 
         <a href="/Aboutus" className="text-white text-lg text-sm">
           About Us

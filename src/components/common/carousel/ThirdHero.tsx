@@ -4,15 +4,17 @@ import LearnMoreBtn from "../../UI/LearnMoreBtn";
 
 const ThirdHero = () => {
   return (
-    <section className="hero-section-container md:h-[42rem] h-[37rem] flex items-center justify-center relative overflow-hidden">
+    <><section className="hero-section-container md:h-[42rem] h-[37rem] flex items-center justify-center relative overflow-hidden">
       {/* Mobile Background Image (Only visible on small screens) */}
+     
+
       <div className="absolute inset-0 md:hidden">
         <Image
           src="/image/hero4.jpeg"
           alt="hero-image-mobile"
           layout="fill"
-          objectFit="cover"
-        />
+          objectFit="cover" 
+          />
       </div>
 
       {/* Desktop Background Images (Only visible on medium and larger screens) */}
@@ -22,58 +24,61 @@ const ThirdHero = () => {
             src="/image/hero4.jpeg"
             alt="hero-image-1"
             layout="fill"
-            objectFit="cover"
-          />
+            objectFit="cover" />
         </div>
         <div className="w-1/3 h-full relative">
           <Image
             src="/image/hero5.jpeg"
             alt="hero-image-2"
             layout="fill"
-            objectFit="cover"
-          />
+            objectFit="cover" />
         </div>
         <div className="w-1/3 h-full relative">
           <Image
             src="/image/garm1.jpg"
             alt="hero-image-3"
             layout="fill"
-            objectFit="cover"
-          />
+            objectFit="cover" />
         </div>
       </div>
 
       {/* Dark Overlay for better text contrast */}
       <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute bottom-7 left-7 hidden md:flex">
+      <LearnMoreBtn
+          text="Learn More about Afrogarm"
+          borderColor="border-white"
+          textColor="text-white"
+          route="http://afrogarm.com" />
+</div>
 
       {/* Centered Content */}
-<div className="relative z-10 text-center text-white flex flex-col items-center justify-center w-full mt-20">
-  <svg width="50" height="60" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_2324_73)">
-<rect width="500" height="500" fill="white" rx="40" ry="40" cx="50"/>
-<path d="M396.961 208.547C396.961 246.047 396.961 302.167 396.961 376.906C396.961 382.896 395.008 387.844 391.102 391.75C386.935 395.917 381.987 398 376.258 398C370.529 398 365.581 395.917 361.414 391.75C357.508 387.844 355.555 382.896 355.555 376.906C355.555 362.062 355.555 339.797 355.555 310.109C342.273 323.391 326.779 333.938 309.07 341.75C291.362 349.562 272.482 353.469 252.43 353.469C232.117 353.469 213.107 349.562 195.398 341.75C177.69 333.938 162.195 323.391 148.914 310.109C148.914 324.953 148.914 347.219 148.914 376.906C148.914 382.896 146.961 387.844 143.055 391.75C138.888 395.917 133.94 398 128.211 398C122.482 398 117.534 395.917 113.367 391.75C109.461 387.844 107.508 382.896 107.508 376.906C107.508 339.667 107.508 283.547 107.508 208.547C107.508 182.505 113.758 158.677 126.258 137.062C138.758 115.188 155.294 97.8698 175.867 85.1094C187.065 78.3385 199.044 73 211.805 69.0938C224.826 65.4479 238.367 63.625 252.43 63.625C266.232 63.625 279.643 65.4479 292.664 69.0938C305.424 73 317.404 78.3385 328.602 85.1094C349.174 97.8698 365.711 115.188 378.211 137.062C390.711 158.677 396.961 182.505 396.961 208.547ZM148.914 206.594C148.914 222.74 152.82 238.755 160.633 254.641C168.445 270.266 179.643 283.026 194.227 292.922C202.039 298.13 210.763 302.297 220.398 305.422C230.294 308.547 240.971 310.109 252.43 310.109C271.701 310.109 289.018 305.682 304.383 296.828C319.747 287.974 331.857 276.125 340.711 261.281C345.659 253.469 349.435 245.005 352.039 235.891C354.383 226.516 355.555 216.75 355.555 206.594C355.555 196.698 354.253 187.062 351.648 177.688C349.044 168.573 345.268 160.109 340.32 152.297C331.206 137.453 318.836 125.604 303.211 116.75C287.846 107.635 270.919 103.078 252.43 103.078C233.68 103.078 216.622 107.635 201.258 116.75C185.633 125.604 173.263 137.453 164.148 152.297C159.201 160.109 155.424 168.573 152.82 177.688C150.216 187.062 148.914 196.698 148.914 206.594Z" fill="black"/>
-</g>
-<defs>
-<clipPath id="clip0_2324_73">
-<rect width="500" height="500" fill="white"/>
-</clipPath>
-</defs>
-</svg>
-  <span className="block text-center text-white md:text-[3rem] text-[1.7rem]">
-    "Rooted in Culture, Styled <br />  for Everyone."
-  </span>
-</div>
+      <div className="relative z-10 text-center text-white flex flex-col items-center justify-center w-full mt-20">
+        <svg width="50" height="60" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_2324_73)">
+            <rect width="500" height="500" fill="white" rx="40" ry="40" cx="50" />
+            <path d="M396.961 208.547C396.961 246.047 396.961 302.167 396.961 376.906C396.961 382.896 395.008 387.844 391.102 391.75C386.935 395.917 381.987 398 376.258 398C370.529 398 365.581 395.917 361.414 391.75C357.508 387.844 355.555 382.896 355.555 376.906C355.555 362.062 355.555 339.797 355.555 310.109C342.273 323.391 326.779 333.938 309.07 341.75C291.362 349.562 272.482 353.469 252.43 353.469C232.117 353.469 213.107 349.562 195.398 341.75C177.69 333.938 162.195 323.391 148.914 310.109C148.914 324.953 148.914 347.219 148.914 376.906C148.914 382.896 146.961 387.844 143.055 391.75C138.888 395.917 133.94 398 128.211 398C122.482 398 117.534 395.917 113.367 391.75C109.461 387.844 107.508 382.896 107.508 376.906C107.508 339.667 107.508 283.547 107.508 208.547C107.508 182.505 113.758 158.677 126.258 137.062C138.758 115.188 155.294 97.8698 175.867 85.1094C187.065 78.3385 199.044 73 211.805 69.0938C224.826 65.4479 238.367 63.625 252.43 63.625C266.232 63.625 279.643 65.4479 292.664 69.0938C305.424 73 317.404 78.3385 328.602 85.1094C349.174 97.8698 365.711 115.188 378.211 137.062C390.711 158.677 396.961 182.505 396.961 208.547ZM148.914 206.594C148.914 222.74 152.82 238.755 160.633 254.641C168.445 270.266 179.643 283.026 194.227 292.922C202.039 298.13 210.763 302.297 220.398 305.422C230.294 308.547 240.971 310.109 252.43 310.109C271.701 310.109 289.018 305.682 304.383 296.828C319.747 287.974 331.857 276.125 340.711 261.281C345.659 253.469 349.435 245.005 352.039 235.891C354.383 226.516 355.555 216.75 355.555 206.594C355.555 196.698 354.253 187.062 351.648 177.688C349.044 168.573 345.268 160.109 340.32 152.297C331.206 137.453 318.836 125.604 303.211 116.75C287.846 107.635 270.919 103.078 252.43 103.078C233.68 103.078 216.622 107.635 201.258 116.75C185.633 125.604 173.263 137.453 164.148 152.297C159.201 160.109 155.424 168.573 152.82 177.688C150.216 187.062 148.914 196.698 148.914 206.594Z" fill="black" />
+          </g>
+          <defs>
+            <clipPath id="clip0_2324_73">
+              <rect width="500" height="500" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <span className="block text-center text-white md:text-[3rem] text-[1.7rem]">
+          "Rooted in Culture, Styled <br />  for Everyone."
+        </span>
+      </div>
 
-{/* Bottom Left Learn More Button */}
-<div className="absolute bottom-0 left-0 p-3 mt-10">
-  <LearnMoreBtn
-    text="Learn More about Afrogarm"
-    borderColor="border-white"
-    textColor="text-white"
-    route="http://afrogarm.com"
-  />
-</div>
-    </section>
+      {/* Bottom Left Learn More Button */}
+     
+    </section><div className=" md:hidden left-section h-full md:w-[50%] w-full md:p-7 p-2 flex items-end">
+    <LearnMoreBtn
+          text="Learn More about Afrogarm"
+          borderColor="border-white"
+          textColor="text-white"
+          route="http://afrogarm.com" />
+      </div></>
   );
 };
 
