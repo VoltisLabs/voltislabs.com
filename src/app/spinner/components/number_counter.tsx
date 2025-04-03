@@ -2,6 +2,7 @@
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
 import "./counter.css";
+import { numberFormat } from "@/src/components/common/numberFormat";
 
 const NumberCounter = () => {
     const { ref, inView } = useInView({
@@ -10,9 +11,9 @@ const NumberCounter = () => {
     });
 
     const sizes = [
-        { count: 50, title: "Unique style" },
-        { count: 120, title: "Projects finiished" }, ,
-        { count: 10, title: "Happy customers" },
+        { count: 50, title: "Spinners" },
+        { count: 10, title: "Game modes" }, ,
+        { count: 10000, title: "Happy gamers" },
 
     ];
 
@@ -68,7 +69,7 @@ const NumberCounter = () => {
                             >
                                 <div className={`text-xl lg:text-3xl text-accent text-center font-extrabold ${index == 1 ? "bg-[url('/button_bg.png')] bg-cover bg-center bg-clip-text text-transparent" : ""}`}
                                 >
-                                    {animatedCounts[index]}+
+                                    {numberFormat(animatedCounts[index])}+
                                 </div>
                                 <span className="text-xs text-[15px] sm:text-base md:text-lg font-normal whitespace-nowrap max-w-full overflow-hidden text-ellipsis">
                                     {value?.title}

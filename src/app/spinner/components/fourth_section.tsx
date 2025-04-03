@@ -18,9 +18,9 @@ const FourthSection = () => {
             </div>
 
             {/* Scrollable game cards */}
-            <div className='flex gap-7 mb-10 overflow-x-auto  no-scrollbar '>
+            <div className='flex lg:grid grid-cols-3 gap-7 mb-10 overflow-x-auto  no-scrollbar '>
                 {games.map((game, index) => (
-                    <div key={`key-card-${index}`} className="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                    <div key={`key-card-${index}`} className="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-full">
                         <GameCard key={`key-card-${index}`} profilepicture={game.profilePicture} name={game.name} brand={game.brand} image={game.image} />
                     </div>
                 ))}

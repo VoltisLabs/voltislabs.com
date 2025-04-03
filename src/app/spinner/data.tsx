@@ -1,44 +1,17 @@
 export const games = [
     {
         image: "/svgs/game_card/image_1.svg",
-        name: "Cameron Williamson",
-        brand: "Gillette",
+        name: " Beta Tester",
+        brand: "Discord",
         profilePicture: "/images/picture_1.png",
-        description: "One of the standout features of this gaming website is its extensive library of game guides and tutorials. It has helped me level up my skills, conquer challenging quests, and discover hidden secrets within games. The guides are comprehensive, easy to follow, and have undoubtedly elevated my gaming performance."
+        description: "I didn’t think I’d get addicted to a spinner game in 2025, but here we are."
     },
     {
         image: "/svgs/game_card/image_2.svg",
-        name: "Dianne Russell",
-        description: "One of the standout features of this gaming website is its extensive library of game guides and tutorials. It has helped me level up my skills, conquer challenging quests, and discover hidden secrets within games. The guides are comprehensive, easy to follow, and have undoubtedly elevated my gaming performance.",
-        brand: "Louis Vuitton",
+        name: " Casual Gamer",
+        description: "Slow Motion mode is genius. Finally, a game I can play my own way.",
+        brand: "Android",
         profilePicture: "/images/picture_2.png"
     },
-    {
-        image: "/svgs/game_card/image_3.svg",
-        name: "Jane Cooper",
-        description: "One of the standout features of this gaming website is its extensive library of game guides and tutorials. It has helped me level up my skills, conquer challenging quests, and discover hidden secrets within games. The guides are comprehensive, easy to follow, and have undoubtedly elevated my gaming performance."
-        , brand: "Mastercard",
-        profilePicture: "/images/picture_3.png"
-    },
-    {
-        image: "/svgs/game_card/image_4.svg",
-        description: "One of the standout features of this gaming website is its extensive library of game guides and tutorials. It has helped me level up my skills, conquer challenging quests, and discover hidden secrets within games. The guides are comprehensive, easy to follow, and have undoubtedly elevated my gaming performance."
-        , name: "Cody Fisher",
-        brand: "The Walt Disney Company",
-        profilePicture: "/images/picture_4.png"
-    },
-    {
-        image: "/svgs/game_card/image_5.svg",
-        description: "One of the standout features of this gaming website is its extensive library of game guides and tutorials. It has helped me level up my skills, conquer challenging quests, and discover hidden secrets within games. The guides are comprehensive, easy to follow, and have undoubtedly elevated my gaming performance."
-        , name: "Wade Warren",
-        brand: "Gillette",
-        profilePicture: "/images/picture_5.png"
-    },
-    {
-        image: "/svgs/game_card/image_6.svg",
-        description: "One of the standout features of this gaming website is its extensive library of game guides and tutorials. It has helped me level up my skills, conquer challenging quests, and discover hidden secrets within games. The guides are comprehensive, easy to follow, and have undoubtedly elevated my gaming performance."
-        , name: "Robert Fox",
-        brand: "L'Oreal",
-        profilePicture: "/images/picture_6.png"
-    }
+
 ]
