@@ -1,5 +1,5 @@
 import React from 'react'
-import { partners } from '../data'
+import { partners,products } from '../data'
 import Card from '../products/components/card'
 
 const page = () => {
@@ -9,7 +9,7 @@ const page = () => {
             <p className='text-lg font-normal leading-7 mt-16 mb-20 text-white'></p>
 
             <div className="grid grid-cols-1 gap-12 md:gap-24 py-10">
-                {partners.map((product, index) => (
+                {products.map((product, index) => (
                     <Card key={index} title={product.message} description={product.description} image={product.img} link={product.link} />
                 ))}
             </div>
