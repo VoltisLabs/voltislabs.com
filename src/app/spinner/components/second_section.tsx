@@ -28,11 +28,11 @@ const SecondSection = () => {
     };
     return (
         <section className='flex flex-col lg:items-center'>
-            <span className=' lg:w-1/2 text-2xl lg:text-6xl font-extrabold text-white uppercase text-center'>choose your  <span className="bg-[url('/button_bg.png')] bg-cover  bg-clip-text text-transparent">
-                favorite
-            </span> games </span>
-            <p className='lg:w-1/2 mt-4 font-normal text-white text-base lg:text-lg leading-8 text-center mb-10'>
-                Offer sneak peeks and previews of upcoming games, including trailers, screenshots, and information about release.
+            <span className=' lg:w-3/4 text-2xl lg:text-6xl font-extrabold text-white uppercase text-center'>Choose from <span className="bg-[url('/button_bg.png')] bg-cover  bg-clip-text text-transparent">
+                multiple
+            </span>  game modes</span>
+            <p className='lg:w-3/4 mt-4 font-normal text-white text-base lg:text-lg leading-8 text-center mb-10'>
+                Choose from multiple game modes, each designed to deliver a different kind of challenge. Whether you’re racing against friends, climbing the global leaderboard, testing your RPM control, or just spinning to relax—there’s a mode that fits your mood, skill level, and playstyle.
             </p>
             <Marquee
                 className="slider-statement z-20 cursor-default bg-black relative my-10"
@@ -55,7 +55,7 @@ const SecondSection = () => {
                             <img
                                 src={image}
                                 alt="Icon"
-                                className="w-full h-[192px] object-cover transition-all duration-[.85s] ease-in-out cursor-pointer relative z-20 rounded-2xl"
+                                className="w-full h-[256px] aspect-video object-cover transition-all duration-[.85s] ease-in-out cursor-pointer relative z-20 rounded-2xl"
                                 onClick={() => handleImageClick(index)}
                             />
                         </div>

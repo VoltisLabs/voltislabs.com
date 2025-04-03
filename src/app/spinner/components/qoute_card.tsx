@@ -10,7 +10,7 @@ const QuoteCard = ({ description, profilepicture, name, brand }: { description: 
                 {description}
             </p>
             <div className="w-full px-2 h-[1px] bg-gradient-to-r from-gray-500 to-transparent my-4"></div>
-            <div className='flex justify-between items-center'>
+            <div className='flex justify-between items-center w-full'>
                 <div className='flex gap-2.5 items-center mt-5 mb-7'>
                     <img src={profilepicture} className='lg:w-16 lg:h-16 w-10 h-10 rounded-full' />
                     <div>

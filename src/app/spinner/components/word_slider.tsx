@@ -6,7 +6,7 @@ const WordSlider = ({ rotate = false }) => {
         <div className="relative">
 
             <Marquee
-                className={` slider-statement z-20 cursor-default bg-black relative my-3 lg:my-10 ${rotate ? "-rotate-2" : ""
+                className={` slider-statement overflow-y-hidden z-20 cursor-default bg-black relative my-3 lg:my-10 ${rotate ? "-rotate-3" : ""
                     }`}
                 speed={100}
                 direction="left"
