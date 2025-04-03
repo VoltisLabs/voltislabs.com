@@ -38,7 +38,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
     console.log({ id });
   };
   const desktopContent = (
-    <div className="flex items-center  bg-[#191919]">
+    <div className="flex items-center ">
       {array.map((text, index) => {
         const isBefore = selected !== null && array[index + 1]?.id === selected;
         const isAfter = selected !== null && array[index - 1]?.id === selected;
@@ -96,7 +96,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
     </div >
   );
   const mobileContent = (
-    <div className="flex flex-nowrap  h-full bg-[#191919]">
+    <div className="flex flex-nowrap  h-full ">
       {array.map((text, index) => (
         <div
           key={index}
@@ -227,20 +227,9 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
             </Marquee>
             {!paused && isClickAble && (
 
-              <div className="relative text-6xl font-bold text-white overflow-hidden">
+              <div className="relative text-center text-gray-400 ">
                 Click to expand
-                <motion.div
-                  className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent"
-                  initial={{ x: "-100%" }}
-                  animate={{ x: "100%" }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    ease: "linear",
-                  }}
-                  style={{ mixBlendMode: "difference" }} // This makes the white effect visible
-                />
+
               </div>
               // <TextColorAnimation text="Click to expand" textAlign="center" color01="#ffffff" color02="grey-400" fontSize={12} fontFamily={"Inter"} fontWeight={500} Duration={300} />
             )}
