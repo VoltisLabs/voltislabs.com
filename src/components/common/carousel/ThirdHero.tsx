@@ -49,7 +49,7 @@ const ThirdHero = () => {
           text="Learn More about Afrogarm"
           borderColor="border-white"
           textColor="text-white"
-          route="http://afrogarm.com" />
+          route="https://afrogarm.com" />
 </div>
 
       {/* Centered Content */}
@@ -77,7 +77,7 @@ const ThirdHero = () => {
           text="Learn More about Afrogarm"
           borderColor="border-white"
           textColor="text-white"
-          route="http://afrogarm.com" />
+          route="https://afrogarm.com" />
       </div></>
   );
 };

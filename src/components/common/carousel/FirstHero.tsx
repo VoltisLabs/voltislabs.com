@@ -12,7 +12,7 @@ const FirstHero = () => {
           text="Learn More about VModel"
           borderColor="border-white"
           textColor="text-white"
-          route="http://vmodelapp.com" />
+          route="https://vmodelapp.com" />
       </div>
 
       {/* Right Section with Overlay */}
@@ -35,14 +35,15 @@ const FirstHero = () => {
   <div className="content-container mx-auto md:w-[50%] w-[90%] text-center">
     <div className="image-container flex items-center justify-center md:mb-1 mb-[1.5rem] gap-2">
       <Image
-        src={"/icons/vmodel.svg"}
+        src={"/image/vm.png"}
         alt="vmodel-logo"
-        width={30}
-        height={30}
+        width={50}
+        className="rounded"
+        height={60}
       />
-      <span className="block text-[#EDCEAB] font-semibold md:text-[1.15rem] text-[.85rem]">
+      {/* <span className="block text-[#EDCEAB] font-semibold md:text-[1.15rem] text-[.85rem]">
         VMODEL
-      </span>
+      </span> */}
     </div>
 
     <div className="text-section mx-auto">
@@ -60,7 +61,7 @@ const FirstHero = () => {
           text="Visit VModel"
           borderColor="border-white"
           textColor="text-white"
-          route="http://vmodelapp.com" />
+          route="https://vmodelapp.com" />
       </div></>
   );
 };
