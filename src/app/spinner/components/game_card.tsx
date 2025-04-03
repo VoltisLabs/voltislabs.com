@@ -3,7 +3,7 @@ import ButtonWithBackground from './button_with_background'
 
 const GameCard = ({ profilepicture, name, brand, image }: { profilepicture: string, name: string, brand: string, image: string }) => {
     return (
-        <div className='flex-1 rounded-xl flex flex-col py-5 px-4 pb-9 border border-white '>
+        <div className='rounded-xl flex flex-col py-5 px-4 pb-9 border border-white '>
             <img src={image} className='w-full h-full object-cover object-top aspect-video min-h[221px]' />
             <h3 className='text-2xl text-white font-medium  font-white capitalize mt-7'>
                 core philosophies
