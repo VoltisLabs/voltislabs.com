@@ -23,7 +23,7 @@ export const partners=[
     message: "AMG Studios",
     time: "Nov 6, 2023",
     link: "/partners/amg-studios",
-    description: `Amg records is a record label and music production company that specializes in discovering and promoting emerging artists. With a focus on innovation and creativity, AMG Records provides a platform for talented musicians to showcase their work and connect with a global audience. The label is dedicated to nurturing artistic talent and fostering collaboration within the music industry.`
+    description: `Amg studios is a record label and music production company that specializes in discovering and promoting emerging artists. With a focus on innovation and creativity, AMG Studios provides a platform for talented musicians to showcase their work and connect with a global audience. The label is dedicated to nurturing artistic talent and fostering collaboration within the music industry.`
   },
 ]
 export const About: AboutItem[] = [
