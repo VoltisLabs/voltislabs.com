@@ -56,7 +56,7 @@ const ContactUs = () => {
                 id="name"
                 name="name"
                 placeholder="Your Name"
-                className="w-full bg-[#1A1A1A] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
+                className="w-full bg-[#0D1117] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
               />
             </motion.div>
 
@@ -70,7 +70,7 @@ const ContactUs = () => {
                 id="email"
                 name="email"
                 placeholder="Your Email"
-                className="w-full bg-[#1A1A1A] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
+                className="w-full bg-[#0D1117] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
               />
             </motion.div>
 
@@ -84,7 +84,7 @@ const ContactUs = () => {
                 name="message"
                 placeholder="Your Message"
                 rows={5}
-                className="w-full bg-[#1A1A1A] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
+                className="w-full bg-[#0D1117] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
               ></textarea>
             </motion.div>
 
