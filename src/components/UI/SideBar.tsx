@@ -35,8 +35,8 @@ const Sidebar: React.FC<SidebarProps> = ({ tbList }) => {
   };
 
   return (
-    <div className="relative ">
-      <div className="fixed left-0 hidden top-1/2 transform -translate-y-1/2 lg:flex flex-col justify-center items-start">
+    <div className="relative bg-transparent z-50">
+      <div className="fixed left-0 hidden top-1/2 transform -translate-y-1/2 lg:flex flex-col justify-center items-start backdrop-blur-md">
         <ul className="space-y-2">
           {tbList.map((item, index) => (
             <motion.li
