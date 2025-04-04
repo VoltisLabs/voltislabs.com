@@ -17,12 +17,12 @@ const ContactUs = () => {
   return (
     <div className="contact-page mt-[10rem] bg-black text-white min-h-screen">
       {/* Hero Section */}
-      <section id="contact-home" className="md:block hidden">
+      <section id="contact-home" className="">
         <TitleSection
           title="We are Voltis Labs"
           subTitle="Contact Us"
           secondaryText="Have questions or want to collaborate? We’d love to hear from you."
-          containerStyle="mb-4 md:block hidden"
+          containerStyle="mb-4 "
         />
       </section>
 

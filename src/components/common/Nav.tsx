@@ -198,15 +198,18 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                     </ul>
                   </div>
                 ))}
-                 <a  onClick={() => setToggle(false)} href="/partners"  className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+                <div className="flex flex-col space-y-2">
+                <a  onClick={() => setToggle(false)} href="/partners"  className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           Partners
         </a>
-
-        
-              </div>
-              <a  onClick={() => setToggle(false)} href="/contact-us"  className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+        <a  onClick={() => setToggle(false)} href="/contact-us"  className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           Contact Us
         </a>
+                </div>
+                
+        
+              </div>
+              
               {/* Fixed Footer */}
               <div className="absolute bottom-[6rem] pl-6 left-0 w-full bg-[#0D1117] py-4  border-t border-gray-700">
                 <p className="text-white text-sm">
