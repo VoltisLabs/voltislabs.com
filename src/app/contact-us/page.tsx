@@ -1,0 +1,168 @@
+"use client";
+import React from "react";
+import { FiMapPin, FiMail, FiPhone, FiArrowRight } from "react-icons/fi";
+import TitleSection from "@/src/components/UI/TitleSection";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.6 },
+  }),
+};
+
+const ContactUs = () => {
+  return (
+    <div className="contact-page mt-[10rem] bg-black text-white min-h-screen">
+      {/* Hero Section */}
+      <section id="contact-home" className="md:block hidden">
+        <TitleSection
+          title="We are Voltis Labs"
+          subTitle="Contact Us"
+          secondaryText="Have questions or want to collaborate? We’d love to hear from you."
+          containerStyle="mb-4 md:block hidden"
+        />
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="form-section py-16 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <motion.h2
+            className="text-3xl font-bold mb-6 text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={0}
+          >
+            Get in Touch
+          </motion.h2>
+
+          <motion.form
+            className="space-y-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {/* Name */}
+            <motion.div variants={fadeUp} custom={1}>
+              <label htmlFor="name" className="block text-sm font-medium mb-2">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                className="w-full bg-[#1A1A1A] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
+              />
+            </motion.div>
+
+            {/* Email */}
+            <motion.div variants={fadeUp} custom={2}>
+              <label htmlFor="email" className="block text-sm font-medium mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                className="w-full bg-[#1A1A1A] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
+              />
+            </motion.div>
+
+            {/* Message */}
+            <motion.div variants={fadeUp} custom={3}>
+              <label htmlFor="message" className="block text-sm font-medium mb-2">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Your Message"
+                rows={5}
+                className="w-full bg-[#1A1A1A] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
+              ></textarea>
+            </motion.div>
+
+            {/* Submit Button */}
+            <motion.div className="text-center" variants={fadeUp} custom={4}>
+              <button
+                type="submit"
+                className="md:text-[.8rem] text-[.6rem] item-container justify-between cursor-pointer flex items-center gap-2 p-1 border-solid border-white border-[1px] px-4 min-w-[9rem] h-[2rem] rounded-[4px] transition-all duration-300 hover:bg-white hover:text-black"
+              >
+                Send Message
+                <FiArrowRight size={18} />
+              </button>
+            </motion.div>
+          </motion.form>
+        </div>
+      </section>
+
+      {/* Contact Details Section */}
+      <section className="contact-details py-16 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Address */}
+          <motion.div
+            className="text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={1}
+          >
+            <FiMapPin size={40} className="mx-auto mb-4 text-[#fff]" />
+            <h3 className="text-xl font-bold mb-2">Our Address</h3>
+            <p className="text-gray-400">
+              123 Voltis Labs Street, <br />
+              Innovation City, UK
+            </p>
+          </motion.div>
+
+          {/* Email */}
+          <motion.div
+            className="text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={2}
+          >
+            <FiMail size={40} className="mx-auto mb-4 text-[#fff]" />
+            <h3 className="text-xl font-bold mb-2">Email Us</h3>
+            <a
+              href="mailto:contact@voltislabs.com"
+              className="text-gray-400 hover:underline"
+            >
+              contact@voltislabs.com
+            </a>
+          </motion.div>
+
+          {/* Phone */}
+          <motion.div
+            className="text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={3}
+          >
+            <FiPhone size={40} className="mx-auto mb-4 text-[#fff]" />
+            <h3 className="text-xl font-bold mb-2">Call Us</h3>
+            <a
+              href="tel:+11234567890"
+              className="text-gray-400 hover:underline"
+            >
+              +1 (123) 456-7890
+            </a>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default ContactUs;
