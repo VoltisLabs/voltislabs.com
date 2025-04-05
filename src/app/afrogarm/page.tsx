@@ -100,7 +100,7 @@ function Vmodel() {
         <SliderBackground
           containerStyle="bg-black w-full"
           imagesArray={afrogarmImages}
-          titleText="Your creative career, your way!"
+          titleText="Welcome to Afrogarm"
           afrogarm
           route="https://www.afrogarm.com"
           smallBtnText="Visit Afrogarm"
@@ -210,19 +210,19 @@ function Vmodel() {
 
             <span className={paragrapghClassName}>
               At Afrogarm, we are committed to providing a seamless and enjoyable shopping experience:
-              <ul className="list-disc list-outside pl-4">
+              <ul className={`list-outside pl-4 ${paragrapghClassName}`}>
 
                 <li>
-                  User-Friendly Platform — Easily navigate through categories, filter preferences, and find exactly what you're looking for.
+                  <span className="font-bold">User-Friendly Platform</span> — Easily navigate through categories, filter preferences, and find exactly what you're looking for.
                 </li>
                 <li>
-                  Secure Transactions — Shop with confidence knowing that your payments are protected.
+                  <span className="font-bold"> Secure Transactions</span> — Shop with confidence knowing that your payments are protected.
                 </li>
                 <li>
-                  Worldwide Shipping — Reliable delivery services to bring your chosen pieces from Africa to your doorstep.
+                  <span className="font-bold"> Worldwide Shipping</span> — Reliable delivery services to bring your chosen pieces from Africa to your doorstep.
                 </li>
                 <li>
-                  Customer Support — Our dedicated team is here to assist you with any inquiries or concerns.
+                  <span className="font-bold">Customer Support</span> — Our dedicated team is here to assist you with any inquiries or concerns.
                 </li>
               </ul>
             </span>
