@@ -31,16 +31,16 @@ function Vmodel() {
 
   const afrogarmImages = [
     {
-      img: "/svgs/afrogarm_sliders/slide_1.svg",
+      img: "/svgs/afrogarm_sliders/slide_1.png",
     },
     {
-      img: "/svgs/afrogarm_sliders/slide_2.svg",
+      img: "/svgs/afrogarm_sliders/slide_2.png",
     },
     {
-      img: "/svgs/afrogarm_sliders/slide_6.svg",
+      img: "/svgs/afrogarm_sliders/slide_6.jpeg",
     },
     {
-      img: "/svgs/afrogarm_sliders/slide_4.svg",
+      img: "/svgs/afrogarm_sliders/slide_4.png",
     },
   ]
 
@@ -98,10 +98,10 @@ function Vmodel() {
       </div>
       <section className="hero-section md:hidden block mb-9">
         <SliderBackground
-          containerStyle="bg-[#503C3B] w-full"
+          containerStyle="bg-black w-full"
           imagesArray={afrogarmImages}
           titleText="Your creative career, your way!"
-          vmodel
+          afrogarm
           route="https://www.afrogarm.com"
           smallBtnText="Visit Vmodel"
         />
@@ -178,14 +178,14 @@ function Vmodel() {
           <br />
           <div className="image-container md:h-[30rem] h-[15rem] rounded-[8px] overflow-hidden flex w-full gap-5">
             <Image
-              src={"/svgs/afrogarm_sliders/slide_3.svg"}
+              src={"/svgs/afrogarm_sliders/slide_3.png"}
               alt="page-image"
               width={500}
               height={500}
               className="w-1/2 h-full object-cover object-top flex-1 rounded-xl"
             />
             <Image
-              src={"/svgs/afrogarm_sliders/slide_5.svg"}
+              src={"/svgs/afrogarm_sliders/slide_5.png"}
               alt="page-image"
               width={500}
               height={500}
@@ -245,16 +245,16 @@ function Vmodel() {
         </div>
 
         <div className="flex justify-center w-full my-12 gap-6 items-center">
-          <div className="w-fit text-center py-2.5 px-12 rounded-xl bg-[url('/svgs/insta_bg.svg')]">
+          <div className="w-fit text-center py-2.5 px-4 lg:px-12 rounded-xl bg-[url('/svgs/insta_bg.svg')]">
             <Link href="https://www.instagram.com/afrogarm" className="">
-              <p className="font-normal text-white sm:mt-0 text-lg  cursor-pointer">
+              <p className="font-normal text-white sm:mt-0 text-sm lg:text-lg  cursor-pointer">
                 Follow us on instagram
               </p>
             </Link>
           </div>
-          <div className="border-[#FFFFFF] border-[1px] w-fit text-center py-2.5 px-12 rounded-xl">
+          <div className="border-[#FFFFFF] border-[1px] w-fit text-center py-2.5 px-4 lg:px-12 rounded-xl">
             <Link href="https://www.afrogarm.com">
-              <p className="font-normal text-white sm:mt-0 text-lg  cursor-pointer">
+              <p className="font-normal text-white sm:mt-0 text-sm lg:text-lg  cursor-pointer">
                 Visit Website
               </p>
             </Link>
