@@ -103,7 +103,7 @@ function Vmodel() {
           titleText="Your creative career, your way!"
           afrogarm
           route="https://www.afrogarm.com"
-          smallBtnText="Visit Vmodel"
+          smallBtnText="Visit Afrogarm"
         />
       </section>
 
