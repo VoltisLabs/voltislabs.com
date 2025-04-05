@@ -10,7 +10,7 @@ import BulletSlider from "./components/bullet_slider";
 const Page = () => {
   return (
     <div className="flex flex-col max-w-[85rem] min-h-screen p-6 pb-20 gap-16 sm:p-6 font-[family-name:var(--font-inter)]  text-white overflow-hidden">
-      <div className="lg:p-16"></div>
+      <div className=""></div>
       <HeroSection />
       <WordSlider rotate />
       <SecondSection />
