@@ -12,7 +12,7 @@ interface FlatListProps {
 
 const FlatList: React.FC<FlatListProps> = ({ listItems }) => {
   return (
-    <ul className="list-disc pl-5">
+    <ul className=" pl-5">
       {listItems.map((item) => (
         <li key={item.id}>
           <span className={paragrapghClassName}>{item.name}</span>
