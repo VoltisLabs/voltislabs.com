@@ -31,16 +31,16 @@ function Vmodel() {
 
   const afrogarmImages = [
     {
-      img: "/svgs/afrogarm_sliders/slide_1.png",
+      img: "/svgs/afrogarm_sliders/slide_1.jpg",
     },
     {
-      img: "/svgs/afrogarm_sliders/slide_2.png",
+      img: "/svgs/afrogarm_sliders/slide_2.jpg",
     },
     {
       img: "/svgs/afrogarm_sliders/slide_6.jpeg",
     },
     {
-      img: "/svgs/afrogarm_sliders/slide_4.png",
+      img: "/svgs/afrogarm_sliders/slide_4.jpg",
     },
   ]
 
@@ -206,14 +206,14 @@ function Vmodel() {
           <br />
           <div className="image-container md:h-[30rem] h-[15rem] rounded-[8px] overflow-hidden flex w-full gap-5">
             <Image
-              src={"/svgs/afrogarm_sliders/slide_3.png"}
+              src={"/svgs/afrogarm_sliders/slide_3.jpg"}
               alt="page-image"
               width={500}
               height={500}
               className="w-1/2 h-full object-cover object-top flex-1 rounded-xl"
             />
             <Image
-              src={"/svgs/afrogarm_sliders/slide_5.png"}
+              src={"/svgs/afrogarm_sliders/slide_5.jpg"}
               alt="page-image"
               width={500}
               height={500}
