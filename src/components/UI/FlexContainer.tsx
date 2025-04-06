@@ -165,12 +165,37 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
     );
   };
 
+  const animatedText = () => {
+    return (<motion.span
+      className=" self-center text-transparent bg-clip-text uppercase text-xs lg:text-base whitespace-nowrap"
+      initial={{ backgroundPosition: '200% 0%' }}
+      animate={{ backgroundPosition: '-100% 0%' }}
+      transition={{
+        duration: 5,
+        repeat: Infinity,
+        repeatType: 'mirror',
+        ease: 'linear',
+      }}
+      style={{
+        backgroundSize: '400% 100%',
+        backgroundImage:
+          'linear-gradient(90deg, #888 0%, #888 40%, white 50%, #888 60%, #888 100%)',
+        WebkitBackgroundClip: 'text',
+        backgroundClip: 'text',
+        color: 'transparent',
+      }}
+    >
+      click to expand
+    </motion.span>
+    );
+  }
+
   return (
     <>
       {/* Desktop View */}
       <div className="hidden md:block">
         {marquee ? (
-          <div className="flex-col gap-6 bg-[#000000]">
+          <div className="flex-col flex gap-6 bg-[#000000]">
 
             <Marquee
               className="slider-statement z-20 cursor-default bg-carpet-green relative overflow-hidden"
@@ -185,7 +210,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
               {desktopContent}
             </Marquee>
             {!paused && isClickAble && (
-              <p className="text-gray-400 text-center ">Click to expand</p>
+              animatedText()
             )}
             {paused && (<motion.div initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -212,7 +237,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
       {/* Mobile View */}
       <div className="md:hidden">
         {marquee ? (
-          <div className="flex-col gap-6">
+          <div className="flex-col flex  gap-6">
 
             <Marquee
               className="slider-statement z-20 cursor-default bg-black relative"
@@ -227,11 +252,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
             </Marquee>
             {!paused && isClickAble && (
 
-              <div className="relative text-center text-gray-400 ">
-                Click to expand
-
-              </div>
-              // <TextColorAnimation text="Click to expand" textAlign="center" color01="#ffffff" color02="grey-400" fontSize={12} fontFamily={"Inter"} fontWeight={500} Duration={300} />
+              animatedText()
             )}
             {paused && (<motion.div initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}

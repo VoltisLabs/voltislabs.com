@@ -288,7 +288,7 @@ export default function FidgetSpinner({ imageUrl }: { imageUrl?: string }) {
                 className="spinner-image object-contain"
                 priority
             /> */}
-            <TbFidgetSpinner className="size-96" />
+            <TbFidgetSpinner className="size-72 self-center lg:size-96" />
         </motion.div>
     )
 }
