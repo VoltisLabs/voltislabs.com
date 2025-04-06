@@ -65,6 +65,14 @@ function Vmodel() {
 
     fetchPosts();
   }, []);
+  const formatDate = (timestamp: string) => {
+    const options: Intl.DateTimeFormatOptions = {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    };
+    return new Date(timestamp).toLocaleDateString('en-GB', options);
+  };
 
   return (
     <div className="text-white">
@@ -280,12 +288,18 @@ function Vmodel() {
 
           <div className="flex gap-4">
             {posts.map((post: any) => (
-              <a key={post.id} href={post.permalink} target="_blank" rel="noopener noreferrer" className="mr-4">
+              <a key={post.id} href={post.permalink} target="_blank" rel="noopener noreferrer" className="mr-4 flex-col gap-4">
                 {post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM' ? (
-                  <img src={post.media_url} alt={post.caption || 'Instagram post'} className="w-full  rounded-lg shadow h-[19rem] mr-4" />
+                  <img src={post.media_url} alt={post.caption || 'Instagram post'} className="w-full  rounded-lg shadow h-[15rem] mr-4" />
                 ) : post.media_type === 'VIDEO' ? (
                   <video controls src={post.media_url} className="w-full h-auto rounded-lg shadow" />
                 ) : null}
+                <div className="caption mt-2">
+                  {post.caption && <p className="text-[-8rem] text-white font-medium">{post.caption}</p>}
+                  <p className=" text-white text-[.7rem] mt-1 font-light">
+                    {formatDate(post.timestamp)}
+                  </p>
+                </div>
               </a>
             ))}
           </div>
