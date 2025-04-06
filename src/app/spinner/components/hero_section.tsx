@@ -107,9 +107,9 @@ const HeroSection = () => {
             </div>
 
             {/* Right Spinner Carousel */}
-            <div className="relative lg:w-1/2 flex flex-col h-full  justify-center overflow-hidden">
+            <div className="relative lg:w-1/2 flex flex-col h-full gap-3 justify-center overflow-hidden">
                 {/* <FidgetSpinner /> */}
-                <div className="w-full relative flex items-center">
+                <div className="w-full relative flex flex-col gap-6 lg:gap-0 lg:flex-row justify-center items-center">
                     <AnimatePresence custom={direction} mode="wait" >
                         <FidgetSpinner
                             key={spinners[currentIndex]}
@@ -123,7 +123,7 @@ const HeroSection = () => {
                     </AnimatePresence>
                 </div>
 
-                <div className='w-fit self-end'>
+                <div className='w-fit ml-auto '>
                     <ViewAllButton text={'Switch'} onClick={nextSlide} />
                 </div>
             </div>

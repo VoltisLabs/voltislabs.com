@@ -2,7 +2,7 @@
 
 import Subtitle from "@/src/components/UI/subtitle";
 import Title from "@/src/components/UI/Title";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   paragrapghClassName,
   secondaryTitleClassName,
@@ -45,6 +45,26 @@ function Vmodel() {
   ]
 
   const [isPlaying, setIsplaying] = useState(false);
+  const [posts, setPosts] = useState([]);
+
+  const IG_USER_ID = '17841473480518581'; // Your Instagram Business Account ID
+  const PAGE_ACCESS_TOKEN = 'EAAhXHEFwkcABOZBjGxXS5F0eOGGctcMf9qYPaMSK25Ryaj7gTF4lXgBU7PzHKu83fUAUrctIPkq8MX7LWlwUZAZCVA1QxcreFCVbLZA58eMngXXoMCQotXHboY0DVA1K1DeRVwoQYJLLZB2nrJpDVdmink2S9zHnu5axpAabW49NqD7XNza6HwvevxfHlo8ZCFAHJQn7lUqXDxCtHLbwZDZD';
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await fetch(
+          `https://graph.facebook.com/v22.0/${IG_USER_ID}/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${PAGE_ACCESS_TOKEN}`
+        );
+        const data = await res.json();
+        console.log({ data })
+          ; setPosts(data.data);
+      } catch (err) {
+        console.error('Error fetching IG posts:', err);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   return (
     <div className="text-white">
@@ -243,6 +263,34 @@ function Vmodel() {
             Become part of a growing community that celebrates African fashion and culture. Follow us on social media, share your Afrogarm looks, and stay updated on the latest trends and exclusive offers.
           </span>
         </div>
+        <br />
+        <br />
+        <h1 className={`mt-10 ${secondaryTitleClassName}`}>Instagram Posts</h1>
+        <br />
+        <Marquee
+          speed={50}
+          direction="left"
+          style={{
+            gap: '0.25rem',
+            display: "flex"
+          }}
+          play
+          autoFill
+          className="slider-statement ">
+
+          <div className="flex gap-4">
+            {posts.map((post: any) => (
+              <a key={post.id} href={post.permalink} target="_blank" rel="noopener noreferrer" className="mr-4">
+                {post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM' ? (
+                  <img src={post.media_url} alt={post.caption || 'Instagram post'} className="w-full  rounded-lg shadow h-[19rem] mr-4" />
+                ) : post.media_type === 'VIDEO' ? (
+                  <video controls src={post.media_url} className="w-full h-auto rounded-lg shadow" />
+                ) : null}
+              </a>
+            ))}
+          </div>
+
+        </Marquee>
 
         <div className="flex justify-center w-full my-12 gap-6 items-center">
           <div className="w-fit text-center py-2.5 px-4 lg:px-12 rounded-xl bg-[url('/svgs/insta_bg.svg')]">
