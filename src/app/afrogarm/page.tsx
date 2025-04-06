@@ -48,7 +48,7 @@ function Vmodel() {
   const [posts, setPosts] = useState([]);
 
   const IG_USER_ID = '17841473480518581'; // Your Instagram Business Account ID
-  const PAGE_ACCESS_TOKEN = 'EAAhXHEFwkcABOZBjGxXS5F0eOGGctcMf9qYPaMSK25Ryaj7gTF4lXgBU7PzHKu83fUAUrctIPkq8MX7LWlwUZAZCVA1QxcreFCVbLZA58eMngXXoMCQotXHboY0DVA1K1DeRVwoQYJLLZB2nrJpDVdmink2S9zHnu5axpAabW49NqD7XNza6HwvevxfHlo8ZCFAHJQn7lUqXDxCtHLbwZDZD';
+  const PAGE_ACCESS_TOKEN = 'EAAhXHEFwkcABOzCSmIxUiVJ0LzbCS1XKEV6zbJh0Nnk5g8PtLPAzLjlS0XOYZCoBgYg2hVOQwdjZCEH7PtkOJegNkd649ytqqU1qA2K2lU9I5HT8TtRX1IIMKXUDDw7tmzJTqZB25ZCdVOBlO3r75EH08iL0RSzHhPu34xZAeL3BWzWENfAoz5ADC';
   useEffect(() => {
     const fetchPosts = async () => {
       try {
