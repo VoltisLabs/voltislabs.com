@@ -128,7 +128,7 @@ export const products = [
     img: "/image/spinner.png",
     message: "Spinnersonic",
     time: "Mar 18, 2025",
-    link: "/spinnersonic",
+    link: "/spinner",
     description: `Spinnersonic is a high-energy fidget spinner game built for mobile and web. With multiple game modes—including multiplayer races, leaderboard challenges, and relaxed free play—it offers a fresh, dynamic take on casual gaming. Players can race, customise spinners, track spin miles, and even compete in reverse-style races where being slow is the way to win.`
   },
   {

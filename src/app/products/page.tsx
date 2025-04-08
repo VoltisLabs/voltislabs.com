@@ -10,7 +10,8 @@ const page = () => {
 
             <div className="grid grid-cols-1 gap-12 md:gap-24 py-10">
                 {products.map((product, index) => (
-                    <Card key={index} title={product.message} description={product.description} image={product.img} link={product.link} />
+                    <Card key={index} title={product.message} description={product.description} image={product.img} 
+                    link={product.link} />
                 ))}
             </div>
         </div>
