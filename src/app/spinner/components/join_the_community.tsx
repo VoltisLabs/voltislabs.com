@@ -1,4 +1,5 @@
 "use client";
+
 import React from 'react'
 import ButtonWithBackground from './button_with_background'
 
@@ -21,8 +22,8 @@ const JoinTheCommunity = () => {
                 fontFamily: "var(--font-comfortaa)",
             }} className='  px-6 lg:px-10 font-bold text-base lg:text-xl'>The race doesn’t stop when the game ends.<br />
                 Jump into our official SpinnerSonic Discord and become part of the fastest, fiercest, and friendliest spinner crew in the world! 🎮✨</p>
-            <div className='flex flex-col gap-6 lg:gap-0 lg:flex-row'>
-                <div className=' flex flex-col gap-6 flex-1 items-end'>
+            <div className='flex flex-col gap-6 lg:gap-0 lg:flex-row lg:items-center'>
+                <div className=' flex flex-col gap-6 flex-1 '>
                     <h2
                         className="px-6 lg:px-10 leading-9 text-xs md:text-lg sm:text-base lg:text-xl xl:pt-1 font-normal text-wrap "
                         style={{ fontFamily: 'var(--font-comix-loud)' }}
@@ -31,7 +32,7 @@ const JoinTheCommunity = () => {
                     </h2>
 
 
-                    <ul className=' px-6 lg:px-10 list-disc list-inside'>
+                    <ul className='pl-6 lg:pl-10 list-disc list-inside pb-8'>
                         {discordFeatures.map((feature, index) => (
                             <li key={`list-${index}`} style={{
                                 fontFamily: "var(--font-hammersmith-one)"
@@ -40,7 +41,7 @@ const JoinTheCommunity = () => {
                         )}
                     </ul>
                 </div>
-                <div className="w-full h-full flex flex-1 relative items-end">
+                <div className="w-full  flex flex-1 relative items-center">
                     <div className='absolute -translate-x-1/2 bottom-4 left-1/2 w-fit h-fit z-30 '>
 
                         <ButtonWithBackground font borderColor="bg-transparent" borderWidth='0' bgColor="#5865F2" text="JOIN NOW" />
