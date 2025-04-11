@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import CustomModal from './modal';
-import { defaultPadding } from '../data';
+import { defaultPadding } from '@/data';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -50,7 +50,7 @@ const SelectFidgetModal = ({
 
     return (
         <CustomModal isOpen={isOpen} onClose={onClose}>
-            <div className={`flex flex-col ${defaultPadding} !pb-4 py-0 !gap-0 overflow-hidden`}>
+            <div className={`flex flex-col ${defaultPadding} !pb-4 py-0 !gap-0 overflow-hidden `}>
                 <h2
                     className="text-2xl lg:text-3xl font-medium text-black uppercase text-center mb-16 py-2  sm:py-0"
                     style={{

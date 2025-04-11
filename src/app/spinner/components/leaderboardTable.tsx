@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CustomModal from './modal';
-import { defaultPadding } from '../data';
+import { defaultPadding } from '@/data';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import ButtonWithBackground from './button_with_background';
 
@@ -39,7 +39,7 @@ const LeaderboardModal = ({ isOpen, onClose }: {
 
     return (
         <CustomModal isOpen={isOpen} onClose={onClose}>
-            <div className={`flex flex-col items-center ${defaultPadding} !gap-0`}>
+            <div className={`flex flex-col items-center ${defaultPadding} !pb-4 !gap-0`}>
                 <h2
                     className="text-xl md:text-2xl font-bold text-black uppercase mb-6"
                     style={{ fontFamily: 'var(--font-comfortaa)' }}
@@ -49,8 +49,8 @@ const LeaderboardModal = ({ isOpen, onClose }: {
 
                 <div style={{ fontFamily: 'var(--font-comfortaa)' }} className="grid grid-cols-6 text-center  items-center font-medium  border-[6px] border-b-[3px] text-xl border-[#f2f2f220] rounded-t-[10px] uppercase">
                     <div className="px-4 py-3 border-r-[6px] border-[#f2f2f230]">#</div>
-                    <div className="px-4 py-3 border-r-[6px] col-span-3 md:col-span-4 border-[#f2f2f230] text-start">Username</div>
-                    <div className="text-center col-span-2 md:col-span-1">Top RPM</div>
+                    <div className="px-4 py-3 border-r-[6px] col-span-3 md:col-span-4 border-[#f2f2f230] text-start text-sm md:text-base">Username</div>
+                    <div className="text-center col-span-2 md:col-span-1 text-sm md:text-base">Top RPM</div>
                 </div>
 
                 {paginatedData.map((entry, index) => (
@@ -69,7 +69,7 @@ const LeaderboardModal = ({ isOpen, onClose }: {
                                 {entry.username}
                             </span>
                         </div>
-                        <span style={{ fontFamily: 'var(--font-comix-loud)' }} className="col-span-2 md:col-span-1 px-4 py-4 font-normal text-black text-xs md:text-sm border-r-[6px] border-[#f2f2f230]">{entry.rpm}</span>
+                        <span style={{ fontFamily: 'var(--font-comix-loud)' }} className="w-full overflow-hidden text-ellipsis whitespace-nowrap col-span-2 md:col-span-1 px-1 md:px-4 py-4 font-normal text-black text-xs md:text-sm border-r-[6px] border-[#f2f2f230]">{entry.rpm}</span>
                     </div>
                 ))}
                 <div className='flex w-full justify-center my-4 px-2 relative'>
