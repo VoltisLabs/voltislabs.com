@@ -70,7 +70,7 @@ export default function RootLayout({
       </head>
 
       <body className={`${lato.variable} ${comixLoud.variable} ${someType.variable} ${titan.variable} ${hammer.variable} ${comfortaa.variable} ${pathname == "/loyalty_bot" ? "bg-[#1a2081]" : "bg-black"}`}>
-        <div className="mx-auto w-fit">
+        <div className="mx-auto max-w-screen-2xl w-full">
           <main className={`content ${pathname == "/loyalty_bot" ? "bg-[#1a2081]" : "bg-transparent"} w-full`}>
             <div className="nav-container bg-black">
               <Nav setToggle={setToggle} toggle={toggle} />

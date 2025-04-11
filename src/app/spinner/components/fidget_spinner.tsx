@@ -503,7 +503,7 @@ export default function FidgetSpinner({
 
                     </div>
                     {selectedTime == null && (
-                        <span className="text-xs font-normal text-[#393D48] uppercase"> select time</span>
+                        <span style={{ fontFamily: "var(--font-sometype-mono)" }} className="text-xs font-normal text-[#393D48] uppercase"> select time</span>
                     )}
                 </div>
             )}
@@ -512,7 +512,7 @@ export default function FidgetSpinner({
 
                     <div className="text-3xl font-bold text-white">{formatTime(isRunning ? remainingTime : selectedTime != null ? selectedTime * 1000 : 0)}</div>
                     {isRunning &&
-                        <span className="text-base font-normal text-[#393D48]">
+                        <span style={{ fontFamily: "var(--font-sometype-mono)" }} className="text-base font-normal text-[#393D48]">
                             {Math.round(animatedRpm)} RPM
                         </span>
                     }
@@ -537,7 +537,7 @@ export default function FidgetSpinner({
                     onTouchEnd={handleTouchEnd}
                     src={fidget}
                 />
-                <span className="text-base font-normal text-[#393D48]">
+                <span style={{ fontFamily: "var(--font-sometype-mono)" }} className="text-base font-normal text-[#393D48]">
                     Swipe to spin
                 </span>
             </div>

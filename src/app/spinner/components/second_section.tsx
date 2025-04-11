@@ -65,12 +65,12 @@ const SecondSection = () => {
                         spun
                     </span>
                 </h2>
-                <span className=" my-10 xl:mb-24 text-sm sm:text-base lg:text-lg xl:text-[25px] font-normal text-white px-6 lg:px-0 md:leading-8 xl:leading-9 text-center mb-10">
+                <p style={{ fontFamily: "var(--font-sometype-mono)" }} className=" my-10 xl:mb-24 text-sm sm:text-base lg:text-lg xl:text-[25px] font-normal text-white px-6 lg:px-0 md:leading-8 xl:leading-9 text-center mb-10">
                     In the world of Spinnersonic, every hero carries a spark — <span className="font-bold">
                         speed,
                         power, heart,
                     </span>
-                    and a<span className="font-bold">
+                    and a <span className="font-bold">
                         hunger to win.
                     </span>
                     Choose your champion from a roster
@@ -83,7 +83,7 @@ const SecondSection = () => {
                     </span>
                     Each one armed with their own moves, their
                     own style, and a destiny waiting to be written.
-                </span>
+                </p>
             </div>
             <Marquee
                 className="slider-statement z-20 cursor-default bg-transparent relative min-h-fit"
@@ -109,7 +109,7 @@ const SecondSection = () => {
                                 />
                                 <p
                                     style={{ fontFamily: "var(--font-comix-loud)" }}
-                                    className="text-xs p-3 lg:p-4 lg:pb-8 text-center uppercase leading-9 flex items-center justify-center"
+                                    className="text-xs p-3 lg:p-4 lg:pb-8 text-center uppercase leading-9 flex text-white w-full h-full items-center justify-center"
                                 >
                                     {extractName(image).split(" ")[0]} <br />
                                     {extractName(image).split(" ")[1]}

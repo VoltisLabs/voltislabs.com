@@ -44,7 +44,7 @@ const HeroSection = () => {
                 <h2 className='w-1/2 md:w-2/3 lg:w-2/3 xl:w-3/4  pl-4 md:pl-0 lg:pl-4 xl:pl-1 text-xl md:text-3xl lg:text-3xl xl:text-5xl self-end sm:self-center font-bold text-white mt-7 md:mt-10 lg:my-12 text-center' style={{ fontFamily: 'var(--font-titan-one)' }}>
                     Race, Spin and Soar to Glory
                 </h2>
-                <span className=' font-normal text-white text-xs md:text-sm xl:text-lg md:leading-6 lg:leading-10 px-2.5 lg:px-6 xl:px-12  py-2 lg:py-3.5 xl:py-6 md:left-0 lg:right-0 self-center top-72 md:top-58 lg:top-84 xl:top-[430px] 2xl:top-[430px] z-40 absolute bg-[#FF842A] '>
+                <span style={{ fontFamily: "var(--font-sometype-mono)" }} className=' font-normal text-white text-xs md:text-sm xl:text-lg md:leading-6 lg:leading-10 px-2.5 lg:px-6 xl:px-12  py-2 lg:py-3.5 xl:py-6 md:left-0 lg:right-0 self-center top-72 md:top-58 lg:top-84 xl:top-[430px] 2xl:top-[430px] z-40 absolute bg-[#FF842A] '>
                     <span className='font-bold'>
                         spinnersonic
                     </span> is a fast-paced action game where your spinner is your hero.<br /> Race against others, customize your style, unlock wild characters, and become the ultimate spin champion.

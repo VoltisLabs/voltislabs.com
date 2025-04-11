@@ -53,7 +53,7 @@ const CrewSection = () => {
                 >
                     MEET YOUR CREW!
                 </h2>
-                <span className='text-xs md:text-lg xl:text-[25px] font-normal text-white px-6 md:pl-16 lg:px-0 lg:leading-8 xl:leading-9  my-4  text-center'>
+                <span style={{ fontFamily: "var(--font-sometype-mono)" }} className='text-xs md:text-lg xl:text-[25px] font-normal text-white px-6 md:pl-16 lg:px-0 lg:leading-8 xl:leading-9  my-4  text-center'>
                     <span className='font-bold'>Every spinner</span> has a story. <span className='font-bold'>Every hero</span> has a dream.
                 </span>
 

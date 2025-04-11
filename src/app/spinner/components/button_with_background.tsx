@@ -1,5 +1,6 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+"use client";
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const ButtonWithBackground = ({
     text,
@@ -10,33 +11,54 @@ const ButtonWithBackground = ({
     bgColor,
     borderColor,
     font,
-    shouldAnimate = false // new prop
+    shouldAnimate = false,
 }: {
-    text: string,
-    isWhite?: boolean,
-    onClick?: () => void,
-    width?: string,
-    borderWidth?: string,
-    bgColor?: boolean,
-    borderColor?: boolean,
-    font?: boolean,
-    shouldAnimate?: boolean
+    text: string;
+    isWhite?: boolean;
+    onClick?: () => void;
+    width?: string;
+    borderWidth?: string;
+    bgColor?: boolean | string;
+    borderColor?: boolean | string;
+    font?: boolean;
+    shouldAnimate?: boolean;
 }) => {
+    const resolvedBorderColor = typeof borderColor === 'string'
+        ? borderColor
+        : borderColor
+            ? '#FF842A'
+            : '#FFD94D';
+
+    const resolvedBgColor = typeof bgColor === 'string'
+        ? bgColor
+        : bgColor
+            ? 'transparent'
+            : '#FF842A';
+
+    const resolvedTextColor = isWhite ? 'text-white' : 'text-black';
+
+    const resolvedFont = font ? "var(--font-comix-loud)" : "var(--font-hammersmith-one)";
+    const resolvedFontSize = font ? "text-xs md:text-base" : "text-sm md:text-[20px]";
+    const resolvedWidth = width?.length ? `${width}px` : "fit-content";
+    const resolvedBorderWidth = borderWidth?.length ? `${borderWidth}px` : "1px";
+
     return (
         <motion.button
             onClick={onClick}
             animate={shouldAnimate ? { scale: [1, 1.2, 1] } : {}}
             transition={shouldAnimate ? { duration: 0.8, repeat: Infinity, repeatType: "loop" } : {}}
             style={{
-                fontFamily: font ? "var(--font-comix-loud)" : "var(--font-hammersmith-one)",
-                width: width?.length !== 0 ? `${width}px` : "fit-content",
-                borderWidth: borderWidth?.length !== 0 ? `${borderWidth}px` : "1px"
+                fontFamily: resolvedFont,
+                width: resolvedWidth,
+                borderWidth: resolvedBorderWidth,
+                backgroundColor: resolvedBgColor,
+                borderColor: resolvedBorderColor,
             }}
-            className={`border ${borderColor ? "border-[#FF842A]" : "border-[#FFD94D]"} text-nowrap uppercase ${bgColor ? "bg-transparent" : "bg-[#FF842A]"} text-white flex items-center justify-center font-bold py-[13.5px] px-4 transform rounded-lg shadow-lg transition-all hover:opacity-80 active:scale-95 ${font ? "text-xs md:text-base" : "text-sm md:text-[20px]"}`}
+            className={`border ${resolvedTextColor} text-nowrap text-white uppercase ${resolvedFontSize} flex items-center justify-center font-bold py-[13.5px] px-4 transform rounded-lg shadow-lg transition-all hover:opacity-80 active:scale-95`}
         >
             {text}
         </motion.button>
-    )
-}
+    );
+};
 
-export default ButtonWithBackground
+export default ButtonWithBackground;

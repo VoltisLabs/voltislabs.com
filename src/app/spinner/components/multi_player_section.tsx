@@ -2,12 +2,11 @@
 
 import React, { useState } from "react";
 import ButtonWithBackground from "./button_with_background";
-import { defaultPadding } from "../data";
 import FidgetSpinner from "./fidget_spinner";
 import LeaderboardTable from "./leaderboardTable";
-import CustomModal from "./modal";
 import SelectFidgetModal from "./select_fidget_modal";
 import BoardSubmitModal from "./BoardSubmitModal";
+import { defaultPadding } from "../data";
 
 const dummyLeaderboard = Array.from({ length: 20 }, (_, i) => ({
   name: `Player ${i + 1}`,
@@ -52,7 +51,7 @@ const MultiPlayerSection = () => {
     <>
       <section
 
-        className={`flex flex-col md:flex-row items-center md:items-end justify-center ${defaultPadding} md:gap-2 lg:gap-0 lg:pt-0 !gap-0 w-full relative -mt-6 !pb-3`}
+        className={`flex flex-col md:flex-row items-center md:items-end justify-center ${defaultPadding} md:gap-2 lg:gap-0 lg:pt-0 !gap-0 w-full relative -mt-6 !pt-[32px] !pb-3`}
       >
         {/* Left Image (Desktop Only) */}
         <img
@@ -109,7 +108,7 @@ const MultiPlayerSection = () => {
         />
       </section>
 
-      <section className="flex mt-[-50px] flex-row flex-wrap items-center justify-center h-fit w-full gap-2 md:hidden px-2">
+      <section className="flex  flex-row flex-wrap items-center justify-center h-fit w-full gap-2 md:hidden px-2">
         {/* Left Image */}
         <img
           src="/images/characters/gizmoGrip.png"
