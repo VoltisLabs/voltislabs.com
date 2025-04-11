@@ -1,6 +1,6 @@
 'use client';
 
-import { games } from '../data';
+import { defaultPadding, games } from '../data';
 import React from 'react';
 import QuoteCard from './qoute_card';
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 
 const FifthSection = () => {
     return (
-        <section className="max-w-[85rem]">
+        <section className={`${defaultPadding} max-w-[85rem]`}>
             <div className=" relative w-full">
                 <Swiper
                     modules={[Pagination]}

@@ -75,7 +75,7 @@ function Vmodel() {
   };
 
   return (
-    <div className="text-white">
+    <div className="text-white max-w-[85rem]">
       <Sidebar tbList={menuItems} />
 
       <TitleSection

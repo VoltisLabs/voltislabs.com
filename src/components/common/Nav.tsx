@@ -57,7 +57,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   }, [toggle]);
 
   return (
-    <div className="fixed bg-[#0D1117] text-sm top-0 left-0 z-30 backdrop-blur-sm bg-black min-h-[5rem] w-full flex items-center justify-between px-6 md:px-16">
+    <div className="fixed bg-[#0D1117] text-sm top-0 left-0 z-40 backdrop-blur-sm bg-black min-h-[5rem] w-full flex items-center justify-between px-6 md:px-16">
 
       {/* Logo */}
       <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
@@ -139,7 +139,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           Products
         </a>
 
-       
+
 
         <a href="/Aboutus" className="text-white text-lg text-sm">
           About Us
@@ -198,18 +198,18 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                     </ul>
                   </div>
                 ))}
+
                 <div className="flex flex-col space-y-2">
-                <a  onClick={() => setToggle(false)} href="/partners"  className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          Partners
-        </a>
-        <a  onClick={() => setToggle(false)} href="/contact-us"  className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          Contact Us
-        </a>
+                  <a onClick={() => setToggle(false)} href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+                    Partners
+                  </a>
+                  <a onClick={() => setToggle(false)} href="/contact-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+                    Contact Us
+                  </a>
                 </div>
-                
-        
+
               </div>
-              
+
               {/* Fixed Footer */}
               <div className="absolute bottom-[6rem] pl-6 left-0 w-full bg-[#0D1117] py-4  border-t border-gray-700">
                 <p className="text-white text-sm">

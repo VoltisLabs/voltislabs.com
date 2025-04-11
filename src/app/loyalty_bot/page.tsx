@@ -35,7 +35,7 @@ function page() {
   const [isPlaying, setIsplaying] = useState(false);
 
   return (
-    <div id="loyalty-home" className="pt-14">
+    <div id="loyalty-home" className="pt-14 max-w-[85rem]">
       <Sidebar tbList={menuItems} />
       <div className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[20px] bg-[#1a2081] pb-10 flex-col flex">
         <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>

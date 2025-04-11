@@ -1,13 +1,14 @@
 import React from 'react'
 import ButtonWithBackground from './button_with_background'
 import ButtonWithGradientText from './button_with_gradient_text'
-import GameCard from './game_card'
-import { games } from "../data"
+import { defaultPadding } from '../data'
+
+
 
 const FourthSection = () => {
     return (
-        <section className='flex flex-col lg:items-center'>
-            <span className='text-3xl lg:text-6xl font-extrabold text-white uppercase mb-12 '>welcome to the top </span>
+        <section className={`flex flex-col lg:items-center bg-black ${defaultPadding}`}>
+            <h2 className='text-3xl lg:text-6xl font-extrabold text-white uppercase mb-12 '>welcome to the top </h2>
 
             {/* Scrollable buttons */}
             <div className='flex gap-4 mb-20 overflow-x-auto no-scrollbar'>

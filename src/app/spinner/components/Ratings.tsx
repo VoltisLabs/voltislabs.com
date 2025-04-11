@@ -39,9 +39,9 @@ export default function Rating({
           className="focus:outline-none"
         >
           <Star
-            className={`${starSize} ${(hover || rating) >= index ? activeColor : inactiveColor
-              }`}
-            fill={(hover || rating) >= index ? "currentColor" : "none"}
+            className={`${starSize} ${((hover ?? rating) >= index) ? activeColor : inactiveColor}`}
+            fill={((hover ?? rating) >= index) ? "currentColor" : "none"}
+
           />
         </button>
       ))}

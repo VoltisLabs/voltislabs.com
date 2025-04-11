@@ -7,7 +7,7 @@ export default function Footer() {
   const pathname = usePathname();
   console.log({ pathname })
   return (
-    <div className={`md:px-[2rem] px-[1rem] ${pathname == "/loyalty_bot" ? "bg-[#1a2081]" : "bg-transparent"}`}>
+    <div className={`md:px-[2rem] px-[1rem] pt-10 ${pathname == "/loyalty_bot" ? "bg-[#1a2081]" : "bg-transparent"}`}>
       <section className="mb-40">
         <div className="container mx-auto">
           <p className="text-white text-3xl md:text-4xl text-center md:text-left">
