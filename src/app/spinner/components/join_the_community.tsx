@@ -1,5 +1,4 @@
 "use client";
-import { defaultPadding } from '@/data'
 import React from 'react'
 import ButtonWithBackground from './button_with_background'
 
