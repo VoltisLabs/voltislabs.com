@@ -1,5 +1,4 @@
 "use client";
-
 import React from 'react'
 import ButtonWithBackground from './button_with_background'
 
@@ -46,7 +45,7 @@ const JoinTheCommunity = () => {
 
                         <ButtonWithBackground font borderColor="bg-transparent" borderWidth='0' bgColor="#5865F2" text="JOIN NOW" />
                     </div>
-                    <img src="/images/communityBkg.png" alt="" className='h-fit w-full relative aspect-square lg:aspect-auto object-center xl:object-contain' />
+                    <img src="/images/communityBkg.png" alt="" className='h-fit w-full relative  lg:aspect-auto object-center xl:object-contain' />
                 </div>
             </div>
         </section >
