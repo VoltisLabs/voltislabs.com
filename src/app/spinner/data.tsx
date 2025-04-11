@@ -15,3 +15,7 @@ export const games = [
     },
 
 ]
+
+export const bgColor = "bg-gradient-to-r from-[#FF842A] to-[#fa930b]";
+
+export const defaultPadding = "p-6 pb-20 gap-16 sm:p-6";

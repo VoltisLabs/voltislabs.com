@@ -32,7 +32,7 @@ function page() {
   const [isPlaying, setIsplaying] = useState(false);
 
   return (
-    <div id="prelura-home" className="">
+    <div id="prelura-home " className="max-w-[85rem]">
       <Sidebar tbList={menuItems} />
 
       <section id="prelura-home md:block hidden">
@@ -78,20 +78,20 @@ function page() {
         </div>
       </section>
       <div className="hidden md:flex h-full  md:p-7 p-2 flex justify-center items-center">
-  <LearnMoreBtn
-    text="Visit Website"
-    borderColor="border-white"
-    textColor="text-white"
-    route="https://prelura.com"
-  />
-</div>
+        <LearnMoreBtn
+          text="Visit Website"
+          borderColor="border-white"
+          textColor="text-white"
+          route="https://prelura.com"
+        />
+      </div>
       <section className="mobile-slider hero-section mb-7 md:hidden block">
         <SliderBackground
           containerStyle="bg-[#AB28B280] w-full"
           imagesArray={prelura}
           titleText="A New Home for Your Fashion Finds"
           smallBtnText="Learn More"
-        route="https://prelura.com"
+          route="https://prelura.com"
         />
       </section>
 

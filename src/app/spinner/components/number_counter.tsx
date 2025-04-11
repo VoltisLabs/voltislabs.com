@@ -2,6 +2,7 @@
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
 import "./counter.css";
+import { bgColor } from "../data";
 import { numberFormat } from "@/src/components/common/numberFormat";
 
 const NumberCounter = () => {
@@ -54,31 +55,27 @@ const NumberCounter = () => {
     };
 
     return (
-        <div >
-            <div >
-                <div>
 
-                    <div
-                        ref={ref}
-                        className="flex  items-center gap-4"
+
+        <div
+            ref={ref}
+            className="flex  items-center gap-4"
+        >
+            {sizes?.map((value, index) => (
+                <div
+                    key={`sizes-${value?.title}`}
+                    className="flex flex-col gap-1 text-left w-fit"
+                >
+                    <div className={`text-xl lg:text-3xl text-accent text-center font-extrabold ${index == 1 ? `${bgColor} bg-clip-text text-white` : ""}`}
                     >
-                        {sizes?.map((value, index) => (
-                            <div
-                                key={`sizes-${value?.title}`}
-                                className="flex flex-col gap-1 text-left w-fit"
-                            >
-                                <div className={`text-xl lg:text-3xl text-accent text-center font-extrabold ${index == 1 ? "bg-[url('/button_bg.png')] bg-cover bg-center bg-clip-text text-transparent" : ""}`}
-                                >
-                                    {numberFormat(animatedCounts[index])}+
-                                </div>
-                                <span className="text-xs text-[15px] sm:text-base md:text-lg font-normal whitespace-nowrap max-w-full overflow-hidden text-ellipsis">
-                                    {value?.title}
-                                </span>
-                            </div>
-                        ))}                    </div>
+                        {numberFormat(animatedCounts[index])}+
+                    </div>
+                    <span className="text-xs text-[15px] sm:text-base md:text-lg font-normal whitespace-nowrap max-w-full overflow-hidden text-ellipsis">
+                        {value?.title}
+                    </span>
                 </div>
-            </div>
-        </div>
+            ))}                    </div>
+
     );
 };
 

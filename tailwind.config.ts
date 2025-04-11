@@ -13,6 +13,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        comix: ['var(--font-comix-loud)'],
+      },
     },
   },
   plugins: [],

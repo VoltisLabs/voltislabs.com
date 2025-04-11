@@ -1,12 +1,13 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
+import { PiStarFourFill } from "react-icons/pi";
 
-const WordSlider = ({ rotate = false }) => {
+const WordSlider = ({ rotate = false, isWhite = false }: { rotate?: Boolean, isWhite?: Boolean }) => {
     return (
         <div className="relative">
 
             <Marquee
-                className={` slider-statement overflow-y-hidden z-20 cursor-default bg-black relative my-3 lg:my-10 ${rotate ? "-rotate-3" : ""
+                className={` slider-statement overflow-y-hidden z-20 cursor-default bg-transparent relative my-3 lg:my-10 ${rotate ? "-rotate-3" : ""
                     }`}
                 speed={50}
                 direction="left"
@@ -21,7 +22,8 @@ const WordSlider = ({ rotate = false }) => {
 
                                 {word}
                             </div>
-                            <img src="/svgs/Star.svg" className="size-4 lg:size-10" />
+                            {isWhite ? <PiStarFourFill className="size-4 lg:size-10 text-white" /> :
+                                <img src="/svgs/Star.svg" className="size-4 lg:size-10" />}
                         </div>
                     ))}
                 </div>

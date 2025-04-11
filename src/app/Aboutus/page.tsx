@@ -22,69 +22,69 @@ function page() {
   return (
     <>
 
-<Sidebar tbList={menuItems} />
+      <Sidebar tbList={menuItems} />
 
-<section id="prelura-home md:block hidden">
-  <TitleSection
-    title="We are Voltis Labs"
-    subTitle=""
-    secondaryText="Published on Monday 17th February, 2025"
-    containerStyle="mb-4 md:block hidden"
-  />
-</section>
+      <section id="prelura-home md:block hidden" className="max-w-[85rem]">
+        <TitleSection
+          title="We are Voltis Labs"
+          subTitle=""
+          secondaryText="Published on Monday 17th February, 2025"
+          containerStyle="mb-4 md:block hidden"
+        />
+      </section>
 
-<section className="mb-16 md:block hidden md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
-  <div
- 
-    className="flex items-center gap-6 md:flex-row flex-col"
-  >
-    <Marquee
-      className="overflow-x-scroll no-scrollbar slider-statement cursor-default bg-carpet-green relative"
-      speed={50}
-      pauseOnHover
-      pauseOnClick
-      direction="right"
-    >
-      {Aboutus.map((img, index) => (
+      <section className="mb-16 md:block hidden md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
         <div
-          key={index}
-          className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
+
+          className="flex items-center gap-6 md:flex-row flex-col"
         >
-          <Image
-            src={img.img}
-            alt="reluraimg"
-            className="w-full h-full object-cover object-top"
-            width={500}
-            height={500}
-          />
+          <Marquee
+            className="overflow-x-scroll no-scrollbar slider-statement cursor-default bg-carpet-green relative"
+            speed={50}
+            pauseOnHover
+            pauseOnClick
+            direction="right"
+          >
+            {Aboutus.map((img, index) => (
+              <div
+                key={index}
+                className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
+              >
+                <Image
+                  src={img.img}
+                  alt="reluraimg"
+                  className="w-full h-full object-cover object-top"
+                  width={500}
+                  height={500}
+                />
+              </div>
+            ))}
+          </Marquee>
         </div>
-      ))}
-    </Marquee>
-  </div>
-</section>
-<div className="hidden md:flex h-full  md:p-7 p-2 flex justify-center items-center">
-<LearnMoreBtn
-text="Visit Website"
-borderColor="border-white"
-textColor="text-white"
-route="/"
-/>
-</div>
-<section className="mobile-slider hero-section mb-7 md:hidden block">
-  <SliderBackground
-    containerStyle="bg-[#000] w-full"
-    imagesArray={Aboutus}
-    titleText="We are Voltis Labs"
-    smallBtnText="Learn More"
-  route="/"
-  />
-</section>
+      </section>
+      <div className="hidden md:flex h-full  md:p-7 p-2 flex justify-center items-center">
+        <LearnMoreBtn
+          text="Visit Website"
+          borderColor="border-white"
+          textColor="text-white"
+          route="/"
+        />
+      </div>
+      <section className="mobile-slider hero-section mb-7 md:hidden block">
+        <SliderBackground
+          containerStyle="bg-[#000] w-full"
+          imagesArray={Aboutus}
+          titleText="We are Voltis Labs"
+          smallBtnText="Learn More"
+          route="/"
+        />
+      </section>
 
 
 
-        <div className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0  ">
-          <section id="about" className="text-white my-8 mb-10 font-normal ">
-            {/**
+      <div className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0  ">
+        <section id="about" className="text-white my-8 mb-10 font-normal ">
+          {/**
     *
 <div className="mb-16 md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] "  >
 
@@ -103,133 +103,133 @@ route="/"
       ))}
     </div>*/}
 
-            <span className={` ${paragrapghClassName}`}>
-              At Voltis Labs, we <span className="font-semibold">believe </span>
-              technology has the power to unlock human potential. We are a company
-              built on the idea that innovation should serve a purpose—solving
-              real problems, empowering creators, and shaping a more connected
-              future.
-            </span>
+          <span className={` ${paragrapghClassName}`}>
+            At Voltis Labs, we <span className="font-semibold">believe </span>
+            technology has the power to unlock human potential. We are a company
+            built on the idea that innovation should serve a purpose—solving
+            real problems, empowering creators, and shaping a more connected
+            future.
+          </span>
 
 
-            <span className={`  ${paragrapghClassName}`}>
-              Our journey began with a simple yet powerful belief: great ideas
-              deserve the right platform to thrive. Frustrated by outdated systems
-              and missed opportunities, a small group of visionaries came together
-              to rethink how technology could empower individuals and businesses
-              alike
-            </span>
-    
+          <span className={`  ${paragrapghClassName}`}>
+            Our journey began with a simple yet powerful belief: great ideas
+            deserve the right platform to thrive. Frustrated by outdated systems
+            and missed opportunities, a small group of visionaries came together
+            to rethink how technology could empower individuals and businesses
+            alike
+          </span>
 
-            <span className={paragrapghClassName}>
-              The result was Voltis Labs—a place where bold ideas are turned into
-              reality, where barriers are broken, and where technology serves
-              people, not the other way around.
-            </span>
-          </section>
 
-          <section
-            id="mission"
-            className="text-white my-0  mb-10 font-normal md:text-[1.1rem] text-[1rem] "
-          >
-            <div id="mission" className="font-bold text-3xl mb-3  text-white">
-              Our Mission
+          <span className={paragrapghClassName}>
+            The result was Voltis Labs—a place where bold ideas are turned into
+            reality, where barriers are broken, and where technology serves
+            people, not the other way around.
+          </span>
+        </section>
+
+        <section
+          id="mission"
+          className="text-white my-0  mb-10 font-normal md:text-[1.1rem] text-[1rem] "
+        >
+          <div id="mission" className="font-bold text-3xl mb-3  text-white">
+            Our Mission
+          </div>
+          <div className="flex md:flex-row flex-col w-full gap-8">
+            <div className="w-full md:w-[48.5%]">
+              <span className={paragrapghClassName}>
+                We are here to build the next generation of digital
+                platforms—ones that are intuitive, scalable, and designed to
+                make life easier. Our approach is rooted in innovation, but more
+                importantly, in impact. Every product we create is built to
+                solve a problem, to simplify complexity, and to open new doors
+                for those who dare to dream big.
+              </span>
+              <br />
+              <span id="values" className={' text-3xl font-bold'}>
+                Our Values
+              </span>
+              <ul className="list-disc mt-2 pl-4">
+                <li>
+                  <span className={titleClassName}>
+                    Empowerment Through Technology
+                  </span>
+
+                  <span className={paragrapghClassName}>
+                    We believe that technology should give people more control
+                    over their lives, their work, and their creativity. Every
+                    solution we build is designed to help individuals and
+                    businesses do more with less friction.
+                  </span>
+                </li>
+
+                <li>
+                  <span className={titleClassName}>
+                    Innovation Without Limits
+                  </span>
+
+                  <span className={paragrapghClassName}>
+                    The digital landscape is constantly evolving, and so are we.
+                    We push boundaries, challenge the status quo, and embrace
+                    the unknown in pursuit of groundbreaking solutions.
+                  </span>
+                </li>
+                <li>
+                  <span className={titleClassName}>
+                    A People-First Approach
+                  </span>
+
+                  <span className={paragrapghClassName}>
+                    Technology is only as powerful as the people who use it.
+                    That’s why everything we create is built with a deep
+                    understanding of real-world needs, ensuring that our
+                    platforms are as intuitive as they are transformative.
+                  </span>
+                </li>
+
+                <li>
+                  <span className={titleClassName}>
+                    Sustainability & Inclusion
+                  </span>
+
+                  <span className={paragrapghClassName}>
+                    We don’t believe in building for a select few. Our goal is
+                    to create ecosystems that are accessible, diverse, and built
+                    to last.
+                  </span>
+                </li>
+              </ul>
             </div>
-            <div className="flex md:flex-row flex-col w-full gap-8">
-              <div className="w-full md:w-[48.5%]">
-                <span className={paragrapghClassName}>
-                  We are here to build the next generation of digital
-                  platforms—ones that are intuitive, scalable, and designed to
-                  make life easier. Our approach is rooted in innovation, but more
-                  importantly, in impact. Every product we create is built to
-                  solve a problem, to simplify complexity, and to open new doors
-                  for those who dare to dream big.
-                </span>
-                <br />
-                <span id="values" className={' text-3xl font-bold'}>
-                  Our Values
-                </span>
-                <ul className="list-disc mt-2 pl-4">
-                  <li>
-                    <span className={titleClassName}>
-                      Empowerment Through Technology
-                    </span>
-                    
-                    <span className={paragrapghClassName}>
-                      We believe that technology should give people more control
-                      over their lives, their work, and their creativity. Every
-                      solution we build is designed to help individuals and
-                      businesses do more with less friction.
-                    </span>
-                  </li>
 
-                  <li>
-                    <span className={titleClassName}>
-                      Innovation Without Limits
-                    </span>
-                    
-                    <span className={paragrapghClassName}>
-                      The digital landscape is constantly evolving, and so are we.
-                      We push boundaries, challenge the status quo, and embrace
-                      the unknown in pursuit of groundbreaking solutions.
-                    </span>
-                  </li>
-                  <li>
-                    <span className={titleClassName}>
-                      A People-First Approach
-                    </span>
-                    
-                    <span className={paragrapghClassName}>
-                      Technology is only as powerful as the people who use it.
-                      That’s why everything we create is built with a deep
-                      understanding of real-world needs, ensuring that our
-                      platforms are as intuitive as they are transformative.
-                    </span>
-                  </li>
-
-                  <li>
-                    <span className={titleClassName}>
-                      Sustainability & Inclusion
-                    </span>
-                  
-                    <span className={paragrapghClassName}>
-                      We don’t believe in building for a select few. Our goal is
-                      to create ecosystems that are accessible, diverse, and built
-                      to last.
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="w-full md:w-[40%] flex justify-center md:justify-end pt-2 ">
-                <img
-                  src="../image/landingimg3.png"
-                  alt="Icon"
-                  className="w-full md:h-[35rem] h-[15rem] object-cover object-top rounded-lg" />
-              </div>
+            <div className="w-full md:w-[40%] flex justify-center md:justify-end pt-2 ">
+              <img
+                src="../image/landingimg3.png"
+                alt="Icon"
+                className="w-full md:h-[35rem] h-[15rem] object-cover object-top rounded-lg" />
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section
-            id="looking-ahead"
-            className="text-white my-3  mb-10 font-normal md:text-[1.1rem] text-[1rem]"
-          >
-            <div id="looking-ahead" className="font-bold text-[30px] mb-2">
-              Looking Ahead
-            </div>
-            <span className={paragrapghClassName}>
-              Voltis Labs isn’t just a tech company—it’s a movement. We are here
-              to redefine what’s possible, to bridge the gap between vision and
-              execution, and to create technology that truly matters. Whether it’s
-              enabling new ways to work, connect, or create, we are building a
-              future where digital solutions empower, rather than complicate.
-            </span>
-            <span className={paragrapghClassName}>
-              This is just the beginning. The future is being written now, and at
-              Voltis Labs, we are here to shape it.
-            </span>
-          </section>
-  
+        <section
+          id="looking-ahead"
+          className="text-white my-3  mb-10 font-normal md:text-[1.1rem] text-[1rem]"
+        >
+          <div id="looking-ahead" className="font-bold text-[30px] mb-2">
+            Looking Ahead
+          </div>
+          <span className={paragrapghClassName}>
+            Voltis Labs isn’t just a tech company—it’s a movement. We are here
+            to redefine what’s possible, to bridge the gap between vision and
+            execution, and to create technology that truly matters. Whether it’s
+            enabling new ways to work, connect, or create, we are building a
+            future where digital solutions empower, rather than complicate.
+          </span>
+          <span className={paragrapghClassName}>
+            This is just the beginning. The future is being written now, and at
+            Voltis Labs, we are here to shape it.
+          </span>
+        </section>
+
       </div></>
   );
 }

@@ -72,7 +72,7 @@ function Vmodel() {
   const [isPlaying, setIsplaying] = useState(false);
 
   return (
-    <div className="text-white">
+    <div className="text-white max-w-[85rem]">
       <Sidebar tbList={menuItems} />
 
       <TitleSection
@@ -116,13 +116,13 @@ function Vmodel() {
         </div>
       </section>
       <div className="hidden md:flex h-full  md:p-7 p-2 flex justify-center items-center">
-  <LearnMoreBtn
-    text="Visit Website"
-    borderColor="border-white"
-    textColor="text-white"
-    route="http://vmodelapp.com"
-  />
-</div>
+        <LearnMoreBtn
+          text="Visit Website"
+          borderColor="border-white"
+          textColor="text-white"
+          route="http://vmodelapp.com"
+        />
+      </div>
       <section className="hero-section md:hidden block mb-9">
         <SliderBackground
           containerStyle="bg-[#503C3B] w-full"
@@ -378,7 +378,7 @@ function Vmodel() {
             of creative work should be fair, accessible, and technology-driven.
             Our platform empowers models, photographers, stylists, and brands by
             removing unnecessary middlemen and placing control directly in the
-            hands of those who create and hire.
+            hands of those who create and hire.
           </span>
           <br />
           <span className={paragrapghClassName}>
