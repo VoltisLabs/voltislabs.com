@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react';
 import CustomModal from './modal';
-import { defaultPadding } from '@/data';
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import ButtonWithBackground from './button_with_background';
+import { defaultPadding } from '../data';
 
 const images = [
     { name: "red reaper", src: "/images/fidgets/blade_fidget.png", },
