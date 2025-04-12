@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import CustomModal from './modal';
-import { defaultPadding } from '@/data';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import ButtonWithBackground from './button_with_background';
+import { defaultPadding } from '../data';
 
 const leaderboardData = [
     { rank: 1, username: 'jonathanross', rpm: 31345 },
