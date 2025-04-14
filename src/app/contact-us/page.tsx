@@ -41,6 +41,7 @@ const ContactUs = () => {
           </motion.h2>
 
           <motion.form
+            data-netlify="true"
             className="space-y-6"
             initial="hidden"
             whileInView="visible"
@@ -117,8 +118,7 @@ const ContactUs = () => {
             <FiMapPin size={40} className="mx-auto mb-4 text-[#fff]" />
             <h3 className="text-xl font-bold mb-2">Our Address</h3>
             <p className="text-gray-400">
-              123 Voltis Labs Street, <br />
-              Innovation City, UK
+              London, UK
             </p>
           </motion.div>
 
@@ -153,10 +153,10 @@ const ContactUs = () => {
             <FiPhone size={40} className="mx-auto mb-4 text-[#fff]" />
             <h3 className="text-xl font-bold mb-2">Call Us</h3>
             <a
-              href="tel:+11234567890"
+              href="tel:+442039479699"
               className="text-gray-400 hover:underline"
             >
-              +1 (123) 456-7890
+              +442039479699
             </a>
           </motion.div>
         </div>
