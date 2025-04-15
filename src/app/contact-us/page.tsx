@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { FiMapPin, FiMail, FiPhone, FiArrowRight } from "react-icons/fi";
 import TitleSection from "@/src/components/UI/TitleSection";
 import { motion } from "framer-motion";
@@ -14,6 +14,35 @@ const fadeUp = {
 };
 
 const ContactUs = () => {
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">(
+    "idle"
+  );
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch("https://formspree.io/f/mnqezyab", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setFormStatus("success");
+        form.reset(); // Clear the form after successful submission
+      } else {
+        setFormStatus("error");
+      }
+    } catch (error) {
+      setFormStatus("error");
+    }
+  };
+
   return (
     <div className="contact-page mt-[10rem] bg-black text-white min-h-screen">
       {/* Hero Section */}
@@ -40,7 +69,32 @@ const ContactUs = () => {
             Get in Touch
           </motion.h2>
 
+          {formStatus === "success" && (
+            <motion.div
+              className="text-center text-green-500 mb-6"
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              custom={0}
+            >
+              Thank you! Your message has been sent successfully.
+            </motion.div>
+          )}
+
+          {formStatus === "error" && (
+            <motion.div
+              className="text-center text-red-500 mb-6"
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              custom={0}
+            >
+              Oops! Something went wrong. Please try again.
+            </motion.div>
+          )}
+
           <motion.form
+            onSubmit={handleSubmit}
             className="space-y-6"
             initial="hidden"
             whileInView="visible"
@@ -56,6 +110,7 @@ const ContactUs = () => {
                 id="name"
                 name="name"
                 placeholder="Your Name"
+                required
                 className="w-full bg-[#0D1117] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
               />
             </motion.div>
@@ -70,6 +125,7 @@ const ContactUs = () => {
                 id="email"
                 name="email"
                 placeholder="Your Email"
+                required
                 className="w-full bg-[#0D1117] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
               />
             </motion.div>
@@ -84,6 +140,7 @@ const ContactUs = () => {
                 name="message"
                 placeholder="Your Message"
                 rows={5}
+                required
                 className="w-full bg-[#0D1117] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
               ></textarea>
             </motion.div>
@@ -116,10 +173,7 @@ const ContactUs = () => {
           >
             <FiMapPin size={40} className="mx-auto mb-4 text-[#fff]" />
             <h3 className="text-xl font-bold mb-2">Our Address</h3>
-            <p className="text-gray-400">
-              123 Voltis Labs Street, <br />
-              Innovation City, UK
-            </p>
+            <p className="text-gray-400">London, UK</p>
           </motion.div>
 
           {/* Email */}
@@ -153,10 +207,10 @@ const ContactUs = () => {
             <FiPhone size={40} className="mx-auto mb-4 text-[#fff]" />
             <h3 className="text-xl font-bold mb-2">Call Us</h3>
             <a
-              href="tel:+11234567890"
+              href="tel:+442039479699"
               className="text-gray-400 hover:underline"
             >
-              +1 (123) 456-7890
+              +442039479699
             </a>
           </motion.div>
         </div>
