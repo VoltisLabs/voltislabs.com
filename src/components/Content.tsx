@@ -92,15 +92,14 @@ function Content() {
         <div className="border-white border-[1px] w-[full] mb-6"></div>
         <div className="flex px-[1rem]  flex-col md:flex-row justify-between text-white mb-10">
           <h2 className="font-normal  md:text-[1.7rem] text-[1.6rem]">
-            Careers at Voltis Labs
+             Voltis Labs Academy
           </h2>
           <div className="md:w-1/2 mt-4 md:mt-0">
             <p className="font-normal text-lg text-[20px] md:text-[24px]">
-              Developing safe and beneficial AI requires people from a wide
-              range of disciplines and backgrounds.
+            Voltis Labs Academy is a 'hands - on' learning and internship hub for aspiring tech talent — a place where education meets execution. 
             </p>
             <p className="text-sm underline mt-2 font-normal text-white sm:mt-0  cursor-pointer hover:text-blue-500 visited:text-red-500">
-              View careers
+              View 
             </p>
           </div>
         </div>

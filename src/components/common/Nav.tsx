@@ -118,7 +118,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           </AnimatePresence>
         </div>
         <a href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          Academy
+          VL Academy
         </a>
         <a href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           Partners
