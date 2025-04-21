@@ -46,7 +46,7 @@ function Content() {
 
       </section>
 
-      <div className=" border-white border-[1px] w-[full] mb-6"></div>
+      {/* <div className=" border-white border-[1px] w-[full] mb-6"></div>
       <section className="mb-20 md:px-[2rem] px-[1rem] md:h-[27rem] min-h-[32.8rem]">
         <div className="flex flex-col md:flex-row justify-between text-white mb-12">
           <h2 className="font-normal mb-[1rem]  md:text-[1.7rem] text-[1.6rem] text-left">
@@ -65,7 +65,7 @@ function Content() {
         </div>
 
         <FlexContainer array={research} />
-      </section>
+      </section> */}
 
       <div className="border-white border-[1px] w-[full] mb-6"></div>
       <section className="mb-12 md:px-[2rem] px-[1rem] md:min-h-[23rem] min-h-[20rem]">
