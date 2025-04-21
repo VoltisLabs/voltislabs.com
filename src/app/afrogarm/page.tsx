@@ -45,26 +45,9 @@ function Vmodel() {
   ]
 
   const [isPlaying, setIsplaying] = useState(false);
-  const [posts, setPosts] = useState([]);
 
-  const IG_USER_ID = '17841473480518581'; // Your Instagram Business Account ID
-  const PAGE_ACCESS_TOKEN = 'EAAhXHEFwkcABOzCSmIxUiVJ0LzbCS1XKEV6zbJh0Nnk5g8PtLPAzLjlS0XOYZCoBgYg2hVOQwdjZCEH7PtkOJegNkd649ytqqU1qA2K2lU9I5HT8TtRX1IIMKXUDDw7tmzJTqZB25ZCdVOBlO3r75EH08iL0RSzHhPu34xZAeL3BWzWENfAoz5ADC';
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const res = await fetch(
-          `https://graph.facebook.com/v22.0/${IG_USER_ID}/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${PAGE_ACCESS_TOKEN}`
-        );
-        const data = await res.json();
-        console.log({ data })
-          ; setPosts(data.data);
-      } catch (err) {
-        console.error('Error fetching IG posts:', err);
-      }
-    };
 
-    fetchPosts();
-  }, []);
+
   const formatDate = (timestamp: string) => {
     const options: Intl.DateTimeFormatOptions = {
       day: 'numeric',
@@ -271,7 +254,7 @@ function Vmodel() {
             Become part of a growing community that celebrates African fashion and culture. Follow us on social media, share your Afrogarm looks, and stay updated on the latest trends and exclusive offers.
           </span>
         </div>
-        <br />
+        {/* <br />
         <br />
         <h1 className={`mt-10 ${secondaryTitleClassName}`}>Instagram Posts</h1>
         <br />
@@ -304,7 +287,7 @@ function Vmodel() {
             ))}
           </div>
 
-        </Marquee>
+        </Marquee> */}
 
         <div className="flex justify-center w-full my-12 gap-6 items-center">
           <div className="w-fit text-center py-2.5 px-4 lg:px-12 rounded-xl bg-[url('/svgs/insta_bg.svg')]">
