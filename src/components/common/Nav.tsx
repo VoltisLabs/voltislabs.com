@@ -117,6 +117,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
             )}
           </AnimatePresence>
         </div>
+        <a href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+          Academy
+        </a>
         <a href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           Partners
         </a>
@@ -200,6 +203,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                 ))}
 
                 <div className="flex flex-col space-y-2">
+                <a onClick={() => setToggle(false)} href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+                    Academy
+                  </a>
                   <a onClick={() => setToggle(false)} href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
                     Partners
                   </a>
