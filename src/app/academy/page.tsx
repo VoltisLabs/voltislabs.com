@@ -19,6 +19,11 @@ import SliderBackground from "@/src/components/UI/SliderBackground";
 import LearnMoreBtn from "@/src/components/UI/LearnMoreBtn";
 import Link from "next/link";
 import CourseCard from "@/src/components/course/CourseCard";
+// _app.tsx or globals.css
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function Academy() {
   const menuItems = [
@@ -108,7 +113,7 @@ function Academy() {
 
           <TitleSection
               title="Welcome to Voltis Labs Academy"
-              subTitle="Hands-on learning and internship hub for aspiring tech talent"
+              subTitle="Where tomorrow’s tech leaders are built — one project at a time."
               secondaryText="Published on Monday 17th February, 2025"
               containerStyle="mb-[2.8rem] hidden md:block" />
           {/* <InfiniteMarqueeSlider/> */}
@@ -159,7 +164,7 @@ function Academy() {
                   />
           </section>
 
-          <div className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0">
+          <div className="mb-16 mx-auto max-w-[45rem] px-[1rem] md:px-0">
               <div className="flex-container mb-8">
                   <div id="firstSection" className="text-section mt-1">
                       <h1 className={`${sectionTitleClassName}`}>What is VL Academy</h1>
@@ -170,29 +175,44 @@ function Academy() {
                   </div>
               </div>
               <div className="border-white max-w-[45rem] border-[1px]  mb-6"></div>
-              <div className="mx-auto px-[0.4rem] md:px-[4.4rem] mb-16 flex flex-col items-center">
-  <h2 className="text-2xl text-white font-semibold mb-6 self-start">Explore Career Paths</h2>
-  <div
-    onMouseEnter={() => setIsplaying(true)}
-    onMouseLeave={() => setIsplaying(false)}
-    onClick={() => setIsplaying(!isPlaying)}
-    className="w-full cursor-pointer"
+              <div className="w-full px-[1.4rem] md:px-[3rem] mb-16">
+  <h2 className="text-2xl text-white font-semibold mb-6">Explore Career Paths</h2>
+
+  <Slider
+    dots={true}
+    infinite={true}
+    speed={500}
+    slidesToShow={3}
+    slidesToScroll={1}
+    autoplay={true}
+    autoplaySpeed={4000}
+    arrows
+    responsive={[
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ]}
   >
-    <Marquee
-      gradient={false}
-      speed={50}
-      pauseOnHover
-      pauseOnClick
-      className="gap-6"
-    >
-      {courses.map((course, index) => (
-        <div key={index} className="mr-6 w-[200px]">
-          <CourseCard {...course} />
-        </div>
-      ))}
-    </Marquee>
-  </div>
+    {courses.map((course, index) => (
+      <div key={index}>
+      <div className="w-full sm:w-[22rem] mx-auto">
+        <CourseCard {...course} />
+      </div>
+    </div>
+    
+    ))}
+  </Slider>
 </div>
+
 
           </div>
           
