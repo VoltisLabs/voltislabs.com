@@ -114,7 +114,7 @@ function Academy() {
 
           <TitleSection
               title="Welcome to Voltis Labs Academy"
-              subTitle="Where tomorrow’s tech leaders are built — one project at a time."
+              subTitle="Gain real world experience and master  digital skills through immersive internships"
               secondaryText="Published on Monday 18th April, 2025"
               containerStyle="mb-[2.8rem] hidden md:block" />
           {/* <InfiniteMarqueeSlider/> */}
