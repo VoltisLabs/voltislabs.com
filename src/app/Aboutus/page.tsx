@@ -27,7 +27,7 @@ function page() {
       <section id="prelura-home md:block hidden" className="max-w-[85rem]">
         <TitleSection
           title="We are Voltis Labs"
-          subTitle=""
+          subTitle="Where tomorrow’s tech leaders are built — one project at a time."
           secondaryText="Published on Monday 17th February, 2025"
           containerStyle="mb-4 md:block hidden"
         />
