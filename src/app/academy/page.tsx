@@ -24,6 +24,7 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import CustomCourseSlider from "@/src/components/common/CustomCourseSlider";
 
 function Academy() {
   const menuItems = [
@@ -113,8 +114,8 @@ function Academy() {
 
           <TitleSection
               title="Welcome to Voltis Labs Academy"
-              subTitle="Where tomorrow’s tech leaders are built — one project at a time."
-              secondaryText="Published on Monday 17th February, 2025"
+              subTitle="Gain real world experience and master  digital skills through immersive internships"
+              secondaryText="Published on Monday 18th April, 2025"
               containerStyle="mb-[2.8rem] hidden md:block" />
           {/* <InfiniteMarqueeSlider/> */}
           <section className="image-section hidden md:block mb-[4.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
@@ -175,42 +176,9 @@ function Academy() {
                   </div>
               </div>
               <div className="border-white max-w-[45rem] border-[1px]  mb-6"></div>
-              <div className="w-full px-[1.4rem] md:px-[3rem] mb-16">
-  <h2 className="text-2xl text-white font-semibold mb-6">Explore Career Paths</h2>
+              <div className="w-full px-[1.4rem] md:px-[1rem] mb-16">
 
-  <Slider
-    dots={true}
-    infinite={true}
-    speed={500}
-    slidesToShow={3}
-    slidesToScroll={1}
-    autoplay={true}
-    autoplaySpeed={4000}
-    arrows
-    responsive={[
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ]}
-  >
-    {courses.map((course, index) => (
-      <div key={index}>
-      <div className="w-full sm:w-[22rem] mx-auto">
-        <CourseCard {...course} />
-      </div>
-    </div>
-    
-    ))}
-  </Slider>
+  <CustomCourseSlider courses={courses} />
 </div>
 
 
