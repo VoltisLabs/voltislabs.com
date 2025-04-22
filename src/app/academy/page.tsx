@@ -108,7 +108,7 @@ function Academy() {
 
           <TitleSection
               title="Welcome to Voltis Labs Academy"
-              subTitle="Your Gateway to Authentic African Fashion"
+              subTitle="Hands-on learning and internship hub for aspiring tech talent"
               secondaryText="Published on Monday 17th February, 2025"
               containerStyle="mb-[2.8rem] hidden md:block" />
           {/* <InfiniteMarqueeSlider/> */}
@@ -147,16 +147,16 @@ function Academy() {
                   text="Visit Homepage"
                   borderColor="border-white"
                   textColor="text-white"
-                  route="http://www.afrogarm.com" />
+                  route="https://academy.voltislabs.com" />
           </div>
           <section className="hero-section md:hidden block mb-9">
               <SliderBackground
                   containerStyle="bg-black w-full"
                   imagesArray={afrogarmImages}
-                  titleText="Welcome to Afrogarm"
-                  afrogarm
-                  route="https://www.afrogarm.com"
-                  smallBtnText="Visit Afrogarm" />
+                  titleText="Welcome to VL Academy"
+                  route="https://academy.voltislabs.com"
+                  smallBtnText="Visit Homepage" 
+                  />
           </section>
 
           <div className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0">
@@ -169,17 +169,34 @@ function Academy() {
                       </span>
                   </div>
               </div>
-
-          </div>
-      </div><div className="border-white border-[1px] w-full mb-6"></div>
-      <div className="mx-auto px-[0.4rem] md:px-[4.4rem] mb-16 flex flex-col items-center">
+              <div className="border-white max-w-[45rem] border-[1px]  mb-6"></div>
+              <div className="mx-auto px-[0.4rem] md:px-[4.4rem] mb-16 flex flex-col items-center">
   <h2 className="text-2xl text-white font-semibold mb-6 self-start">Explore Career Paths</h2>
-  <div className="flex gap-6 flex-wrap justify-center">
+  <div
+    onMouseEnter={() => setIsplaying(true)}
+    onMouseLeave={() => setIsplaying(false)}
+    onClick={() => setIsplaying(!isPlaying)}
+    className="w-full cursor-pointer"
+  >
+    <Marquee
+      gradient={false}
+      speed={50}
+      pauseOnHover
+      pauseOnClick
+      className="gap-6"
+    >
       {courses.map((course, index) => (
-          <CourseCard key={index} {...course} />
+        <div key={index} className="mr-6 w-[200px]">
+          <CourseCard {...course} />
+        </div>
       ))}
+    </Marquee>
   </div>
 </div>
+
+          </div>
+          
+      </div>
 </>
   );
 }

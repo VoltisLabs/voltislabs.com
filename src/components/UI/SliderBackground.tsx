@@ -15,6 +15,7 @@ interface SliderBackgroundProps {
   vmodel?: boolean;
   afrogarm?: boolean;
   route?: string;
+  vlA?: boolean;
   smallBtnText?: string;
 }
 
@@ -26,6 +27,7 @@ const SliderBackground = ({
   vmodel,
   afrogarm,
   smallBtnText,
+  vlA,
 }: SliderBackgroundProps) => {
   const [isPlaying, setIsplaying] = useState(false);
 
@@ -69,7 +71,17 @@ const SliderBackground = ({
         </div>
 
         <div className="icons-section-flex p-4 flex items-center justify-between w-full">
-          {vmodel && (
+          {vlA && (
+            <Image
+            src="/vlalogo.svg"
+            alt="vmodel-logo"
+            width={35}
+            height={35}
+            className="object-contain rounded-full"
+          />
+          
+          )}
+           {vmodel && (
             <Image
               src={"/icons/vmodel.svg"}
               alt="vmodel-logo"
