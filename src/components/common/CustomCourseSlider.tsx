@@ -4,12 +4,11 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 function CustomCourseSlider({ courses }: { courses: any }) {
   const sliderRef = useRef<HTMLDivElement>(null);
-
   const scroll = (direction: "left" | "right") => {
     const container = sliderRef.current;
     if (!container) return;
 
-    const scrollAmount = container.offsetWidth / 1.2;
+    const scrollAmount = 100; // smoother scroll step
     container.scrollBy({
       left: direction === "left" ? -scrollAmount : scrollAmount,
       behavior: "smooth",
@@ -17,38 +16,43 @@ function CustomCourseSlider({ courses }: { courses: any }) {
   };
 
   return (
-    <div className="relative w-full px-1 mb-16">
-      <h2 className="text-2xl text-white font-semibold mb-6">Explore Career Paths</h2>
+    <div className="relative w-full px-2 mb-16">
+      <h2 className="text-2xl text-white font-semibold mb-6 text-left">
+        Explore Career Paths
+      </h2>
 
-      {/* Slider Container */}
-      <div
-        ref={sliderRef}
-        className="flex overflow-x-auto scroll-smooth no-scrollbar"
-      >
-        {courses.map((course: any, index: number) => (
-          <div
-            key={index}
-            className="flex-shrink-0 px-2 w-[85%] sm:w-[50%] md:w-[37.33%]"
+      {/* Scroll Area */}
+      <div className="relative">
+        {/* Slider */}
+        <div
+          ref={sliderRef}
+          className="flex overflow-x-auto scroll-smooth no-scrollbar justify-start"
+        >
+          {courses.map((course: any, index: number) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-[95%] sm:w-[48%] lg:w-[32%] px-1"
+            >
+              <CourseCard {...course} />
+            </div>
+          ))}
+        </div>
+
+        {/* Arrows */}
+        <div className="flex justify-center gap-4 mt-4">
+          <button
+            onClick={() => scroll("left")}
+            className="bg-white text-black p-2 rounded-full hover:bg-gray-300"
           >
-            <CourseCard {...course} />
-          </div>
-        ))}
-      </div>
-
-      {/* Arrows */}
-      <div className="flex justify-between items-center mt-4 px-2">
-        <button
-          onClick={() => scroll("left")}
-          className="bg-white text-black p-2 rounded-full hover:bg-gray-300"
-        >
-          <FiArrowLeft size={20} />
-        </button>
-        <button
-          onClick={() => scroll("right")}
-          className="bg-white text-black p-2 rounded-full hover:bg-gray-300"
-        >
-          <FiArrowRight size={20} />
-        </button>
+            <FiArrowLeft size={20} />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            className="bg-white text-black p-2 rounded-full hover:bg-gray-300"
+          >
+            <FiArrowRight size={20} />
+          </button>
+        </div>
       </div>
     </div>
   );

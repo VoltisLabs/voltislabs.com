@@ -176,7 +176,7 @@ function Academy() {
                   </div>
               </div>
               <div className="border-white max-w-[45rem] border-[1px]  mb-6"></div>
-              <div className="w-full px-[1.4rem] md:px-[1rem] mb-16">
+              <div className="w-full px-[1.9rem] md:px-[1rem] mb-16">
 
   <CustomCourseSlider courses={courses} />
 </div>
