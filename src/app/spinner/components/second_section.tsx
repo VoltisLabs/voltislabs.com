@@ -45,7 +45,7 @@ const SecondSection = () => {
     };
     return (
         <section
-            className={`flex flex-col md:items-center p-6 px-0 pb-0 sm:p-6 sm:pb-0 sm:px-0 bg-black`}
+            className={`flex mt-10 flex-col md:items-center p-6 px-0 pb-0 sm:p-6 sm:pb-0 sm:px-0 bg-black`}
         >
             <div className="mx-auto lg:w-4/5 w-full">
                 <h2
@@ -93,14 +93,14 @@ const SecondSection = () => {
                 autoFill
                 play
             >
-                <div className="flex w-full items-stretch bg-[#FF552A]">
+                <div className="no-scrollbar flex w-full items-stretch bg-[#FF552A]">
                     {images.map((image, index) => (
                         <div
                             key={index}
-                            className="relative w-full border-none"
+                            className="no-scrollbar relative w-full border-none"
                             style={{ margin: "-1px" }}
                         >
-                            <div className="flex flex-col h-full">
+                            <div className="flex no-scrollbar flex-col h-full">
                                 <img
                                     src={image}
                                     alt="Icon"

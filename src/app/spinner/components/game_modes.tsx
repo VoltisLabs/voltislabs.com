@@ -36,7 +36,7 @@ const gameModeRows: GameModeRow[] = [
 
 export default function GameModes() {
     return (
-        <div className="relative w-full flex items-center bg-gradient-to-r from-[#FF5722] to-[#99240B] text-white overflow-hidden px-6 py-2">
+        <div className="relative w-full flex items-center  my-5  text-white overflow-hidden px-6 py-2">
             {/* Fixed "GAME MODES" section - 30% width */}
             <div className="w-1/3 pr-4">
                 <h1
