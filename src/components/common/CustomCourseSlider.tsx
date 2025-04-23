@@ -16,7 +16,7 @@ function CustomCourseSlider({ courses }: { courses: any }) {
   };
 
   return (
-    <div className="relative w-full px-2 mb-16">
+    <div className="relative w-full mb-16">
       <h2 className="text-2xl text-white font-semibold mb-6 text-left">
         Explore Career Paths
       </h2>

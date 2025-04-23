@@ -211,7 +211,7 @@ function Academy() {
             </div>
           </div>
           <div className="mb-6 max-w-[45rem] border-[1px] border-white"></div>
-          <div id="courses" className="mb-16 w-full  md:px-[1rem]">
+          <div id="courses" className="mb-16 w-full  ">
             <CustomCourseSlider courses={courses} />
           </div>
           <div id="thirdSection" className="mb- font-normal">
