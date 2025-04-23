@@ -72,7 +72,7 @@ function Vmodel() {
   const [isPlaying, setIsplaying] = useState(false);
 
   return (
-    <div className="text-white max-w-[85rem]">
+    <div className="text-white mx-auto max-w-[85rem]">
       <Sidebar tbList={menuItems} />
 
       <TitleSection

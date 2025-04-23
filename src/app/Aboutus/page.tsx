@@ -20,7 +20,7 @@ function page() {
   ];
 
   return (
-    <>
+    <div className="mx-auto max-w-[85rem]">
       <Sidebar tbList={menuItems} />
 
       <section id="prelura-home md:block hidden" className="max-w-[85rem]">
@@ -188,7 +188,7 @@ function page() {
           </span>
         </section>
       </div>
-    </>
+    </div>
   );
 }
 

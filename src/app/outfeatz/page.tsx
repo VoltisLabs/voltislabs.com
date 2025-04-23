@@ -37,7 +37,7 @@ function page() {
   const [isPlaying, setIsplaying] = useState(false);
 
   return (
-    <div id="Outfeatz-home" className="max-w-[85rem]">
+    <div id="Outfeatz-home" className="mx-auto max-w-[85rem]">
       <Sidebar tbList={menuItems} />
 
       <section id="outfeatz-home md:block hidden max-w-[85rem]">

@@ -110,7 +110,7 @@ function Academy() {
   };
 
   return (
-    <>
+    <div className="mx-auto max-w-[85rem]">
       <div className="max-w-[85rem] text-white">
         <Sidebar tbList={menuItems} />
 
@@ -358,7 +358,7 @@ function Academy() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

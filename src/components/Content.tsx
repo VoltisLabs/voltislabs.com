@@ -3,6 +3,7 @@ import Image from "next/image";
 import { products, research } from "../app/data";
 import FlexContainer from "./UI/FlexContainer";
 import ViewAllButton from "./UI/view_all_button";
+import Link from "next/link";
 
 function Content() {
   return (
@@ -98,9 +99,9 @@ function Content() {
             <p className="font-normal text-lg text-[20px] md:text-[24px]">
             Voltis Labs Academy is a 'hands - on' learning and internship hub for aspiring tech talent — a place where education meets execution. 
             </p>
-            <p className="text-sm underline mt-2 font-normal text-white sm:mt-0  cursor-pointer hover:text-blue-500 visited:text-red-500">
+            <Link href={'/academy'} className="text-sm underline mt-2 font-normal text-white sm:mt-0  cursor-pointer hover:text-blue-500 visited:text-red-500">
               View 
-            </p>
+            </Link>
           </div>
         </div>
         <div className="px-0">
@@ -114,7 +115,7 @@ function Content() {
       </section>
 
       <section className="mb-20 md:px-[2rem] px-[1rem]">
-        <div className=" border-[#333333] border-[1px] w-[full] mb-6 "></div>
+        
         {/*  <div className="flex md:flex-row flex-col w-full gap-8">
           <div className="flex md:px-[2rem] px-[1rem] flex-col w-full md:w-[48.5%] mb-6 md:mb-0">
             <blockquote className="text-white font-normal text-[20px] md:text-[24px]">
