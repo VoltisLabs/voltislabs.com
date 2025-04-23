@@ -26,11 +26,9 @@ import CustomCourseSlider from '@/src/components/common/CustomCourseSlider';
 
 function Academy() {
   const menuItems = [
-    { name: 'What is Afrogarm?', route: 'firstSection', Icon: '' },
-    { name: 'What makes Afrogram different?', route: 'secondSection', Icon: '' },
-    { name: 'Why shop african fashion?', route: 'thirdSection', Icon: '' },
-    { name: 'The afrogarm experience', route: 'firstSection', Icon: '' },
-    { name: 'Join our community', route: 'fifthSection', Icon: '' },
+    { name: 'What is VL Academy?', route: 'vlacademy', Icon: '' },
+    { name: 'Courses', route: 'courses', Icon: '' },
+    
   ];
 
   const courses = [
@@ -84,16 +82,19 @@ function Academy() {
 
   const afrogarmImages = [
     {
-      img: '/svgs/afrogarm_sliders/slide_1.jpg',
+      img: '/svgs/academy/slide1.jpg',
     },
     {
-      img: '/svgs/afrogarm_sliders/slide_2.jpg',
+      img: '/svgs/academy/slide2.jpg',
     },
     {
-      img: '/svgs/afrogarm_sliders/slide_6.jpeg',
+      img: '/svgs/academy/slide3.jpg',
     },
     {
-      img: '/svgs/afrogarm_sliders/slide_4.jpg',
+      img: '/svgs/academy/slide4.jpg',
+    },
+    {
+      img: '/svgs/academy/slide5.jpg',
     },
   ];
 
@@ -171,7 +172,7 @@ function Academy() {
 
         <div className="text-justify mx-auto mb-16 max-w-[45rem] px-[1rem] md:px-0">
           <div className="flex-container mb-8">
-            <div id="firstSection" className="text-section mt-1">
+            <div id="vlacademy" className="text-section mt-1">
               <h1 className={`mb-2 text-[30px] font-bold`}>What is Voltis Labs Academy?</h1>
               <span className={`${paragrapghClassName} mb-6`}>
                 Voltis Labs Academy is a mission-driven, hands-on learning and internship hub built
@@ -197,7 +198,7 @@ function Academy() {
             </div>
           </div>
           <div className="mb-6 max-w-[45rem] border-[1px] border-white"></div>
-          <div className="mb-16 w-full px-[1.9rem] md:px-[1rem]">
+          <div id='courses' className="mb-16 w-full px-[1.9rem] md:px-[1rem]">
             <CustomCourseSlider courses={courses} />
           </div>
           <div id="thirdSection" className="mb- font-normal">
