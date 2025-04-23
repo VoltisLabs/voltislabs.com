@@ -49,7 +49,7 @@ function page() {
         />
       </section>
 
-      <section className="mb-16 md:block hidden md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
+      <section className="mb-[0.2rem] md:block hidden md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
         <div
           onMouseEnter={() => setIsplaying(true)}
           onMouseLeave={() => setIsplaying(false)}

@@ -84,7 +84,7 @@ function Vmodel() {
         containerStyle="mb-[2.8rem] hidden md:block"
       />
       {/* <InfiniteMarqueeSlider/> */}
-      <section className="image-section hidden md:block mb-[4.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
+      <section className="image-section hidden md:block mb-[0.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
         <div
           onMouseEnter={() => setIsplaying(true)}
           onMouseLeave={() => setIsplaying(false)}

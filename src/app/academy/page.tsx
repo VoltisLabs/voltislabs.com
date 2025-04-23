@@ -121,7 +121,7 @@ function Academy() {
           containerStyle="mb-[2.8rem] hidden md:block"
         />
         {/* <InfiniteMarqueeSlider/> */}
-        <section className="image-section mb-[4.2rem] hidden px-[2rem] md:block md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
+        <section className="image-section mb-[0.2rem] hidden px-[2rem] md:block md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
           <div
             onMouseEnter={() => setIsplaying(true)}
             onMouseLeave={() => setIsplaying(false)}
@@ -152,7 +152,7 @@ function Academy() {
             </Marquee>
           </div>
         </section>
-        <div className="flex hidden h-full items-center justify-center p-2 md:flex md:p-7">
+        <div className="flex hidden h-full items-center justify-center p-2 md:flex p-7">
           <LearnMoreBtn
             text="Visit Homepage"
             borderColor="border-white"
