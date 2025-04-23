@@ -1,35 +1,58 @@
-// components/CourseCard.tsx
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa6";
+
 type CourseCardProps = {
   imageSrc: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   description: string;
   link: string;
 };
 
-const CourseCard: React.FC<CourseCardProps> = ({ imageSrc, title, subtitle, description, link }) => {
+const CourseCard: React.FC<CourseCardProps> = ({
+  imageSrc,
+  title,
+  subtitle,
+  description,
+  link,
+}) => {
   return (
-    <div className="bg-[#141414] cursor-pointer h-[344px] p-3 rounded-2xl overflow-hidden text-white max-w-[182px]">
-      <div className="w-full h-[149px] relative">
+    <div className="bg-[#141414] text-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition w-full max-w-sm flex flex-col h-[420px]">
+      {/* Image */}
+      <div className="relative w-full h-48 md:h-48">
         <Image
           src={imageSrc}
           alt={title}
           layout="fill"
           objectFit="cover"
-          className="rounded-xl"
+          className="p-3 rounded-3xl"
         />
       </div>
-      <div className="py-3">
-        <h3 className="h-[42px] text-[20px] font-bold leading-tight">
-          {title} <br />
-          <span className="font-bold">{subtitle}</span>
-        </h3>
-        <p className="text-[14px] h-[84px] mt-2 text-white">{description}</p>
-        <Link href={link} className="flex items-center gap-2 text-sm  text-[#919191] hover:underline">
-          View Curriculum <span className="ml-auto"><FaChevronRight/> </span>
+
+      {/* Content */}
+      <div className="flex flex-col justify-between p-4 flex-grow">
+        <div className="mb-2">
+          <h3 className="text-lg font-semibold leading-snug mb-2 h-[48px] overflow-hidden">
+            {title}
+            {subtitle && (
+              <>
+                <br />
+                <span className="font-semibold">{subtitle}</span>
+              </>
+            )}
+          </h3>
+
+          <p className="text-sm text-[#D1D1D1] line-clamp-5 ">
+            {description}
+          </p>
+        </div>
+
+        <Link
+          href={link}
+          className="flex items-center text-sm text-[#919191] hover:text-white transition mt-auto"
+        >
+          View Curriculum <FaChevronRight className="ml-2 text-sm" />
         </Link>
       </div>
     </div>

@@ -23,60 +23,73 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CustomCourseSlider from '@/src/components/common/CustomCourseSlider';
+import { link } from 'fs';
+import { sub } from 'framer-motion/client';
 
 function Academy() {
   const menuItems = [
     { name: 'What is VL Academy?', route: 'vlacademy', Icon: '' },
     { name: 'Courses', route: 'courses', Icon: '' },
-    
   ];
 
   const courses = [
     {
-      imageSrc: '/images/course/course.png', // your image path
-      title: 'Marketing',
-      subtitle: '',
-      description: 'Learn the building blocks of campaigns and analytics',
-      link: '/curriculum/web-development',
-    },
-    {
-      imageSrc: '/images/course/course.png', // your image path
-      title: 'Web',
-      subtitle: 'Development',
+      title: 'Product Management',
+      subtitle: 'Basic - Course',
+      date: '1 - 28 July 2022',
       description:
-        'Build websites and web apps using HTML, CSS, JavaScript, and modern frameworks.',
-      link: '/curriculum/ui-ux',
+        'Product Management Masterclass, you will learn with Sarah Johnson – Head of Product Customer Platform Gojek Indonesia.',
+      imageSrc: '/courses/pm.png',
+      students: 120,
+      link: 'https://academy.voltislabs.com/courses/product-management-basic-course',
     },
     {
-      imageSrc: '/images/course/course.png', // your image path
-      title: 'Mobile (Flutter)',
-      subtitle: 'Development',
+      title: 'Front End Developer',
+      subtitle: 'Basic',
+      date: '1 - 28 July 2022',
       description:
-        'Create cross-platform mobile apps with Flutter or native iOS apps using Flutter and Dart.',
-      link: '/curriculum/data-analytics',
+        'Learn the foundational skills for building websites and apps using HTML, CSS, and JavaScript.',
+      imageSrc: '/courses/frontend.png',
+      students: 120,
+      link: 'https://academy.voltislabs.com/courses/product-management-basic-course',
     },
     {
-      imageSrc: '/images/course/course.png', // your image path
-      title: 'Marketing',
-      subtitle: '',
-      description: 'Learn the building blocks of campaigns and analytics',
-      link: '/curriculum/web-development',
+      title: 'Back End Developer',
+      subtitle: 'Basic',
+      date: '1 - 28 July 2022',
+      description: 'Learn how servers, databases, and APIs work together to power the modern web.',
+      imageSrc: '/courses/backend.png',
+      students: 120,
+      link: 'https://academy.voltislabs.com/courses/product-management-basic-course',
     },
     {
-      imageSrc: '/images/course/course.png', // your image path
-      title: 'Web',
-      subtitle: 'Development',
+      title: 'UX Design',
+      subtitle: 'Brainstorming',
+      date: '1 - 28 July 2022',
       description:
-        'Build websites and web apps using HTML, CSS, JavaScript, and modern frameworks.',
-      link: '/curriculum/ui-ux',
+        'Master user flows, wireframing, and ideation techniques for better UX outcomes.',
+      imageSrc: '/courses/ux.png',
+      students: 120,
+      link: 'https://academy.voltislabs.com/courses/product-management-basic-course',
     },
     {
-      imageSrc: '/images/course/course.png', // your image path
-      title: 'Mobile (Flutter)',
-      subtitle: 'Development',
+      title: 'UI Design',
+      subtitle: 'Sketch',
+      date: '1 - 28 July 2022',
       description:
-        'Create cross-platform mobile apps with Flutter or native iOS apps using Flutter and Dart.',
-      link: '/curriculum/data-analytics',
+        'Design visually stunning and intuitive interfaces with Sketch and modern design systems.',
+      imageSrc: '/courses/ui.jpg',
+      students: 120,
+      link: 'https://academy.voltislabs.com/courses/product-management-basic-course',
+    },
+    {
+      title: 'Graphic Design',
+      subtitle: 'Fundamentals',
+      date: '1 - 28 July 2022',
+      description: 'Explore the basics of composition, typography, and visual storytelling.',
+      imageSrc: '/courses/graphic.png',
+      students: 120,
+      link: 'https://academy.voltislabs.com/courses/product-management-basic-course',
     },
   ];
 
@@ -152,7 +165,7 @@ function Academy() {
             </Marquee>
           </div>
         </section>
-        <div className="flex hidden h-full items-center justify-center p-2 md:flex p-7">
+        <div className="flex hidden h-full items-center justify-center p-2 p-7 md:flex">
           <LearnMoreBtn
             text="Visit Homepage"
             borderColor="border-white"
@@ -170,7 +183,7 @@ function Academy() {
           />
         </section>
 
-        <div className="text-justify mx-auto mb-16 max-w-[45rem] px-[1rem] md:px-0">
+        <div className="mx-auto mb-16 max-w-[45rem] px-[1rem] text-justify md:px-0">
           <div className="flex-container mb-8">
             <div id="vlacademy" className="text-section mt-1">
               <h1 className={`mb-2 text-[30px] font-bold`}>What is Voltis Labs Academy?</h1>
@@ -198,11 +211,11 @@ function Academy() {
             </div>
           </div>
           <div className="mb-6 max-w-[45rem] border-[1px] border-white"></div>
-          <div id='courses' className="mb-16 w-full px-[1.9rem] md:px-[1rem]">
+          <div id="courses" className="mb-16 w-full  md:px-[1rem]">
             <CustomCourseSlider courses={courses} />
           </div>
           <div id="thirdSection" className="mb- font-normal">
-            <h1 className='mb-2 text-[30px] font-bold'>Where Learning Meets Execution</h1>
+            <h1 className="mb-2 text-[30px] font-bold">Where Learning Meets Execution</h1>
             <span className={paragrapghClassName}>
               <span>
                 Unlike conventional classrooms, VL Academy is built on action. Our approach blends:
@@ -238,7 +251,7 @@ function Academy() {
             <br />
           </div>
 
-          <div id="firstSection" className="text-section ">
+          <div id="firstSection" className="text-section">
             <h1 className={`mb-2 text-[30px] font-bold`}>A Different Kind of Tech Education</h1>
             <span className={`${paragrapghClassName} mb-6`}>
               We're not just teaching how to code - we’re teaching how to think, build, and ship. VL
@@ -275,45 +288,47 @@ function Academy() {
               <ul className="mt-2 list-disc pl-4">
                 <li>
                   <span className={paragrapghClassName}>
-                    <span className={sectionTitleClassName}>Software Development –</span> Designed for beginners
-                    and intermediate learners alike, our courses cover essential programming
-                    concepts in Python, JavaScript, HTML/CSS, and more.
+                    <span className={sectionTitleClassName}>Software Development –</span> Designed
+                    for beginners and intermediate learners alike, our courses cover essential
+                    programming concepts in Python, JavaScript, HTML/CSS, and more.
                   </span>
                 </li>
 
                 <li>
                   <span className={paragrapghClassName}>
-                    <span className={sectionTitleClassName}>Coding Fundamentals & Programming –</span> Designed
-                    for beginners and intermediate learners alike, our courses cover essential
-                    programming concepts in Python, JavaScript, HTML/CSS, and more.
+                    <span className={sectionTitleClassName}>
+                      Coding Fundamentals & Programming –
+                    </span>{' '}
+                    Designed for beginners and intermediate learners alike, our courses cover
+                    essential programming concepts in Python, JavaScript, HTML/CSS, and more.
                   </span>
                 </li>
                 <li>
                   <span className={paragrapghClassName}>
-                    <span className={sectionTitleClassName}>Marketing & Digital Strategy –</span> Learn how to
-                    plan, execute, and analyze marketing campaigns that drive growth, brand
-                    awareness, and customer engagement.
+                    <span className={sectionTitleClassName}>Marketing & Digital Strategy –</span>{' '}
+                    Learn how to plan, execute, and analyze marketing campaigns that drive growth,
+                    brand awareness, and customer engagement.
                   </span>
                 </li>
                 <li>
                   <span className={paragrapghClassName}>
-                    <span className={sectionTitleClassName}>Social Media Strategy –</span> Explore the
-                    platforms, tools, and techniques behind impactful social content, including
+                    <span className={sectionTitleClassName}>Social Media Strategy –</span> Explore
+                    the platforms, tools, and techniques behind impactful social content, including
                     audience targeting, content planning, and growth metrics
                   </span>
                 </li>
                 <li>
                   <span className={paragrapghClassName}>
-                    <span className={sectionTitleClassName}>Data Analysis –</span> Dive into data-driven
-                    decision-making with training in Excel, SQL, Python for data, dashboards, and
-                    visualization tools like Tableau or Power BI.
+                    <span className={sectionTitleClassName}>Data Analysis –</span> Dive into
+                    data-driven decision-making with training in Excel, SQL, Python for data,
+                    dashboards, and visualization tools like Tableau or Power BI.
                   </span>
                 </li>
                 <li>
                   <span className={paragrapghClassName}>
-                    <span className={sectionTitleClassName}>Machine Learning & AI –</span> For those ready to go
-                    deeper, we offer an intro to machine learning fundamentals, from model training
-                    to data preprocessing and predictive analytics.
+                    <span className={sectionTitleClassName}>Machine Learning & AI –</span> For those
+                    ready to go deeper, we offer an intro to machine learning fundamentals, from
+                    model training to data preprocessing and predictive analytics.
                   </span>
                 </li>
               </ul>
