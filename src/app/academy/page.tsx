@@ -181,7 +181,36 @@ function Academy() {
   <CustomCourseSlider courses={courses} />
 </div>
 
+ <div id="thirdSection" className="mb-8 font-normal">
+          <h1 className={secondaryTitleClassName}>Why Shop African Fashion?</h1>
 
+          <br />
+          <div className="image-container md:h-[30rem] h-[15rem] rounded-[8px] overflow-hidden flex w-full gap-5">
+            <Image
+              src={"/svgs/afrogarm_sliders/slide_3.jpg"}
+              alt="page-image"
+              width={500}
+              height={500}
+              className="w-1/2 h-full object-cover object-top flex-1 rounded-xl"
+            />
+            <Image
+              src={"/svgs/afrogarm_sliders/slide_5.jpg"}
+              alt="page-image"
+              width={500}
+              height={500}
+              className="w-1/2 h-full object-cover object-top flex-1 rounded-xl"
+            />
+          </div>
+          <br />
+          <br />
+
+
+          <span className={paragrapghClassName}>
+            African fashion represents a dynamic blend of tradition, innovation, and self-expression. By choosing Afrogarm, you’re supporting skilled artisans, celebrating cultural diversity, and making a powerful style statement rooted in creativity and pride. Afrogarm is also part of Voltis Labs’ vision to create platforms that connect creativity and opportunity. We’re proud to champion Africa’s rising talent and share it with the world.
+          </span>
+
+          <br />
+        </div>
           </div>
           
       </div>
