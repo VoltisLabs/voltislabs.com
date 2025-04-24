@@ -120,6 +120,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
         <a href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           VL Academy
         </a>
+        <a href="/game-jam" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+          Game Jam
+        </a>
         <a href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           Partners
         </a>
@@ -204,7 +207,10 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
                 <div className="flex flex-col space-y-2">
                 <a onClick={() => setToggle(false)} href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-                    Academy
+                  VL Academy
+                  </a>
+                   <a onClick={() => setToggle(false)} href="/game-jam" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+                 Game Jam
                   </a>
                   <a onClick={() => setToggle(false)} href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
                     Partners
