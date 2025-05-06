@@ -131,7 +131,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           About Us
         </a>
         <a href="/blog" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          News blog
+          News Blog
         </a>
         <a href="/contact-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           Contact Us

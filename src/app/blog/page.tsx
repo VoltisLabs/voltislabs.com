@@ -4,8 +4,13 @@ import ArticleHeader from './components/articleHeader'
 import ProductShowcase from './components/productShowcase'
 import { titleClassName } from '../data'
 import { motion } from 'framer-motion'
+import Sidebar from '@/src/components/UI/SideBar'
 
 const page = () => {
+    const menuItems = [
+        { name: 'May 2025', route: 'may' },
+
+    ];
     const products = [
         {
             name: 'VModel',
@@ -47,15 +52,18 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
         {
             name: 'Voltis Labs Academy',
             description: `A learning hub for creative minds who want to do more than consume tech - they want to understand it, shape it, and grow with it. \n Voltis Labs Academy is our way of opening the door. Through live workshops, creator toolkits, and mentorship sessions, we’re helping the next generation of freelancers, designers, culture builders, and innovators grow the confidence and skills they need to thrive in the digital world. `,
-            link: 'https://academy.voltislabs.com/'
+            link: 'https://academy.voltislabs.com/',
+            image: "/images/voltis-labs-academy.png"
         }
     ]
 
     return (
-        <div className="container mx-auto px-4 py-12 max-w-4xl text-white pt-20">
+        <div id='may' className="container mx-auto px-4 py-12 max-w-4xl text-white pt-24">
+            <Sidebar tbList={menuItems} />
             <ArticleHeader
                 title="Rethinking the Future of Tech: Why the Future of Tech Should Feel More Human"
                 author="Voltis Labs"
+                date="Published on Tuesday 6th May, 2025"
             />
 
             {/* Hero Image Placeholder */}

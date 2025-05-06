@@ -16,7 +16,13 @@ const ArticleHeader: React.FC<ArticleHeaderProps> = ({ title, author, date }) =>
             transition={{ duration: 0.3 }}
         >
             <motion.h1
-                className="text-4xl md:text-5xl font-bold mb-3"
+                className="text-3xl md:text-4xl font-bold mb-6"
+
+            >
+                Welcome to Voltis labs
+            </motion.h1>
+            <motion.h1
+                className="text-2xl md:text-3xl font-bold mb-3"
 
             >
                 {title}
