@@ -120,7 +120,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
         <a href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           VL Academy
         </a>
-        <a href="/game-jam" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+        <a href="/gamejam" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           Game Jam
         </a>
         <a href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
@@ -131,7 +131,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           About Us
         </a>
         <a href="/blog" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          Newsblog
+          News blog
         </a>
         <a href="/contact-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           Contact Us
