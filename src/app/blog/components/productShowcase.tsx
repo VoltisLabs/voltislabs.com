@@ -35,7 +35,7 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ products }) => {
                             <img src={product.image} className="text-white text-xs" alt={product.name} />
                         </div>
                         <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-                        <p className="text-white text-[12px] mb-4 whitespace-pre-line">{product.description}</p>
+                        <p className="text-white text-sm mb-4 whitespace-pre-line">{product.description}</p>
                         <a
                             href={product.link}
                             target="_blank"

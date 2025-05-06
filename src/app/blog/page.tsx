@@ -98,7 +98,7 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                     <img src='/images/blog_second_image.jpg' className='rounded-md object-contain' />
                 </div>
 
-                <h2 className={titleClassName}>One Vision, Many Tools: The Voltis Labs Ecosystem</h2>
+                <h2 className={`font-bold`}>One Vision, Many Tools: The Voltis Labs Ecosystem</h2>
 
                 <p>
                     We've been busy designing an ecosystem of products that support real creativity,
@@ -111,7 +111,7 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
             <ProductShowcase products={products} />
 
             <div className="prose lg:prose-xl mt-16">
-                <h2 className={titleClassName}>So, Why Build Like This?</h2>
+                <h2 className={`font-bold`}>So, Why Build Like This?</h2>
 
                 <p>
                     We get asked a lot: why this collection of tools? Why fashion and gaming and
@@ -133,7 +133,7 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                     <img src='/images/blog_third_image.jpg' className='rounded-md object-cover size-full' />
                 </div>
                 <br />
-                <h2 className={titleClassName}>What's Next?</h2>
+                <h2 className={`font-bold`}>What's Next?</h2>
 
                 <p>
                     We're not chasing viral features. We're not racing to "disrupt."
@@ -144,7 +144,7 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                     Clean. Useful. Beautiful. Empowering.
                 </p>
                 <br />
-                <p className=" font-medium">
+                <p className=" font-bold">
                     This is just the beginning.
                 </p>
 
