@@ -1,4 +1,5 @@
 "use client"
+import Title from '@/src/components/UI/Title'
 import { motion } from 'framer-motion'
 
 interface ArticleHeaderProps {
@@ -15,12 +16,12 @@ const ArticleHeader: React.FC<ArticleHeaderProps> = ({ title, author, date }) =>
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
         >
-            <motion.h1
-                className="text-3xl md:text-4xl font-bold mb-6"
+            <h2
+                className="text-4xl md:text-5xl font-bold mb-6 whitespace-pre-line"
 
             >
-                Welcome to Voltis labs
-            </motion.h1>
+                {` Welcome to Voltis labs News Blog`}
+            </h2>
             <motion.h1
                 className="text-2xl md:text-3xl font-bold mb-3"
 
