@@ -26,7 +26,7 @@ const page = () => {
         },
         {
             name: 'Outfeatz',
-            description: 'Your digital closet—finally organized with background-free cutouts. /n Think of Outfeatz as your wardrobe’s creative assistant. Less clutter, more style.',
+            description: 'Your digital closet—finally organized with background-free cutouts. Think of Outfeatz as your wardrobe’s creative assistant. Less clutter, more style.',
             link: 'https://outfeatz.com/',
             image: "/image/outfeatz.png",
         },
@@ -94,8 +94,8 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                 </p>
 
                 {/* Philosophy Illustration Placeholder */}
-                <div className="my-12 h-64 bg-gray-100 rounded-xl flex items-center justify-center">
-                    <span className="text-gray-400">[Illustration: Human-Centered Design Process]</span>
+                <div className="my-12 h-64 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+                    <img src='/images/blog_second_image.jpg' className='rounded-md object-contain' />
                 </div>
 
                 <h2 className={titleClassName}>One Vision, Many Tools: The Voltis Labs Ecosystem</h2>
@@ -129,8 +129,8 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                 </p>
 
                 {/* Team/Culture Image Placeholder */}
-                <div className="my-12 h-96 bg-gray-100 rounded-xl flex items-center justify-center">
-                    <span className="text-gray-400">[Image: Diverse team collaborating or community using products]</span>
+                <div className="my-12 h-96 bg-gray-100 rounded-xl overflow-hidden">
+                    <img src='/images/blog_third_image.jpg' className='rounded-md object-cover size-full' />
                 </div>
                 <br />
                 <h2 className={titleClassName}>What's Next?</h2>

@@ -68,7 +68,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       </motion.div>
 
       {/* Centered Navigation */}
-      <nav className="hidden lg:flex flex-row items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
+      <nav className="hidden lg:flex flex-row items-center gap-8 absolute left-1/2 transform -translate-x-1/2 text-nowrap pl-10 xl:pl-0">
 
         {/* Products Dropdown */}
         <div
@@ -131,7 +131,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           About Us
         </a>
         <a href="/blog" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          News Blog
+          News blog
         </a>
         <a href="/contact-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           Contact Us
