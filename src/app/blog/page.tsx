@@ -84,7 +84,7 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                     to rebuild what should've been done right the first time.
                 </p>
                 <br />
-                <h2 className={titleClassName}>So, what does that actually mean?</h2>
+                <h2 className={"font-bold"}>So, what does that actually mean?</h2>
 
                 <p>
                     It means creating tools that help people express, organize, connect, and focus—without
