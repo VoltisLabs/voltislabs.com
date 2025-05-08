@@ -2,6 +2,7 @@ import React from 'react'
 import { products } from '../../data'
 import ArticleHeader from './articleHeader'
 import ProductShowcase from './productShowcase'
+import LearnMoreBtn from '@/src/components/UI/LearnMoreBtn'
 
 const april2025 = () => {
 
@@ -110,10 +111,17 @@ const april2025 = () => {
 
                 <p>
                     If you’re a creative or business wanting to get involve sign up for updates on VModel’s
-                    launch day here: <a target='blank' href='https://vmodel.app/' className='underline text-blue-500 font-bold'>vmodel
-                    </a>
-
+                    launch day here:
                 </p>
+                <div className='mx-auto w-fit my-7'>
+
+                    <LearnMoreBtn
+                        text="Visit Homepage"
+                        borderColor="border-white"
+                        textColor="text-white"
+                        route="https://vmodel.app/"
+                    />
+                </div>
             </div></div>
     )
 }
