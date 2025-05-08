@@ -11,11 +11,9 @@ interface ArticleHeaderProps {
 
 const ArticleHeader: React.FC<ArticleHeaderProps> = ({ title, author, date, showWelcome = true }) => {
     return (
-        <motion.header
+        <header
             className="mb-12 text-center"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+
         >
             {showWelcome && (<h2
                 className="text-4xl md:text-5xl font-bold mb-6 whitespace-pre-line"
@@ -23,23 +21,21 @@ const ArticleHeader: React.FC<ArticleHeaderProps> = ({ title, author, date, show
             >
                 {` Welcome to Voltis labs News Blog`}
             </h2>)}
-            <motion.div
+            <div
                 className="flex items-center justify-center text-gray-400 mb-3"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
+
             >      <span>By {author}</span>
                 {date && <span className="mx-2">•</span>}
                 {date && <span>{date}</span>}
-            </motion.div>
-            <motion.h1
+            </div>
+            <h1
                 className="text-2xl md:text-3xl font-bold mb-3"
 
             >
                 {title}
-            </motion.h1>
+            </h1>
 
-        </motion.header>
+        </header>
     )
 }
 
