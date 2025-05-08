@@ -59,8 +59,8 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
             />
 
             {/* Hero Image Placeholder */}
-            <div className="my-12 h-96 bg-gray-100 rounded-xl flex items-center justify-center">
-                <img src='/images/blog_first_image.png' className='rounded-md' />
+            <div className="my-12 h-36 md:h-96 rounded-xl overflow-hidden">
+                <img src='/images/blog_first_image.png' className='object-center object-cover size-full' />
             </div>
 
             <div className="prose lg:prose-xl">
@@ -86,8 +86,8 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                 </p>
 
                 {/* Philosophy Illustration Placeholder */}
-                <div className="my-12 h-64 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
-                    <img src='/images/blog_second_image.jpg' className='rounded-md object-contain' />
+                <div className="my-12 h-36 md:h-96  rounded-xl  overflow-hidden">
+                    <img src='/images/blog_second_image.jpg' className='rounded-md object-contain md:object-cover md:aspect-video object-center md:size-full' />
                 </div>
 
                 <h2 className={`font-bold`}>One Vision, Many Tools: The Voltis Labs Ecosystem</h2>
@@ -121,7 +121,7 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                 </p>
 
                 {/* Team/Culture Image Placeholder */}
-                <div className="my-12 h-96 bg-gray-100 rounded-xl overflow-hidden">
+                <div className="my-12 h-36 md:h-96  rounded-xl overflow-hidden">
                     <img src='/images/blog_third_image.jpg' className='rounded-md object-cover size-full' />
                 </div>
                 <br />

@@ -22,10 +22,10 @@ const ArticleHeader: React.FC<ArticleHeaderProps> = ({ title, author, date, show
                 {` Welcome to Voltis labs News Blog`}
             </h2>)}
             <div
-                className="flex items-center justify-center text-gray-400 mb-3"
+                className="flex flex-col md:flex-row items-center justify-center text-gray-400 mb-3 text-sm md:text-base"
 
             >      <span>By {author}</span>
-                {date && <span className="mx-2">•</span>}
+                {date && <span className="mx-2 ">•</span>}
                 {date && <span>{date}</span>}
             </div>
             <h1

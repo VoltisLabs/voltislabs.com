@@ -36,8 +36,8 @@ const april2025 = () => {
             />
 
             {/* Hero Image Placeholder */}
-            <div className="my-12 h-96 rounded-xl flex items-center justify-center">
-                <img src='/images/april/april_first_image.png' className='rounded-md' />
+            <div className="my-12 h-36 md:h-96 rounded-xl overflow-hidden">
+                <img src='/images/april/april_first_image.png' className='rounded-md size-full object-contain aspect-video' />
             </div>
 
             <div className="prose lg:prose-xl">
@@ -85,8 +85,8 @@ const april2025 = () => {
                 </p>
             </div>
 
-            <div className="my-12 h-72 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
-                <img src='/images/april/april_second_image.jpg' className='rounded-md object-cover  aspect-video' />
+            <div className="my-12 h-36 md:h-72  rounded-xl  overflow-hidden">
+                <img src='/images/april/april_second_image.jpg' className='rounded-md object-cover md:object-cover md:object-bottom aspect-video' />
             </div>
             <div className="prose lg:prose-xl mt-16">
                 <h2 className={`font-extrabold`}>This is how VModel ensures safety is a priority:  </h2>

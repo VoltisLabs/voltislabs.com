@@ -14,7 +14,7 @@ const March2025 = () => {
             />
 
             {/* Hero Image Placeholder */}
-            <div className="my-12 h-96 rounded-xl overflow-hidden">
+            <div className="my-12 h-36 md:h-96 rounded-xl overflow-hidden">
                 <img src='/images/march/march_first_image.png' className='rounded-md object-contain object-top  aspect-video' />
             </div>
 
@@ -48,7 +48,7 @@ const March2025 = () => {
                 </p>
             </div>
 
-            <div className="my-12 h-96  rounded-xl  overflow-hidden">
+            <div className="my-12 h-36 md:h-96  rounded-xl  overflow-hidden">
                 <img src='/images/march/march_second_image.png' className='rounded-md object-contain object-top  aspect-video' />
             </div>
             <div className="prose lg:prose-xl mt-16">
@@ -85,8 +85,8 @@ const March2025 = () => {
                 </p>
                 <br />
             </div>
-            <div className="my-12 h-96 rounded-xl flex items-center justify-center overflow-hidden">
-                <img src='/images/march/march_third_image.jpg' className='rounded-md object-contain object-top pt-10   ' />
+            <div className="my-12 h-36 md:h-96 rounded-xl md:flex items-center justify-center overflow-hidden">
+                <img src='/images/march/march_third_image.jpg' className='rounded-md object-cover object-center aspect-video md:pt-10 ' />
             </div>
             <div className="prose lg:prose-xl">
                 <h2 className={`font-extrabold`}>Made With ADHD in Mind, Built for Everyone </h2>
