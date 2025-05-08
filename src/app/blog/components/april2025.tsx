@@ -30,7 +30,7 @@ const april2025 = () => {
             <ArticleHeader
                 title="Empowering Models: How VModel is Changing the Game"
                 author="Voltis Labs"
-                date="Published on Wednesday 2nd April, 2025"
+                date="Published on Thursday 8th April, 2025"
             />
 
             {/* Hero Image Placeholder */}
