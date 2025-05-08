@@ -51,7 +51,7 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
         }
     ]
     return (
-        <div id='may2025'>
+        <div id='may2025' className='text-sm md:text-base'>
             <ArticleHeader
                 title="Rethinking the Future of Tech: Why the Future of Tech Should Feel More Human"
                 author="Voltis Labs"
@@ -109,12 +109,12 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                     We get asked a lot: why this collection of tools? Why fashion and gaming and
                     productivity?
                 </p>
-
+                <br />
                 <p>
                     The answer is simple: humans are complex. Creators are multidimensional.
                     Communities aren't made of single-use cases.
                 </p>
-
+                <br />
                 <p>
                     Every platform we build is connected by one philosophy—design tools that empower
                     people to express themselves, organize their lives, and create without barriers.
@@ -139,12 +139,12 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                 <p className=" font-bold">
                     This is just the beginning.
                 </p>
-
+                <br />
                 <p>
                     If you're someone who cares about tech that respects people's time, creativity, and
                     identity—we're building for you.
                 </p>
-
+                <br />
                 <p>
                     Follow along. Sign up. Reach out. Or just watch—we're okay earning your trust slowly.
                 </p>

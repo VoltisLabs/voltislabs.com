@@ -19,7 +19,7 @@ const page = () => {
 
 
     return (
-        <div className="container mx-auto px-4 py-12 max-w-4xl text-white pt-24">
+        <div className="container mx-auto px-4 py-12 max-w-4xl text-white pt-24 text-sm md:text-base">
             <Sidebar tbList={menuItems} />
             <May2025 />
             <div className='p-8'></div>

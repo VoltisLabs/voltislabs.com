@@ -48,7 +48,7 @@ const april2025 = () => {
                     other issues. This has resulted in a rising demand for change, with many suggesting that the
                     industry should be made more accessible and less elitist through the use of technology.
                 </p>
-
+                <br />
                 <p>
                     One of the biggest challenges facing models today is the lack of control they have over their
                     own careers. In the traditional modelling industry, models are often dependent on agencies
@@ -108,7 +108,7 @@ const april2025 = () => {
                     healthier, and more inclusive industry. It is time for the modelling industry to embrace new
                     technologies and work towards a brighter future for all models.
                 </p>
-
+                <br />
                 <p>
                     If you’re a creative or business wanting to get involve sign up for updates on VModel’s
                     launch day here:

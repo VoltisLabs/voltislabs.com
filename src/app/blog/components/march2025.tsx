@@ -67,7 +67,7 @@ const March2025 = () => {
                 <p>
                     So, we built a game that turns play into practice:
                 </p>
-                <ul className='list-disc list-inside pl-3'>
+                <ul className='list-disc list-outside pl-6'>
                     <li>
                         Fast-paced rounds to improve short-term focus
                     </li>
@@ -112,7 +112,7 @@ const March2025 = () => {
                 </p>
 
                 <br />
-                <ul className='list-disc list-inside pl-3'>
+                <ul className='list-disc list-outside pl-6'>
                     <li>
                         Multiplayer modes
                     </li>
