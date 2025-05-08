@@ -31,15 +31,12 @@ const March2025 = () => {
                 </p>
                 <br />
                 <h2 className={`font-extrabold`}>A Game That Moves With You </h2>
-
                 <p>
                     Spinnersonic isn’t just another tap-and-win mobile game. It’s engineered to create a
                     feedback loop between focus and motion, helping players train their attention span
                     through high-energy, rhythm-based mechanics.
                 </p>
-
                 <br />
-
                 <p>
                     Where traditional games might flood you with distractions, Spinnersonic guides your
                     focus through sound, pace, and visual patterning. The result? A dynamic experience
@@ -56,7 +53,6 @@ const March2025 = () => {
             </div>
             <div className="prose lg:prose-xl mt-16">
                 <h2 className={`font-extrabold`}>Why Build a Game Like This?  </h2>
-
                 <p>
                     Spinnersonic was born out of a simple but powerful idea: games can help people thrive
                     not just pass time.
@@ -136,7 +132,6 @@ const March2025 = () => {
                 </p>
             </div>
             <div className='mx-auto w-fit my-7'>
-
                 <LearnMoreBtn
                     text="Visit Homepage"
                     borderColor="border-white"

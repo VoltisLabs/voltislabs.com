@@ -139,9 +139,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       </nav>
 
       {/* Mobile Navigation */}
-      <div className="lg:hidden flex items-center space-x-6">
+      <div className="lg:hidden flex items-center space-x-3 sm:space-x-5 md:space-x-6">
         {/* Always visible links */}
-        <a href="/products" className="text-white text-lg text-sm" onClick={(e) => {
+        <a href="/products" className="text-white  text-sm" onClick={(e) => {
           e.preventDefault(); // Prevent default link behavior
           setToggle(true); // Open hamburger menu
         }}>
@@ -150,7 +150,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
 
 
-        <a href="/Aboutus" className="text-white text-lg text-sm">
+        <a href="/Aboutus" className="text-white text-sm">
           About Us
         </a>
 
@@ -218,6 +218,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                   <a onClick={() => setToggle(false)} href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
                     Partners
                   </a>
+                  <a onClick={() => setToggle(false)} href="/blog" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+                    News Blog
+                  </a>
                   <a onClick={() => setToggle(false)} href="/contact-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
                     Contact Us
                   </a>
@@ -226,7 +229,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
               </div>
 
               {/* Fixed Footer */}
-              <div className="absolute bottom-[6rem] pl-6 left-0 w-full bg-[#0D1117] py-4  border-t border-gray-700">
+              <div className="absolute bottom-0 pl-6 left-0 w-full bg-[#0D1117] py-4  border-t border-gray-700">
                 <p className="text-white text-sm">
                   © 2025 Voltis Labs. <br /> All rights reserved.
                 </p>
