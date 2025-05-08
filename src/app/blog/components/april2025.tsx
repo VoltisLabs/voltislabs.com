@@ -27,11 +27,11 @@ const april2025 = () => {
     ]
     return (
         <div id='april2025'>
-            {/* <h2 className='text-gray-500 font-bold text-base mb-6'>April 2025</h2> */}
+            {/* <h2 className='text-gray-500 font-extrabold text-base mb-6'>April 2025</h2> */}
             <ArticleHeader
                 title="Empowering Models: How VModel is Changing the Game"
                 author="Voltis Labs"
-                date="Published on Thursday 8th April, 2025"
+                date="Published on Tuesday 8th April, 2025"
                 showWelcome={false}
             />
 
@@ -89,11 +89,11 @@ const april2025 = () => {
                 <img src='/images/april/april_second_image.jpg' className='rounded-md object-cover  aspect-video' />
             </div>
             <div className="prose lg:prose-xl mt-16">
-                <h2 className={`font-bold`}>This is how VModel ensures safety is a priority:  </h2>
+                <h2 className={`font-extrabold`}>This is how VModel ensures safety is a priority:  </h2>
                 <br />
                 {points.map(point => (
                     <div key={`${point.title}`}>
-                        <h2 className={`font-bold`}>{point.title} </h2>
+                        <h2 className={`font-extrabold`}>{point.title} </h2>
                         <p>{point.paragraph}
                         </p>
                         <br />
@@ -122,7 +122,8 @@ const april2025 = () => {
                         route="https://vmodel.app/"
                     />
                 </div>
-            </div></div>
+            </div>
+        </div>
     )
 }
 

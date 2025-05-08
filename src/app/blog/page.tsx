@@ -7,11 +7,13 @@ import { motion } from 'framer-motion'
 import Sidebar from '@/src/components/UI/SideBar'
 import May2025 from './components/may2025'
 import April2025 from './components/april2025'
+import March2025 from './components/march2025'
 
 const page = () => {
     const menuItems = [
         { name: 'May 2025', route: 'may2025' },
         { name: 'April 2025', route: 'april2025' },
+        { name: 'March 2025', route: 'march2025' },
 
     ];
 
@@ -20,13 +22,14 @@ const page = () => {
         <div className="container mx-auto px-4 py-12 max-w-4xl text-white pt-24">
             <Sidebar tbList={menuItems} />
             <May2025 />
-
-
             <div className='p-8'></div>
             <div className="h-0.5 bg-gray-500 w-full"></div>
             <div className='p-8'></div>
             <April2025 />
-
+            <div className='p-8'></div>
+            <div className="h-0.5 bg-gray-500 w-full"></div>
+            <div className='p-8'></div>
+            <March2025 />
             {/* Call to Action Section */}
             <motion.div
                 className="mt-16 bg-transparent border border-gray-400 rounded-xl p-8 text-center"
