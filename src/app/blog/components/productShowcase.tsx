@@ -16,11 +16,9 @@ interface ProductShowcaseProps {
 
 const ProductShowcase: React.FC<ProductShowcaseProps> = ({ products }) => {
     return (
-        <motion.section
+        <section
             className="my-16"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+
         >
             <div className="grid grid-cols-1  gap-8">
                 {products.map((product, index) => (
@@ -51,7 +49,7 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ products }) => {
                     </div>
                 ))}
             </div>
-        </motion.section>
+        </section>
     )
 }
 
