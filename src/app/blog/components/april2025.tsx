@@ -27,11 +27,12 @@ const april2025 = () => {
     ]
     return (
         <div id='april2025'>
-            <h2 className='text-gray-500 font-bold text-base mb-10'>April 2025</h2>
+            {/* <h2 className='text-gray-500 font-bold text-base mb-6'>April 2025</h2> */}
             <ArticleHeader
                 title="Empowering Models: How VModel is Changing the Game"
                 author="Voltis Labs"
                 date="Published on Thursday 8th April, 2025"
+                showWelcome={false}
             />
 
             {/* Hero Image Placeholder */}
@@ -69,11 +70,7 @@ const april2025 = () => {
                     for models.
                 </p>
 
-                {/* Philosophy Illustration Placeholder */}
-                <div className="my-12 h-72 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
-                    <img src='/images/april/april_second_image.jpg' className='rounded-md object-cover  aspect-video' />
-                </div>
-
+                <br />
 
                 <p>
                     The VModel app aims to address some of these challenges by allowing models to take
@@ -88,6 +85,9 @@ const april2025 = () => {
                 </p>
             </div>
 
+            <div className="my-12 h-72 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
+                <img src='/images/april/april_second_image.jpg' className='rounded-md object-cover  aspect-video' />
+            </div>
             <div className="prose lg:prose-xl mt-16">
                 <h2 className={`font-bold`}>This is how VModel ensures safety is a priority:  </h2>
                 <br />
