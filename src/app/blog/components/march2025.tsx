@@ -86,7 +86,7 @@ const March2025 = () => {
                 <br />
             </div>
             <div className="my-12 h-36 md:h-96 rounded-xl md:flex items-center justify-center overflow-hidden">
-                <img src='/images/march/march_third_image.jpg' className='rounded-md object-cover object-center aspect-video md:pt-10 ' />
+                <img src='/images/march/march_third_image.jpg' className='rounded-md object-contain object-center aspect-video md:pt-10 ' />
             </div>
             <div className="prose lg:prose-xl">
                 <h2 className={`font-extrabold`}>Made With ADHD in Mind, Built for Everyone </h2>
