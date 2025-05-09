@@ -119,7 +119,7 @@ const april2025 = () => {
                         text="Visit Homepage"
                         borderColor="border-white"
                         textColor="text-white"
-                        route="https://vmodel.app/"
+                        route="https://www.vmodelapp.com/"
                     />
                 </div>
             </div>
