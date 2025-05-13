@@ -30,7 +30,7 @@ export default function HeroSection() {
           text="Visit Website"
           borderColor="border-white"
           textColor="text-white"
-          route="https://www.bgremover.uk" />
+          route="https://productivetoolkit.com/" />
         </div>
 
         </div>
