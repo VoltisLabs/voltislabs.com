@@ -25,7 +25,7 @@ export const blogPosts = [
     slug: 'rethinking-tech-making-it-more-human',
     title: 'Rethinking the Future of Tech: Why the Future of Tech Should Feel More Human',
     date: '6th May, 2025',
-    category: 'Company',
+    category: 'Voltis Labs',
     image: '/images/blog_first_image.png',
     content: May2025,
   },

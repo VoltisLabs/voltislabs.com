@@ -9,7 +9,7 @@ import Sidebar from "@/src/components/UI/SideBar";
 
 const categories = [
   'All',
-  'Company',
+  'Voltis Labs',
   'Prelura',
   'Spinnersonic',
   'Vmodel',
@@ -31,7 +31,7 @@ export default function NewsPage() {
   const menuItems = [
     { name: "Research", route: "firstSection", Icon: "" },
     { name: "Safety", route: "secondSection", Icon: "" },
-    { name: "Company", route: "thirdSection", Icon: "" },
+    { name: "Voltis Labs", route: "thirdSection", Icon: "" },
     { name: "Sora", route: "firstSection", Icon: "" },
     { name: "News", route: "fifthSection", Icon: "" },
   ];
