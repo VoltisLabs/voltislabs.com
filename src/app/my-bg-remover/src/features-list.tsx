@@ -46,39 +46,7 @@ export default function Contents() {
   return (
     <div className="bg-black text-white">
       {/* Hero Section */}
-      <header className="text-center py-16">
-        <h1 className="text-4xl font-bold">Remove Your Images Background</h1>
-
-        <div className="mt-6 flex flex-col sm:flex-row items-center sm:justify-center h-auto space-y-6 sm:space-y-0 sm:space-x-8">
-          {[
-            {
-              img: "/image-upload.svg",
-              title: "Remove background instantly!",
-              text: "With our free online background remover, it takes just 5 seconds to have your image background free.",
-            },
-            {
-              img: "/chrome.svg",
-              title: "Automatic and free bg removal",
-              text: "Our background remover removes background from images automatically and for free.",
-            },
-            {
-              img: "/file-heart.svg",
-              title: "Download or keep editing",
-              text: "Done erasing the background? You can download your file as a transparent PNG or enhance it further.",
-            },
-          ].map(({ img, title, text }, index) => (
-            <div
-              key={index}
-              className="p-4 bg-[#181717] rounded-lg shadow-md w-64 text-center flex flex-col items-center"
-            >
-              <Image src={img} alt={title} width={25} height={25} className="mb-2" />
-              <h2 className="text-lg font-semibold mt-2">{title}</h2>
-              <p className="text-sm text-gray-200 mt-1">{text}</p>
-            </div>
-          ))}
-        </div>
-      </header>
-
+      
       {/* Image Dragging Section */}
       <section className="relative max-w-[85rem] flex justify-center items-center py-12 mx-5 md:mx-auto max-w-6xl">
         {/* Draggable Chevron Handle */}

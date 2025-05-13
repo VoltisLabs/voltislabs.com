@@ -1,57 +1,48 @@
-"use client";
-import Image from "next/image";
-import { useState } from "react";
-import { Input } from "./components/ui/input";
-import { Upload } from "lucide-react";
-import LearnMoreBtn from "../../../components/UI/LearnMoreBtn";
+import Link from 'next/link';
+import React from 'react';
 
-
-export default function HeroSection() {
-  const [file, setFile] = useState<File | null>(null);
-
+export default function FirstSection() {
   return (
-    <div className="relative h-full bg-gradient-to-r from-blue-500 via-pink-500 to-orange-500 text-white bg-black flex flex-col justify-between overflow-hidden md-2 rounded-lg shadow-2xl sm:px-4 md:px-2 lg:px-12 mt-6 md-1">
+    <section className="mt-[15rem] flex items-center justify-center px-4 py-6 text-white md:px-10">
+      <div className="max-w-[800px] space-y-6 text-center">
+        <h1 className="bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 bg-clip-text text-4xl font-bold uppercase text-transparent md:text-7xl">
+          Productivity Toolkit
+        </h1>
 
-      {/* Breadcrumbs */}
-      <div className="container sm:px-4 md:px-6 lg:px-12 mx-auto px-4 py-4 text-sm text-white">
-        <span className="opacity-80">Home &gt; Studio &gt; Features &gt; Background Remover</span>
+        <p className="text-2xl font-semibold">Smart Tools for Fast Image & Video Editing</p>
+        <p className="">
+          Speed up your workflow with our all-in-one suite — remove backgrounds, compress images,
+          convert media formats, add watermarks, and more. No installs. Just productivity in your
+          browser.
+        </p>
+
+        <div className="flex flex-wrap items-center justify-center gap-5">
+          <a
+            href="https://productivetoolkit.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative overflow-hidden rounded-3xl border border-purple-800 bg-gray-900 px-5 py-3 font-semibold text-white shadow-[0_0_10px_rgba(139,92,246,0.4)] transition duration-300 hover:shadow-[0_0_12px_3px_rgba(139,92,246,0.6),0_0_20px_4px_rgba(59,130,246,0.4)]"
+          >
+            <span className="relative z-10">Image background removal</span>
+            <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 opacity-20 blur-sm"></span>
+          </a>
+
+          <a
+            href="https://productivetoolkit.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative overflow-hidden rounded-3xl border border-purple-800 bg-gray-900 px-5 py-3 font-semibold text-white shadow-[0_0_10px_rgba(139,92,246,0.4)] transition duration-300 hover:shadow-[0_0_12px_3px_rgba(139,92,246,0.6),0_0_20px_4px_rgba(59,130,246,0.4)]"
+          >
+            <span className="relative z-10">Image Converter</span>
+            <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 opacity-20 blur-sm"></span>
+          </a>
+        </div>
+
+        <button className="relative overflow-hidden rounded-3xl bg-purple-500 px-5 py-3 font-semibold text-white shadow-[0_0_10px_rgba(168,85,247,0.6)] transition duration-300 hover:shadow-[0_0_15px_4px_rgba(168,85,247,0.8)]">
+          <span className="relative z-10">Start Free Trial</span>
+          <span className="absolute inset-0 bg-purple-500 opacity-25 blur-sm"></span>
+        </button>
       </div>
-
-      {/* Hero Content */}
-      <div className="flex flex-col items-center text-center px-6 lg:px-12 mt-8 flex-grow">
-        <div className="bg-purple-900 rounded-lg p-6 lg:p-8 shadow-lg max-w-3xl">
-          <h1 className="text-3xl lg:text-4xl font-bold mb-3">Free Image Background Remover</h1>
-          <p className="text-gray-200">
-          Unlock more from your photos by removing the background in seconds. Instantly create clean, background-free images with our online background remover.
-          </p>
-
-        <div className="flex text-white justify-center items-end mt-5">
-        <LearnMoreBtn
-          text="Visit Website"
-          borderColor="border-white"
-          textColor="text-white"
-          route="https://productivetoolkit.com/" />
-        </div>
-
-        </div>
-
-        {/* Feature Highlights */}
-        <div className="flex mt-3 bottom-5 flex-wrap gap-4 justify-center text-white lg:px-12">
-          <div className="flex items-center gap-2">
-            <span>🖼️</span> Remove Background from Image
-          </div>
-          <span className="opacity-70">|</span>
-          <div className="flex items-center gap-2">
-            <span>⚡</span> Accurate, Free, Automatic & Online
-          </div>
-          <span className="opacity-70">|</span>
-          <div className="flex items-center gap-2">
-            <span>⏳</span> Done in 5 seconds
-          </div>
-        </div>
-        <br />
-
-      </div>
-    </div>
+    </section>
   );
 }
