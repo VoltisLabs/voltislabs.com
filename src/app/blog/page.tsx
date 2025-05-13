@@ -10,11 +10,10 @@ import Sidebar from "@/src/components/UI/SideBar";
 const categories = [
   'All',
   'Company',
-  'Research',
-  'Product',
-  'Safety',
-  'Security',
-  'Global Affairs',
+  'Prelura',
+  'Spinnersonic',
+  'Vmodel',
+  'Productivty',
 ];
 
 export default function NewsPage() {
@@ -37,7 +36,7 @@ export default function NewsPage() {
     { name: "News", route: "fifthSection", Icon: "" },
   ];
   return (
-    <div className="min-h-screen bg-black px-4 py-12 pt-28 text-white sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black mx-auto max-w-[75rem]  px-4 py-12 pt-28 text-white sm:px-6 lg:px-8">
            <Sidebar tbList={menuItems} />
 
       <h1 className="mb-8 text-3xl font-bold sm:text-4xl">News</h1>
@@ -111,7 +110,7 @@ export default function NewsPage() {
               <img
                 src={post.image}
                 alt={post.title}
-                className={`${post.contain ? 'object-contain' : 'object-cover'} rounded-lg transition-transform duration-300 ${
+                className={`object-cover rounded-lg transition-transform duration-300 ${
                   view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'
                 }`}
               />
