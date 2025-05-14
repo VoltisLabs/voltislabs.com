@@ -95,7 +95,8 @@ const april2025 = () => {
                 {points.map(point => (
                     <div key={`${point.title}`}>
                         <h2 className={`font-extrabold`}>{point.title} </h2>
-                        <p>{point.paragraph}
+                        <p>
+                            {point.paragraph}
                         </p>
                         <br />
                     </div>

@@ -1,33 +1,89 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { blogPosts } from './components/blogData';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Grid, List, ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Grid, List } from 'lucide-react';
 import Sidebar from "@/src/components/UI/SideBar";
+import { fetchData } from '../../../lib/apiClient';
 
-const categories = [
-  'All',
-  'Voltis Labs',
-  'Prelura',
-  'Spinnersonic',
-  'VModel',
-  'Productivty',
-];
+const GET_POSTS_QUERY = `
+  query GetPost {
+    posts {
+      category {
+        name
+      }
+      content {
+        html
+      }
+      createdAt
+      slug
+      title
+      updatedAt
+      publishedAt
+      publishedBy {
+        name
+        picture
+      }
+      featuredImage {
+        url
+      }
+    }
+  }
+`;
+
+interface Post {
+  title: string;
+  slug: string;
+  date: string;
+  image: string;
+  category: any;
+}
 
 export default function NewsPage() {
+  const [posts, setPosts] = useState<Post[]>([]);
   const [activeTab, setActiveTab] = useState('All');
   const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
   const [view, setView] = useState<'grid' | 'list'>('grid');
+  const [loading, setLoading] = useState(true);
 
-  const filteredPosts = blogPosts
+  useEffect(() => {
+    const getPosts = async () => {
+      try {
+        const data = await fetchData({ query: GET_POSTS_QUERY });
+
+        const formatted = data?.data?.posts.map((p: any) => ({
+          title: p.title,
+          slug: p.slug,
+          date: p.publishedAt || p.createdAt,
+          image: p.featuredImage?.url || '',
+          category: Array.isArray(p.category) && p.category.length > 0 ? p.category[0].name : 'Uncategorized',
+        }));
+
+        setPosts(formatted);
+      } catch (err) {
+        console.error('Failed to fetch blog posts:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getPosts();
+  }, []);
+
+  const categories = [
+    'All',
+    ...Array.from(new Set(posts.map((p) => p.category))).filter(Boolean),
+  ];
+
+  const filteredPosts = posts
     .filter((post) => activeTab === 'All' || post.category === activeTab)
     .sort((a, b) => {
       const dateA = new Date(a.date).getTime();
       const dateB = new Date(b.date).getTime();
       return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
     });
+
   const menuItems = [
     { name: "Research", route: "firstSection", Icon: "" },
     { name: "Safety", route: "secondSection", Icon: "" },
@@ -35,9 +91,21 @@ export default function NewsPage() {
     { name: "Sora", route: "firstSection", Icon: "" },
     { name: "News", route: "fifthSection", Icon: "" },
   ];
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-white">
+        <div className="flex flex-col items-center gap-4">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-white border-t-transparent" />
+          <p className="text-sm text-gray-300">Loading news...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-black mx-auto max-w-[75rem]  px-4 py-12 pt-28 text-white sm:px-6 lg:px-8">
-           <Sidebar tbList={menuItems} />
+    <div className="min-h-screen bg-black mx-auto max-w-[75rem] px-4 py-12 pt-28 text-white sm:px-6 lg:px-8">
+      <Sidebar tbList={menuItems} />
 
       <h1 className="mb-8 text-3xl font-bold sm:text-4xl">News</h1>
 
@@ -49,9 +117,7 @@ export default function NewsPage() {
             <button
               key={cat}
               className={`pb-1 text-base sm:text-lg ${
-                activeTab === cat
-                  ? ' font-bold text-white'
-                  : 'hover:text-gray-200'
+                activeTab === cat ? 'font-bold text-white' : 'hover:text-gray-200'
               }`}
               onClick={() => setActiveTab(cat)}
             >
@@ -60,35 +126,20 @@ export default function NewsPage() {
           ))}
         </div>
 
-        {/* Sort + View */}
-        <div className="flex items-center gap-4">
-          {/* Sort */}
-          {/* <div className="relative text-sm">
-            <select
-              value={sortOrder}
-              onChange={(e) => setSortOrder(e.target.value as 'newest' | 'oldest')}
-              className="bg-black text-white border border-gray-600 px-3 py-1 rounded-md focus:outline-none"
-            >
-              <option value="newest">Newest First</option>
-              <option value="oldest">Oldest First</option>
-            </select>
-          </div> */}
-
-          {/* View Toggle */}
-          <div className="flex gap-2">
-            <button
-              onClick={() => setView('grid')}
-              className={`rounded p-2 ${view === 'grid' ? ' text-white' : 'text-gray-200'}`}
-            >
-              <Grid size={16} />
-            </button>
-            <button
-              onClick={() => setView('list')}
-              className={`rounded p-2 ${view === 'list' ? ' text-white' : 'text-gray-200'}`}
-            >
-              <List size={16} />
-            </button>
-          </div>
+        {/* View Toggle */}
+        <div className="flex gap-2">
+          <button
+            onClick={() => setView('grid')}
+            className={`rounded p-2 ${view === 'grid' ? 'text-white' : 'text-gray-200'}`}
+          >
+            <Grid size={16} />
+          </button>
+          <button
+            onClick={() => setView('list')}
+            className={`rounded p-2 ${view === 'list' ? 'text-white' : 'text-gray-200'}`}
+          >
+            <List size={16} />
+          </button>
         </div>
       </div>
 
@@ -114,13 +165,14 @@ export default function NewsPage() {
                   view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'
                 }`}
               />
-              <div className={`${view === 'list' ? 'p-4' : ' py-4'}`}>
+              <div className={`${view === 'list' ? 'p-4' : 'py-4'}`}>
                 <h3 className="mt-1 mb-4 overflow-hidden truncate whitespace-nowrap text-md font-semibold text-white">
                   {post.title}
                 </h3>
 
                 <p className="text-sm text-gray-400">
-                  <span className='text-white font-bold'>{post.category}</span> — {post.date}
+                  <span className="text-white font-bold">{post.category}</span> —{' '}
+                  {new Date(post.date).toLocaleDateString()}
                 </p>
               </div>
             </div>
