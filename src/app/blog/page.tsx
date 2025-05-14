@@ -12,7 +12,7 @@ const categories = [
   'Voltis Labs',
   'Prelura',
   'Spinnersonic',
-  'Vmodel',
+  'VModel',
   'Productivty',
 ];
 
