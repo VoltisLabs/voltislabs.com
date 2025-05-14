@@ -57,18 +57,18 @@ export default function BlogPostPage() {
     fetchPost();
   }, [slug]);
 
-if (loading) {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-black text-white">
-      <div className="flex flex-col items-center gap-4">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-white border-t-transparent" />
-        <p className="text-sm text-gray-300">Loading article...</p>
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-black text-white">
+        <div className="flex flex-col items-center gap-4">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-white border-t-transparent" />
+          <p className="text-sm text-gray-300">Loading article...</p>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
-  if (!post) return <div className="text-red-500 p-4">Post not found</div>;
+  if (!post) return <div className="p-4 text-red-500">Post not found</div>;
 
   const formattedDate = new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-US', {
     weekday: 'long',
@@ -78,7 +78,7 @@ if (loading) {
   });
 
   return (
-    <div className="min-h-screen bg-black text-white px-4 py-20 max-w-4xl mx-auto">
+    <div className="mx-auto min-h-screen max-w-4xl bg-black px-4 py-20 text-white">
       <ArticleHeader
         title={post.title}
         author={post.publishedBy?.name || 'Unknown Author'}
@@ -87,7 +87,7 @@ if (loading) {
       />
 
       <div
-        className="mt-10 prose prose-invert max-w-none"
+        className="prose prose-invert prose-p:text-justify prose-img:rounded-lg prose-img:mx-auto prose-headings:text-white prose-p:text-gray-200 mt-10 max-w-none"
         dangerouslySetInnerHTML={{ __html: post.content?.html || '' }}
       />
     </div>
