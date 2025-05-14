@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Grid, List } from 'lucide-react';
-import Sidebar from "@/src/components/UI/SideBar";
+import Sidebar from '@/src/components/UI/SideBar';
 import { fetchData } from '../../../lib/apiClient';
 
 const GET_POSTS_QUERY = `
@@ -57,7 +57,10 @@ export default function NewsPage() {
           slug: p.slug,
           date: p.publishedAt || p.createdAt,
           image: p.featuredImage?.url || '',
-          category: Array.isArray(p.category) && p.category.length > 0 ? p.category[0].name : 'Uncategorized',
+          category:
+            Array.isArray(p.category) && p.category.length > 0
+              ? p.category[0].name
+              : 'Uncategorized',
         }));
 
         setPosts(formatted);
@@ -71,10 +74,7 @@ export default function NewsPage() {
     getPosts();
   }, []);
 
-  const categories = [
-    'All',
-    ...Array.from(new Set(posts.map((p) => p.category))).filter(Boolean),
-  ];
+  const categories = ['All', ...Array.from(new Set(posts.map((p) => p.category))).filter(Boolean)];
 
   const filteredPosts = posts
     .filter((post) => activeTab === 'All' || post.category === activeTab)
@@ -85,16 +85,16 @@ export default function NewsPage() {
     });
 
   const menuItems = [
-    { name: "Research", route: "firstSection", Icon: "" },
-    { name: "Safety", route: "secondSection", Icon: "" },
-    { name: "Voltis Labs", route: "thirdSection", Icon: "" },
-    { name: "Sora", route: "firstSection", Icon: "" },
-    { name: "News", route: "fifthSection", Icon: "" },
+    { name: 'Research', route: 'firstSection', Icon: '' },
+    { name: 'Safety', route: 'secondSection', Icon: '' },
+    { name: 'Voltis Labs', route: 'thirdSection', Icon: '' },
+    { name: 'Sora', route: 'firstSection', Icon: '' },
+    { name: 'News', route: 'fifthSection', Icon: '' },
   ];
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black text-white">
+      <div className="flex min-h-screen items-center justify-center bg-black text-white">
         <div className="flex flex-col items-center gap-4">
           <div className="h-8 w-8 animate-spin rounded-full border-4 border-white border-t-transparent" />
           <p className="text-sm text-gray-300">Loading news...</p>
@@ -104,7 +104,7 @@ export default function NewsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black mx-auto max-w-[75rem] px-4 py-12 pt-28 text-white sm:px-6 lg:px-8">
+    <div className="mx-auto min-h-screen max-w-[75rem] bg-black px-4 py-12 pt-28 text-white sm:px-6 lg:px-8">
       <Sidebar tbList={menuItems} />
 
       <h1 className="mb-8 text-3xl font-bold sm:text-4xl">News</h1>
@@ -161,18 +161,22 @@ export default function NewsPage() {
               <img
                 src={post.image}
                 alt={post.title}
-                className={`object-cover rounded-lg transition-transform duration-300 ${
+                className={`rounded-lg object-cover transition-transform duration-300 ${
                   view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'
                 }`}
               />
               <div className={`${view === 'list' ? 'p-4' : 'py-4'}`}>
-                <h3 className="mt-1 mb-4 overflow-hidden truncate whitespace-nowrap text-md font-semibold text-white">
+                <h3 className="text-md mb-4 mt-1 overflow-hidden truncate whitespace-nowrap font-semibold text-white">
                   {post.title}
                 </h3>
 
                 <p className="text-sm text-gray-400">
-                  <span className="text-white font-bold">{post.category}</span> —{' '}
-                  {new Date(post.date).toLocaleDateString()}
+                  <span className="font-bold text-white">{post.category}</span> —{' '}
+                  {new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
                 </p>
               </div>
             </div>
