@@ -86,10 +86,10 @@ export default function BlogPostPage() {
         showWelcome={false}
       />
 
-      <div
-        className="prose prose-invert prose-p:text-justify prose-img:rounded-lg prose-img:mx-auto prose-headings:text-white prose-p:text-gray-200 mt-10 max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content?.html || '' }}
-      />
+<div
+  className="prose prose-invert prose-p:text-justify prose-img:rounded-lg prose-img:w-full prose-img:max-h-[40vh] prose-img:object-cover prose-headings:text-white prose-p:text-gray-200 mt-10 max-w-none"
+  dangerouslySetInnerHTML={{ __html: post.content?.html || '' }}
+/>
     </div>
   );
 }
