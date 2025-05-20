@@ -16,11 +16,9 @@ const GET_POSTS_QUERY = `
       content {
         html
       }
-      createdAt
       slug
       title
-      updatedAt
-      publishedAt
+      datePublished
       publishedBy {
         name
         picture
@@ -38,6 +36,7 @@ interface Post {
   date: string;
   image: string;
   category: any;
+  datePublished: string;
 }
 
 export default function NewsPage() {
@@ -55,7 +54,7 @@ export default function NewsPage() {
         const formatted = data?.data?.posts.map((p: any) => ({
           title: p.title,
           slug: p.slug,
-          date: p.publishedAt || p.createdAt,
+          date: p.datePublished,
           image: p.featuredImage?.url || '',
           category:
             Array.isArray(p.category) && p.category.length > 0
