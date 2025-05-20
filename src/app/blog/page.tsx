@@ -16,11 +16,8 @@ const GET_POSTS_QUERY = `
       content {
         html
       }
-      createdAt
       slug
       title
-      updatedAt
-      publishedAt
       datePublished
       publishedBy {
         name
@@ -75,8 +72,6 @@ export default function NewsPage() {
 
     getPosts();
   }, []);
-
-  console.log("posts", posts);
 
   const categories = ['All', ...Array.from(new Set(posts.map((p) => p.category))).filter(Boolean)];
 
