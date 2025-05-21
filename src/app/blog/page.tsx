@@ -3,13 +3,14 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Grid, List, Calendar, ChevronDown, Search } from 'lucide-react';
+import { Grid, List, Calendar, ChevronDown, Search, ChevronLeft, ChevronRight } from 'lucide-react';
 import Sidebar from '@/src/components/UI/SideBar';
 import { fetchData } from '../../../lib/apiClient';
 
+// Updated GraphQL query with pagination variables
 const GET_POSTS_QUERY = `
-  query GetPost {
-    posts {
+  query GetPost($first: Int!, $skip: Int!) {
+    posts(first: $first, skip: $skip, orderBy: datePublished_DESC) {
       category {
         name
       }
@@ -53,10 +54,24 @@ export default function NewsPage() {
   const [dateSearchInput, setDateSearchInput] = useState<string>('');
   const [invalidDateEntered, setInvalidDateEntered] = useState<boolean>(false);
 
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [postsPerPage] = useState<number>(9); // Number of posts per page
+  const [hasMorePosts, setHasMorePosts] = useState<boolean>(true); // To check if there are more posts
+
   useEffect(() => {
     const getPosts = async () => {
+      setLoading(true);
       try {
-        const data = await fetchData({ query: GET_POSTS_QUERY });
+        const skip = (currentPage - 1) * postsPerPage;
+        
+        const data = await fetchData({ 
+          query: GET_POSTS_QUERY,
+          variables: {
+            first: postsPerPage,
+            skip: skip
+          }
+        });
 
         const formatted = data?.data?.posts.map((p: any) => ({
           title: p.title,
@@ -71,6 +86,9 @@ export default function NewsPage() {
         }));
 
         setPosts(formatted);
+        
+        // If we get fewer posts than requested, we know we're at the end
+        setHasMorePosts(formatted.length === postsPerPage);
       } catch (err) {
         console.error('Failed to fetch blog posts:', err);
       } finally {
@@ -79,7 +97,7 @@ export default function NewsPage() {
     };
 
     getPosts();
-  }, []);
+  }, [currentPage, postsPerPage]);
 
   // Helper functions for date filtering
   const getUniqueYears = () => {
@@ -389,6 +407,20 @@ export default function NewsPage() {
   }
 };
 
+  // Pagination handlers
+  const handleNextPage = async () => {
+    if (!hasMorePosts) return;
+    setCurrentPage(prev => prev + 1);
+    // Loading will be handled by useEffect
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage <= 1) return;
+    setCurrentPage(prev => prev - 1);
+    // Loading will be handled by useEffect
+  };
+
+  // Loading state
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-black text-white">
@@ -415,6 +447,7 @@ export default function NewsPage() {
             value={selectedYear || ''}
             onChange={handleYearChange}
           >
+            <option value="">All Years</option>
             {getUniqueYears().map((year) => (
               <option key={year} value={year}>
                 {year}
@@ -521,10 +554,42 @@ export default function NewsPage() {
         </div>
       </div>
 
-      {/* Post count */}
-      <div className="mb-4 text-sm text-gray-400">
-        Showing {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
+      {/* Post count and pagination info */}
+      <div className="mb-4 flex items-center justify-between">
+        <div className="text-sm text-gray-400">
+          Showing {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
+          {currentPage > 1 && ` (Page ${currentPage})`}
+        </div>
+        
+        {/* Pagination controls */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={handlePrevPage}
+            disabled={currentPage <= 1}
+            className={`flex items-center gap-1 rounded-lg border border-gray-700 px-3 py-1 text-sm transition-colors ${
+              currentPage <= 1
+                ? 'cursor-not-allowed opacity-50'
+                : 'hover:border-gray-400 hover:text-white'
+            }`}
+          >
+            <ChevronLeft size={16} /> Previous
+          </button>
+          
+          <button
+            onClick={handleNextPage}
+            disabled={!hasMorePosts || filteredPosts.length < postsPerPage}
+            className={`flex items-center gap-1 rounded-lg border border-gray-700 px-3 py-1 text-sm transition-colors ${
+              !hasMorePosts || filteredPosts.length < postsPerPage
+                ? 'cursor-not-allowed opacity-50'
+                : 'hover:border-gray-400 hover:text-white'
+            }`}
+          >
+            Next <ChevronRight size={16} />
+          </button>
+        </div>
       </div>
+
+
 
       {/* Blog List */}
       <div
@@ -535,75 +600,108 @@ export default function NewsPage() {
         }
       >
         {filteredPosts.length > 0 ? (
-  filteredPosts.map((post, i) => (
-    <Link key={i} href={`/blog/${post.slug}`}>
-      <div
-        className={`group overflow-hidden transition-all duration-300 ${
-          view === 'list' ? 'flex flex-row' : ''
-        }`}
-      >
-        <img
-          src={post.image}
-          alt={post.title}
-          className={`rounded-lg object-cover transition-transform duration-300 ${
-            view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'
-          }`}
-        />
-        <div className={`${view === 'list' ? 'p-4' : 'py-4'}`}>
-          <h3 className="text-md mb-4 mt-1 overflow-hidden truncate whitespace-nowrap font-semibold text-white">
-            {post.title}
-          </h3>
+          filteredPosts.map((post, i) => (
+            <Link key={i} href={`/blog/${post.slug}`}>
+              <div
+                className={`group overflow-hidden transition-all duration-300 ${
+                  view === 'list' ? 'flex flex-row' : ''
+                }`}
+              >
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className={`rounded-lg object-cover transition-transform duration-300 ${
+                    view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'
+                  }`}
+                />
+                <div className={`${view === 'list' ? 'p-4' : 'py-4'}`}>
+                  <h3 className="text-md mb-4 mt-1 overflow-hidden truncate whitespace-nowrap font-semibold text-white">
+                    {post.title}
+                  </h3>
 
-          <p className="text-sm text-gray-400">
-            <span className="font-bold text-white">{post.category}</span> —{' '}
-            {new Date(post.datePublished).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </p>
+                  <p className="text-sm text-gray-400">
+                    <span className="font-bold text-white">{post.category}</span> —{' '}
+                    {new Date(post.datePublished).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <motion.div 
+            className="col-span-full rounded-xl border border-gray-700 bg-black/50 py-12 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ 
+                duration: 0.5,
+                repeat: Infinity,
+                repeatType: "reverse",
+                repeatDelay: 1
+              }}
+            >
+              <Calendar size={48} className="mx-auto mb-4 text-gray-400" />
+            </motion.div>
+            <motion.h3 
+              className="mb-2 text-xl font-bold text-white"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
+              No posts found
+            </motion.h3>
+            <motion.p 
+              className="mx-auto max-w-md text-gray-400"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
+              Try adjusting your date filters or category selection to find more content.
+            </motion.p>
+          </motion.div>
+        )}
+      </div>
+
+      {/* Pagination controls (bottom) */}
+      {filteredPosts.length > 0 && (
+        <div className="mt-8 flex items-center justify-center gap-2">
+          <button
+            onClick={handlePrevPage}
+            disabled={currentPage <= 1}
+            className={`flex items-center gap-1 rounded-lg border border-gray-700 px-3 py-2 text-sm transition-colors ${
+              currentPage <= 1
+                ? 'cursor-not-allowed opacity-50'
+                : 'hover:border-gray-400 hover:text-white'
+            }`}
+          >
+            <ChevronLeft size={16} /> Previous
+          </button>
+          
+          <div className="mx-2 text-sm text-gray-400">
+            Page {currentPage}
+          </div>
+          
+          <button
+            onClick={handleNextPage}
+            disabled={!hasMorePosts || filteredPosts.length < postsPerPage}
+            className={`flex items-center gap-1 rounded-lg border border-gray-700 px-3 py-2 text-sm transition-colors ${
+              !hasMorePosts || filteredPosts.length < postsPerPage
+                ? 'cursor-not-allowed opacity-50'
+                : 'hover:border-gray-400 hover:text-white'
+            }`}
+          >
+            Next <ChevronRight size={16} />
+          </button>
         </div>
-      </div>
-    </Link>
-  ))
-) : (
-  <motion.div 
-    className="col-span-full rounded-xl border border-gray-700 bg-black/50 py-12 text-center"
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-  >
-    <motion.div
-      initial={{ scale: 0.9 }}
-      animate={{ scale: 1 }}
-      transition={{ 
-        duration: 0.5,
-        repeat: Infinity,
-        repeatType: "reverse",
-        repeatDelay: 1
-      }}
-    >
-      <Calendar size={48} className="mx-auto mb-4 text-gray-400" />
-    </motion.div>
-    <motion.h3 
-      className="mb-2 text-xl font-bold text-white"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.2, duration: 0.5 }}
-    >
-      No posts found
-    </motion.h3>
-    <motion.p 
-      className="mx-auto max-w-md text-gray-400"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.4, duration: 0.5 }}
-    >
-      Try adjusting your date filters or category selection to find more content.
-    </motion.p>
-  </motion.div>
-)}
-      </div>
+      )}
 
       {/* Newsletter */}
       <motion.div
