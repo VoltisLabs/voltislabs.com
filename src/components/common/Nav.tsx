@@ -23,7 +23,8 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     },
     {
       category: "Fun and Casual",
-      items: [{ name: "Spinnersonic", route: "/spinner" }],
+      items: [{ name: "Spinnersonic", route: "/spinner" }, 
+        { name: "Spellcheck", route: "/spellcheck" }],
     },
     {
       category: "Social Media",
