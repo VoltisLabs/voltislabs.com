@@ -3,8 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Grid, List, Calendar, ChevronDown, Search, ChevronUp, Loader2 } from 'lucide-react';
-import Sidebar from '@/src/components/UI/SideBar';
+import { Grid, List, Calendar, ChevronDown, Search, ChevronUp, Loader2, AlertCircle, RotateCcw } from 'lucide-react';
 import { fetchData } from '../../../lib/apiClient';
 
 // Updated GraphQL query - keeping skip for proper infinite scrolling
@@ -47,6 +46,11 @@ export default function NewsPage() {
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
+  
+  // Error states
+  const [error, setError] = useState<string | null>(null);
+  const [loadMoreError, setLoadMoreError] = useState<string | null>(null);
+  const [retrying, setRetrying] = useState(false);
   
   // New state for date filters
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
@@ -116,6 +120,7 @@ export default function NewsPage() {
 
     isLoadingRef.current = true;
     setLoadingMore(true);
+    setLoadMoreError(null); // Clear previous errors
     
     try {
       const data = await fetchData({ 
@@ -153,6 +158,7 @@ export default function NewsPage() {
       }
     } catch (err) {
       console.log('Failed to fetch more blog posts:', err);
+      setLoadMoreError('Failed to load more posts. Please check your network connection.');
     } finally {
       setLoadingMore(false);
       isLoadingRef.current = false;
@@ -161,6 +167,7 @@ export default function NewsPage() {
 
   const getPosts = useCallback(async () => {
     setLoading(true);
+    setError(null); // Clear previous errors
     isLoadingRef.current = true;
     
     try {
@@ -190,14 +197,29 @@ export default function NewsPage() {
         
         // If we get fewer posts than requested, we know we're at the end
         setHasMorePosts(formatted.length === postsPerPage);
+        setError(null); // Clear error on success
       }
     } catch (err) {
       console.log('Failed to fetch blog posts:', err);
+      setError('Network error. Please check your network connection and try again.');
     } finally {
       setLoading(false);
       isLoadingRef.current = false;
     }
   }, [postsPerPage]);
+
+  // Retry function for initial load
+  const handleRetry = async () => {
+    setRetrying(true);
+    await getPosts();
+    setRetrying(false);
+  };
+
+  // Retry function for load more
+  const handleLoadMoreRetry = async () => {
+    setLoadMoreError(null);
+    await loadMorePosts();
+  };
 
   // Initial load
   useEffect(() => {
@@ -206,7 +228,7 @@ export default function NewsPage() {
 
   // Set up intersection observer for infinite scroll
   useEffect(() => {
-    if (!sentinelRef.current || loading) return;
+    if (!sentinelRef.current || loading || error) return;
 
     const handleObserver = (entries: IntersectionObserverEntry[]) => {
       const target = entries[0];
@@ -232,7 +254,7 @@ export default function NewsPage() {
         observerRef.current.disconnect();
       }
     };
-  }, [loading, hasMorePosts, loadMorePosts]);
+  }, [loading, hasMorePosts, loadMorePosts, error]);
 
   // Helper functions for date filtering
   const getUniqueYears = () => {
@@ -491,27 +513,69 @@ export default function NewsPage() {
     <div className={`${view === 'grid' ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3' : 'flex flex-col gap-6'}`}>
       {[...Array(3)].map((_, index) => (
         <div key={index} className={`animate-pulse overflow-hidden ${view === 'list' ? 'flex flex-row' : ''}`}>
-          <div className={`bg-gray-800 rounded-lg ${view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'}`} />
+          <div className={`bg-gray-900 rounded-lg ${view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'}`} />
           <div className={`${view === 'list' ? 'p-4 flex-1' : 'py-4'}`}>
-            <div className="h-4 bg-gray-800 rounded mb-2" />
-            <div className="h-3 bg-gray-800 rounded w-2/3" />
+            <div className="h-4 bg-gray-900 rounded mb-2" />
+            <div className="h-3 bg-gray-900 rounded w-2/3" />
           </div>
         </div>
       ))}
     </div>
   );
 
-  // Loading state
-  // if (loading) {
-  //   return (
-  //     <div className="flex min-h-screen items-center justify-center bg-black text-white">
-  //       <div className="flex flex-col items-center gap-4">
-  //         <div className="h-8 w-8 animate-spin rounded-full border-4 border-white border-t-transparent" />
-  //         <p className="text-sm text-gray-300">Loading news...</p>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+  // Error Component
+  const ErrorComponent = () => (
+    <motion.div 
+      className="flex items-center justify-center bg-black text-white"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="flex flex-col items-center gap-6 text-center max-w-md mx-auto px-4">
+        <motion.div
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          transition={{ 
+            duration: 0.5,
+            repeat: Infinity,
+            repeatType: "reverse",
+            repeatDelay: 2
+          }}
+        >
+          <AlertCircle size={64} className="text-red-500" />
+        </motion.div>
+        
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">Network Error</h2>
+          <p className="text-gray-400 leading-relaxed">
+            {error || 'Please check your network connection and try again'}
+          </p>
+        </div>
+        
+        <motion.button
+          onClick={handleRetry}
+          disabled={retrying}
+          className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-black transition-all hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          whileHover={{ scale: retrying ? 1 : 1.05 }}
+          whileTap={{ scale: retrying ? 1 : 0.95 }}
+        >
+          {retrying ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin" />
+              <span>Retrying...</span>
+            </>
+          ) : (
+            <>
+              <RotateCcw className="h-4 w-4" />
+              <span>Retry</span>
+            </>
+          )}
+        </motion.button>
+      </div>
+    </motion.div>
+  );
+
+
 
   return (
     <div className="mx-auto min-h-screen max-w-[75rem] bg-black px-4 py-12 pt-28 text-white sm:px-6 lg:px-8">
@@ -621,8 +685,16 @@ export default function NewsPage() {
       {/* Controls */}
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         {/* Categories */}
-        <div className="flex flex-wrap gap-4 text-gray-400 sm:gap-6 ">
-          {categories.map((cat) => (
+        <div className="">
+        {loading? (
+          <div className='flex flex-row gap-2'>
+            {[1,2,3,4,5,6].map((i) => (
+              <div key={i} className="h-4 bg-gray-900 rounded mb-2 w-16" />
+            ))}
+          </div>
+        ) : (
+            <div className='flex flex-wrap gap-4 text-gray-400 sm:gap-6 '>
+              {categories.map((cat) => (
             <button
               key={cat}
               className={`pb-1 text-sm ${
@@ -633,6 +705,8 @@ export default function NewsPage() {
               {cat}
             </button>
           ))}
+            </div>
+        )}
         </div>
 
         {/* View Toggle */}
@@ -659,7 +733,9 @@ export default function NewsPage() {
       </div>
 
       {/* Blog List */}
-      {loading? ( <LoadingSkeleton />) : ( 
+      {error && !loading && posts.length === 0? (<ErrorComponent />) : (
+        <div>
+          {loading ? ( <LoadingSkeleton />) : ( 
         <div
         className={
           view === 'grid'
@@ -738,9 +814,35 @@ export default function NewsPage() {
         )}
       </div>
       )}
+        </div>
+      )}
+      
+
+      {/* Load More Error */}
+      {loadMoreError && (
+        <motion.div
+          className="mt-6 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <div className="rounded-xl border border-red-500/20 bg-red-500/10 p-4">
+            <div className="flex flex-col items-center gap-3">
+              <AlertCircle className="h-5 w-5 text-red-400" />
+              <p className="text-sm text-red-400">{loadMoreError}</p>
+              <button
+                onClick={handleLoadMoreRetry}
+                className="flex items-center gap-2 rounded-lg bg-red-500 px-4 py-2 text-sm font-medium text-white hover:bg-red-600 transition-colors"
+              >
+                <RotateCcw className="h-4 w-4" />
+                Retry
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      )}
 
       {/* Infinite scroll sentinel element */}
-      {hasMorePosts && (
+      {hasMorePosts && !loadMoreError && (
         <div ref={sentinelRef} className="mt-8">
           <AnimatePresence>
             {loadingMore && (
