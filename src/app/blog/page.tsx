@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Grid, List, Calendar, ChevronDown, Search, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Grid, List, Calendar, ChevronDown, Search, ChevronUp, Loader2 } from 'lucide-react';
 import Sidebar from '@/src/components/UI/SideBar';
 import { fetchData } from '../../../lib/apiClient';
 
-// Updated GraphQL query with pagination variables
+// Updated GraphQL query - keeping skip for proper infinite scrolling
 const GET_POSTS_QUERY = `
   query GetPost($first: Int!, $skip: Int!) {
     posts(first: $first, skip: $skip, orderBy: datePublished_DESC) {
@@ -46,6 +46,7 @@ export default function NewsPage() {
   const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   
   // New state for date filters
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
@@ -54,61 +55,194 @@ export default function NewsPage() {
   const [dateSearchInput, setDateSearchInput] = useState<string>('');
   const [invalidDateEntered, setInvalidDateEntered] = useState<boolean>(false);
 
-  // Pagination states
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [postsPerPage] = useState<number>(9); // Number of posts per page
-  const [hasMorePosts, setHasMorePosts] = useState<boolean>(true); // To check if there are more posts
+  // Infinite scroll states
+  const [totalPostsLoaded, setTotalPostsLoaded] = useState<number>(0);
+  const [postsPerPage] = useState<number>(3);
+  const [hasMorePosts, setHasMorePosts] = useState<boolean>(true);
+  
+  // Back to top button states
+  const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
+  const [isScrolling, setIsScrolling] = useState<boolean>(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // Refs for infinite scroll
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const isLoadingRef = useRef<boolean>(false);
 
+  // Scroll event handler for back to top button
   useEffect(() => {
-    const getPosts = async () => {
-      setLoading(true);
-      try {
-        const skip = (currentPage - 1) * postsPerPage;
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolling(true);
+      
+      // Clear existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      
+      // Set new timeout to detect when scrolling stops
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolling(false);
+      }, 150);
+      
+      // Show back to top button if scrolled down more than 300px and not currently scrolling
+      setShowBackToTop(scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Smooth scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const loadMorePosts = useCallback(async () => {
+    // Prevent multiple simultaneous calls
+    if (isLoadingRef.current || !hasMorePosts || loadingMore) {
+      return;
+    }
+
+    isLoadingRef.current = true;
+    setLoadingMore(true);
+    
+    try {
+      const data = await fetchData({ 
+        query: GET_POSTS_QUERY,
+        variables: {
+          first: postsPerPage,
+          skip: totalPostsLoaded
+        }
+      });
+
+      const formatted = data?.data?.posts.map((p: any) => ({
+        title: p.title,
+        slug: p.slug,
+        date: p.datePublished,
+        datePublished: p.datePublished,
+        image: p.featuredImage?.url || '',
+        category:
+          Array.isArray(p.category) && p.category.length > 0
+            ? p.category[0].name
+            : 'Uncategorized',
+      }));
+
+      if (formatted && formatted.length > 0) {
+        // Append new posts to existing posts
+        setPosts(prevPosts => [...prevPosts, ...formatted]);
+        setTotalPostsLoaded(prev => prev + formatted.length);
         
-        const data = await fetchData({ 
-          query: GET_POSTS_QUERY,
-          variables: {
-            first: postsPerPage,
-            skip: skip
-          }
-        });
+        // If we get fewer posts than requested, we know we're at the end
+        if (formatted.length < postsPerPage) {
+          setHasMorePosts(false);
+        }
+      } else {
+        // No more posts available
+        setHasMorePosts(false);
+      }
+    } catch (err) {
+      console.error('Failed to fetch more blog posts:', err);
+    } finally {
+      setLoadingMore(false);
+      isLoadingRef.current = false;
+    }
+  }, [postsPerPage, totalPostsLoaded, hasMorePosts, loadingMore]);
 
-        const formatted = data?.data?.posts.map((p: any) => ({
-          title: p.title,
-          slug: p.slug,
-          date: p.datePublished,
-          datePublished: p.datePublished,
-          image: p.featuredImage?.url || '',
-          category:
-            Array.isArray(p.category) && p.category.length > 0
-              ? p.category[0].name
-              : 'Uncategorized',
-        }));
+  const getPosts = useCallback(async () => {
+    setLoading(true);
+    isLoadingRef.current = true;
+    
+    try {
+      const data = await fetchData({ 
+        query: GET_POSTS_QUERY,
+        variables: {
+          first: postsPerPage,
+          skip: 0
+        }
+      });
 
+      const formatted = data?.data?.posts.map((p: any) => ({
+        title: p.title,
+        slug: p.slug,
+        date: p.datePublished,
+        datePublished: p.datePublished,
+        image: p.featuredImage?.url || '',
+        category:
+          Array.isArray(p.category) && p.category.length > 0
+            ? p.category[0].name
+            : 'Uncategorized',
+      }));
+
+      if (formatted) {
         setPosts(formatted);
+        setTotalPostsLoaded(formatted.length);
         
         // If we get fewer posts than requested, we know we're at the end
         setHasMorePosts(formatted.length === postsPerPage);
-      } catch (err) {
-        console.error('Failed to fetch blog posts:', err);
-      } finally {
-        setLoading(false);
+      }
+    } catch (err) {
+      console.error('Failed to fetch blog posts:', err);
+    } finally {
+      setLoading(false);
+      isLoadingRef.current = false;
+    }
+  }, [postsPerPage]);
+
+  // Initial load
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
+
+  // Set up intersection observer for infinite scroll
+  useEffect(() => {
+    if (!sentinelRef.current || loading) return;
+
+    const handleObserver = (entries: IntersectionObserverEntry[]) => {
+      const target = entries[0];
+      if (target.isIntersecting && hasMorePosts && !isLoadingRef.current) {
+        loadMorePosts();
       }
     };
 
-    getPosts();
-  }, [currentPage, postsPerPage]);
+    // Disconnect existing observer
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    observerRef.current = new IntersectionObserver(handleObserver, {
+      threshold: 0.1,
+      rootMargin: '100px',
+    });
+
+    observerRef.current.observe(sentinelRef.current);
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [loading, hasMorePosts, loadMorePosts]);
 
   // Helper functions for date filtering
   const getUniqueYears = () => {
     const years = posts
       .map(post => new Date(post.datePublished).getFullYear().toString())
       .filter(Boolean);
-    return Array.from(new Set(years)).sort((a, b) => b.localeCompare(a)); // Sort descending (newest first)
+    return Array.from(new Set(years)).sort((a, b) => b.localeCompare(a));
   };
 
   const getMonthsInYear = (year: string) => {
-    // Get all months that have posts in the selected year
     const monthsInYear = posts
       .filter(post => new Date(post.datePublished).getFullYear().toString() === year)
       .map(post => {
@@ -119,7 +253,6 @@ export default function NewsPage() {
         };
       });
     
-    // Remove duplicates and sort by month number
     const uniqueMonths = Array.from(
       new Map(monthsInYear.map(item => [item.value, item])).values()
     ).sort((a, b) => parseInt(a.value) - parseInt(b.value));
@@ -127,53 +260,26 @@ export default function NewsPage() {
     return uniqueMonths;
   };
 
-  const getFormattedAvailableDates = () => {
-    if (!selectedYear || !selectedMonth) return [];
-    
-    // Get all available dates for the selected year and month
-    return posts
-      .filter(post => {
-        const date = new Date(post.datePublished);
-        return date.getFullYear().toString() === selectedYear && 
-               date.getMonth().toString() === selectedMonth;
-      })
-      .map(post => {
-        const date = new Date(post.datePublished);
-        // Format as "February 16, 2025"
-        return date.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        });
-      })
-      .filter((value, index, self) => self.indexOf(value) === index)
-      .sort();
-  };
-
   const categories = ['All', ...Array.from(new Set(posts.map((p) => p.category))).filter(Boolean)];
 
   const filteredPosts = posts
     .filter((post) => activeTab === 'All' || post.category === activeTab)
     .filter((post) => {
-      // If user has entered an invalid date, return no posts
       if (invalidDateEntered) {
         return false;
       }
       
-      // Apply year filter if selected
       if (selectedYear) {
         const postDate = new Date(post.datePublished);
         const postYear = postDate.getFullYear().toString();
         
         if (postYear !== selectedYear) return false;
         
-        // Apply month filter if selected
         if (selectedMonth) {
           const postMonth = postDate.getMonth().toString();
           
           if (postMonth !== selectedMonth) return false;
           
-          // Apply specific date filter if provided
           if (specificDate && specificDate.trim() !== '') {
             const postDay = postDate.getDate().toString().padStart(2, '0');
             if (postDay !== specificDate) return false;
@@ -200,191 +306,63 @@ export default function NewsPage() {
   const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     setSelectedYear(value || null);
-    setSelectedMonth(null); // Reset month when year changes
-    setSpecificDate(''); // Reset date when year changes
+    setSelectedMonth(null);
+    setSpecificDate('');
   };
 
   const handleMonthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     setSelectedMonth(value || null);
-    setSpecificDate(''); // Reset day when month changes
+    setSpecificDate('');
   };
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const value = e.target.value;
-  setDateSearchInput(value);
-  
-  if (!value) {
-    setSpecificDate('');
-    setInvalidDateEntered(false);
-    return;
-  }
-  
-  // Always check immediately upon first character input
-  const valueLower = value.toLowerCase();
-  
-  // Format 1: "February 16, 2025" or "February 16 2025"
-  const formatMonthDayYear = /([a-zA-Z]+)[\s,]+(\d{1,2})[\s,]*(\d{4})/i;
-  
-  // Format 2: "14-MAY-2020" or "14 MAY 2020" or "14/MAY/2020"
-  const formatDayMonthYear = /(\d{1,2})[\s-/]+([a-zA-Z]{3,})[\s-/]+(\d{4})/i;
-  
-  // Format 3: "April 2025" - Month and year only
-  const formatMonthYear = /([a-zA-Z]+)[\s,]*(\d{4})/i;
-  
-  // Format 4: "April" - Just month name
-  const formatMonthOnly = /^([a-zA-Z]+)$/i;
-  
-  const matchFormat1 = value.match(formatMonthDayYear);
-  const matchFormat2 = value.match(formatDayMonthYear);
-  const matchFormat3 = value.match(formatMonthYear);
-  const matchFormat4 = value.match(formatMonthOnly);
-  
-  // Full month names array for lookup
-  const monthNames = [
-    "january", "february", "march", "april", "may", "june", 
-    "july", "august", "september", "october", "november", "december"
-  ];
-  
-  if (matchFormat1) {
-    // Handle "February 16, 2025" format
-    const monthName = matchFormat1[1].toLowerCase();
-    const day = parseInt(matchFormat1[2]);
-    const year = matchFormat1[3];
+    const value = e.target.value;
+    setDateSearchInput(value);
     
-    const monthIndex = monthNames.findIndex(m => 
-      monthName.startsWith(m.substring(0, 3))
-    );
-    
-    if (monthIndex !== -1 && day >= 1 && day <= 31) {
-      // Check if this date exists in our posts
-      const potentialMatches = posts.filter(post => {
-        const postDate = new Date(post.datePublished);
-        return postDate.getDate() === day && 
-                postDate.getMonth() === monthIndex &&
-                postDate.getFullYear().toString() === year;
-      });
-      
-      if (potentialMatches.length > 0) {
-        setSelectedYear(year);
-        setSelectedMonth(monthIndex.toString());
-        setSpecificDate(day.toString().padStart(2, '0'));
-        setInvalidDateEntered(false);
-      } else {
-        setInvalidDateEntered(true);
-      }
-    } else {
-      setInvalidDateEntered(true);
+    if (!value) {
+      setSpecificDate('');
+      setInvalidDateEntered(false);
+      return;
     }
-  } else if (matchFormat2) {
-    // Handle "14-MAY-2020" format
-    const day = parseInt(matchFormat2[1]);
-    const monthName = matchFormat2[2].toLowerCase();
-    const year = matchFormat2[3];
     
-    // Convert abbreviated month name to month number (0-11)
-    const abbreviatedMonths = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
-    const monthIndex = abbreviatedMonths.findIndex(m => monthName.startsWith(m));
+    const valueLower = value.toLowerCase();
     
-    if (monthIndex !== -1 && day >= 1 && day <= 31) {
-      // Check if this date exists in our posts
-      const potentialMatches = posts.filter(post => {
-        const postDate = new Date(post.datePublished);
-        return postDate.getDate() === day && 
-                postDate.getMonth() === monthIndex &&
-                postDate.getFullYear().toString() === year;
-      });
+    const formatMonthDayYear = /([a-zA-Z]+)[\s,]+(\d{1,2})[\s,]*(\d{4})/i;
+    const formatDayMonthYear = /(\d{1,2})[\s-/]+([a-zA-Z]{3,})[\s-/]+(\d{4})/i;
+    const formatMonthYear = /([a-zA-Z]+)[\s,]*(\d{4})/i;
+    const formatMonthOnly = /^([a-zA-Z]+)$/i;
+    
+    const matchFormat1 = value.match(formatMonthDayYear);
+    const matchFormat2 = value.match(formatDayMonthYear);
+    const matchFormat3 = value.match(formatMonthYear);
+    const matchFormat4 = value.match(formatMonthOnly);
+    
+    const monthNames = [
+      "january", "february", "march", "april", "may", "june", 
+      "july", "august", "september", "october", "november", "december"
+    ];
+    
+    if (matchFormat1) {
+      const monthName = matchFormat1[1].toLowerCase();
+      const day = parseInt(matchFormat1[2]);
+      const year = matchFormat1[3];
       
-      if (potentialMatches.length > 0) {
-        setSelectedYear(year);
-        setSelectedMonth(monthIndex.toString());
-        setSpecificDate(day.toString().padStart(2, '0'));
-        setInvalidDateEntered(false);
-      } else {
-        setInvalidDateEntered(true);
-      }
-    } else {
-      setInvalidDateEntered(true);
-    }
-  } else if (matchFormat3) {
-    // Handle "April 2025" format - month and year only
-    const monthName = matchFormat3[1].toLowerCase();
-    const year = matchFormat3[2];
-    
-    const monthIndex = monthNames.findIndex(m => 
-      monthName.startsWith(m.substring(0, 3))
-    );
-    
-    if (monthIndex !== -1) {
-      // Check if there are posts from this month and year
-      const potentialMatches = posts.filter(post => {
-        const postDate = new Date(post.datePublished);
-        return postDate.getMonth() === monthIndex &&
-                postDate.getFullYear().toString() === year;
-      });
+      const monthIndex = monthNames.findIndex(m => 
+        monthName.startsWith(m.substring(0, 3))
+      );
       
-      if (potentialMatches.length > 0) {
-        setSelectedYear(year);
-        setSelectedMonth(monthIndex.toString());
-        setSpecificDate(''); // No specific day
-        setInvalidDateEntered(false);
-      } else {
-        setInvalidDateEntered(true);
-      }
-    } else {
-      setInvalidDateEntered(true);
-    }
-  } else if (matchFormat4) {
-    // Handle just a month name like "April"
-    const monthName = matchFormat4[1].toLowerCase();
-    
-    const monthIndex = monthNames.findIndex(m => 
-      monthName.startsWith(m)
-    );
-    
-    if (monthIndex !== -1) {
-      // Check if there are any posts from this month (in any year)
-      const potentialMatches = posts.filter(post => {
-        const postDate = new Date(post.datePublished);
-        return postDate.getMonth() === monthIndex;
-      });
-      
-      if (potentialMatches.length > 0) {
-        // If we find posts, set only the month filter
-        // Keep the year if already selected, otherwise don't filter by year
-        setSelectedMonth(monthIndex.toString());
-        setSpecificDate(''); // No specific day
-        setInvalidDateEntered(false);
-      } else {
-        setInvalidDateEntered(true);
-      }
-    } else {
-      // Check if the partial month name matches the beginning of any month
-      const partialMonthMatch = monthNames.some(m => m.startsWith(valueLower));
-      
-      if (partialMonthMatch) {
-        // If it's a partial match for a month name, don't mark as invalid yet
-        setInvalidDateEntered(false);
-      } else {
-        // If it doesn't match the beginning of any month name, mark as invalid
-        setInvalidDateEntered(true);
-      }
-    }
-  } else {
-    // Check for simple day input
-    const dayMatch = value.match(/^\d{1,2}$/);
-    if (dayMatch) {
-      const day = parseInt(value);
-      if (day >= 1 && day <= 31) {
-        // Only set the day if it exists in the current month/year selection
-        const dayExists = posts.some(post => {
+      if (monthIndex !== -1 && day >= 1 && day <= 31) {
+        const potentialMatches = posts.filter(post => {
           const postDate = new Date(post.datePublished);
           return postDate.getDate() === day && 
-                (selectedMonth === null || postDate.getMonth().toString() === selectedMonth) &&
-                (selectedYear === null || postDate.getFullYear().toString() === selectedYear);
+                  postDate.getMonth() === monthIndex &&
+                  postDate.getFullYear().toString() === year;
         });
         
-        if (dayExists) {
+        if (potentialMatches.length > 0) {
+          setSelectedYear(year);
+          setSelectedMonth(monthIndex.toString());
           setSpecificDate(day.toString().padStart(2, '0'));
           setInvalidDateEntered(false);
         } else {
@@ -393,48 +371,174 @@ export default function NewsPage() {
       } else {
         setInvalidDateEntered(true);
       }
-    } else {
-      // For any other input that doesn't match our formats, check if it might be the start of a month name
-      const isStartOfMonthName = monthNames.some(month => month.startsWith(valueLower));
+    } else if (matchFormat2) {
+      const day = parseInt(matchFormat2[1]);
+      const monthName = matchFormat2[2].toLowerCase();
+      const year = matchFormat2[3];
       
-      if (isStartOfMonthName) {
-        setInvalidDateEntered(false);
+      const abbreviatedMonths = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+      const monthIndex = abbreviatedMonths.findIndex(m => monthName.startsWith(m));
+      
+      if (monthIndex !== -1 && day >= 1 && day <= 31) {
+        const potentialMatches = posts.filter(post => {
+          const postDate = new Date(post.datePublished);
+          return postDate.getDate() === day && 
+                  postDate.getMonth() === monthIndex &&
+                  postDate.getFullYear().toString() === year;
+        });
+        
+        if (potentialMatches.length > 0) {
+          setSelectedYear(year);
+          setSelectedMonth(monthIndex.toString());
+          setSpecificDate(day.toString().padStart(2, '0'));
+          setInvalidDateEntered(false);
+        } else {
+          setInvalidDateEntered(true);
+        }
       } else {
-        // If not, mark as invalid immediately
         setInvalidDateEntered(true);
       }
+    } else if (matchFormat3) {
+      const monthName = matchFormat3[1].toLowerCase();
+      const year = matchFormat3[2];
+      
+      const monthIndex = monthNames.findIndex(m => 
+        monthName.startsWith(m.substring(0, 3))
+      );
+      
+      if (monthIndex !== -1) {
+        const potentialMatches = posts.filter(post => {
+          const postDate = new Date(post.datePublished);
+          return postDate.getMonth() === monthIndex &&
+                  postDate.getFullYear().toString() === year;
+        });
+        
+        if (potentialMatches.length > 0) {
+          setSelectedYear(year);
+          setSelectedMonth(monthIndex.toString());
+          setSpecificDate('');
+          setInvalidDateEntered(false);
+        } else {
+          setInvalidDateEntered(true);
+        }
+      } else {
+        setInvalidDateEntered(true);
+      }
+    } else if (matchFormat4) {
+      const monthName = matchFormat4[1].toLowerCase();
+      
+      const monthIndex = monthNames.findIndex(m => 
+        monthName.startsWith(m)
+      );
+      
+      if (monthIndex !== -1) {
+        const potentialMatches = posts.filter(post => {
+          const postDate = new Date(post.datePublished);
+          return postDate.getMonth() === monthIndex;
+        });
+        
+        if (potentialMatches.length > 0) {
+          setSelectedMonth(monthIndex.toString());
+          setSpecificDate('');
+          setInvalidDateEntered(false);
+        } else {
+          setInvalidDateEntered(true);
+        }
+      } else {
+        const partialMonthMatch = monthNames.some(m => m.startsWith(valueLower));
+        
+        if (partialMonthMatch) {
+          setInvalidDateEntered(false);
+        } else {
+          setInvalidDateEntered(true);
+        }
+      }
+    } else {
+      const dayMatch = value.match(/^\d{1,2}$/);
+      if (dayMatch) {
+        const day = parseInt(value);
+        if (day >= 1 && day <= 31) {
+          const dayExists = posts.some(post => {
+            const postDate = new Date(post.datePublished);
+            return postDate.getDate() === day && 
+                  (selectedMonth === null || postDate.getMonth().toString() === selectedMonth) &&
+                  (selectedYear === null || postDate.getFullYear().toString() === selectedYear);
+          });
+          
+          if (dayExists) {
+            setSpecificDate(day.toString().padStart(2, '0'));
+            setInvalidDateEntered(false);
+          } else {
+            setInvalidDateEntered(true);
+          }
+        } else {
+          setInvalidDateEntered(true);
+        }
+      } else {
+        const isStartOfMonthName = monthNames.some(month => month.startsWith(valueLower));
+        
+        if (isStartOfMonthName) {
+          setInvalidDateEntered(false);
+        } else {
+          setInvalidDateEntered(true);
+        }
+      }
     }
-  }
-};
-
-  // Pagination handlers
-  const handleNextPage = async () => {
-    if (!hasMorePosts) return;
-    setCurrentPage(prev => prev + 1);
-    // Loading will be handled by useEffect
   };
 
-  const handlePrevPage = () => {
-    if (currentPage <= 1) return;
-    setCurrentPage(prev => prev - 1);
-    // Loading will be handled by useEffect
-  };
+  // Loading Skeleton Component for infinite scroll
+  const LoadingSkeleton = () => (
+    <div className={`${view === 'grid' ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3' : 'flex flex-col gap-6'}`}>
+      {[...Array(3)].map((_, index) => (
+        <div key={index} className={`animate-pulse overflow-hidden ${view === 'list' ? 'flex flex-row' : ''}`}>
+          <div className={`bg-gray-900 rounded-lg ${view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'}`} />
+          <div className={`${view === 'list' ? 'p-4 flex-1' : 'py-4'}`}>
+            <div className="h-4 bg-gray-900 rounded mb-2" />
+            <div className="h-3 bg-gray-900 rounded w-2/3" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 
   // Loading state
-  if (loading) {
+  // if (loading) {
+  //   return (
+  //     <div className="flex min-h-screen items-center justify-center bg-black text-white">
+  //       <div className="flex flex-col items-center gap-4">
+  //         <div className="h-8 w-8 animate-spin rounded-full border-4 border-white border-t-transparent" />
+  //         <p className="text-sm text-gray-300">Loading news...</p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
+    if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-black text-white">
-        <div className="flex flex-col items-center gap-4">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-white border-t-transparent" />
-          <p className="text-sm text-gray-300">Loading news...</p>
-        </div>
-      </div>
+      <LoadingSkeleton />
     );
   }
 
   return (
     <div className="mx-auto min-h-screen max-w-[75rem] bg-black px-4 py-12 pt-28 text-white sm:px-6 lg:px-8">
       {/* <Sidebar tbList={menuItems} /> */}
+
+      {/* Back to top button */}
+      <AnimatePresence>
+        {showBackToTop && !isScrolling && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={scrollToTop}
+            className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-gray-700 bg-black/90 backdrop-blur-sm transition-colors hover:bg-gray-800"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <ChevronUp className="h-5 w-5 text-white" />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       <h1 className="mb-8 text-3xl font-bold sm:text-4xl">News</h1>
 
@@ -523,7 +627,7 @@ export default function NewsPage() {
       {/* Controls */}
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         {/* Categories */}
-        <div className="flex flex-wrap gap-4 text-gray-400 sm:gap-6">
+        <div className="flex flex-wrap gap-4 text-gray-400 sm:gap-6 ">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -554,42 +658,11 @@ export default function NewsPage() {
         </div>
       </div>
 
-      {/* Post count and pagination info */}
-      <div className="mb-4 flex items-center justify-between">
-        <div className="text-sm text-gray-400">
-          Showing {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
-          {currentPage > 1 && ` (Page ${currentPage})`}
-        </div>
-        
-        {/* Pagination controls */}
-        <div className="flex items-center gap-2">
-          <button
-            onClick={handlePrevPage}
-            disabled={currentPage <= 1}
-            className={`flex items-center gap-1 rounded-lg border border-gray-700 px-3 py-1 text-sm transition-colors ${
-              currentPage <= 1
-                ? 'cursor-not-allowed opacity-50'
-                : 'hover:border-gray-400 hover:text-white'
-            }`}
-          >
-            <ChevronLeft size={16} /> Previous
-          </button>
-          
-          <button
-            onClick={handleNextPage}
-            disabled={!hasMorePosts || filteredPosts.length < postsPerPage}
-            className={`flex items-center gap-1 rounded-lg border border-gray-700 px-3 py-1 text-sm transition-colors ${
-              !hasMorePosts || filteredPosts.length < postsPerPage
-                ? 'cursor-not-allowed opacity-50'
-                : 'hover:border-gray-400 hover:text-white'
-            }`}
-          >
-            Next <ChevronRight size={16} />
-          </button>
-        </div>
+      {/* Post count */}
+      <div className="mb-4 text-sm text-gray-400">
+        Showing {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
+        {totalPostsLoaded > 0 && ` (${totalPostsLoaded} total loaded)`}
       </div>
-
-
 
       {/* Blog List */}
       <div
@@ -601,9 +674,9 @@ export default function NewsPage() {
       >
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post, i) => (
-            <Link key={i} href={`/blog/${post.slug}`}>
+            <Link key={`${post.slug}-${i}`} href={`/blog/${post.slug}`}>
               <div
-                className={`group overflow-hidden transition-all duration-300 ${
+                className={`group overflow-hidden transition-all duration-300 hover:scale-105 ${
                   view === 'list' ? 'flex flex-row' : ''
                 }`}
               >
@@ -670,37 +743,62 @@ export default function NewsPage() {
         )}
       </div>
 
-      {/* Pagination controls (bottom) */}
-      {filteredPosts.length > 0 && (
-        <div className="mt-8 flex items-center justify-center gap-2">
-          <button
-            onClick={handlePrevPage}
-            disabled={currentPage <= 1}
-            className={`flex items-center gap-1 rounded-lg border border-gray-700 px-3 py-2 text-sm transition-colors ${
-              currentPage <= 1
-                ? 'cursor-not-allowed opacity-50'
-                : 'hover:border-gray-400 hover:text-white'
-            }`}
-          >
-            <ChevronLeft size={16} /> Previous
-          </button>
-          
-          <div className="mx-2 text-sm text-gray-400">
-            Page {currentPage}
-          </div>
-          
-          <button
-            onClick={handleNextPage}
-            disabled={!hasMorePosts || filteredPosts.length < postsPerPage}
-            className={`flex items-center gap-1 rounded-lg border border-gray-700 px-3 py-2 text-sm transition-colors ${
-              !hasMorePosts || filteredPosts.length < postsPerPage
-                ? 'cursor-not-allowed opacity-50'
-                : 'hover:border-gray-400 hover:text-white'
-            }`}
-          >
-            Next <ChevronRight size={16} />
-          </button>
+      {/* Infinite scroll sentinel element */}
+      {hasMorePosts && (
+        <div ref={sentinelRef} className="mt-8">
+          <AnimatePresence>
+            {loadingMore && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                {/* Skeleton loading cards */}
+                <LoadingSkeleton />
+                
+                {/* Loading indicator */}
+                <motion.div
+                  className="mt-6 flex items-center justify-center"
+                  initial={{ scale: 0.9 }}
+                  animate={{ scale: 1 }}
+                  transition={{ 
+                    duration: 0.8,
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }}
+                >
+                  <div className="flex flex-col items-center gap-3 rounded-xl border border-gray-700 bg-black/50 px-8 py-4">
+                    <div className="flex items-center gap-3">
+                      <Loader2 className="h-5 w-5 animate-spin text-white" />
+                      <span className="text-sm font-medium text-white">Loading more posts...</span>
+                    </div>
+                    <div className="flex space-x-1">
+                      <div className="h-2 w-2 bg-gray-400 rounded-full animate-pulse" />
+                      <div className="h-2 w-2 bg-gray-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+                      <div className="h-2 w-2 bg-gray-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
+      )}
+
+      {/* End of posts indicator */}
+      {!hasMorePosts && posts.length > 0 && (
+        <motion.div
+          className="mt-8 text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex items-center justify-center gap-4">
+            <div className="h-px bg-gray-700 flex-1" />
+            <p className="text-sm text-gray-400 px-4">You've reached the end of all posts</p>
+            <div className="h-px bg-gray-700 flex-1" />
+          </div>
+        </motion.div>
       )}
 
       {/* Newsletter */}
