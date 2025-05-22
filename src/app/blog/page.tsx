@@ -152,7 +152,7 @@ export default function NewsPage() {
         setHasMorePosts(false);
       }
     } catch (err) {
-      console.error('Failed to fetch more blog posts:', err);
+      console.log('Failed to fetch more blog posts:', err);
     } finally {
       setLoadingMore(false);
       isLoadingRef.current = false;
@@ -192,7 +192,7 @@ export default function NewsPage() {
         setHasMorePosts(formatted.length === postsPerPage);
       }
     } catch (err) {
-      console.error('Failed to fetch blog posts:', err);
+      console.log('Failed to fetch blog posts:', err);
     } finally {
       setLoading(false);
       isLoadingRef.current = false;
@@ -491,10 +491,10 @@ export default function NewsPage() {
     <div className={`${view === 'grid' ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3' : 'flex flex-col gap-6'}`}>
       {[...Array(3)].map((_, index) => (
         <div key={index} className={`animate-pulse overflow-hidden ${view === 'list' ? 'flex flex-row' : ''}`}>
-          <div className={`bg-gray-400 rounded-lg ${view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'}`} />
+          <div className={`bg-gray-700 rounded-lg ${view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'}`} />
           <div className={`${view === 'list' ? 'p-4 flex-1' : 'py-4'}`}>
-            <div className="h-4 bg-gray-400 rounded mb-2" />
-            <div className="h-3 bg-gray-400 rounded w-2/3" />
+            <div className="h-4 bg-gray-700 rounded mb-2" />
+            <div className="h-3 bg-gray-700 rounded w-2/3" />
           </div>
         </div>
       ))}
@@ -625,7 +625,7 @@ export default function NewsPage() {
           {categories.map((cat) => (
             <button
               key={cat}
-              className={`pb-1 text-base sm:text-lg ${
+              className={`pb-1 text-sm ${
                 activeTab === cat ? 'font-bold text-white' : 'hover:text-gray-200'
               }`}
               onClick={() => setActiveTab(cat)}
