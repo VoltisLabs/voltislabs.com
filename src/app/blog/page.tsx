@@ -491,10 +491,10 @@ export default function NewsPage() {
     <div className={`${view === 'grid' ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3' : 'flex flex-col gap-6'}`}>
       {[...Array(3)].map((_, index) => (
         <div key={index} className={`animate-pulse overflow-hidden ${view === 'list' ? 'flex flex-row' : ''}`}>
-          <div className={`bg-gray-900 rounded-lg ${view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'}`} />
+          <div className={`bg-gray-400 rounded-lg ${view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'}`} />
           <div className={`${view === 'list' ? 'p-4 flex-1' : 'py-4'}`}>
-            <div className="h-4 bg-gray-900 rounded mb-2" />
-            <div className="h-3 bg-gray-900 rounded w-2/3" />
+            <div className="h-4 bg-gray-400 rounded mb-2" />
+            <div className="h-3 bg-gray-400 rounded w-2/3" />
           </div>
         </div>
       ))}
@@ -512,12 +512,6 @@ export default function NewsPage() {
   //     </div>
   //   );
   // }
-
-    if (loading) {
-    return (
-      <LoadingSkeleton />
-    );
-  }
 
   return (
     <div className="mx-auto min-h-screen max-w-[75rem] bg-black px-4 py-12 pt-28 text-white sm:px-6 lg:px-8">
@@ -665,7 +659,8 @@ export default function NewsPage() {
       </div>
 
       {/* Blog List */}
-      <div
+      {loading? ( <LoadingSkeleton />) : ( 
+        <div
         className={
           view === 'grid'
             ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'
@@ -742,6 +737,7 @@ export default function NewsPage() {
           </motion.div>
         )}
       </div>
+      )}
 
       {/* Infinite scroll sentinel element */}
       {hasMorePosts && (
