@@ -201,7 +201,7 @@ export default function NewsPage() {
       }
     } catch (err) {
       console.log('Failed to fetch blog posts:', err);
-      setError('Network error. Please check your network connection and try again.');
+      setError('Please check your network connection and try again.');
     } finally {
       setLoading(false);
       isLoadingRef.current = false;
