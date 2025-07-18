@@ -15,8 +15,39 @@ import Footer from '../components/footer';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FaChevronLeft, FaChevronRight, FaSpotify } from 'react-icons/fa';
-import { GET_POSTS_QUERY, Post } from './blog/page';
 import { fetchData } from '../../lib/apiClient';
+
+const GET_POSTS_QUERY = `
+  query GetPost($first: Int!, $skip: Int!) {
+    posts(first: $first, skip: $skip, orderBy: datePublished_DESC) {
+      category {
+        name
+      }
+      content {
+        html
+      }
+      slug
+      title
+      datePublished
+      publishedBy {
+        name
+        picture
+      }
+      featuredImage {
+        url
+      }
+    }
+  }
+`;
+
+interface Post {
+  title: string;
+  slug: string;
+  date: string;
+  image: string;
+  category: any;
+  datePublished: string;
+}
 
 export default function Home() {
   const sliderRef = useRef<Slider>(null);

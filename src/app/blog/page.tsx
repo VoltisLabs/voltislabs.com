@@ -17,7 +17,7 @@ import {
 import { fetchData } from '../../../lib/apiClient';
 
 // Updated GraphQL query - keeping skip for proper infinite scrolling
-export const GET_POSTS_QUERY = `
+const GET_POSTS_QUERY = `
   query GetPost($first: Int!, $skip: Int!) {
     posts(first: $first, skip: $skip, orderBy: datePublished_DESC) {
       category {
@@ -40,7 +40,7 @@ export const GET_POSTS_QUERY = `
   }
 `;
 
-export interface Post {
+interface Post {
   title: string;
   slug: string;
   date: string;
