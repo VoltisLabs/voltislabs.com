@@ -3,11 +3,21 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Grid, List, Calendar, ChevronDown, Search, ChevronUp, Loader2, AlertCircle, RotateCcw } from 'lucide-react';
+import {
+  Grid,
+  List,
+  Calendar,
+  ChevronDown,
+  Search,
+  ChevronUp,
+  Loader2,
+  AlertCircle,
+  RotateCcw,
+} from 'lucide-react';
 import { fetchData } from '../../../lib/apiClient';
 
 // Updated GraphQL query - keeping skip for proper infinite scrolling
-const GET_POSTS_QUERY = `
+export const GET_POSTS_QUERY = `
   query GetPost($first: Int!, $skip: Int!) {
     posts(first: $first, skip: $skip, orderBy: datePublished_DESC) {
       category {
@@ -30,7 +40,7 @@ const GET_POSTS_QUERY = `
   }
 `;
 
-interface Post {
+export interface Post {
   title: string;
   slug: string;
   date: string;
@@ -46,12 +56,12 @@ export default function NewsPage() {
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
-  
+
   // Error states
   const [error, setError] = useState<string | null>(null);
   const [loadMoreError, setLoadMoreError] = useState<string | null>(null);
   const [retrying, setRetrying] = useState(false);
-  
+
   // New state for date filters
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
   const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
@@ -63,12 +73,12 @@ export default function NewsPage() {
   const [totalPostsLoaded, setTotalPostsLoaded] = useState<number>(0);
   const [postsPerPage] = useState<number>(3);
   const [hasMorePosts, setHasMorePosts] = useState<boolean>(true);
-  
+
   // Back to top button states
   const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
   const [isScrolling, setIsScrolling] = useState<boolean>(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  
+
   // Refs for infinite scroll
   const observerRef = useRef<IntersectionObserver | null>(null);
   const sentinelRef = useRef<HTMLDivElement>(null);
@@ -79,23 +89,23 @@ export default function NewsPage() {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setIsScrolling(true);
-      
+
       // Clear existing timeout
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
-      
+
       // Set new timeout to detect when scrolling stops
       scrollTimeoutRef.current = setTimeout(() => {
         setIsScrolling(false);
       }, 150);
-      
+
       // Show back to top button if scrolled down more than 300px and not currently scrolling
       setShowBackToTop(scrollY > 300);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (scrollTimeoutRef.current) {
@@ -108,7 +118,7 @@ export default function NewsPage() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
 
@@ -121,14 +131,14 @@ export default function NewsPage() {
     isLoadingRef.current = true;
     setLoadingMore(true);
     setLoadMoreError(null); // Clear previous errors
-    
+
     try {
-      const data = await fetchData({ 
+      const data = await fetchData({
         query: GET_POSTS_QUERY,
         variables: {
           first: postsPerPage,
-          skip: totalPostsLoaded
-        }
+          skip: totalPostsLoaded,
+        },
       });
 
       const formatted = data?.data?.posts.map((p: any) => ({
@@ -138,16 +148,14 @@ export default function NewsPage() {
         datePublished: p.datePublished,
         image: p.featuredImage?.url || '',
         category:
-          Array.isArray(p.category) && p.category.length > 0
-            ? p.category[0].name
-            : 'Uncategorized',
+          Array.isArray(p.category) && p.category.length > 0 ? p.category[0].name : 'Uncategorized',
       }));
 
       if (formatted && formatted.length > 0) {
         // Append new posts to existing posts
-        setPosts(prevPosts => [...prevPosts, ...formatted]);
-        setTotalPostsLoaded(prev => prev + formatted.length);
-        
+        setPosts((prevPosts) => [...prevPosts, ...formatted]);
+        setTotalPostsLoaded((prev) => prev + formatted.length);
+
         // If we get fewer posts than requested, we know we're at the end
         if (formatted.length < postsPerPage) {
           setHasMorePosts(false);
@@ -169,14 +177,14 @@ export default function NewsPage() {
     setLoading(true);
     setError(null); // Clear previous errors
     isLoadingRef.current = true;
-    
+
     try {
-      const data = await fetchData({ 
+      const data = await fetchData({
         query: GET_POSTS_QUERY,
         variables: {
           first: postsPerPage,
-          skip: 0
-        }
+          skip: 0,
+        },
       });
 
       const formatted = data?.data?.posts.map((p: any) => ({
@@ -186,15 +194,13 @@ export default function NewsPage() {
         datePublished: p.datePublished,
         image: p.featuredImage?.url || '',
         category:
-          Array.isArray(p.category) && p.category.length > 0
-            ? p.category[0].name
-            : 'Uncategorized',
+          Array.isArray(p.category) && p.category.length > 0 ? p.category[0].name : 'Uncategorized',
       }));
 
       if (formatted) {
         setPosts(formatted);
         setTotalPostsLoaded(formatted.length);
-        
+
         // If we get fewer posts than requested, we know we're at the end
         setHasMorePosts(formatted.length === postsPerPage);
         setError(null); // Clear error on success
@@ -259,26 +265,26 @@ export default function NewsPage() {
   // Helper functions for date filtering
   const getUniqueYears = () => {
     const years = posts
-      .map(post => new Date(post.datePublished).getFullYear().toString())
+      .map((post) => new Date(post.datePublished).getFullYear().toString())
       .filter(Boolean);
     return Array.from(new Set(years)).sort((a, b) => b.localeCompare(a));
   };
 
   const getMonthsInYear = (year: string) => {
     const monthsInYear = posts
-      .filter(post => new Date(post.datePublished).getFullYear().toString() === year)
-      .map(post => {
+      .filter((post) => new Date(post.datePublished).getFullYear().toString() === year)
+      .map((post) => {
         const date = new Date(post.datePublished);
-        return { 
-          value: date.getMonth().toString(), 
-          label: date.toLocaleString('default', { month: 'long' }) 
+        return {
+          value: date.getMonth().toString(),
+          label: date.toLocaleString('default', { month: 'long' }),
         };
       });
-    
+
     const uniqueMonths = Array.from(
-      new Map(monthsInYear.map(item => [item.value, item])).values()
+      new Map(monthsInYear.map((item) => [item.value, item])).values(),
     ).sort((a, b) => parseInt(a.value) - parseInt(b.value));
-    
+
     return uniqueMonths;
   };
 
@@ -290,25 +296,25 @@ export default function NewsPage() {
       if (invalidDateEntered) {
         return false;
       }
-      
+
       if (selectedYear) {
         const postDate = new Date(post.datePublished);
         const postYear = postDate.getFullYear().toString();
-        
+
         if (postYear !== selectedYear) return false;
-        
+
         if (selectedMonth) {
           const postMonth = postDate.getMonth().toString();
-          
+
           if (postMonth !== selectedMonth) return false;
-          
+
           if (specificDate && specificDate.trim() !== '') {
             const postDay = postDate.getDate().toString().padStart(2, '0');
             if (postDay !== specificDate) return false;
           }
         }
       }
-      
+
       return true;
     })
     .sort((a, b) => {
@@ -341,47 +347,57 @@ export default function NewsPage() {
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setDateSearchInput(value);
-    
+
     if (!value) {
       setSpecificDate('');
       setInvalidDateEntered(false);
       return;
     }
-    
+
     const valueLower = value.toLowerCase();
-    
+
     const formatMonthDayYear = /([a-zA-Z]+)[\s,]+(\d{1,2})[\s,]*(\d{4})/i;
     const formatDayMonthYear = /(\d{1,2})[\s-/]+([a-zA-Z]{3,})[\s-/]+(\d{4})/i;
     const formatMonthYear = /([a-zA-Z]+)[\s,]*(\d{4})/i;
     const formatMonthOnly = /^([a-zA-Z]+)$/i;
-    
+
     const matchFormat1 = value.match(formatMonthDayYear);
     const matchFormat2 = value.match(formatDayMonthYear);
     const matchFormat3 = value.match(formatMonthYear);
     const matchFormat4 = value.match(formatMonthOnly);
-    
+
     const monthNames = [
-      "january", "february", "march", "april", "may", "june", 
-      "july", "august", "september", "october", "november", "december"
+      'january',
+      'february',
+      'march',
+      'april',
+      'may',
+      'june',
+      'july',
+      'august',
+      'september',
+      'october',
+      'november',
+      'december',
     ];
-    
+
     if (matchFormat1) {
       const monthName = matchFormat1[1].toLowerCase();
       const day = parseInt(matchFormat1[2]);
       const year = matchFormat1[3];
-      
-      const monthIndex = monthNames.findIndex(m => 
-        monthName.startsWith(m.substring(0, 3))
-      );
-      
+
+      const monthIndex = monthNames.findIndex((m) => monthName.startsWith(m.substring(0, 3)));
+
       if (monthIndex !== -1 && day >= 1 && day <= 31) {
-        const potentialMatches = posts.filter(post => {
+        const potentialMatches = posts.filter((post) => {
           const postDate = new Date(post.datePublished);
-          return postDate.getDate() === day && 
-                  postDate.getMonth() === monthIndex &&
-                  postDate.getFullYear().toString() === year;
+          return (
+            postDate.getDate() === day &&
+            postDate.getMonth() === monthIndex &&
+            postDate.getFullYear().toString() === year
+          );
         });
-        
+
         if (potentialMatches.length > 0) {
           setSelectedYear(year);
           setSelectedMonth(monthIndex.toString());
@@ -397,18 +413,33 @@ export default function NewsPage() {
       const day = parseInt(matchFormat2[1]);
       const monthName = matchFormat2[2].toLowerCase();
       const year = matchFormat2[3];
-      
-      const abbreviatedMonths = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
-      const monthIndex = abbreviatedMonths.findIndex(m => monthName.startsWith(m));
-      
+
+      const abbreviatedMonths = [
+        'jan',
+        'feb',
+        'mar',
+        'apr',
+        'may',
+        'jun',
+        'jul',
+        'aug',
+        'sep',
+        'oct',
+        'nov',
+        'dec',
+      ];
+      const monthIndex = abbreviatedMonths.findIndex((m) => monthName.startsWith(m));
+
       if (monthIndex !== -1 && day >= 1 && day <= 31) {
-        const potentialMatches = posts.filter(post => {
+        const potentialMatches = posts.filter((post) => {
           const postDate = new Date(post.datePublished);
-          return postDate.getDate() === day && 
-                  postDate.getMonth() === monthIndex &&
-                  postDate.getFullYear().toString() === year;
+          return (
+            postDate.getDate() === day &&
+            postDate.getMonth() === monthIndex &&
+            postDate.getFullYear().toString() === year
+          );
         });
-        
+
         if (potentialMatches.length > 0) {
           setSelectedYear(year);
           setSelectedMonth(monthIndex.toString());
@@ -423,18 +454,15 @@ export default function NewsPage() {
     } else if (matchFormat3) {
       const monthName = matchFormat3[1].toLowerCase();
       const year = matchFormat3[2];
-      
-      const monthIndex = monthNames.findIndex(m => 
-        monthName.startsWith(m.substring(0, 3))
-      );
-      
+
+      const monthIndex = monthNames.findIndex((m) => monthName.startsWith(m.substring(0, 3)));
+
       if (monthIndex !== -1) {
-        const potentialMatches = posts.filter(post => {
+        const potentialMatches = posts.filter((post) => {
           const postDate = new Date(post.datePublished);
-          return postDate.getMonth() === monthIndex &&
-                  postDate.getFullYear().toString() === year;
+          return postDate.getMonth() === monthIndex && postDate.getFullYear().toString() === year;
         });
-        
+
         if (potentialMatches.length > 0) {
           setSelectedYear(year);
           setSelectedMonth(monthIndex.toString());
@@ -448,17 +476,15 @@ export default function NewsPage() {
       }
     } else if (matchFormat4) {
       const monthName = matchFormat4[1].toLowerCase();
-      
-      const monthIndex = monthNames.findIndex(m => 
-        monthName.startsWith(m)
-      );
-      
+
+      const monthIndex = monthNames.findIndex((m) => monthName.startsWith(m));
+
       if (monthIndex !== -1) {
-        const potentialMatches = posts.filter(post => {
+        const potentialMatches = posts.filter((post) => {
           const postDate = new Date(post.datePublished);
           return postDate.getMonth() === monthIndex;
         });
-        
+
         if (potentialMatches.length > 0) {
           setSelectedMonth(monthIndex.toString());
           setSpecificDate('');
@@ -467,8 +493,8 @@ export default function NewsPage() {
           setInvalidDateEntered(true);
         }
       } else {
-        const partialMonthMatch = monthNames.some(m => m.startsWith(valueLower));
-        
+        const partialMonthMatch = monthNames.some((m) => m.startsWith(valueLower));
+
         if (partialMonthMatch) {
           setInvalidDateEntered(false);
         } else {
@@ -480,13 +506,15 @@ export default function NewsPage() {
       if (dayMatch) {
         const day = parseInt(value);
         if (day >= 1 && day <= 31) {
-          const dayExists = posts.some(post => {
+          const dayExists = posts.some((post) => {
             const postDate = new Date(post.datePublished);
-            return postDate.getDate() === day && 
-                  (selectedMonth === null || postDate.getMonth().toString() === selectedMonth) &&
-                  (selectedYear === null || postDate.getFullYear().toString() === selectedYear);
+            return (
+              postDate.getDate() === day &&
+              (selectedMonth === null || postDate.getMonth().toString() === selectedMonth) &&
+              (selectedYear === null || postDate.getFullYear().toString() === selectedYear)
+            );
           });
-          
+
           if (dayExists) {
             setSpecificDate(day.toString().padStart(2, '0'));
             setInvalidDateEntered(false);
@@ -497,8 +525,8 @@ export default function NewsPage() {
           setInvalidDateEntered(true);
         }
       } else {
-        const isStartOfMonthName = monthNames.some(month => month.startsWith(valueLower));
-        
+        const isStartOfMonthName = monthNames.some((month) => month.startsWith(valueLower));
+
         if (isStartOfMonthName) {
           setInvalidDateEntered(false);
         } else {
@@ -510,13 +538,20 @@ export default function NewsPage() {
 
   // Loading Skeleton Component for infinite scroll
   const LoadingSkeleton = () => (
-    <div className={`${view === 'grid' ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3' : 'flex flex-col gap-6'}`}>
+    <div
+      className={`${view === 'grid' ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3' : 'flex flex-col gap-6'}`}
+    >
       {[...Array(3)].map((_, index) => (
-        <div key={index} className={`animate-pulse overflow-hidden ${view === 'list' ? 'flex flex-row' : ''}`}>
-          <div className={`bg-gray-900 rounded-lg ${view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'}`} />
-          <div className={`${view === 'list' ? 'p-4 flex-1' : 'py-4'}`}>
-            <div className="h-4 bg-gray-900 rounded mb-2" />
-            <div className="h-3 bg-gray-900 rounded w-2/3" />
+        <div
+          key={index}
+          className={`animate-pulse overflow-hidden ${view === 'list' ? 'flex flex-row' : ''}`}
+        >
+          <div
+            className={`rounded-lg bg-gray-900 ${view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'}`}
+          />
+          <div className={`${view === 'list' ? 'flex-1 p-4' : 'py-4'}`}>
+            <div className="mb-2 h-4 rounded bg-gray-900" />
+            <div className="h-3 w-2/3 rounded bg-gray-900" />
           </div>
         </div>
       ))}
@@ -525,37 +560,37 @@ export default function NewsPage() {
 
   // Error Component
   const ErrorComponent = () => (
-    <motion.div 
+    <motion.div
       className="flex items-center justify-center bg-black text-white"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex flex-col items-center gap-6 text-center max-w-md mx-auto px-4">
+      <div className="mx-auto flex max-w-md flex-col items-center gap-6 px-4 text-center">
         <motion.div
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
-          transition={{ 
+          transition={{
             duration: 0.5,
             repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 2
+            repeatType: 'reverse',
+            repeatDelay: 2,
           }}
         >
           <AlertCircle size={64} className="text-red-500" />
         </motion.div>
-        
+
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">Network Error</h2>
-          <p className="text-gray-400 leading-relaxed">
+          <h2 className="mb-2 text-2xl font-bold text-white">Network Error</h2>
+          <p className="leading-relaxed text-gray-400">
             {error || 'Please check your network connection and try again'}
           </p>
         </div>
-        
+
         <motion.button
           onClick={handleRetry}
           disabled={retrying}
-          className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-black transition-all hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-black transition-all hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50"
           whileHover={{ scale: retrying ? 1 : 1.05 }}
           whileTap={{ scale: retrying ? 1 : 0.95 }}
         >
@@ -574,8 +609,6 @@ export default function NewsPage() {
       </div>
     </motion.div>
   );
-
-
 
   return (
     <div className="mx-auto min-h-screen max-w-[75rem] bg-black px-4 py-12 pt-28 text-white sm:px-6 lg:px-8">
@@ -601,7 +634,7 @@ export default function NewsPage() {
       <h1 className="mb-8 text-3xl font-bold sm:text-4xl">News</h1>
 
       {/* Year and month drop down displayed side by side */}
-      <div className="mb-6 flex flex-wrap items-center gap-4">        
+      <div className="mb-6 flex flex-wrap items-center gap-4">
         {/* Year DropDown filter */}
         <div className="relative">
           <select
@@ -650,7 +683,7 @@ export default function NewsPage() {
               placeholder="Search by date (e.g., February, April 2025, February 16, 2025)"
               className={`w-full rounded-lg border ${
                 invalidDateEntered ? 'border-red-500' : 'border-gray-700'
-              } bg-black pl-4 pr-10 py-2 text-white placeholder-gray-500 focus:border-gray-400 focus:outline-none`}
+              } bg-black py-2 pl-4 pr-10 text-white placeholder-gray-500 focus:border-gray-400 focus:outline-none`}
               value={dateSearchInput}
               onChange={handleDateChange}
             />
@@ -658,9 +691,7 @@ export default function NewsPage() {
               <Search size={16} />
             </div>
             {invalidDateEntered && (
-              <div className="mt-1 text-sm text-red-500">
-                No posts found for this date
-              </div>
+              <div className="mt-1 text-sm text-red-500">No posts found for this date</div>
             )}
           </div>
         )}
@@ -686,27 +717,27 @@ export default function NewsPage() {
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         {/* Categories */}
         <div className="">
-        {loading? (
-          <div className='flex flex-row gap-2'>
-            {[1,2,3,4,5,6].map((i) => (
-              <div key={i} className="h-4 bg-gray-900 rounded mb-2 w-16" />
-            ))}
-          </div>
-        ) : (
-            <div className='flex flex-wrap gap-4 text-gray-400 sm:gap-6 '>
-              {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`pb-1 text-sm ${
-                activeTab === cat ? 'font-bold text-white' : 'hover:text-gray-200'
-              }`}
-              onClick={() => setActiveTab(cat)}
-            >
-              {cat}
-            </button>
-          ))}
+          {loading ? (
+            <div className="flex flex-row gap-2">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="mb-2 h-4 w-16 rounded bg-gray-900" />
+              ))}
             </div>
-        )}
+          ) : (
+            <div className="flex flex-wrap gap-4 text-gray-400 sm:gap-6">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  className={`pb-1 text-sm ${
+                    activeTab === cat ? 'font-bold text-white' : 'hover:text-gray-200'
+                  }`}
+                  onClick={() => setActiveTab(cat)}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* View Toggle */}
@@ -733,90 +764,93 @@ export default function NewsPage() {
       </div>
 
       {/* Blog List */}
-      {error && !loading && posts.length === 0? (<ErrorComponent />) : (
+      {error && !loading && posts.length === 0 ? (
+        <ErrorComponent />
+      ) : (
         <div>
-          {loading ? ( <LoadingSkeleton />) : ( 
-        <div
-        className={
-          view === 'grid'
-            ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'
-            : 'flex flex-col gap-6'
-        }
-      >
-        {filteredPosts.length > 0 ? (
-          filteredPosts.map((post, i) => (
-            <Link key={`${post.slug}-${i}`} href={`/blog/${post.slug}`}>
-              <div
-                className={`group overflow-hidden transition-all duration-300 hover:scale-105 ${
-                  view === 'list' ? 'flex flex-row' : ''
-                }`}
-              >
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className={`rounded-lg object-cover transition-transform duration-300 ${
-                    view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'
-                  }`}
-                />
-                <div className={`${view === 'list' ? 'p-4' : 'py-4'}`}>
-                  <h3 className="text-md mb-4 mt-1 overflow-hidden truncate whitespace-nowrap font-semibold text-white">
-                    {post.title}
-                  </h3>
+          {loading ? (
+            <LoadingSkeleton />
+          ) : (
+            <div
+              className={
+                view === 'grid'
+                  ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'
+                  : 'flex flex-col gap-6'
+              }
+            >
+              {filteredPosts.length > 0 ? (
+                filteredPosts.map((post, i) => (
+                  <Link key={`${post.slug}-${i}`} href={`/blog/${post.slug}`}>
+                    <div
+                      className={`group overflow-hidden transition-all duration-300 hover:scale-105 ${
+                        view === 'list' ? 'flex flex-row' : ''
+                      }`}
+                    >
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className={`rounded-lg object-cover transition-transform duration-300 ${
+                          view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'
+                        }`}
+                      />
+                      <div className={`${view === 'list' ? 'p-4' : 'py-4'}`}>
+                        <h3 className="text-md mb-4 mt-1 overflow-hidden truncate whitespace-nowrap font-semibold text-white">
+                          {post.title}
+                        </h3>
 
-                  <p className="text-sm text-gray-400">
-                    <span className="font-bold text-white">{post.category}</span> —{' '}
-                    {new Date(post.datePublished).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </p>
-                </div>
-              </div>
-            </Link>
-          ))
-        ) : (
-          <motion.div 
-            className="col-span-full rounded-xl border border-gray-700 bg-black/50 py-12 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.div
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              transition={{ 
-                duration: 0.5,
-                repeat: Infinity,
-                repeatType: "reverse",
-                repeatDelay: 1
-              }}
-            >
-              <Calendar size={48} className="mx-auto mb-4 text-gray-400" />
-            </motion.div>
-            <motion.h3 
-              className="mb-2 text-xl font-bold text-white"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-            >
-              No posts found
-            </motion.h3>
-            <motion.p 
-              className="mx-auto max-w-md text-gray-400"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-            >
-              Try adjusting your date filters or category selection to find more content.
-            </motion.p>
-          </motion.div>
-        )}
-      </div>
-      )}
+                        <p className="text-sm text-gray-400">
+                          <span className="font-bold text-white">{post.category}</span> —{' '}
+                          {new Date(post.datePublished).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                          })}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                ))
+              ) : (
+                <motion.div
+                  className="col-span-full rounded-xl border border-gray-700 bg-black/50 py-12 text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <motion.div
+                    initial={{ scale: 0.9 }}
+                    animate={{ scale: 1 }}
+                    transition={{
+                      duration: 0.5,
+                      repeat: Infinity,
+                      repeatType: 'reverse',
+                      repeatDelay: 1,
+                    }}
+                  >
+                    <Calendar size={48} className="mx-auto mb-4 text-gray-400" />
+                  </motion.div>
+                  <motion.h3
+                    className="mb-2 text-xl font-bold text-white"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                  >
+                    No posts found
+                  </motion.h3>
+                  <motion.p
+                    className="mx-auto max-w-md text-gray-400"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                  >
+                    Try adjusting your date filters or category selection to find more content.
+                  </motion.p>
+                </motion.div>
+              )}
+            </div>
+          )}
         </div>
       )}
-      
 
       {/* Load More Error */}
       {loadMoreError && (
@@ -831,7 +865,7 @@ export default function NewsPage() {
               <p className="text-sm text-red-400">{loadMoreError}</p>
               <button
                 onClick={handleLoadMoreRetry}
-                className="flex items-center gap-2 rounded-lg bg-red-500 px-4 py-2 text-sm font-medium text-white hover:bg-red-600 transition-colors"
+                className="flex items-center gap-2 rounded-lg bg-red-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-600"
               >
                 <RotateCcw className="h-4 w-4" />
                 Retry
@@ -853,16 +887,16 @@ export default function NewsPage() {
               >
                 {/* Skeleton loading cards */}
                 <LoadingSkeleton />
-                
+
                 {/* Loading indicator */}
                 <motion.div
                   className="mt-6 flex items-center justify-center"
                   initial={{ scale: 0.9 }}
                   animate={{ scale: 1 }}
-                  transition={{ 
+                  transition={{
                     duration: 0.8,
                     repeat: Infinity,
-                    repeatType: "reverse"
+                    repeatType: 'reverse',
                   }}
                 >
                   <div className="flex flex-col items-center gap-3 rounded-xl border border-gray-700 bg-black/50 px-8 py-4">
@@ -871,9 +905,15 @@ export default function NewsPage() {
                       <span className="text-sm font-medium text-white">Loading more posts...</span>
                     </div>
                     <div className="flex space-x-1">
-                      <div className="h-2 w-2 bg-gray-400 rounded-full animate-pulse" />
-                      <div className="h-2 w-2 bg-gray-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
-                      <div className="h-2 w-2 bg-gray-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+                      <div className="h-2 w-2 animate-pulse rounded-full bg-gray-400" />
+                      <div
+                        className="h-2 w-2 animate-pulse rounded-full bg-gray-400"
+                        style={{ animationDelay: '0.2s' }}
+                      />
+                      <div
+                        className="h-2 w-2 animate-pulse rounded-full bg-gray-400"
+                        style={{ animationDelay: '0.4s' }}
+                      />
                     </div>
                   </div>
                 </motion.div>
@@ -892,9 +932,9 @@ export default function NewsPage() {
           transition={{ duration: 0.5 }}
         >
           <div className="flex items-center justify-center gap-4">
-            <div className="h-px bg-gray-700 flex-1" />
-            <p className="text-sm text-gray-400 px-4">You've reached the end of all posts</p>
-            <div className="h-px bg-gray-700 flex-1" />
+            <div className="h-px flex-1 bg-gray-700" />
+            <p className="px-4 text-sm text-gray-400">You've reached the end of all posts</p>
+            <div className="h-px flex-1 bg-gray-700" />
           </div>
         </motion.div>
       )}
