@@ -76,7 +76,7 @@ export default function Contents() {
         >
           {/* Before Image */}
           <Image
-            src="/right.jpg"
+            src={"/rm1.png"}
             alt="Before"
             layout="fill"
             objectFit="cover"
@@ -86,7 +86,7 @@ export default function Contents() {
           {/* After Image */}
           <div className="absolute inset-0 overflow-hidden" style={{ width: `${sliderPosition}%` }}>
             <Image
-              src="/left.jpg"
+              src="/lady.png"
               alt="After"
               layout="fill"
               objectFit="cover"

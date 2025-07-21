@@ -121,8 +121,8 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
         <a href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           VL Academy
         </a>
-        <a href="/gamejam" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          Game Jam
+        <a href="/work-with-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+          Work with us
         </a>
         <a href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           Partners
@@ -175,7 +175,6 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
             />
 
             {/* Sidebar Navigation */}
-            {/* Sidebar Navigation */}
             <motion.nav
               className="fixed top-0 left-0 h-screen w-[60%] sm:w-[50%] bg-[#0D1117] text-white py-20 px-6 z-50 flex flex-col"
               initial={{ x: "-100%", opacity: 0 }}
@@ -213,8 +212,8 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                   <a onClick={() => setToggle(false)} href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
                     VL Academy
                   </a>
-                  <a onClick={() => setToggle(false)} href="/game-jam" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-                    Game Jam
+                  <a onClick={() => setToggle(false)} href="/work-with-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+                    Work with us
                   </a>
                   <a onClick={() => setToggle(false)} href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
                     Partners
