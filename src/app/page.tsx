@@ -1,6 +1,5 @@
 'use client';
 
-import { IoIosSearch } from 'react-icons/io';
 import { About, updates } from './data';
 import Image from 'next/image';
 import FirstHero from '../components/common/carousel/FirstHero';
@@ -11,7 +10,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Content from '../components/Content';
-import Footer from '../components/footer';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FaChevronLeft, FaChevronRight, FaSpotify } from 'react-icons/fa';
