@@ -68,6 +68,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       <nav className="hidden lg:flex flex-row items-center gap-8 absolute left-1/2 transform -translate-x-1/2 text-nowrap pl-10 xl:pl-0">
 
         {/* Products Dropdown */}
+        <a href="/" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+         Home
+        </a>
         <div
           className="group inline-block relative"
           onMouseEnter={() => setDropdownOpen(true)}
@@ -138,6 +141,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       {/* Mobile Navigation */}
       <div className="lg:hidden flex items-center space-x-3 sm:space-x-5 md:space-x-6">
         {/* Always visible links */}
+        <a href="/" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+          Home
+        </a>
         <a href="/products" className="text-white  text-sm" onClick={(e) => {
           e.preventDefault(); // Prevent default link behavior
           setToggle(true); // Open hamburger menu

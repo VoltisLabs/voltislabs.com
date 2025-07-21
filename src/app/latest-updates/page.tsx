@@ -1,9 +1,9 @@
-import React from "react";
+'use client'
+import React, { Suspense } from 'react';
 import { updates } from "../data";
 import { FaSpotify } from "react-icons/fa";
 import Content from "@/src/components/Content";
-import Footer from "@/src/components/footer";
-
+import { useSearchParams } from 'next/navigation';
 
 const UpdateItem = ({ img, message, subText, time, description, spotify, spotifyLink }: any) => {
     return (
@@ -50,30 +50,47 @@ const UpdateItem = ({ img, message, subText, time, description, spotify, spotify
     );
   };
 
-  function LatestUpdatesPage() {
+  function LatestUpdatesContent() {
+    const searchParams = useSearchParams();
+    React.useEffect(() => {
+      const itemIdx = searchParams.get('item');
+      if (itemIdx) {
+        const el = document.getElementById(`update-item-${itemIdx}`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+        }
+      }
+    }, [searchParams]);
     return (
-        <div className="page-container bg-black w-full min-h-screen">
-
-      <section className="mb-20 md:px-[2rem] px-[1rem]">
-        <h1 className="text-3xl mt-20 font-bold text-white mb-8">Latest Updates</h1>
-        {updates.map((update, index) => (
-          <UpdateItem
-            key={index}
-            img={update.img}
-            message={update.message}
-            subText={update.subText}
-            time={update.time}
-            description={update.description}
-            spotify={update.spotify}
-            spotifyLink={update.spotifyLink}
-          />
-        ))}
-      </section>
-        <Content/>
-    
-                    
-        </div>
+      <div className="page-container bg-black w-full min-h-screen">
+        <section className="mb-20 md:px-[2rem] px-[1rem]">
+          <h1 className="text-3xl mt-20 font-bold text-white mb-8">Latest Updates</h1>
+          {updates.map((update, index) => (
+            <div
+              id={`update-item-${index}`}
+              key={index}
+            >
+              <UpdateItem
+                img={update.img}
+                message={update.message}
+                subText={update.subText}
+                time={update.time}
+                description={update.description}
+                spotify={update.spotify}
+                spotifyLink={update.spotifyLink}
+              />
+            </div>
+          ))}
+          <Content/>
+        </section>
+      </div>
     );
   }
 
-export default LatestUpdatesPage;
+export default function LatestUpdatesPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LatestUpdatesContent />
+    </Suspense>
+  );
+}

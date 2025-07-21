@@ -271,38 +271,38 @@ export default function Home() {
             >
               <div className="flex h-full gap-8 md:w-full">
                 {updates.map((text, index) => (
-                  <div
-                    key={index}
-                    className="!min-h-[25rem] w-[12.5rem] items-start overflow-hidden text-left md:min-w-[22rem]"
-                  >
-                    <div className="image-container w-20rem h-10rem overflow-hidden rounded-[10px]">
-                      <Image
-                        src={text.img}
-                        alt="Icon"
-                        width={310}
-                        height={300}
-                        className="w-full transition-all duration-[.85s] ease-in-out hover:scale-110"
-                      />
+                  <Link href={`/latest-updates?item=${index}`} key={index} scroll={false}>
+                    <div
+                      className="!min-h-[25rem] w-[12.5rem] items-start overflow-hidden text-left md:min-w-[22rem] cursor-pointer"
+                    >
+                      <div className="image-container w-20rem h-10rem overflow-hidden rounded-[10px]">
+                        <Image
+                          src={text.img}
+                          alt="Icon"
+                          width={310}
+                          height={300}
+                          className="w-full transition-all duration-[.85s] ease-in-out hover:scale-110"
+                        />
+                      </div>
+                      <p className="mt-3 text-[.9rem] text-white">{text.message}</p>
+                      {text.subText && <p className="text-[.9rem] text-[#535353]">{text.subText}</p>}
+                      <p className="text-[.7rem] text-white">{text.time}</p>
+                      {text.spotify && (
+                        <a
+                          href={text.spotifyLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative mt-4 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-white px-4 py-2 text-[.9rem] font-medium text-white hover:border-transparent"
+                        >
+                          <span className="absolute inset-0 origin-left scale-x-0 bg-[#1DB954] transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+                          <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
+                          <span className="relative z-10 transition-all duration-300 group-hover:text-black">
+                            Listen on Spotify
+                          </span>
+                        </a>
+                      )}
                     </div>
-
-                    <p className="mt-3 text-[.9rem] text-white">{text.message}</p>
-                    {text.subText && <p className="text-[.9rem] text-[#535353]">{text.subText}</p>}
-                    <p className="text-[.7rem] text-white">{text.time}</p>
-                    {text.spotify && (
-                      <a
-                        href={text.spotifyLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group relative mt-4 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-white px-4 py-2 text-[.9rem] font-medium text-white hover:border-transparent"
-                      >
-                        <span className="absolute inset-0 origin-left scale-x-0 bg-[#1DB954] transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
-                        <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
-                        <span className="relative z-10 transition-all duration-300 group-hover:text-black">
-                          Listen on Spotify
-                        </span>
-                      </a>
-                    )}
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
