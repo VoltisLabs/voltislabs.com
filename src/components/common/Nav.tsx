@@ -37,10 +37,6 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       ],
 
     },
-    // {
-    //   category: "Entertainment",
-    //   items: [{ name: "AMG records", route: "/amg" }],
-    // },
 
   ];
 
