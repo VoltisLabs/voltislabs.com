@@ -53,7 +53,7 @@ const page = () => {
         { name: 'Our Mission', route: 'mission' },
         { name: 'Looking Ahead', route: 'looking-ahead' },
       ];           
-    const [expanded, setExpanded] = useState<number | null>(0);
+    const [expanded, setExpanded] = useState<number | null>(null);
 
     return (
       <div className="mx-auto max-w-[85rem] bg-black text-white p-4 md:p-0">
