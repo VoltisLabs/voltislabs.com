@@ -83,7 +83,7 @@ const page = () => {
         {/* What we do Section */}
         <h2 className="text-3xl font-bold text-center mb-8">What we do</h2>
         <div className="w-full flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full max-w-5xl mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full max-w-[75%] mb-6">
             {/* First row of 4 cards */}
             {whatWeDo.slice(0, 4).map((item, idx) => (
               <button
@@ -97,7 +97,7 @@ const page = () => {
             ))}
             {/* Expansion below first row if any of the first 4 is expanded */}
             {expanded !== null && expanded >= 0 && expanded < 4 && (
-              <div className="col-span-4 flex justify-center w-full" style={{ gridColumn: '1 / -1' }}>
+              <div className="xl:col-span-4 col-span-2 flex justify-center w-full" style={{ gridColumn: '1 / -1' }}>
                 <div className="mt-2 p-6 max-w-[540px] w-full text-center">
                   <p className="text-white text-base mb-2">
                     {whatWeDo[expanded].content}
@@ -110,7 +110,7 @@ const page = () => {
               </div>
             )}
             {/* Second row of 2 cards, centered */}
-            <div className="col-span-4 flex justify-center gap-6">
+            <div className="col-span-4 flex justify-center gap-8">
               {whatWeDo.slice(4, 6).map((item, idx) => (
                 <button
                   key={item.title}
@@ -124,7 +124,7 @@ const page = () => {
             </div>
             {/* Expansion below second row if any of the last 2 is expanded */}
             {expanded !== null && expanded >= 4 && expanded < 6 && (
-              <div className="col-span-4 flex justify-center w-full" style={{ gridColumn: '1 / -1' }}>
+              <div className="xl:col-span-4 col-span-2 flex justify-center w-full" style={{ gridColumn: '1 / -1' }}>
                 <div className=" rounded-lg mt-2 p-6 max-w-[540px] w-full text-center text-[">
                   <p className="text-white text-base mb-2">
                     {whatWeDo[expanded].content}
