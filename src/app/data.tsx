@@ -124,9 +124,19 @@ export const whatWeDo = [
     link: { text: 'Built by a remote team, for remote teams.', url: '#', color: '#90BEFF' },
   },
   {
-    title: 'Creator & Community Tools',
+    title: 'Experimental Labs & R&D',
     content: `We build platforms that empower creators, freelancers, and community leaders — like VModel and Outfeatz. From marketplace logic to social discovery, we know what makes online communities thrive and scale.`,
     link: { text: 'Designed for creators, tested by real users.', url: '#', color: '#90BEFF' },
+  },
+  {
+    title: 'Remote Team Infrastructure',
+    content: `As a remote-first company, we design internal systems to help distributed teams thrive. We also offer these same tools and frameworks to startups looking to scale remotely.`,
+    link: { text: 'Includes: Discord workspaces, moderation bots (like Loyalty Bot), culture guides, break tracking, accountability tools.', url: '#', color: '#90BEFF' },
+  },
+  {
+    title: 'Education & Upskilling (Voltis Labs Academy)',
+    content: `Through Voltis Labs Academy, we train the next generation of talent. Students and interns work on real products, gain certifications, and grow with mentorship and live feedback.`,
+    link: { text: 'Includes: Internships, bootcamps, Discord learning hubs, live projects, student badges.', url: '#', color: '#90BEFF' },
   },
 ];
 

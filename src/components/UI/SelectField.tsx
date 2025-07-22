@@ -91,7 +91,7 @@ const SelectField: React.FC<SelectFieldProps> = ({
             tabIndex={-1}
             role="listbox"
             aria-labelledby={id}
-            className="absolute z-20 mt-2 w-full bg-[#374151] rounded-xl shadow-lg border border-[#374151] py-2"
+            className="absolute z-50 top-full left-0 mt-2 w-full bg-[#374151] rounded-xl shadow-lg border border-[#374151] py-2 max-h-60 overflow-y-auto max-h-40"
           >
             {options.map((option, idx) => (
               <li

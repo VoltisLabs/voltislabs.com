@@ -71,10 +71,10 @@ const page = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          <Link href="/partner" passHref legacyBehavior className='cursor-pointer'>
+          <Link href="/work-with-us/partner-with-us" passHref legacyBehavior className='cursor-pointer'>
             <p className="px-4 py-1.5 cursor-pointer text-xs border border-[#888] rounded-[4px] bg-transparent hover:bg-[#232323] transition">Partner with us (For Clients) ↗</p>
           </Link>
-          <Link href="/join-team" passHref legacyBehavior className='cursor-pointer'>
+          <Link href="/work-with-us/join-team" passHref legacyBehavior className='cursor-pointer'>
             <p className="px-4 cursor-pointer py-1.5 text-xs border border-[#888] rounded-[4px] bg-transparent hover:bg-[#232323] transition">Join the team (For Talent) ↗</p>
           </Link>
         </motion.div>
@@ -88,7 +88,7 @@ const page = () => {
         >
           What we do
         </motion.h2>
-        {/* Desktop (xl): 4 up, 2 down, expansion below row */}
+        {/* Desktop (xl): 4 up, 4 down, expansion below row */}
         <div className="xl:block hidden w-full">
           {/* First row: 4 cards */}
           <div className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-4">
@@ -148,10 +148,9 @@ const page = () => {
             </motion.div>
           )}
           </AnimatePresence>
-          {/* Second row: 2 cards, centered */}
+          {/* Second row: 4 cards */}
           <div className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-6">
-            <div className="col-span-1"></div>
-            {whatWeDo.slice(4, 6).map((item, idx) => (
+            {whatWeDo.slice(4, 8).map((item, idx) => (
               <CardButton
                 key={item.title}
                 title={item.title}
@@ -159,11 +158,10 @@ const page = () => {
                 onClick={() => setExpanded(expanded === idx + 4 ? null : idx + 4)}
               />
             ))}
-            <div className="col-span-1"></div>
           </div>
-          {/* Expansion below second row if 4 or 5 is expanded */}
+          {/* Expansion below second row if any of 4-7 is expanded */}
           <AnimatePresence mode="wait">
-          {expanded !== null && expanded >= 4 && expanded < 6 && (
+          {expanded !== null && expanded >= 4 && expanded < 8 && (
             <motion.div
               key={expanded}
               className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-4"
@@ -203,9 +201,9 @@ const page = () => {
           )}
           </AnimatePresence>
         </div>
-        {/* Tablet (md to xl): 3 per row, 2 rows, expansion below row */}
+        {/* Tablet (md to xl): 3 up, 3 middle, 2 down (centered) */}
         <div className="md:block xl:hidden hidden w-full">
-          {/* First row */}
+          {/* First row: 3 cards */}
           <div className="grid grid-cols-3 gap-4 max-w-[90%] mx-auto mb-4">
             {whatWeDo.slice(0, 3).map((item, idx) => (
               <CardButton
@@ -217,45 +215,7 @@ const page = () => {
               />
             ))}
           </div>
-          {/* Expansion below first row if any of first 3 is expanded */}
-          <AnimatePresence mode="wait">
-          {expanded !== null && expanded >= 0 && expanded < 3 && (
-            <motion.div
-              key={expanded}
-              className="flex justify-center w-full mb-4"
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 30 }}
-              transition={{ duration: 0.5, type: 'spring' }}
-            >
-              <motion.div
-                className="mt-2 p-4 max-w-[540px] w-full text-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15, duration: 0.5 }}
-              >
-                <motion.p
-                  className="text-white text-base mb-2"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.25, duration: 0.5 }}
-                >
-                  {whatWeDo[expanded].content}
-                </motion.p>
-                <motion.div
-                  className='flex items-center gap-1 justify-center'
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.35, duration: 0.5 }}
-                >
-                  <Dot color={whatWeDo[expanded].link.color} />
-                  <p className="text-[#90BEFF] items-center">{whatWeDo[expanded].link.text}</p>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          )}
-          </AnimatePresence>
-          {/* Second row */}
+          {/* Second row: 3 cards */}
           <div className="grid grid-cols-3 gap-4 max-w-[90%] mx-auto mb-4">
             {whatWeDo.slice(3, 6).map((item, idx) => (
               <CardButton
@@ -267,49 +227,25 @@ const page = () => {
               />
             ))}
           </div>
-          {/* Expansion below second row if any of last 3 is expanded */}
-          <AnimatePresence mode="wait">
-          {expanded !== null && expanded >= 3 && expanded < 6 && (
-            <motion.div
-              key={expanded}
-              className="flex justify-center w-full mb-4"
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 30 }}
-              transition={{ duration: 0.5, type: 'spring' }}
-            >
-              <motion.div
-                className="mt-2 p-4 max-w-[540px] w-full text-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15, duration: 0.5 }}
-              >
-                <motion.p
-                  className="text-white text-base mb-2"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.25, duration: 0.5 }}
-                >
-                  {whatWeDo[expanded].content}
-                </motion.p>
-                <motion.div
-                  className='flex items-center gap-1 justify-center'
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.35, duration: 0.5 }}
-                >
-                  <Dot color={whatWeDo[expanded].link.color} />
-                  <p className="text-[#90BEFF] items-center">{whatWeDo[expanded].link.text}</p>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          )}
-          </AnimatePresence>
+          {/* Third row: 2 cards, centered */}
+          <div className="grid grid-cols-3 gap-4 max-w-[90%] mx-auto mb-4">
+            <div className="col-span-1"></div>
+            {whatWeDo.slice(6, 8).map((item, idx) => (
+              <CardButton
+                key={item.title}
+                title={item.title}
+                expanded={expanded === idx + 6}
+                onClick={() => setExpanded(expanded === idx + 6 ? null : idx + 6)}
+                className="text-lg"
+              />
+            ))}
+            <div className="col-span-1"></div>
+          </div>
         </div>
-        {/* Mobile (below md): 2 per row, 3 rows, expansion below pair */}
+        {/* Mobile (below md): 2 per row, 4 rows */}
         <div className="w-full flex justify-center md:hidden">
           <div className="grid grid-cols-2 gap-3 w-full max-w-[98%] mb-4">
-            {whatWeDo.slice(0, 6).map((item, idx) => (
+            {whatWeDo.slice(0, 8).map((item, idx) => (
               <React.Fragment key={item.title}>
                 <CardButton
                   title={item.title}
