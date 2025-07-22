@@ -8,6 +8,7 @@ import Marquee from 'react-fast-marquee';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
 
+
 const updates = [
   {
     id: 0,
