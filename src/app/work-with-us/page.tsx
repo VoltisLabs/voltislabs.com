@@ -3,97 +3,12 @@ import React from 'react';
 import TitleSection from '@/src/components/UI/TitleSection';
 import Image from 'next/image';
 import { useState } from 'react';
-import { Dot } from 'lucide-react';
+import { ArrowRight, Dot } from 'lucide-react';
 import Marquee from 'react-fast-marquee';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
-
-
-const updates = [
-  {
-    id: 0,
-    img: '/image/prelura-icon.jpg',
-    message: 'Prelura',
-    time: 'Nov 18, 2024',
-    link: '/prelura',
-    description: `Prelura is a secondhand fashion marketplace designed for style-conscious, sustainability-minded shoppers. It offers a seamless platform to buy and sell preloved clothing and accessories with ease. From everyday essentials to designer pieces, users can list items, grade their condition, create profiles, and manage their wardrobes in a way that feels modern, intuitive, and community-driven.`,
-  },
-  {
-    id: 1,
-    img: '/image/vmodel-icon.png',
-    message: 'Vmodel',
-    time: 'Feb 03, 2021',
-    link: '/vmodel',
-    description:
-      "VModel is a digital platform designed to connect creators with paid opportunities in a streamlined, visually-driven environment. Blending the functionality of a freelance marketplace with the aesthetic of a social network, VModel empowers creatives—models, photographers, stylists, videographers, and more—to showcase their work, apply for jobs, and offer services all in one place. Through sleek portfolios, verified profiles, and a personalised feed, users can build their reputation and attract brands or clients looking for talent.\n \n Built with simplicity and impact in mind, VModel eliminates the friction between creativity and commerce. The platform encourages authenticity, creativity, and community—supporting both independent creatives and brands seeking fresh, skilled collaborators. Whether you're booking a photoshoot, offering a niche service, or building your creative business, VModel is designed to help you turn your craft into opportunity.",
-  },
-  {
-    id: 3,
-    img: '/image/Frame.jpg',
-    message: 'Afrogarm',
-    time: 'Dec 13, 2019',
-    link: '/afrogram',
-    description: `Afrogarm is a marketplace for African fashion, connecting talented designers with a global audience. Focused on showcasing authentic, high-quality garments and accessories, the platform celebrates the richness of African style through curated storefronts, vibrant visuals, and smooth shopping experiences. Afrogarm empowers local creators and gives buyers around the world direct access to the continent’s most exciting fashion talent.`,
-  },
-  {
-    id: 4,
-    img: '/image/spinner.png',
-    message: 'Spinnersonic',
-    time: 'Mar 18, 2025',
-    link: '/spinner',
-    description: `Spinnersonic is a high-energy fidget spinner game built for mobile and web. With multiple game modes—including multiplayer races, leaderboard challenges, and relaxed free play—it offers a fresh, dynamic take on casual gaming. Players can race, customise spinners, track spin miles, and even compete in reverse-style races where being slow is the way to win.`,
-  },
-  {
-    id: 5,
-    img: '/image/outfeatz.png',
-    message: 'Outfeatz',
-    time: 'Mar 20, 2025',
-    link: '/outfeatz',
-    description: `Outfeatz is a creative styling tool that turns outfit photos into clean, background-free cut-outs. Users can upload pictures, remove the background instantly, and build customised digital galleries of their looks. With the ability to tag brands, create themed collections, and organise their wardrobe visually, Outfeatz empowers users to curate their fashion in a way that’s personal, expressive, and digitally organised.`,
-  },
-  {
-    id: 6,
-    img: '/image/loyalty_bot.jpg',
-    message: 'Loyalty bot',
-    time: 'Mar 10, 2025',
-    link: '/loyalty_bot',
-    description:
-      "Loyalty Bot is a productivity-focused Discord bot built to help remote teams stay accountable and on time. Designed for digital workspaces that use Discord as their primary hub, Loyalty Bot tracks break times, monitors lateness, and applies custom consequences such as salary deductions or logged infractions. \n\n Loyalty Bot acts as a quiet but firm supervisor, keeping your team aligned without constant manual checks. It integrates smoothly into your team's daily workflow, offering a subtle but effective layer of structure to how your team collaborates.",
-  },
-];
-
-const whatWeDo = [
-  {
-    title: 'Product Ideation & Branding',
-    content: `We turn ambitious ideas into validated product concepts. From naming and brand identity to user journeys and go-to-market strategy, we help you launch with clarity and impact - not guesswork.`,
-    link: { text: 'From sketch to startup-ready in weeks.', url: '#', color: '#90BEFF' },
-  },
-  {
-    title: 'App & Web Development',
-    content: `We design and build modern, scalable, and user-centric digital experiences across platforms. Our dev teams work in Swift, Flutter, React, and Django to create apps that look great and perform flawlessly - whether it's an MVP or a full-stack platform.`,
-    link: { text: 'Clean code. Seamless UX. Built for growth.', url: '#', color: '#90BEFF' },
-  },
-  {
-    title: 'Game Design & Development',
-    content: `Gaming is in our DNA. With projects like Spinnersonic, we design thrilling, stylised game experiences from concept art to Unity-powered prototypes — complete with custom assets, achievements, reward systems, and UI/UX for both kids and adults.`,
-    link: { text: 'Games that don’t just entertain — they stick.', url: '#', color: '#90BEFF' },
-  },
-  {
-    title: 'Creator & Community Tools',
-    content: `We build platforms that empower creators, freelancers, and community leaders — like VModel and Outfeatz. From marketplace logic to social discovery, we know what makes online communities thrive and scale.`,
-    link: { text: 'Designed for creators, tested by real users.', url: '#', color: '#90BEFF' },
-  },
-  {
-    title: 'Remote Team Culture & Tooling',
-    content: `As a remote-first company, we build for remote teams — because we are one. Tools like Loyalty Bot came from our own needs for accountability, focus, and culture-building across global time zones.`,
-    link: { text: 'Built by a remote team, for remote teams.', url: '#', color: '#90BEFF' },
-  },
-  {
-    title: 'Creator & Community Tools',
-    content: `We build platforms that empower creators, freelancers, and community leaders — like VModel and Outfeatz. From marketplace logic to social discovery, we know what makes online communities thrive and scale.`,
-    link: { text: 'Designed for creators, tested by real users.', url: '#', color: '#90BEFF' },
-  },
-];
+import { update, whatWeDo } from '../data';
+import Link from 'next/link';
 
 const page = () => {         
     const [expanded, setExpanded] = useState<number | null>(null);
@@ -116,7 +31,7 @@ const page = () => {
           <TitleSection
             title="Lets build whats next - together."
             subTitle="Innovation starts here. Join us at Voltis Labs is where great ideas gets made real."
-            secondaryText="Published on Monday 17th February, 2025"
+            secondaryText=""
             containerStyle="mb-8"
           />
         </motion.div>
@@ -129,7 +44,7 @@ const page = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <Marquee className="marquee" gradient={false} speed={40} pauseOnHover={false} pauseOnClick={false} direction="left">
-            {updates.map((item, idx) => (
+            {update.map((item, idx) => (
               <motion.div
                 key={idx}
                 className="flex-shrink-0 bg-[#232323] rounded-[12px] border border-[#333] flex items-center justify-center overflow-hidden mx-2 relative group"
@@ -419,6 +334,229 @@ const page = () => {
             ))}
           </div>
         </div>
+
+        {/* Why Work With Voltis Labs Section */}
+        <motion.div
+  className="mt-16 mb-16"
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7, delay: 0.5 }}
+>
+  <motion.h2
+    className="text-3xl font-bold text-center mb-12"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7, delay: 0.6 }}
+  >
+    Why Work With Voltis Labs?
+  </motion.h2>
+
+  {/* Desktop & Tablet Layout */}
+  <div className="hidden md:grid md:grid-cols-2 gap-12 max-w-[85%] mx-auto">
+    {/* For Clients */}
+    <motion.div
+      className="space-y-4"
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay: 0.8 }}
+    >
+      <h3 className="text-xl font-bold text-white mb-4">For Clients</h3>
+      <ul className="space-y-3">
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
+          <p className="text-white text-sm">Full-stack, agile development team</p>
+        </li>
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
+          <p className="text-white text-sm">Expertise in launching scalable tech products</p>
+        </li>
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
+          <p className="text-white text-sm">Deep design focus and branding support</p>
+        </li>
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
+          <p className="text-white text-sm">We treat your product like it's ours</p>
+        </li>
+      </ul>
+    </motion.div>
+
+    {/* For Collaborators */}
+    <motion.div
+      className="space-y-4"
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay: 0.9 }}
+    >
+      <h3 className="text-xl font-bold text-white mb-4">For Collaborators</h3>
+      <ul className="space-y-3">
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
+          <p className="text-white text-sm">Learn by building with us — every role has ownership</p>
+        </li>
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
+          <p className="text-white text-sm">Remote, async-friendly culture</p>
+        </li>
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
+          <p className="text-white text-sm">Work on real products used by thousands</p>
+        </li>
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
+          <p className="text-white text-sm">Build a portfolio that speaks for itself</p>
+        </li>
+      </ul>
+    </motion.div>
+  </div>
+
+  {/* Mobile Layout */}
+  <div className="md:hidden space-y-12 max-w-[95%] mx-auto">
+    {/* For Clients Mobile */}
+    <motion.div
+      className="space-y-4 text-center"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay: 0.8 }}
+    >
+      <h3 className="text-lg font-bold text-white mb-3">For Clients</h3>
+      <ul className="space-y-2 text-left inline-block">
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
+          <p className="text-white text-xs">Full-stack, agile development team</p>
+        </li>
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
+          <p className="text-white text-xs">Expertise in launching scalable tech products</p>
+        </li>
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
+          <p className="text-white text-xs">Deep design focus and branding support</p>
+        </li>
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
+          <p className="text-white text-xs">We treat your product like it's ours</p>
+        </li>
+      </ul>
+    </motion.div>
+
+    {/* For Collaborators Mobile */}
+    <motion.div
+      className="space-y-4 text-center"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay: 0.9 }}
+    >
+      <h3 className="text-lg font-bold text-white mb-3">For Collaborators</h3>
+      <ul className="space-y-2 text-left inline-block">
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
+          <p className="text-white text-xs">Learn by building with us — every role has ownership</p>
+        </li>
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
+          <p className="text-white text-xs">Remote, async-friendly culture</p>
+        </li>
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
+          <p className="text-white text-xs">Work on real products used by thousands</p>
+        </li>
+        <li className="flex items-start gap-2">
+          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
+          <p className="text-white text-xs">Build a portfolio that speaks for itself</p>
+        </li>
+      </ul>
+    </motion.div>
+  </div>
+</motion.div>
+
+<motion.div
+  className="mt-20 mb-16"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7, delay: 0.6 }}
+>
+  <h2 className="text-2xl md:text-3xl font-semibold text-white text-center mb-8">
+    Who we work with
+  </h2>
+
+  <ul className="space-y-4 max-w-[600px] mx-auto">
+    <li className="flex items-start gap-2">
+      <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={12} />
+      <span className="text-[#C0C7D0] text-sm md:text-base font-normal">
+        Startups & early-stage founders
+      </span>
+    </li>
+    <li className="flex items-start gap-2">
+      <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={12} />
+      <span className="text-[#C0C7D0] text-sm md:text-base font-normal">
+        Designers, devs, and marketers looking for impact
+      </span>
+    </li>
+    <li className="flex items-start gap-2">
+      <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={12} />
+      <span className="text-[#C0C7D0] text-sm md:text-base font-normal">
+        Community builders and culture-led brands
+      </span>
+    </li>
+  </ul>
+</motion.div>
+
+
+
+<motion.div
+  className="mt-20 mb-24 text-center"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7, delay: 0.7 }}
+>
+  <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8">
+    Ready to work with us?
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 max-w-[700px] mx-auto">
+    {/* For Clients */}
+    <div className="text-left md:text-center">
+      <h3 className="text-[#90BEFF] text-base font-semibold mb-3">For Clients</h3>
+      <p className="text-sm md:text-base text-white font-normal">
+        <Link href="/contact" className="text-[#5FA7FF] underline hover:opacity-80 transition">
+          Tell us
+        </Link>{" "}
+        about your project
+      </p>
+    </div>
+
+    {/* For Collaborators */}
+    <div className="text-left md:text-center">
+      <h3 className="text-[#90BEFF] text-base font-semibold mb-3">For Collaborators</h3>
+      <ul className="space-y-1 text-sm md:text-base text-white font-normal">
+        <li>
+          <span className="inline-flex items-center gap-2">
+            <ArrowRight size={14} className="text-[#90BEFF]" />
+            <Link href="/apply" className="text-[#5FA7FF] underline hover:opacity-80 transition">
+              Apply
+            </Link>{" "}
+            or{" "}
+            <Link href="/discord" className="text-[#5FA7FF] underline hover:opacity-80 transition">
+              Join
+            </Link>{" "}
+            our Discord
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</motion.div>
+
+
      
       </section>
     </motion.div>
