@@ -165,7 +165,7 @@ export default function NewsPage() {
         setHasMorePosts(false);
       }
     } catch (err) {
-      console.log('Failed to fetch more blog posts:', err);
+    
       setLoadMoreError('Failed to load more posts. Please check your network connection.');
     } finally {
       setLoadingMore(false);
