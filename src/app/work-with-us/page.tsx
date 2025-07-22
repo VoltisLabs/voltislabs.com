@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
 import { update, whatWeDo } from '../data';
 import Link from 'next/link';
+import CardButton from '@/src/components/UI/CardButton';
 
 const page = () => {         
     const [expanded, setExpanded] = useState<number | null>(null);
@@ -70,8 +71,12 @@ const page = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          <button className="px-4 py-1.5 text-xs border border-[#888] rounded-[4px] bg-transparent hover:bg-[#232323] transition">Partner with us (For Clients) ↗</button>
-          <button className="px-4 py-1.5 text-xs border border-[#888] rounded-[4px] bg-transparent hover:bg-[#232323] transition">Join the team (For Talent) ↗</button>
+          <Link href="/partner" passHref legacyBehavior className='cursor-pointer'>
+            <p className="px-4 py-1.5 cursor-pointer text-xs border border-[#888] rounded-[4px] bg-transparent hover:bg-[#232323] transition">Partner with us (For Clients) ↗</p>
+          </Link>
+          <Link href="/join-team" passHref legacyBehavior className='cursor-pointer'>
+            <p className="px-4 cursor-pointer py-1.5 text-xs border border-[#888] rounded-[4px] bg-transparent hover:bg-[#232323] transition">Join the team (For Talent) ↗</p>
+          </Link>
         </motion.div>
         {/* What we do Section */}
         <motion.h2
@@ -88,19 +93,18 @@ const page = () => {
           {/* First row: 4 cards */}
           <div className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-4">
             {whatWeDo.slice(0, 4).map((item, idx) => (
-              <motion.button
+              <CardButton
                 key={item.title}
+                title={item.title}
+                expanded={expanded === idx}
                 onClick={() => setExpanded(expanded === idx ? null : idx)}
-                className={`border border-[#66708533] rounded-[8px] px-4 py-8 text-white text-center text-[30px] font-bold transition-all duration-200 font-medium text-base md:text-lg bg-transparent hover:border-[#90BEFF] ${expanded === idx ? 'border-3 border-[#90BEFF]' : ''}`}
-                style={{ minHeight: '120px', minWidth: '220px', maxWidth:'220px' }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * idx }}
-                whileHover={{ scale: 1.04 }}
-              >
-                {item.title}
-              </motion.button>
+                animationProps={{
+                  initial: { opacity: 0, y: 30 },
+                  whileInView: { opacity: 1, y: 0 },
+                  viewport: { once: true },
+                  transition: { duration: 0.5, delay: 0.1 * idx },
+                }}
+              />
             ))}
           </div>
           {/* Expansion below first row if any of 0-3 is expanded */}
@@ -148,14 +152,12 @@ const page = () => {
           <div className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-6">
             <div className="col-span-1"></div>
             {whatWeDo.slice(4, 6).map((item, idx) => (
-              <button
+              <CardButton
                 key={item.title}
+                title={item.title}
+                expanded={expanded === idx + 4}
                 onClick={() => setExpanded(expanded === idx + 4 ? null : idx + 4)}
-                className={`border border-[#66708533] rounded-[8px] px-4 py-8 text-white text-center text-[30px] font-bold transition-all duration-200 font-medium text-base md:text-lg bg-transparent hover:border-[#90BEFF] ${expanded === idx + 4 ? 'border-3 border-[#90BEFF]' : ''}`}
-                style={{ minHeight: '120px', minWidth: '220px', maxWidth:'220px' }}
-              >
-                {item.title}
-              </button>
+              />
             ))}
             <div className="col-span-1"></div>
           </div>
@@ -206,14 +208,13 @@ const page = () => {
           {/* First row */}
           <div className="grid grid-cols-3 gap-4 max-w-[90%] mx-auto mb-4">
             {whatWeDo.slice(0, 3).map((item, idx) => (
-              <button
+              <CardButton
                 key={item.title}
+                title={item.title}
+                expanded={expanded === idx}
                 onClick={() => setExpanded(expanded === idx ? null : idx)}
-                className={`border border-[#66708533] rounded-[8px] px-4 py-8 text-white text-center text-lg font-bold transition-all duration-200 font-medium bg-transparent hover:border-[#90BEFF] ${expanded === idx ? 'border-3 border-[#90BEFF]' : ''}`}
-                style={{ minHeight: '100px', minWidth: '120px', maxWidth:'220px' }}
-              >
-                {item.title}
-              </button>
+                className="text-lg"
+              />
             ))}
           </div>
           {/* Expansion below first row if any of first 3 is expanded */}
@@ -257,14 +258,13 @@ const page = () => {
           {/* Second row */}
           <div className="grid grid-cols-3 gap-4 max-w-[90%] mx-auto mb-4">
             {whatWeDo.slice(3, 6).map((item, idx) => (
-              <button
+              <CardButton
                 key={item.title}
+                title={item.title}
+                expanded={expanded === idx + 3}
                 onClick={() => setExpanded(expanded === idx + 3 ? null : idx + 3)}
-                className={`border border-[#66708533] rounded-[8px] px-4 py-8 text-white text-center text-lg font-bold transition-all duration-200 font-medium bg-transparent hover:border-[#90BEFF] ${expanded === idx + 3 ? 'border-3 border-[#90BEFF]' : ''}`}
-                style={{ minHeight: '100px', minWidth: '120px', maxWidth:'220px' }}
-              >
-                {item.title}
-              </button>
+                className="text-lg"
+              />
             ))}
           </div>
           {/* Expansion below second row if any of last 3 is expanded */}
@@ -311,13 +311,13 @@ const page = () => {
           <div className="grid grid-cols-2 gap-3 w-full max-w-[98%] mb-4">
             {whatWeDo.slice(0, 6).map((item, idx) => (
               <React.Fragment key={item.title}>
-                <button
+                <CardButton
+                  title={item.title}
+                  expanded={expanded === idx}
                   onClick={() => setExpanded(expanded === idx ? null : idx)}
-                  className={`border border-[#66708533] rounded-[8px] px-2 py-6 text-white text-center text-base font-bold transition-all duration-200 font-medium bg-transparent hover:border-[#90BEFF] ${expanded === idx ? 'border-3 border-[#90BEFF]' : ''}`}
-                  style={{ minHeight: '80px', minWidth: '80px', maxWidth:'180px' }}
-                >
-                  {item.title}
-                </button>
+                  className="text-base px-2 py-6"
+                  animationProps={{ style: { minHeight: '80px', minWidth: '80px', maxWidth: '180px' } }}
+                />
                 {/* Expansion below the pair (row) if idx is odd and either in the pair is expanded */}
                 {(idx % 2 === 1 && (expanded === idx || expanded === idx - 1)) && (
                   <div className="col-span-2 flex justify-center w-full">
@@ -333,231 +333,7 @@ const page = () => {
               </React.Fragment>
             ))}
           </div>
-        </div>
-
-        {/* Why Work With Voltis Labs Section */}
-        <motion.div
-  className="mt-16 mb-16"
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.7, delay: 0.5 }}
->
-  <motion.h2
-    className="text-3xl font-bold text-center mb-12"
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.7, delay: 0.6 }}
-  >
-    Why Work With Voltis Labs?
-  </motion.h2>
-
-  {/* Desktop & Tablet Layout */}
-  <div className="hidden md:grid md:grid-cols-2 gap-12 max-w-[85%] mx-auto">
-    {/* For Clients */}
-    <motion.div
-      className="space-y-4"
-      initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7, delay: 0.8 }}
-    >
-      <h3 className="text-xl font-bold text-white mb-4">For Clients</h3>
-      <ul className="space-y-3">
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
-          <p className="text-white text-sm">Full-stack, agile development team</p>
-        </li>
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
-          <p className="text-white text-sm">Expertise in launching scalable tech products</p>
-        </li>
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
-          <p className="text-white text-sm">Deep design focus and branding support</p>
-        </li>
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
-          <p className="text-white text-sm">We treat your product like it's ours</p>
-        </li>
-      </ul>
-    </motion.div>
-
-    {/* For Collaborators */}
-    <motion.div
-      className="space-y-4"
-      initial={{ opacity: 0, x: 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7, delay: 0.9 }}
-    >
-      <h3 className="text-xl font-bold text-white mb-4">For Collaborators</h3>
-      <ul className="space-y-3">
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
-          <p className="text-white text-sm">Learn by building with us — every role has ownership</p>
-        </li>
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
-          <p className="text-white text-sm">Remote, async-friendly culture</p>
-        </li>
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
-          <p className="text-white text-sm">Work on real products used by thousands</p>
-        </li>
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={16} />
-          <p className="text-white text-sm">Build a portfolio that speaks for itself</p>
-        </li>
-      </ul>
-    </motion.div>
-  </div>
-
-  {/* Mobile Layout */}
-  <div className="md:hidden space-y-12 max-w-[95%] mx-auto">
-    {/* For Clients Mobile */}
-    <motion.div
-      className="space-y-4 text-center"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7, delay: 0.8 }}
-    >
-      <h3 className="text-lg font-bold text-white mb-3">For Clients</h3>
-      <ul className="space-y-2 text-left inline-block">
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
-          <p className="text-white text-xs">Full-stack, agile development team</p>
-        </li>
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
-          <p className="text-white text-xs">Expertise in launching scalable tech products</p>
-        </li>
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
-          <p className="text-white text-xs">Deep design focus and branding support</p>
-        </li>
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
-          <p className="text-white text-xs">We treat your product like it's ours</p>
-        </li>
-      </ul>
-    </motion.div>
-
-    {/* For Collaborators Mobile */}
-    <motion.div
-      className="space-y-4 text-center"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7, delay: 0.9 }}
-    >
-      <h3 className="text-lg font-bold text-white mb-3">For Collaborators</h3>
-      <ul className="space-y-2 text-left inline-block">
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
-          <p className="text-white text-xs">Learn by building with us — every role has ownership</p>
-        </li>
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
-          <p className="text-white text-xs">Remote, async-friendly culture</p>
-        </li>
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
-          <p className="text-white text-xs">Work on real products used by thousands</p>
-        </li>
-        <li className="flex items-start gap-2">
-          <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={14} />
-          <p className="text-white text-xs">Build a portfolio that speaks for itself</p>
-        </li>
-      </ul>
-    </motion.div>
-  </div>
-</motion.div>
-
-<motion.div
-  className="mt-20 mb-16"
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.7, delay: 0.6 }}
->
-  <h2 className="text-2xl md:text-3xl font-semibold text-white text-center mb-8">
-    Who we work with
-  </h2>
-
-  <ul className="space-y-4 max-w-[600px] mx-auto">
-    <li className="flex items-start gap-2">
-      <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={12} />
-      <span className="text-[#C0C7D0] text-sm md:text-base font-normal">
-        Startups & early-stage founders
-      </span>
-    </li>
-    <li className="flex items-start gap-2">
-      <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={12} />
-      <span className="text-[#C0C7D0] text-sm md:text-base font-normal">
-        Designers, devs, and marketers looking for impact
-      </span>
-    </li>
-    <li className="flex items-start gap-2">
-      <Dot className="text-[#90BEFF] mt-1 flex-shrink-0" size={12} />
-      <span className="text-[#C0C7D0] text-sm md:text-base font-normal">
-        Community builders and culture-led brands
-      </span>
-    </li>
-  </ul>
-</motion.div>
-
-
-
-<motion.div
-  className="mt-20 mb-24 text-center"
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.7, delay: 0.7 }}
->
-  <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8">
-    Ready to work with us?
-  </h2>
-
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 max-w-[700px] mx-auto">
-    {/* For Clients */}
-    <div className="text-left md:text-center">
-      <h3 className="text-[#90BEFF] text-base font-semibold mb-3">For Clients</h3>
-      <p className="text-sm md:text-base text-white font-normal">
-        <Link href="/contact" className="text-[#5FA7FF] underline hover:opacity-80 transition">
-          Tell us
-        </Link>{" "}
-        about your project
-      </p>
-    </div>
-
-    {/* For Collaborators */}
-    <div className="text-left md:text-center">
-      <h3 className="text-[#90BEFF] text-base font-semibold mb-3">For Collaborators</h3>
-      <ul className="space-y-1 text-sm md:text-base text-white font-normal">
-        <li>
-          <span className="inline-flex items-center gap-2">
-            <ArrowRight size={14} className="text-[#90BEFF]" />
-            <Link href="/apply" className="text-[#5FA7FF] underline hover:opacity-80 transition">
-              Apply
-            </Link>{" "}
-            or{" "}
-            <Link href="/discord" className="text-[#5FA7FF] underline hover:opacity-80 transition">
-              Join
-            </Link>{" "}
-            our Discord
-          </span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</motion.div>
-
-
-     
+        </div>     
       </section>
     </motion.div>
   );
