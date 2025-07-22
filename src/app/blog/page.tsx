@@ -78,6 +78,7 @@ export default function NewsPage() {
   const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
   const [isScrolling, setIsScrolling] = useState<boolean>(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
 
   // Refs for infinite scroll
   const observerRef = useRef<IntersectionObserver | null>(null);
