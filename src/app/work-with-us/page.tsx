@@ -3,15 +3,71 @@ import React from 'react';
 import TitleSection from '@/src/components/UI/TitleSection';
 import Image from 'next/image';
 import { products } from '../data';
-import { updates } from '../data';
+// import { updates } from '../data';
 import { useState } from 'react';
 import { Dot } from 'lucide-react';
+import Marquee from 'react-fast-marquee';
+import { motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 const fallbackCard = (
   <div className="flex flex-col items-center justify-center w-full h-full bg-[#232323] rounded-lg border border-[#333] text-gray-500">
     <span className="text-2xl font-bold">No Image</span>
   </div>
 );
+
+export const updates = [
+  {
+    id: 0,
+    img: '/image/prelura-icon.jpg',
+    message: 'Prelura',
+    time: 'Nov 18, 2024',
+    link: '/prelura',
+    description: `Prelura is a secondhand fashion marketplace designed for style-conscious, sustainability-minded shoppers. It offers a seamless platform to buy and sell preloved clothing and accessories with ease. From everyday essentials to designer pieces, users can list items, grade their condition, create profiles, and manage their wardrobes in a way that feels modern, intuitive, and community-driven.`,
+  },
+  {
+    id: 1,
+    img: '/image/vmodel-icon.png',
+    message: 'Vmodel',
+    time: 'Feb 03, 2021',
+    link: '/vmodel',
+    description:
+      "VModel is a digital platform designed to connect creators with paid opportunities in a streamlined, visually-driven environment. Blending the functionality of a freelance marketplace with the aesthetic of a social network, VModel empowers creatives—models, photographers, stylists, videographers, and more—to showcase their work, apply for jobs, and offer services all in one place. Through sleek portfolios, verified profiles, and a personalised feed, users can build their reputation and attract brands or clients looking for talent.\n \n Built with simplicity and impact in mind, VModel eliminates the friction between creativity and commerce. The platform encourages authenticity, creativity, and community—supporting both independent creatives and brands seeking fresh, skilled collaborators. Whether you're booking a photoshoot, offering a niche service, or building your creative business, VModel is designed to help you turn your craft into opportunity.",
+  },
+  {
+    id: 3,
+    img: '/image/Frame.jpg',
+    message: 'Afrogarm',
+    time: 'Dec 13, 2019',
+    link: '/afrogram',
+    description: `Afrogarm is a marketplace for African fashion, connecting talented designers with a global audience. Focused on showcasing authentic, high-quality garments and accessories, the platform celebrates the richness of African style through curated storefronts, vibrant visuals, and smooth shopping experiences. Afrogarm empowers local creators and gives buyers around the world direct access to the continent’s most exciting fashion talent.`,
+  },
+  {
+    id: 4,
+    img: '/image/spinner.png',
+    message: 'Spinnersonic',
+    time: 'Mar 18, 2025',
+    link: '/spinner',
+    description: `Spinnersonic is a high-energy fidget spinner game built for mobile and web. With multiple game modes—including multiplayer races, leaderboard challenges, and relaxed free play—it offers a fresh, dynamic take on casual gaming. Players can race, customise spinners, track spin miles, and even compete in reverse-style races where being slow is the way to win.`,
+  },
+  {
+    id: 5,
+    img: '/image/outfeatz.png',
+    message: 'Outfeatz',
+    time: 'Mar 20, 2025',
+    link: '/outfeatz',
+    description: `Outfeatz is a creative styling tool that turns outfit photos into clean, background-free cut-outs. Users can upload pictures, remove the background instantly, and build customised digital galleries of their looks. With the ability to tag brands, create themed collections, and organise their wardrobe visually, Outfeatz empowers users to curate their fashion in a way that’s personal, expressive, and digitally organised.`,
+  },
+  {
+    id: 6,
+    img: '/image/loyalty_bot.jpg',
+    message: 'Loyalty bot',
+    time: 'Mar 10, 2025',
+    link: '/loyalty_bot',
+    description:
+      "Loyalty Bot is a productivity-focused Discord bot built to help remote teams stay accountable and on time. Designed for digital workspaces that use Discord as their primary hub, Loyalty Bot tracks break times, monitors lateness, and applies custom consequences such as salary deductions or logged infractions. \n\n Loyalty Bot acts as a quiet but firm supervisor, keeping your team aligned without constant manual checks. It integrates smoothly into your team's daily workflow, offering a subtle but effective layer of structure to how your team collaborates.",
+  },
+];
 
 const whatWeDo = [
   {
@@ -56,98 +112,134 @@ const page = () => {
     const [expanded, setExpanded] = useState<number | null>(null);
 
     return (
-      <div className="mx-auto max-w-[85rem] bg-black text-white p-4 md:p-0">
+      <motion.div
+        className="mx-auto max-w-[85rem] bg-black text-white p-4 md:p-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.7 }}
+      >
       {/* <Sidebar tbList={menuItems} /> */}
       <section className="mt-8 max-w-[85rem]">
-        <TitleSection
-          title="Lets build whats next - together."
-          subTitle="Innovation starts here. Join us at Voltis Labs is where great ideas gets made real."
-          secondaryText="Published on Monday 17th February, 2025"
-          containerStyle="mb-8"
-        />
-        {/* Product Images Carousel (images from updates, 4 at a time with arrows) */}
-        {(() => {
-          const [startIdx, setStartIdx] = useState(0);
-          const visible = updates.slice(startIdx, startIdx + 4);
-          const canScrollLeft = startIdx > 0;
-          const canScrollRight = startIdx + 4 < updates.length;
-          return (
-            <div className="w-full px-1 sm:px-4 md:px-16 lg:px-32 xl:px-48 flex justify-center mb-6 sm:mb-8 relative">
-              {canScrollLeft && (
-                <button
-                  className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white/80 p-2 sm:p-3 text-black shadow-md hover:bg-white focus:outline-none"
-                  onClick={() => setStartIdx(startIdx - 1)}
-                  aria-label="Scroll left"
-                >
-                  <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeWidth="2" d="M15 19l-7-7 7-7"/></svg>
-                </button>
-              )}
-              <div className="flex gap-2 sm:gap-4 w-full max-w-5xl justify-center overflow-x-auto no-scrollbar py-2">
-                {visible.map((item, idx) => (
-                  <div
-                    key={idx + startIdx}
-                    className="flex-shrink-0 bg-[#232323] rounded-[12px] border border-[#333] flex items-center justify-center overflow-hidden mx-auto relative group"
-                  >
-                    <div className="hidden sm:block w-full h-full" style={{ width: '200px', height: '200px', maxWidth: '200px', maxHeight: '200px' }}>
-                      <Image src={item.img} alt={item.message} width={200} height={200} className="object-cover w-full h-full" />
-                    </div>
-                    <div className="block sm:hidden w-full h-full" style={{ width: '120px', height: '120px', maxWidth: '120px', maxHeight: '120px' }}>
-                      <Image src={item.img} alt={item.message} width={120} height={120} className="object-cover w-full h-full" />
-                    </div>
-                    {/* Overlay with product name on hover */}
-                    <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-white text-xs sm:text-base font-semibold mb-2 sm:mb-4 px-2 w-full text-center animate-slide-up group-hover:animate-slide-up">{item.message}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              {canScrollRight && (
-                <button
-                  className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white/80 p-2 sm:p-3 text-black shadow-md hover:bg-white focus:outline-none"
-                  onClick={() => setStartIdx(startIdx + 1)}
-                  aria-label="Scroll right"
-                >
-                  <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
-                </button>
-              )}
-            </div>
-          );
-        })()}
-        <div className="flex flex-row justify-center gap-4 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <TitleSection
+            title="Lets build whats next - together."
+            subTitle="Innovation starts here. Join us at Voltis Labs is where great ideas gets made real."
+            secondaryText="Published on Monday 17th February, 2025"
+            containerStyle="mb-8"
+          />
+        </motion.div>
+        {/* Product Images Marquee (replaces carousel) */}
+        <motion.div
+          className="w-full px-1 sm:px-4 md:px-16 lg:px-32 xl:px-48 flex justify-center mb-6 sm:mb-8 relative overflow-y-hidden"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          <Marquee gradient={false} speed={40} pauseOnHover={false} pauseOnClick={false} direction="left">
+            {updates.map((item, idx) => (
+              <motion.div
+                key={idx}
+                className="flex-shrink-0 bg-[#232323] rounded-[12px] border border-[#333] flex items-center justify-center overflow-hidden mx-2 relative group"
+                style={{ width: '200px', height: '200px', maxWidth: '200px', maxHeight: '200px' }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <Image src={item.img} alt={item.message} width={200} height={200} className="object-cover w-full h-full" />
+                {/* Overlay with product name on hover */}
+                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center opacity-100 transition-opacity duration-300">
+                  <span className="text-white text-xs sm:text-base font-semibold mb-2 sm:mb-4 px-2 w-full text-center animate-slide-up">{item.message}</span>
+                </div>
+              </motion.div>
+            ))}
+          </Marquee>
+        </motion.div>
+        <motion.div
+          className="flex flex-row justify-center gap-4 mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        >
           <button className="px-4 py-1.5 text-xs border border-[#888] rounded-[4px] bg-transparent hover:bg-[#232323] transition">Partner with us (For Clients) ↗</button>
           <button className="px-4 py-1.5 text-xs border border-[#888] rounded-[4px] bg-transparent hover:bg-[#232323] transition">Join the team (For Talent) ↗</button>
-        </div>
+        </motion.div>
         {/* What we do Section */}
-        <h2 className="text-3xl font-bold text-center mb-8">What we do</h2>
+        <motion.h2
+          className="text-3xl font-bold text-center mb-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+        >
+          What we do
+        </motion.h2>
         {/* Desktop (xl): 4 up, 2 down, expansion below row */}
         <div className="xl:block hidden w-full">
           {/* First row: 4 cards */}
           <div className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-4">
             {whatWeDo.slice(0, 4).map((item, idx) => (
-              <button
+              <motion.button
                 key={item.title}
                 onClick={() => setExpanded(expanded === idx ? null : idx)}
                 className={`border border-[#66708533] rounded-[8px] px-4 py-8 text-white text-center text-[30px] font-bold transition-all duration-200 font-medium text-base md:text-lg bg-transparent hover:border-[#90BEFF] ${expanded === idx ? 'border-3 border-[#90BEFF]' : ''}`}
                 style={{ minHeight: '120px', minWidth: '220px', maxWidth:'220px' }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * idx }}
+                whileHover={{ scale: 1.04 }}
               >
                 {item.title}
-              </button>
+              </motion.button>
             ))}
           </div>
           {/* Expansion below first row if any of 0-3 is expanded */}
+          <AnimatePresence mode="wait">
           {expanded !== null && expanded >= 0 && expanded < 4 && (
-            <div className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-4" style={{ gridColumn: '1 / -1' }}>
+            <motion.div
+              key={expanded}
+              className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-4"
+              style={{ gridColumn: '1 / -1' }}
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 30 }}
+              transition={{ duration: 0.5, type: 'spring' }}
+            >
               <div className="col-span-4 flex justify-center w-full">
-                <div className="mt-2 p-6 max-w-[540px] w-full text-center">
-                  <p className="text-white text-base mb-2">{whatWeDo[expanded].content}</p>
-                  <div className='flex items-center gap-1 justify-center'>
+                <motion.div
+                  className="mt-2 p-6 max-w-[540px] w-full text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15, duration: 0.5 }}
+                >
+                  <motion.p
+                    className="text-white text-base mb-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.25, duration: 0.5 }}
+                  >
+                    {whatWeDo[expanded].content}
+                  </motion.p>
+                  <motion.div
+                    className='flex items-center gap-1 justify-center'
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.35, duration: 0.5 }}
+                  >
                     <Dot color={whatWeDo[expanded].link.color} />
                     <p className="text-[#90BEFF] items-center">{whatWeDo[expanded].link.text}</p>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           )}
+          </AnimatePresence>
           {/* Second row: 2 cards, centered */}
           <div className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-6">
             <div className="col-span-1"></div>
@@ -164,19 +256,46 @@ const page = () => {
             <div className="col-span-1"></div>
           </div>
           {/* Expansion below second row if 4 or 5 is expanded */}
+          <AnimatePresence mode="wait">
           {expanded !== null && expanded >= 4 && expanded < 6 && (
-            <div className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-4" style={{ gridColumn: '1 / -1' }}>
+            <motion.div
+              key={expanded}
+              className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-4"
+              style={{ gridColumn: '1 / -1' }}
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 30 }}
+              transition={{ duration: 0.5, type: 'spring' }}
+            >
               <div className="col-span-4 flex justify-center w-full">
-                <div className="mt-2 p-6 max-w-[540px] w-full text-center">
-                  <p className="text-white text-base mb-2">{whatWeDo[expanded].content}</p>
-                  <div className='flex items-center gap-1 justify-center'>
+                <motion.div
+                  className="mt-2 p-6 max-w-[540px] w-full text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15, duration: 0.5 }}
+                >
+                  <motion.p
+                    className="text-white text-base mb-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.25, duration: 0.5 }}
+                  >
+                    {whatWeDo[expanded].content}
+                  </motion.p>
+                  <motion.div
+                    className='flex items-center gap-1 justify-center'
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.35, duration: 0.5 }}
+                  >
                     <Dot color={whatWeDo[expanded].link.color} />
                     <p className="text-[#90BEFF] items-center">{whatWeDo[expanded].link.text}</p>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           )}
+          </AnimatePresence>
         </div>
         {/* Tablet (md to xl): 3 per row, 2 rows, expansion below row */}
         <div className="md:block xl:hidden hidden w-full">
@@ -194,17 +313,43 @@ const page = () => {
             ))}
           </div>
           {/* Expansion below first row if any of first 3 is expanded */}
+          <AnimatePresence mode="wait">
           {expanded !== null && expanded >= 0 && expanded < 3 && (
-            <div className="flex justify-center w-full mb-4">
-              <div className="mt-2 p-4 max-w-[540px] w-full text-center">
-                <p className="text-white text-base mb-2">{whatWeDo[expanded].content}</p>
-                <div className='flex items-center gap-1 justify-center'>
+            <motion.div
+              key={expanded}
+              className="flex justify-center w-full mb-4"
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 30 }}
+              transition={{ duration: 0.5, type: 'spring' }}
+            >
+              <motion.div
+                className="mt-2 p-4 max-w-[540px] w-full text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15, duration: 0.5 }}
+              >
+                <motion.p
+                  className="text-white text-base mb-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.25, duration: 0.5 }}
+                >
+                  {whatWeDo[expanded].content}
+                </motion.p>
+                <motion.div
+                  className='flex items-center gap-1 justify-center'
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.35, duration: 0.5 }}
+                >
                   <Dot color={whatWeDo[expanded].link.color} />
                   <p className="text-[#90BEFF] items-center">{whatWeDo[expanded].link.text}</p>
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           )}
+          </AnimatePresence>
           {/* Second row */}
           <div className="grid grid-cols-3 gap-4 max-w-[90%] mx-auto mb-4">
             {whatWeDo.slice(3, 6).map((item, idx) => (
@@ -219,17 +364,43 @@ const page = () => {
             ))}
           </div>
           {/* Expansion below second row if any of last 3 is expanded */}
+          <AnimatePresence mode="wait">
           {expanded !== null && expanded >= 3 && expanded < 6 && (
-            <div className="flex justify-center w-full mb-4">
-              <div className="mt-2 p-4 max-w-[540px] w-full text-center">
-                <p className="text-white text-base mb-2">{whatWeDo[expanded].content}</p>
-                <div className='flex items-center gap-1 justify-center'>
+            <motion.div
+              key={expanded}
+              className="flex justify-center w-full mb-4"
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 30 }}
+              transition={{ duration: 0.5, type: 'spring' }}
+            >
+              <motion.div
+                className="mt-2 p-4 max-w-[540px] w-full text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15, duration: 0.5 }}
+              >
+                <motion.p
+                  className="text-white text-base mb-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.25, duration: 0.5 }}
+                >
+                  {whatWeDo[expanded].content}
+                </motion.p>
+                <motion.div
+                  className='flex items-center gap-1 justify-center'
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.35, duration: 0.5 }}
+                >
                   <Dot color={whatWeDo[expanded].link.color} />
                   <p className="text-[#90BEFF] items-center">{whatWeDo[expanded].link.text}</p>
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           )}
+          </AnimatePresence>
         </div>
         {/* Mobile (below md): 2 per row, 3 rows, expansion below pair */}
         <div className="w-full flex justify-center md:hidden">
@@ -261,7 +432,7 @@ const page = () => {
         </div>
      
       </section>
-    </div>
+    </motion.div>
   );
 }
 

@@ -163,7 +163,7 @@ export const products = [
     description: `Outfeatz is a creative styling tool that turns outfit photos into clean, background-free cut-outs. Users can upload pictures, remove the background instantly, and build customised digital galleries of their looks. With the ability to tag brands, create themed collections, and organise their wardrobe visually, Outfeatz empowers users to curate their fashion in a way that’s personal, expressive, and digitally organised.`,
   },
   {
-    id: 5,
+    id: 6,
     img: '/image/loyalty_bot.jpg',
     message: 'Loyalty bot',
     time: 'Mar 10, 2025',
