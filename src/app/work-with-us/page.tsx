@@ -2,8 +2,6 @@
 import React from 'react';
 import TitleSection from '@/src/components/UI/TitleSection';
 import Image from 'next/image';
-import { products } from '../data';
-// import { updates } from '../data';
 import { useState } from 'react';
 import { Dot } from 'lucide-react';
 import Marquee from 'react-fast-marquee';
@@ -16,7 +14,7 @@ const fallbackCard = (
   </div>
 );
 
-export const updates = [
+const updates = [
   {
     id: 0,
     img: '/image/prelura-icon.jpg',
@@ -141,19 +139,21 @@ const page = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <Marquee gradient={false} speed={40} pauseOnHover={false} pauseOnClick={false} direction="left">
+          <Marquee className="marquee" gradient={false} speed={40} pauseOnHover={false} pauseOnClick={false} direction="left">
             {updates.map((item, idx) => (
               <motion.div
                 key={idx}
                 className="flex-shrink-0 bg-[#232323] rounded-[12px] border border-[#333] flex items-center justify-center overflow-hidden mx-2 relative group"
                 style={{ width: '200px', height: '200px', maxWidth: '200px', maxHeight: '200px' }}
-                whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <Image src={item.img} alt={item.message} width={200} height={200} className="object-cover w-full h-full" />
-                {/* Overlay with product name on hover */}
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center opacity-100 transition-opacity duration-300">
-                  <span className="text-white text-xs sm:text-base font-semibold mb-2 sm:mb-4 px-2 w-full text-center animate-slide-up">{item.message}</span>
+                {/* Overlay always visible, never scrollable */}
+                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center opacity-100 transition-opacity duration-300"
+                  style={{ overflow: 'hidden', maxHeight: '100%', scrollbarWidth: 'none' }}>
+                  <span className="text-white text-xs sm:text-base font-semibold mb-2 sm:mb-4 px-2 w-full text-center truncate" style={{ whiteSpace: 'nowrap' }}>
+                    {item.message}
+                  </span>
                 </div>
               </motion.div>
             ))}

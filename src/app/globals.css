@@ -60,3 +60,10 @@ body {
   object-fit: contain;
   pointer-events: none;
 }
+
+.marquee *::-webkit-scrollbar {
+  display: none !important;
+}
+.marquee * {
+  scrollbar-width: none !important;
+}
