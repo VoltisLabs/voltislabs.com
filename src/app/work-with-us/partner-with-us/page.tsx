@@ -4,7 +4,6 @@ import InputField from '@/src/components/UI/InputField';
 import CardButton from '@/src/components/UI/CardButton';
 import Label from '@/src/components/UI/Label';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronRight } from 'lucide-react';
 import Upload from '@/src/components/Upload';
 import LinkButton from '@/src/components/LinkButton';
 import SelectField from '@/src/components/UI/SelectField';
@@ -60,7 +59,7 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center py-20 px-10">
+    <div className="min-h-screen bg-black text-white flex flex-col pb-40 items-center pt-20 px-10">
       <div className="w-full max-w-4xl rounded-xl shadow-lg p-8 relative pb-24">
         <h1 className="text-2xl font-bold mb-2 text-center">Partner With Us <span className="text-[#667085] text-2xl font-normal">(Client Form)</span></h1>
         <form className="mt-8 space-y-4">
@@ -123,6 +122,7 @@ const Page = () => {
               ))}
             </div>
           </div>
+
           <AnimatePresence>
             {showExtraFields && (
               <motion.div
@@ -131,7 +131,7 @@ const Page = () => {
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.4 }}
-                className="overflow-hidden"
+                className=""
               >
                 <div className="mt-6">
                   <Label htmlFor="idea">Tell us more about your idea/project.</Label>
@@ -144,6 +144,22 @@ const Page = () => {
                     rows={4}
                     className="w-full bg-[#0D1117] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#90BEFF] transition mb-4"
                   />
+                
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          
+
+              <motion.div
+                key="extra-fields"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.4 }}
+                className="overflow-hidden"
+              >
+                <div className="mt-6">
                    <SelectField
   label="What's your ideal timeline?"
   id="timeline"
@@ -183,8 +199,6 @@ const Page = () => {
                   
                 </div>
               </motion.div>
-            )}
-          </AnimatePresence>
         </form>
         <LinkButton title='Send Message' />
       </div>
