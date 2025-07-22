@@ -74,9 +74,9 @@ const page = () => {
           <Link href="/work-with-us/partner-with-us" passHref legacyBehavior className='cursor-pointer'>
             <p className="px-4 py-1.5 cursor-pointer text-xs border border-[#888] rounded-[4px] bg-transparent hover:bg-[#232323] transition">Partner with us (For Clients) ↗</p>
           </Link>
-          <Link href="/work-with-us/join-team" passHref legacyBehavior className='cursor-pointer'>
+          {/* <Link href="/work-with-us/join-team" passHref legacyBehavior className='cursor-pointer'>
             <p className="px-4 cursor-pointer py-1.5 text-xs border border-[#888] rounded-[4px] bg-transparent hover:bg-[#232323] transition">Join the team (For Talent) ↗</p>
-          </Link>
+          </Link> */}
         </motion.div>
         {/* What we do Section */}
         <motion.h2
