@@ -78,6 +78,7 @@ export default function NewsPage() {
   const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
   const [isScrolling, setIsScrolling] = useState<boolean>(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
 
   // Refs for infinite scroll
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -165,7 +166,7 @@ export default function NewsPage() {
         setHasMorePosts(false);
       }
     } catch (err) {
-      console.log('Failed to fetch more blog posts:', err);
+    
       setLoadMoreError('Failed to load more posts. Please check your network connection.');
     } finally {
       setLoadingMore(false);
