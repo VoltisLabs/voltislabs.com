@@ -59,8 +59,8 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col pb-40 items-center pt-20 px-10">
-      <div className="w-full max-w-4xl rounded-xl shadow-lg p-8 relative pb-24">
+    <div className="min-h-screen bg-black text-white flex flex-col pb-40 items-center pt-20 md:px-10">
+      <div className="w-full md:max-w-4xl rounded-xl shadow-lg p-5 md:p-8 relative pb-24">
         <h1 className="text-2xl font-bold mb-2 text-center">Partner With Us <span className="text-[#667085] text-2xl font-normal">(Client Form)</span></h1>
         <form className="mt-8 space-y-4">
           <InputField
