@@ -8,12 +8,6 @@ import Marquee from 'react-fast-marquee';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
 
-const fallbackCard = (
-  <div className="flex flex-col items-center justify-center w-full h-full bg-[#232323] rounded-lg border border-[#333] text-gray-500">
-    <span className="text-2xl font-bold">No Image</span>
-  </div>
-);
-
 const updates = [
   {
     id: 0,
@@ -100,13 +94,7 @@ const whatWeDo = [
   },
 ];
 
-const page = () => {
-    const menuItems = [
-        { name: 'Home', route: 'about-home' },
-        { name: 'About Us', route: 'about' },
-        { name: 'Our Mission', route: 'mission' },
-        { name: 'Looking Ahead', route: 'looking-ahead' },
-      ];           
+const page = () => {         
     const [expanded, setExpanded] = useState<number | null>(null);
 
     return (
