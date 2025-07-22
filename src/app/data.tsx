@@ -97,6 +97,73 @@ export const updates = [
   },
 ];
 
+export const whatWeDo = [
+  {
+    title: 'Product Ideation & Branding',
+    content: `We turn ambitious ideas into validated product concepts. From naming and brand identity to user journeys and go-to-market strategy, we help you launch with clarity and impact - not guesswork.`,
+    link: { text: 'From sketch to startup-ready in weeks.', url: '#', color: '#90BEFF' },
+  },
+  {
+    title: 'App & Web Development',
+    content: `We design and build modern, scalable, and user-centric digital experiences across platforms. Our dev teams work in Swift, Flutter, React, and Django to create apps that look great and perform flawlessly - whether it's an MVP or a full-stack platform.`,
+    link: { text: 'Clean code. Seamless UX. Built for growth.', url: '#', color: '#90BEFF' },
+  },
+  {
+    title: 'Game Design & Development',
+    content: `Gaming is in our DNA. With projects like Spinnersonic, we design thrilling, stylised game experiences from concept art to Unity-powered prototypes — complete with custom assets, achievements, reward systems, and UI/UX for both kids and adults.`,
+    link: { text: 'Games that don’t just entertain — they stick.', url: '#', color: '#90BEFF' },
+  },
+  {
+    title: 'Creator & Community Tools',
+    content: `We build platforms that empower creators, freelancers, and community leaders — like VModel and Outfeatz. From marketplace logic to social discovery, we know what makes online communities thrive and scale.`,
+    link: { text: 'Designed for creators, tested by real users.', url: '#', color: '#90BEFF' },
+  },
+  {
+    title: 'Remote Team Culture & Tooling',
+    content: `As a remote-first company, we build for remote teams — because we are one. Tools like Loyalty Bot came from our own needs for accountability, focus, and culture-building across global time zones.`,
+    link: { text: 'Built by a remote team, for remote teams.', url: '#', color: '#90BEFF' },
+  },
+  {
+    title: 'Creator & Community Tools',
+    content: `We build platforms that empower creators, freelancers, and community leaders — like VModel and Outfeatz. From marketplace logic to social discovery, we know what makes online communities thrive and scale.`,
+    link: { text: 'Designed for creators, tested by real users.', url: '#', color: '#90BEFF' },
+  },
+];
+
+export const update = [
+  {
+    id: 0,
+    img: '/image/prelura-icon.jpg',
+    message: 'Prelura',
+  },
+  {
+    id: 1,
+    img: '/image/vmodel-icon.png',
+    message: 'Vmodel',
+  },
+  {
+    id: 3,
+    img: '/image/Frame.jpg',
+    message: 'Afrogarm',
+  },
+  {
+    id: 4,
+    img: '/image/spinner.png',
+    message: 'Spinnersonic',
+  },
+  {
+    id: 5,
+    img: '/image/outfeatz.png',
+    message: 'Outfeatz',
+  },
+  {
+    id: 6,
+    img: '/image/loyalty_bot.jpg',
+    message: 'Loyalty bot',
+  },
+];
+
+
 export const research = [
   {
     img: '/image/research1.png',
