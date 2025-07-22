@@ -76,9 +76,11 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           onMouseEnter={() => setDropdownOpen(true)}
           onMouseLeave={() => setDropdownOpen(false)}
         >
+          <Link href="https://voltislabs.com/products">
           <button className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400 flex items-center gap-1">
             Products
           </button>
+          </Link>
 
           {/* Dropdown */}
           <AnimatePresence>
