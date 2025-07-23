@@ -91,7 +91,7 @@ function page() {
         <section className="mb-8 text-white">
           <h1 className={titleClassName}>Reimagining Preloved, One Item at a Time</h1>
           <span className={paragrapghClassName}>
-            Fashion is more than just clothing—it’s a reflection of personality, creativity, and
+            Fashion is more than just clothing it’s a reflection of personality, creativity, and
             individuality. But the way we consume fashion has changed drastically. Overproduction,
             impulse shopping, and short-lived trends have created a wasteful cycle where clothes are
             discarded faster than ever before. At Prelura, we’re flipping the script.
@@ -270,7 +270,7 @@ function page() {
               <span className={titleClassName}>Simplicity First</span>
               <span className={paragrapghClassName}>
                 Unlike other platforms, we designed Prelura to feel as easy and enjoyable as
-                shopping online—no unnecessary complexity, no frustration.
+                shopping online, no unnecessary complexity, no frustration.
               </span>
             </div>
             <br />
@@ -294,7 +294,7 @@ function page() {
               <span className={titleClassName}>A Future of Conscious Fashion</span>
               <span className={paragrapghClassName}>
                 As second-hand fashion grows, we’re shaping a world where resale isn’t just an
-                afterthought—it’s the future of shopping.
+                afterthought it’s the future of shopping.
               </span>
             </div>
           </section>

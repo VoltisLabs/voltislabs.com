@@ -30,13 +30,13 @@ function Content() {
             {/* Text Section */}
             <div className="flex px-[1rem] flex-col lg:w-1/2 justify-center gap-6">
               <p className="font-normal text-[20px] md:text-[28px]">
-                At Voltis Labs, we innovate with purpose and responsibility — crafting
+                At Voltis Labs, we innovate with purpose and responsibility - crafting
                 technology that enhances lives while considering its long-term impact
                 on people and the planet.
               </p>
               <p className="font-normal text-[20px] md:text-[28px]">
                 We believe in building technology that empowers, disrupts, and
-                transforms—always with a thoughtful approach to its risks and rewards.
+                transforms-always with a thoughtful approach to its risks and rewards.
               </p>
               <p className="text-sm md:mt-[120px] underline cursor-pointer font-normal text-white hover:text-blue-500 visited:text-red-500">
                 Learn about safety

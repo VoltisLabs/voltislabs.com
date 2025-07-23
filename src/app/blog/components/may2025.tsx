@@ -71,15 +71,15 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                 </p>
 
                 <p>
-                    We believe the future of technology should be human-centered, design-forward, and
-                    culturally inclusive. We're not here to disrupt just for the sake of headlines—we're here
+                    We believe the future of technology should be human-centered, design-forward and
+                    culturally inclusive. We're not here to disrupt just for the sake of headlines, we're here
                     to rebuild what should've been done right the first time.
                 </p>
                 <br />
                 <h2 className={"font-bold"}>So, what does that actually mean?</h2>
 
                 <p>
-                    It means creating tools that help people express, organize, connect, and focus—without
+                    It means creating tools that help people express, organize, connect, and focus, without
                     friction. It means designing for real lives, not just data models. And it means making
                     space for underrepresented voices and creative communities at the heart of everything
                     we build.
@@ -142,7 +142,7 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                 <br />
                 <p>
                     If you're someone who cares about tech that respects people's time, creativity, and
-                    identity—we're building for you.
+                    identity we're building for you.
                 </p>
                 <br />
                 <p>
