@@ -97,7 +97,7 @@ function Content() {
           </h2>
           <div className="md:w-1/2 mt-4 md:mt-0">
             <p className="font-normal text-lg text-[20px] md:text-[24px]">
-            Voltis Labs Academy is a 'hands - on' learning and internship hub for aspiring tech talent — a place where education meets execution. 
+            Voltis Labs Academy is a 'hands - on' learning and internship hub for aspiring tech talent - a place where education meets execution. 
             </p>
             <Link href={'/academy'} className="text-sm underline mt-2 font-normal text-white sm:mt-0  cursor-pointer hover:text-blue-500 visited:text-red-500">
               View 
