@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 import Footer from "../components/footer";
 import { usePathname } from "next/navigation";
 import { comixLoud } from "./spinner/utils/font";
+import Head from 'next/head';
+import Script from 'next/script';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,14 +62,26 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <head>
+      <Head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-HJR9KYF4KR"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HJR9KYF4KR');
+          `}
+        </Script>
         {/* <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
           rel="stylesheet"
         /> */}
         <title>Voltis Labs</title>
         <meta name="description" content="Software Development Company" />
-      </head>
+      </Head>
 
       <body className={`${lato.variable} ${comixLoud.variable} ${someType.variable} ${titan.variable} ${hammer.variable} ${comfortaa.variable} ${pathname == "/loyalty_bot" ? "bg-[#1a2081]" : "bg-black"}`}>
         <div className="mx-auto max-w-screen-2xl w-full">
