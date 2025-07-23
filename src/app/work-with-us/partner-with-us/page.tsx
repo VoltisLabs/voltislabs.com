@@ -160,38 +160,38 @@ const Page = () => {
                 className="overflow-hidden"
               >
                 <div className="mt-6">
-                   <SelectField
-  label="What's your ideal timeline?"
-  id="timeline"
-  name="timeline"
-  value={form.timeline}
-  onChange={handleSelectChange}
-  options={[
-    'ASAP',
-    'Within 1 month',
-    '1 - 3 months',
-    '3 - 6 months',
-    '6 - 12 months',
-    "I'm Flexible"
-  ]}
-/>
+              <SelectField
+                label="What's your ideal timeline?"
+                id="timeline"
+                name="timeline"
+                value={form.timeline}
+                onChange={handleSelectChange}
+                options={[
+                  'ASAP',
+                  'Within 1 month',
+                  '1 - 3 months',
+                  '3 - 6 months',
+                  '6 - 12 months',
+                  "I'm Flexible"
+                ]}
+              />
 
-<SelectField
-  label="How did you hear about us?"
-  id="hearAbout"
-  name="hearAbout"
-  value={form.hearAbout}
-  onChange={handleSelectChange}
-  options={[
-    'Google',
-    'Friend',
-    'Social Media',
-    'Event',
-    'Newsletter',
-    'Other'
-  ]}
-/>
-        
+              <SelectField
+                label="How did you hear about us?"
+                id="hearAbout"
+                name="hearAbout"
+                value={form.hearAbout}
+                onChange={handleSelectChange}
+                options={[
+                  'Google',
+                  'Friend',
+                  'Social Media',
+                  'Event',
+                  'Newsletter',
+                  'Other'
+                ]}
+              />
+                      
                   <div className="mt-4 ">
                     <Label htmlFor="file">Upload Deck / Files <span className="text-xs text-gray-400">(Optional)</span></Label>
                     <Upload fileName={fileName} handleFileChange={handleFileChange} />
