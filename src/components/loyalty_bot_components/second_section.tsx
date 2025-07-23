@@ -25,7 +25,7 @@ const SecondSection = () => {
                     </span>
                     <br />
                     <br />
-                    For teams using Discord as their primary office, communication hub, and daily base of operations, Loyalty Bot integrates seamlessly—no extra tools, no complicated platforms to manage.
+                    For teams using Discord as their primary office, communication hub, and daily base of operations, Loyalty Bot integrates seamlessly, no extra tools, no complicated platforms to manage.
                 </span>
             </div>
         </section>
