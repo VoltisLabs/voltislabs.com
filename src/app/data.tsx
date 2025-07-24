@@ -201,6 +201,12 @@ export const products = [
   {
     id: 0,
     img: '/image/prelura-icon.jpg',
+    images: [
+      '/nike2.jpg',
+      '/preluraslider3.jpg',
+      '/image/prelura3.jpeg',
+      '/image/preluraslider1.jpeg',
+    ],
     message: 'Prelura',
     time: 'Nov 18, 2024',
     link: '/prelura',
@@ -209,6 +215,12 @@ export const products = [
   {
     id: 1,
     img: '/image/vmodel-icon.png',
+    images: [
+      '/image/vmodel-icon.png',
+      '/image/vmodel4.jpeg',
+      '/image/vmodel5.jpeg',
+      '/image/vmodel6.jpeg',
+    ],
     message: 'Vmodel',
     time: 'Feb 03, 2021',
     link: '/vmodel',
@@ -218,6 +230,12 @@ export const products = [
   {
     id: 3,
     img: '/image/Frame.jpg',
+    images: [
+      '/svgs/afrogarm_sliders/slide_1.jpg',
+      '/svgs/afrogarm_sliders/slide_2.jpg',
+      '/svgs/afrogarm_sliders/slide_3.jpg',
+      '/svgs/afrogarm_sliders/slide_4.jpg',
+    ],
     message: 'Afrogarm',
     time: 'Dec 13, 2019',
     link: '/afrogram',
@@ -226,6 +244,17 @@ export const products = [
   {
     id: 4,
     img: '/image/spinner.png',
+    images: [
+      '/products/spinner/spinner.png',
+      '/products/spinner/spinner1.png',
+      // '/products/spinner/spinner4.png',
+      '/products/spinner/spinner2.png',
+      '/products/spinner/spinner3.png', 
+      
+     
+      // '/products/spinner/spinner5.png',
+    
+    ],
     message: 'Spinnersonic',
     time: 'Mar 18, 2025',
     link: '/spinner',
@@ -234,6 +263,12 @@ export const products = [
   {
     id: 5,
     img: '/image/outfeatz.png',
+    images: [
+      '/image/outfeatz.png',
+      '/image/out-5.png',
+      '/image/out-6.png',
+      '/image/out-1.jpg',
+    ],
     message: 'Outfeatz',
     time: 'Mar 20, 2025',
     link: '/outfeatz',
@@ -242,6 +277,12 @@ export const products = [
   {
     id: 6,
     img: '/image/loyalty_bot.jpg',
+    images: [
+      '/image/loyalty_bot.jpg',
+      '/image/team.png',
+      '/image/Frame_12.png',
+      '/image/Frame_13.png',
+    ],
     message: 'Loyalty bot',
     time: 'Mar 10, 2025',
     link: '/loyalty_bot',
