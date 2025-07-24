@@ -36,7 +36,7 @@ const page = () => {
             {/* Preview Window */}
             <div className="w-full xl:w-2/3 flex flex-col rounded-lg shadow-2xl border border-[#23272F] relative">
                 {/* Main image area */}
-                <div className="relative w-full h-[200px] sm:h-[250px] md:h-[300px] xl:h-[300px] rounded-lg flex items-start justify-center group">
+                <div className="relative w-full h-[200px] md:h-[230px] rounded-lg flex items-start justify-center group">
                     {images.length > 0 && (
                         <img
                             src={images[imageIdx]}
@@ -86,7 +86,7 @@ const page = () => {
                     </div>
                     <a
                         href={selectedProduct.link}
-                        className="sm:absolute xl:-bottom-10 sm:-bottom-6 sm:right-4 px-3 md:px-4 py-2 rounded-lg bg-[#23272F] text-[#90BEFF] font-semibold text-sm hover:bg-[#222b3a] transition shadow-lg self-start sm:self-auto"
+                        className="sm:absolute xl:-bottom-10 mt-3 sm:-bottom-6 sm:right-4 px-3 md:px-4 py-2 rounded-lg bg-[#23272F] text-[#90BEFF] font-semibold text-sm hover:bg-[#222b3a] transition shadow-lg self-start sm:self-auto"
                     >
                         View More
                     </a>
