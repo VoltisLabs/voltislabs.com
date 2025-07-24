@@ -32,11 +32,11 @@ const page = () => {
     };
 
     return (
-        <div className="pt-[5.3rem] px-4 md:px-10 xl:px-0 mx-auto w-[75rem] flex flex-row gap-8">
-        {/* Preview Window (Left) */}
-        <div className="w-2/3 flex flex-col rounded-lg shadow-2xl border border-[#23272F] relative">
-            {/* Main image area - FIXED: Changed from items-center justify-center to items-start justify-center */}
-            <div className="relative w-full h-[300px] rounded-lg flex items-start justify-center group">
+        <div className="pt-[5.3rem] px-4 md:px-6 lg:px-10 xl:px-0 mx-auto xl:w-[75rem] flex flex-col xl:flex-row gap-4 md:gap-6 xl:gap-8">
+            {/* Preview Window */}
+            <div className="w-full xl:w-2/3 flex flex-col rounded-lg shadow-2xl border border-[#23272F] relative">
+                {/* Main image area */}
+                <div className="relative w-full h-[200px] sm:h-[250px] md:h-[300px] xl:h-[300px] rounded-lg flex items-start justify-center group">
                     {images.length > 0 && (
                         <img
                             src={images[imageIdx]}
@@ -48,56 +48,60 @@ const page = () => {
                         <>
                             <button
                                 onClick={handlePrev}
-                                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-200 z-10"
+                                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-1.5 md:p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-200 z-10"
                             >
-                                <ChevronLeft size={28} />
+                                <ChevronLeft size={20} className="md:w-7 md:h-7" />
                             </button>
                             <button
                                 onClick={handleNext}
-                                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-200 z-10"
+                                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-1.5 md:p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-200 z-10"
                             >
-                                <ChevronRight size={28} />
+                                <ChevronRight size={20} className="md:w-7 md:h-7" />
                             </button>
                         </>
                     )}
                 </div>
+                
                 {/* Thumbnails row */}
-                <div className="flex flex-row gap-3 mb-6 mt-2 w-full justify-center">
+                <div className="flex flex-row gap-2 md:gap-3 mb-4 md:mb-6 mt-2 w-full justify-center px-2">
                     {images.slice(0, 4).map((img: string, idx: number) => (
                         <button
                             key={img}
                             onClick={() => handleThumbClick(idx)}
-                            className={`w-32 h-16 rounded-lg overflow-hidden border-2 ${imageIdx === idx ? 'border-[#90BEFF]' : 'border-transparent'} bg-[#23272F] flex items-center justify-center transition-all`}
+                            className={`w-16 h-10 sm:w-20 sm:h-12 md:w-24 md:h-14 xl:w-32 xl:h-16 rounded-lg overflow-hidden border-2 ${imageIdx === idx ? 'border-[#90BEFF]' : 'border-transparent'} bg-[#23272F] flex items-center justify-center transition-all relative`}
                         >
                             <img src={img} alt={selectedProduct.message + ' thumb'} className="object-cover w-full h-full" />
                             {images.length > 4 && idx === 3 && (
-                                <span className="absolute inset-0 bg-black/60 text-white flex items-center justify-center font-bold text-xs">+{images.length - 3} more</span>
+                                <span className="absolute inset-0 bg-black/60 text-white flex items-center justify-center font-bold text-[10px] sm:text-xs">+{images.length - 3}</span>
                             )}
                         </button>
                     ))}
                 </div>
+                
                 {/* Description and button row */}
-                <div className="w-full flex flex-row items-center justify-between gap-4 px-2 relative">
-                    <div className="flex-1">
-                        <h2 className="text-xl font-bold text-white mb-1">{selectedProduct.message}</h2>
-                        <p className="text-gray-400 text-xs mb-0 whitespace-pre-line truncate line-clamp-6">{selectedProduct.description}</p>
+                <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 px-2 pb-4 xl:pb-0 relative">
+                    <div className="flex-1 w-full sm:w-auto">
+                        <h2 className="text-lg md:text-xl font-bold text-white mb-1">{selectedProduct.message}</h2>
+                        <p className="text-gray-400 text-xs mb-0 whitespace-pre-line line-clamp-3 md:line-clamp-6">{selectedProduct.description}</p>
                     </div>
                     <a
                         href={selectedProduct.link}
-                        className="absolute -bottom-10 right-4 px-4 py-2 rounded-lg bg-[#23272F] text-[#90BEFF] font-semibold text-sm hover:bg-[#222b3a] transition shadow-lg"
+                        className="sm:absolute xl:-bottom-10 sm:-bottom-6 sm:right-4 px-3 md:px-4 py-2 rounded-lg bg-[#23272F] text-[#90BEFF] font-semibold text-sm hover:bg-[#222b3a] transition shadow-lg self-start sm:self-auto"
                     >
                         View More
                     </a>
                 </div>
             </div>
-            {/* Cards Grid (Right) */}
-            <div className="w-1/3 grid grid-cols-2 gap-4 h-fit self-start">
+            
+            {/* Cards Grid */}
+            <div className="w-full xl:w-1/3 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-2 gap-3 md:gap-4 h-fit xl:self-start">
                 {productsWithImages.map((product: any, idx: number) => (
                     <div
                         key={product.message}
-                        className={` rounded-lg shadow-lg overflow-hidden flex flex-col border border-[#23272F] group cursor-pointer transition-all duration-200 hover:scale-[1.03] ${selectedIdx === idx ? 'ring-2 ring-[#90BEFF]' : ''}`}
+                        // className={`rounded-lg shadow-lg overflow-hidden flex flex-col border border-[#23272F] group cursor-pointer transition-all duration-200 hover:scale-[1.03] ${selectedIdx === idx ? 'ring-2 ring-[#90BEFF]' : ''}`}
                         onClick={() => handleSelect(idx)}
-                        style={{ minHeight: '160px', maxHeight: '180px' }}
+                        style={{ minHeight: '140px', maxHeight: '160px' }}
+                        className={`rounded-lg shadow-lg overflow-hidden flex flex-col border border-[#23272F] group cursor-pointer transition-all duration-200 hover:scale-[1.03] ${selectedIdx === idx ? 'ring-2 ring-[#90BEFF]' : ''} min-h-[140px] max-h-[160px] sm:min-h-[150px] sm:max-h-[170px] xl:min-h-[160px] xl:max-h-[180px]`}
                     >
                         <div className="relative w-full aspect-square overflow-hidden">
                             <img
@@ -106,9 +110,9 @@ const page = () => {
                                 className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                             />
                         </div>
-                        <div className="flex flex-col flex-1 p-2">
-                            <h2 className="text-base font-bold text-white mb-1 truncate">{product.message}</h2>
-                            <p className="text-gray-400 text-xs mb-1 line-clamp-2">{product.description}</p>
+                        <div className="flex flex-col flex-1 p-1.5 sm:p-2">
+                            <h2 className="text-sm sm:text-base font-bold text-white mb-1 truncate">{product.message}</h2>
+                            <p className="text-gray-400 text-[10px] sm:text-xs mb-1 line-clamp-2">{product.description}</p>
                         </div>
                     </div>
                 ))}
