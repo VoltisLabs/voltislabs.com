@@ -78,18 +78,23 @@ const page = () => {
                     ))}
                 </div>
                 
-                {/* Description and button row */}
-                <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 px-2 pb-4 xl:pb-0 relative">
-                    <div className="flex-1 w-full sm:w-auto">
+                {/* Description and button row - Proper separation */}
+                <div className="w-full flex flex-col px-2 pb-4 xl:pb-6">
+                    {/* Description content */}
+                    <div className="flex-1 mb-4">
                         <h2 className="text-lg md:text-xl font-bold text-white mb-1">{selectedProduct.message}</h2>
                         <p className="text-gray-400 text-xs mb-0 whitespace-pre-line">{selectedProduct.description}</p>
                     </div>
-                    <a
-                        href={selectedProduct.link}
-                        className="sm:absolute xl:-bottom-10 mt-3 sm:-bottom-6 sm:right-4 px-3 md:px-4 py-2 rounded-lg bg-[#23272F] text-[#90BEFF] font-semibold text-sm hover:bg-[#222b3a] transition shadow-lg self-start sm:self-auto"
-                    >
-                        View More
-                    </a>
+                    
+                    {/* Button area - always at bottom right */}
+                    <div className="flex justify-end">
+                        <a
+                            href={selectedProduct.link}
+                            className="px-3 md:px-4 py-2 rounded-lg bg-[#23272F] text-[#90BEFF] font-semibold text-sm hover:bg-[#222b3a] transition shadow-lg"
+                        >
+                            View More
+                        </a>
+                    </div>
                 </div>
             </div>
             
@@ -98,7 +103,6 @@ const page = () => {
                 {productsWithImages.map((product: any, idx: number) => (
                     <div
                         key={product.message}
-                        // className={`rounded-lg shadow-lg overflow-hidden flex flex-col border border-[#23272F] group cursor-pointer transition-all duration-200 hover:scale-[1.03] ${selectedIdx === idx ? 'ring-2 ring-[#90BEFF]' : ''}`}
                         onClick={() => handleSelect(idx)}
                         style={{ minHeight: '290px', maxHeight: '300px' }}
                         className={`rounded-lg shadow-lg overflow-hidden flex flex-col border border-[#23272F] group cursor-pointer transition-all duration-200 hover:scale-[1.03] ${selectedIdx === idx ? 'ring-2 ring-[#90BEFF]' : ''} min-h-[140px] max-h-[160px] sm:min-h-[150px] sm:max-h-[170px] xl:min-h-[160px] xl:max-h-[180px]`}
@@ -108,6 +112,7 @@ const page = () => {
                                 src={product.img}
                                 alt={product.message}
                                 className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                                
                             />
                         </div>
                         <div className="flex flex-col flex-1 p-1.5 sm:p-2">
