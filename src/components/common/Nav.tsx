@@ -155,9 +155,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
 
 
-        <a href="/Aboutus" className="text-white text-sm">
+        {/* <a href="/Aboutus" className="text-white text-sm">
           About Us
-        </a>
+        </a> */}
 
         {/* Hamburger Icon (Mobile) */}
         <button className="text-white text-1xl" onClick={() => setToggle(!toggle)}>
