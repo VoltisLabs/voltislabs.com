@@ -30,6 +30,10 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       category: "Social Media",
       items: [{ name: "VModel", route: "/vmodel" }],
     },
+     {
+      category: "Company",
+      items: [{ name: "Work with us", route: "/work-with-us" }],
+    },
     {
       category: "Productivity",
       items: [{ name: "Toolkit", route: "/bg" },
@@ -216,9 +220,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                   <a onClick={() => setToggle(false)} href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
                     VL Academy
                   </a>
-                  <a onClick={() => setToggle(false)} href="/work-with-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-                    Work with us
-                  </a>
+                  {/* <a onClick={() => setToggle(false)} href="/work-with-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400"> */}
+                    {/* Work with us */}
+                  {/* </a> */}
                   <a onClick={() => setToggle(false)} href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
                     Partners
                   </a>
