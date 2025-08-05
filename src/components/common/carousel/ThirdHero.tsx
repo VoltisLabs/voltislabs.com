@@ -79,7 +79,7 @@ const ThirdHero = () => {
 
       {/* Bottom Left Learn More Button */}
 
-    </section><div className=" md:hidden left-section h-full md:w-[50%] w-full md:p-7 p-2 flex items-end">
+    </section><div className=" md:hidden left-section h-full md:w-[50%] w-full md:p-7 p-2 flex items-end justify-center md:justify-start">
         <LearnMoreBtn
           text="Learn More about Afrogarm"
           borderColor="border-white"
