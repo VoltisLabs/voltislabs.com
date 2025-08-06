@@ -191,6 +191,9 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
               transition={{ duration: 0.3 }}
             >
               {/* Close Button */}
+              <span className="absolute top-5 ">
+              <Image src="/icons/voltis.svg" alt="logo" width={75} height={75} className="md:hidden block" />
+              </span>
               <button className="absolute top-5 right-6 text-white text-2xl" onClick={() => setToggle(false)}>
                 ✕
               </button>
