@@ -23,27 +23,27 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     },
     {
       category: "Fun and Casual",
-      items: [{ name: "Spinnersonic", route: "/spinner" }, 
-        { name: "Spellcheck", route: "/spellcheck" }],
+      items: [
+        { name: "Spinnersonic", route: "/spinner" },
+        { name: "Spellcheck", route: "/spellcheck" },
+      ],
     },
     {
       category: "Social Media",
       items: [{ name: "VModel", route: "/vmodel" }],
     },
-     {
+    {
       category: "Company",
       items: [{ name: "Work with us", route: "/work-with-us" }],
     },
     {
       category: "Productivity",
-      items: [{ name: "Toolkit", route: "/bg" },
-      { name: "Loyalty Bot", route: "/loyalty_bot" }
+      items: [
+        { name: "Toolkit", route: "/bg" },
+        { name: "Loyalty Bot", route: "/loyalty_bot" },
       ],
-
     },
-
   ];
-
 
   useEffect(() => {
     if (toggle) {
@@ -59,7 +59,6 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
   return (
     <div className="fixed bg-[#0D1117] text-sm top-0 left-0 z-40 backdrop-blur-sm bg-black min-h-[5rem] w-full flex items-center justify-between px-6 md:px-16">
-
       {/* Logo */}
       <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
         <Link href="/">
@@ -70,10 +69,8 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
       {/* Centered Navigation */}
       <nav className="hidden lg:flex flex-row items-center gap-8 absolute left-1/2 transform -translate-x-1/2 text-nowrap pl-10 xl:pl-0">
-
-        {/* Products Dropdown */}
         <a href="/" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-         Home
+          Home
         </a>
         <div
           className="group inline-block relative"
@@ -81,12 +78,11 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           onMouseLeave={() => setDropdownOpen(false)}
         >
           <Link href="/products">
-          <button className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400 flex items-center gap-1">
-            Products
-          </button>
+            <button className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400 flex items-center gap-1">
+              Products
+            </button>
           </Link>
 
-          {/* Dropdown */}
           <AnimatePresence>
             {dropdownOpen && (
               <motion.div
@@ -97,7 +93,6 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
                 <div className="bg-[#0D1117] text-sm p-4 w-fit rounded-lg border border-gray-700 whitespace-nowrap">
-                  {/* Categories & Items */}
                   <div className="flex flex-row gap-6 justify-center">
                     {links.map((category) => (
                       <div key={category.category} className="relative flex flex-col items-center">
@@ -132,7 +127,6 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
         <a href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           Partners
         </a>
-        {/* About Us */}
         <a href="/Aboutus" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           About Us
         </a>
@@ -146,24 +140,13 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
       {/* Mobile Navigation */}
       <div className="lg:hidden flex items-center space-x-3 sm:space-x-5 md:space-x-6">
-        {/* Always visible links */}
         <a href="/" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           Home
         </a>
-        <a href="/products" className="text-white  text-sm" onClick={(e) => {
-          // e.preventDefault(); // Prevent default link behavior
-          // setToggle(true); // Open hamburger menu
-        }}>
+        <a href="/products" className="text-white text-sm">
           Products
         </a>
 
-
-
-        {/* <a href="/Aboutus" className="text-white text-sm">
-          About Us
-        </a> */}
-
-        {/* Hamburger Icon (Mobile) */}
         <button className="text-white text-1xl" onClick={() => setToggle(!toggle)}>
           <RxHamburgerMenu size={25} />
         </button>
@@ -172,16 +155,6 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       <AnimatePresence>
         {toggle && (
           <>
-            {/* Overlay */}
-            <motion.div
-              className="absolute inset-0 bg-black/70 backdrop-blur-lg z-20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={() => setToggle(false)} // Close menu when clicking outside
-            />
-
             {/* Sidebar Navigation */}
             <motion.nav
               className="fixed top-0 left-0 h-screen w-[60%] sm:w-[50%] bg-[#0D1117] text-white py-20 px-6 z-50 flex flex-col"
@@ -190,13 +163,14 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
               exit={{ x: "-100%", opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Close Button */}
+              <span className="absolute top-5">
+                <Image src="/icons/voltis.svg" alt="logo" width={75} height={75} className="md:hidden block" />
+              </span>
               <button className="absolute top-5 right-6 text-white text-2xl" onClick={() => setToggle(false)}>
                 ✕
               </button>
 
-              {/* Scrollable Navigation Links */}
-              <div className=" flex-grow max-h-[35rem] py-5 no-scrollbar overflow-y-auto">
+              <div className="flex-grow max-h-[35rem] py-5 no-scrollbar overflow-y-auto">
                 {links.map((category) => (
                   <div key={category.category} className="mb-6">
                     <h3 className="text-gray-600 font-bold text-lg mb-4">{category.category}</h3>
@@ -220,9 +194,6 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                   <a onClick={() => setToggle(false)} href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
                     VL Academy
                   </a>
-                  {/* <a onClick={() => setToggle(false)} href="/work-with-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400"> */}
-                    {/* Work with us */}
-                  {/* </a> */}
                   <a onClick={() => setToggle(false)} href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
                     Partners
                   </a>
@@ -233,21 +204,27 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                     Contact Us
                   </a>
                 </div>
-
               </div>
 
-              {/* Fixed Footer */}
-              <div className="absolute bottom-0 pl-6 left-0 w-full bg-[#0D1117] py-4  border-t border-gray-700">
+              <div className="absolute bottom-0 pl-6 left-0 w-full bg-[#0D1117] py-4 border-t border-gray-700">
                 <p className="text-white text-sm">
                   © 2025 Voltis Labs. <br /> All rights reserved.
                 </p>
               </div>
             </motion.nav>
 
+            {/* Blurred backdrop covering remaining 40% / 50% */}
+            <motion.div
+              className="fixed top-0 right-0 h-screen w-[40%] sm:w-[50%] bg-black/30 backdrop-blur-sm z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setToggle(false)}
+            />
           </>
         )}
       </AnimatePresence>
-
     </div>
   );
 };
