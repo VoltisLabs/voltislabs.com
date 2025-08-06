@@ -2,7 +2,16 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['eu-west-2.graphassets.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'eu-west-2.graphassets.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.discordapp.com',
+      },
+    ],
   },
 };
 

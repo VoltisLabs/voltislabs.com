@@ -21,7 +21,7 @@ function Content() {
             {/* Image Section */}
             <div className="w-full lg:w-1/2 aspect-w-16 aspect-h-9 md:rounded-lg overflow-hidden">
               <img
-                src="../image/safety.png"
+                src="https://cdn.discordapp.com/attachments/1368421078271135745/1401874482594971648/pexels-darlene-alderson-7970849.jpg?ex=6893d71a&is=6892859a&hm=68e6122723a09dae944e063fec52d8205cafe140f3f7889ff2e7d824728675b4&"
                 alt="Responsible Innovation"
                 className="w-full h-full object-cover object-center"
               />
