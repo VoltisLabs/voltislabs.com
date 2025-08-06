@@ -80,7 +80,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           onMouseEnter={() => setDropdownOpen(true)}
           onMouseLeave={() => setDropdownOpen(false)}
         >
-          <Link href="https://voltislabs.com/products">
+          <Link href="/products">
           <button className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400 flex items-center gap-1">
             Products
           </button>
@@ -151,8 +151,8 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
           Home
         </a>
         <a href="/products" className="text-white  text-sm" onClick={(e) => {
-          e.preventDefault(); // Prevent default link behavior
-          setToggle(true); // Open hamburger menu
+          // e.preventDefault(); // Prevent default link behavior
+          // setToggle(true); // Open hamburger menu
         }}>
           Products
         </a>
