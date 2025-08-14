@@ -22,11 +22,19 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       ],
     },
     {
-      category: "Fun and Casual",
+      category: "Games",
       items: [
         { name: "Spinnersonic", route: "/spinner" },
         { name: "Spellcheck", route: "/spellcheck" },
       ],
+    },
+    {
+      category: "Lifestyle",
+      items: [
+        {
+          name: "PONY", route: "https://myponyapp.com/"
+        }
+      ]
     },
     {
       category: "Social Media",
@@ -102,11 +110,16 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                         <div className="mt-2">
                           <ul className="flex flex-col gap-2">
                             {category.items.map((item) => (
-                              <li key={item.name}>
-                                <a href={item.route} className="text-sm text-white transition-colors duration-200 hover:text-gray-400">
-                                  {item.name}
-                                </a>
-                              </li>
+                                <li key={item.name}>
+                              <a
+                                href={item.route}
+                                className="text-sm text-white transition-colors duration-200 hover:text-gray-400"
+                                target={item.route.startsWith("http") ? "_blank" : undefined}
+                                rel={item.route.startsWith("http") ? "noopener noreferrer" : undefined}
+                              >
+                                {item.name}
+                              </a>
+                            </li>
                             ))}
                           </ul>
                         </div>
@@ -176,15 +189,17 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                     <h3 className="text-gray-600 font-bold text-lg mb-4">{category.category}</h3>
                     <ul className="space-y-2">
                       {category.items.map((item) => (
-                        <li key={item.name}>
-                          <a
-                            href={item.route}
-                            className="block hover:text-gray-200"
-                            onClick={() => setToggle(false)}
-                          >
-                            {item.name}
-                          </a>
-                        </li>
+                       <li key={item.name}>
+    <a
+      href={item.route}
+      className="block hover:text-gray-200"
+      onClick={() => setToggle(false)}
+      target={item.route.startsWith("http") ? "_blank" : undefined}
+      rel={item.route.startsWith("http") ? "noopener noreferrer" : undefined}
+    >
+      {item.name}
+    </a>
+  </li>
                       ))}
                     </ul>
                   </div>
