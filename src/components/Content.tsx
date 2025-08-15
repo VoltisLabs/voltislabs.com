@@ -106,7 +106,7 @@ function Content() {
         </div>
         <div className="px-0">
           <img
-            src="../image/career.png"
+            src="../image/career.jpg"
             alt="Icon"
             className="w-full h-[20rem] md:h-[32rem] object-contain md:object-cover md:rounded-lg"
           />
