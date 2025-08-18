@@ -110,17 +110,19 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                         </div>
                         <div className="mt-2">
                           <ul className="flex flex-col gap-2">
-                            {category.items.map((item) => (
-                                <li key={item.name}>
-                              <a
-                                href={item.route}
-                                className="text-sm text-white transition-colors duration-200 hover:text-gray-400"
-                                target={item.route.startsWith("http") ? "_blank" : undefined}
-                                rel={item.route.startsWith("http") ? "noopener noreferrer" : undefined}
-                              >
-                                {item.name}
-                              </a>
-                            </li>
+                           {category.items.map((item) => (
+                              <li key={item.name}>
+                                <a
+                                  href={item.route}
+                                  className={`text-sm transition-colors duration-200 hover:text-gray-400 ${
+                                    item.name === "Game Home" ? "text-[#90BEFF]" : "text-white"
+                                  }`}
+                                  target={item.route.startsWith("http") ? "_blank" : undefined}
+                                  rel={item.route.startsWith("http") ? "noopener noreferrer" : undefined}
+                                >
+                                  {item.name}
+                                </a>
+                              </li>
                             ))}
                           </ul>
                         </div>
