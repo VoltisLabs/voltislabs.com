@@ -24,6 +24,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     {
       category: "Games",
       items: [
+        { name: "Game Home", route: "https://voltislabsgames.com/" },
         { name: "Spinnersonic", route: "/spinner" },
         { name: "Spellcheck", route: "/spellcheck" },
       ],
