@@ -14,7 +14,7 @@ const FourthHero = () => {
             text="Learn More about PONY"
             borderColor="border-white"
             textColor="text-white"
-            route="https://myponyapp.com/" />
+            route="https://myponyapp.com" />
         </div>
 
         {/* Right Section with Image and Overlay */}
