@@ -201,6 +201,12 @@ export const products = [
   {
     id: 0,
     img: '/image/prelura-icon.jpg',
+    images: [
+      '/image/updated-image1.jpg',
+      '/image/updated-image2.jpg',
+      '/image/updated-image3.jpg',
+      '/image/updated-image4.jpg',
+    ],
     message: 'Prelura',
     time: 'Nov 18, 2024',
     link: '/prelura',
@@ -209,6 +215,12 @@ export const products = [
   {
     id: 1,
     img: '/image/vmodel-icon.png',
+    images: [
+      '/image/vmodel-icon.png',
+      '/image/vmodel4.jpeg',
+      '/image/vmodel5.jpeg',
+      '/image/vmodel6.jpeg',
+    ],
     message: 'Vmodel',
     time: 'Feb 03, 2021',
     link: '/vmodel',
@@ -216,8 +228,28 @@ export const products = [
       "VModel is a digital platform designed to connect creators with paid opportunities in a streamlined, visually-driven environment. Blending the functionality of a freelance marketplace with the aesthetic of a social network, VModel empowers creatives—models, photographers, stylists, videographers, and more—to showcase their work, apply for jobs, and offer services all in one place. Through sleek portfolios, verified profiles, and a personalised feed, users can build their reputation and attract brands or clients looking for talent.\n \n Built with simplicity and impact in mind, VModel eliminates the friction between creativity and commerce. The platform encourages authenticity, creativity, and community—supporting both independent creatives and brands seeking fresh, skilled collaborators. Whether you're booking a photoshoot, offering a niche service, or building your creative business, VModel is designed to help you turn your craft into opportunity.",
   },
   {
+    id: 2,
+    img: '/image/ponylogo.png',
+    images: [
+      '/svgs/afrogarm_sliders/slide_1.jpg',
+      '/svgs/afrogarm_sliders/slide_2.jpg',
+      '/svgs/afrogarm_sliders/slide_3.jpg',
+      '/svgs/afrogarm_sliders/slide_4.jpg',
+    ],
+    message: 'PONY',
+    time: 'Dec 13, 2019',
+    link: 'https://myponyapp.com/',
+    description: `In our community, dating isn't about swiping endlessly. We believe the strongest relationships begin with shared passions - whether that's music, food, pets, fitness, or films. When you join, you select your core interests, and we match you with people who vibe with the same.`,
+  },
+  {
     id: 3,
     img: '/image/Frame.jpg',
+    images: [
+      '/svgs/afrogarm_sliders/slide_1.jpg',
+      '/svgs/afrogarm_sliders/slide_2.jpg',
+      '/svgs/afrogarm_sliders/slide_3.jpg',
+      '/svgs/afrogarm_sliders/slide_4.jpg',
+    ],
     message: 'Afrogarm',
     time: 'Dec 13, 2019',
     link: '/afrogram',
@@ -226,6 +258,17 @@ export const products = [
   {
     id: 4,
     img: '/image/spinner.png',
+    images: [
+      '/products/spinner/spinner.png',
+      '/products/spinner/spinner1.png',
+      // '/products/spinner/spinner4.png',
+      '/products/spinner/spinner2.png',
+      '/products/spinner/spinner3.png', 
+      
+     
+      // '/products/spinner/spinner5.png',
+    
+    ],
     message: 'Spinnersonic',
     time: 'Mar 18, 2025',
     link: '/spinner',
@@ -234,6 +277,12 @@ export const products = [
   {
     id: 5,
     img: '/image/outfeatz.png',
+    images: [
+      '/image/outfeatz.png',
+      '/image/out-5.png',
+      '/image/out-6.png',
+      '/image/out-1.jpg',
+    ],
     message: 'Outfeatz',
     time: 'Mar 20, 2025',
     link: '/outfeatz',
@@ -242,11 +291,32 @@ export const products = [
   {
     id: 6,
     img: '/image/loyalty_bot.jpg',
+    images: [
+      '/image/loyalty_bot.jpg',
+      '/image/team.png',
+      '/image/Frame_12.png',
+      '/image/Frame_13.png',
+    ],
     message: 'Loyalty bot',
     time: 'Mar 10, 2025',
     link: '/loyalty_bot',
     description:
       "Loyalty Bot is a productivity-focused Discord bot built to help remote teams stay accountable and on time. Designed for digital workspaces that use Discord as their primary hub, Loyalty Bot tracks break times, monitors lateness, and applies custom consequences such as salary deductions or logged infractions. \n\n Loyalty Bot acts as a quiet but firm supervisor, keeping your team aligned without constant manual checks. It integrates smoothly into your team's daily workflow, offering a subtle but effective layer of structure to how your team collaborates.",
+  },
+  {
+    id: 7,
+    img: '/image/academylogo.png',
+    images: [
+      '/image/loyalty_bot.jpg',
+      '/image/team.png',
+      '/image/Frame_12.png',
+      '/image/Frame_13.png',
+    ],
+    message: 'VoltisLabs Academy',
+    time: 'Mar 10, 2025',
+    link: 'https://academy.voltislabs.com/',
+    description:
+      "Voltis Labs Academy is not just another online course platform. We prepare the next generation of builders through hands-on learning, mentorship, and direct internship opportunities inside real Voltis Labs projects. Whether you're a developer, designer, marketer, or future product leader - you'll gain experience that matters.",
   },
 ];
 
