@@ -168,10 +168,10 @@ export default function Home() {
       image: <SecondHero />,
       text: 'Slide 2 Text',
     },
-    {
-      image: <ThirdHero />,
-      text: 'Slide 3 Text',
-    },
+    // {
+    //   image: <ThirdHero />,
+    //   text: 'Slide 3 Text',
+    // },
     {
       image: <FourthHero />,
       text: 'Slide 4 Text',
