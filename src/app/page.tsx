@@ -161,6 +161,10 @@ export default function Home() {
 
   const slides = [
     {
+      image: <FourthHero />,
+      text: 'Slide 4 Text',
+    },
+    {
       image: <FirstHero />,
       text: 'Slide 1 Text',
     },
@@ -172,10 +176,6 @@ export default function Home() {
     //   image: <ThirdHero />,
     //   text: 'Slide 3 Text',
     // },
-    {
-      image: <FourthHero />,
-      text: 'Slide 4 Text',
-    },
   ];
 
   const handleNextClick = () => {
