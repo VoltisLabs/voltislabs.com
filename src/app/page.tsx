@@ -1,20 +1,52 @@
-"use client";
+'use client';
 
-import { IoIosSearch } from "react-icons/io";
-import { About, updates } from "./data";
-import Image from "next/image";
-import FirstHero from "../components/common/carousel/FirstHero";
-import SecondHero from "../components/common/carousel/SecondHero";
-import ThirdHero from "../components/common/carousel/ThirdHero";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useRef, useState } from "react";
-import Content from "../components/Content";
-import Footer from "../components/footer";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { FaChevronLeft, FaChevronRight, FaSpotify } from "react-icons/fa";
+import { About, updates } from './data';
+import Image from 'next/image';
+import FirstHero from '../components/common/carousel/FirstHero';
+import SecondHero from '../components/common/carousel/SecondHero';
+import ThirdHero from '../components/common/carousel/ThirdHero';
+import FourthHero from '../components/common/carousel/FourthHero';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import Content from '../components/Content';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { FaChevronLeft, FaChevronRight, FaSpotify } from 'react-icons/fa';
+import { fetchData } from '../../lib/apiClient';
+
+const GET_POSTS_QUERY = `
+  query GetPost($first: Int!, $skip: Int!) {
+    posts(first: $first, skip: $skip, orderBy: datePublished_DESC) {
+      category {
+        name
+      }
+      content {
+        html
+      }
+      slug
+      title
+      datePublished
+      publishedBy {
+        name
+        picture
+      }
+      featuredImage {
+        url
+      }
+    }
+  }
+`;
+
+interface Post {
+  title: string;
+  slug: string;
+  date: string;
+  image: string;
+  category: any;
+  datePublished: string;
+}
 
 export default function Home() {
   const sliderRef = useRef<Slider>(null);
@@ -22,23 +54,94 @@ export default function Home() {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const latestNewsContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeftLatest, setCanScrollLeftLatest] = useState(false);
+  const [canScrollRightLatest, setCanScrollRightLatest] = useState(false);
+
+  const getPosts = useCallback(async () => {
+    setLoading(true);
+    setError(null); // Clear previous errors
+    // isLoadingRef.current = true;
+
+    try {
+      const data = await fetchData({
+        query: GET_POSTS_QUERY,
+        variables: {
+          first: 4, // Fetch only 4 posts for the homepage showcase
+          skip: 0,
+        },
+      });
+
+      const formatted = data?.data?.posts.map((p: any) => ({
+        title: p.title,
+        slug: p.slug,
+        date: p.datePublished,
+        datePublished: p.datePublished,
+        image: p.featuredImage?.url || '',
+        category:
+          Array.isArray(p.category) && p.category.length > 0 ? p.category[0].name : 'Uncategorized',
+      }));
+
+      if (formatted) {
+        setPosts(formatted);
+        // setTotalPostsLoaded(formatted.length);
+        // setHasMorePosts(formatted.length === 4); // Adjusted to match the fixed limit
+        setError(null); // Clear error on success
+      }
+    } catch (err) {
+      console.log('Failed to fetch blog posts:', err);
+      setError('Network error. Please check your network connection and try again.');
+    } finally {
+      setLoading(false);
+      // isLoadingRef.current = false;
+    }
+  }, []);
+
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
+
   // Function to check scroll position and update arrow visibility
   const checkScrollPosition = () => {
     const container = updatesContainerRef.current;
     if (container) {
+      const hasScroll = container.scrollWidth > container.clientWidth;
       setCanScrollLeft(container.scrollLeft > 0);
       setCanScrollRight(
-        container.scrollLeft + container.clientWidth < container.scrollWidth
+        hasScroll && container.scrollLeft + container.clientWidth < container.scrollWidth - 1,
+      );
+    }
+  };
+
+  const checkScrollPositionLatest = () => {
+    const container = latestNewsContainerRef.current;
+    if (container) {
+      const hasScroll = container.scrollWidth > container.clientWidth;
+      setCanScrollLeftLatest(container.scrollLeft > 0);
+      setCanScrollRightLatest(
+        hasScroll && container.scrollLeft + container.clientWidth < container.scrollWidth - 1,
       );
     }
   };
 
   useEffect(() => {
+    const container = latestNewsContainerRef.current;
+    if (container) {
+      checkScrollPositionLatest(); // Initial check
+      container.addEventListener('scroll', checkScrollPositionLatest); // Listen for scroll events
+      return () => container.removeEventListener('scroll', checkScrollPositionLatest);
+    }
+  }, []);
+
+  useEffect(() => {
     const container = updatesContainerRef.current;
     if (container) {
       checkScrollPosition(); // Initial check
-      container.addEventListener("scroll", checkScrollPosition); // Listen for scroll events
-      return () => container.removeEventListener("scroll", checkScrollPosition);
+      container.addEventListener('scroll', checkScrollPosition); // Listen for scroll events
+      return () => container.removeEventListener('scroll', checkScrollPosition);
     }
   }, []);
 
@@ -52,22 +155,27 @@ export default function Home() {
     autoplaySpeed: 4500,
     arrows: false,
     fade: true,
+    initialSlide: 3,
     afterChange: (current: any) => setCurrentSlide(current),
   };
 
   const slides = [
     {
+      image: <FourthHero />,
+      text: 'Slide 4 Text',
+    },
+    {
       image: <FirstHero />,
-      text: "Slide 1 Text",
+      text: 'Slide 1 Text',
     },
     {
       image: <SecondHero />,
-      text: "Slide 2 Text",
+      text: 'Slide 2 Text',
     },
-    {
-      image: <ThirdHero />,
-      text: "Slide 3 Text",
-    },
+    // {
+    //   image: <ThirdHero />,
+    //   text: 'Slide 3 Text',
+    // },
   ];
 
   const handleNextClick = () => {
@@ -81,16 +189,16 @@ export default function Home() {
     }
   };
   const router = useRouter();
-  console.log(currentSlide)
+  console.log(currentSlide);
   return (
-    <div className="page-container bg-black w-full min-h-screen">
-      <div className="item-container absolute inset-0 w-full 2xl:w-3/5 h-full mx-auto">
+    <div className="page-container min-h-screen w-full bg-black">
+      <div className="item-container absolute inset-0 mx-auto h-full w-full 2xl:w-3/5">
         <button
-          className="absolute left-4  top-[20rem] bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none z-10"
+          className="absolute left-4 top-[20rem] z-10 rounded-full bg-gray-100/90 text-white opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none md:p-2"
           onClick={handlePrevClick}
         >
           <Image
-            src={"/icons/button-arrow.svg"}
+            src={'/icons/button-arrow.svg'}
             alt="button-icon"
             width={30}
             height={30}
@@ -100,30 +208,21 @@ export default function Home() {
 
         <Slider ref={sliderRef} {...settings}>
           {slides.map((item) => (
-            <div key={item.text} className="w-full h-full">
+            <div key={item.text} className="h-full w-full">
               {item.image}
             </div>
           ))}
         </Slider>
 
         <button
-          className="absolute  top-[20rem] right-4 bg-gray-100/90 text-white rounded-full md:p-2 opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none z-10"
+          className="absolute right-4 top-[20rem] z-10 rounded-full bg-gray-100/90 text-white opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none md:p-2"
           onClick={handleNextClick}
         >
-          <Image
-            src={"/icons/button-arrow.svg"}
-            alt="button-icon"
-            width={30}
-            height={30}
-          />
+          <Image src={'/icons/button-arrow.svg'} alt="button-icon" width={30} height={30} />
         </button>
       </div>
 
-
-      <div className="pt-[42rem] content-container">
-
-
-
+      <div className="content-container pt-[42rem]">
         {/* <section className="overflow-x-scroll no-scrollbar flex md:px-[2rem] px-[1rem] pt-[3.45rem]   w-full min-h-[150px] md:gap-12 gap:4  mb-20">
           {About.map((text, index) => (
             <div
@@ -143,20 +242,11 @@ export default function Home() {
           ))}
         </section> */}
 
-
-
-
-
-
-
-        <section className="mb-20 md:px-[2rem] px-[1rem] mt-10 md:mt-20 md:h-[34rem] h-[23rem] relative">
-          <div className="border-white border-[1px] w-full mb-6"></div>
-          <div className="flex flex-row justify-between items-start sm:items-center text-white mb-10">
-            <h2 className="font-normal md:text-[1.7rem] text-[1.6rem]">Latest Updates</h2>
-            <Link
-              href={"/latest-updates"}
-              className="font-normal text-sm underline mt-2 sm:mt-0"
-            >
+        <section className="relative mb-20 mt-10 h-[23rem] px-[1rem] md:mt-20 md:h-[34rem] md:px-[2rem]">
+          <div className="mb-6 w-full border-[1px] border-white"></div>
+          <div className="mb-10 flex flex-row items-start justify-between text-white sm:items-center">
+            <h2 className="text-[1.6rem] font-normal md:text-[1.7rem]">Latest Updates</h2>
+            <Link href={'/latest-updates'} className="mt-2 text-sm font-normal underline sm:mt-0">
               See all
             </Link>
           </div>
@@ -167,10 +257,10 @@ export default function Home() {
             {/* Left Arrow */}
             {canScrollLeft && (
               <button
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 text-black rounded-full p-3 z-10 hover:bg-white focus:outline-none shadow-md"
+                className="absolute left-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-white/80 p-3 text-black shadow-md hover:bg-white focus:outline-none"
                 onClick={() => {
                   const container = updatesContainerRef.current;
-                  container?.scrollBy({ left: -300, behavior: "smooth" });
+                  container?.scrollBy({ left: -300, behavior: 'smooth' });
                 }}
               >
                 <FaChevronLeft size={20} />
@@ -181,44 +271,42 @@ export default function Home() {
             <div
               id="updates-container"
               ref={updatesContainerRef}
-              className="overflow-x-scroll md:min-w-[43rem] no-scrollbar min-w-[20rem] flex items-center"
+              className="no-scrollbar flex min-w-[20rem] items-center overflow-x-scroll md:min-w-[43rem]"
             >
-              <div className="flex  gap-8 h-full md:w-full">
+              <div className="flex h-full gap-8 md:w-full">
                 {updates.map((text, index) => (
-                  <div
-                    key={index}
-                    className="md:min-w-[22rem] w-[12.5rem] text-left !min-h-[25rem] overflow-hidden items-start"
-                  >
-                    <div className="image-container w-20rem h-10rem overflow-hidden rounded-[10px]">
-                      <Image
-                        src={text.img}
-                        alt="Icon"
-                        width={310}
-                        height={300}
-                        className="transition-all w-full duration-[.85s] ease-in-out hover:scale-110"
-                      />
+                  <Link href={`/latest-updates?item=${index}`} key={index} scroll={false}>
+                    <div
+                      className="!min-h-[25rem] w-[12.5rem] items-start overflow-hidden text-left md:min-w-[22rem] cursor-pointer"
+                    >
+                      <div className="image-container w-20rem h-10rem overflow-hidden rounded-[10px]">
+                        <Image
+                          src={text.img}
+                          alt="Icon"
+                          width={310}
+                          height={300}
+                          className="w-full transition-all duration-[.85s] ease-in-out hover:scale-110"
+                        />
+                      </div>
+                      <p className="mt-3 text-[.9rem] text-white">{text.message}</p>
+                      {text.subText && <p className="text-[.9rem] text-[#535353]">{text.subText}</p>}
+                      <p className="text-[.7rem] text-white">{text.time}</p>
+                      {text.spotify && (
+                        <a
+                          href={text.spotifyLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative mt-4 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-white px-4 py-2 text-[.9rem] font-medium text-white hover:border-transparent"
+                        >
+                          <span className="absolute inset-0 origin-left scale-x-0 bg-[#1DB954] transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+                          <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
+                          <span className="relative z-10 transition-all duration-300 group-hover:text-black">
+                            Listen on Spotify
+                          </span>
+                        </a>
+                      )}
                     </div>
-
-                    <p className="text-white text-[.9rem] mt-3">{text.message}</p>
-                    {text.subText && (
-                      <p className="text-[.9rem] text-[#535353]">{text.subText}</p>
-                    )}
-                    <p className="text-white text-[.7rem]">{text.time}</p>
-                    {text.spotify && (
-                      <a
-                        href={text.spotifyLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="relative inline-flex items-center gap-2 mt-4 py-2 px-4 rounded-full border hover:border-transparent border-white text-white text-[.9rem] font-medium overflow-hidden w-fit cursor-pointer group"
-                      >
-                        <span className="absolute inset-0 bg-[#1DB954] scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
-                        <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
-                        <span className="relative z-10 transition-all duration-300 group-hover:text-black">
-                          Listen on Spotify
-                        </span>
-                      </a>
-                    )}
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -226,10 +314,120 @@ export default function Home() {
             {/* Right Arrow */}
             {canScrollRight && (
               <button
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 text-black rounded-full p-3 z-10 hover:bg-white focus:outline-none shadow-md"
+                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-white/80 p-3 text-black shadow-md hover:bg-white focus:outline-none"
                 onClick={() => {
                   const container = updatesContainerRef.current;
-                  container?.scrollBy({ left: 300, behavior: "smooth" });
+                  container?.scrollBy({ left: 300, behavior: 'smooth' });
+                }}
+              >
+                <FaChevronRight size={20} />
+              </button>
+            )}
+          </div>
+        </section>
+
+        {/* Latest news  */}
+        <section className="relative mb-20 mt-10 h-[23rem] px-[1rem] md:mt-20 md:h-[34rem] md:px-[2rem]">
+          <div className="mb-6 w-full border-[1px] border-white"></div>
+          <div className="mb-10 flex flex-row items-start justify-between text-white sm:items-center">
+            <h2 className="text-[1.6rem] font-normal md:text-[1.7rem]">Latest News</h2>
+            <Link href={'/blog'} className="mt-2 text-sm font-normal underline sm:mt-0">
+              See all
+            </Link>
+          </div>
+
+          {/* Scrollable Section with Arrows */}
+          <div className="relative">
+            {/* Left Arrow */}
+            {canScrollLeftLatest && (
+              <button
+                className="absolute left-2 top-1/2 z-50 -translate-y-1/2 transform rounded-full bg-white/80 p-3 text-black shadow-md hover:bg-white focus:outline-none"
+                onClick={() => {
+                  const container = latestNewsContainerRef.current;
+                  container?.scrollBy({ left: -300, behavior: 'smooth' });
+                }}
+              >
+                <FaChevronLeft size={20} />
+              </button>
+            )}
+
+            {/* Scrollable Content */}
+            <div
+              id="updates-container"
+              ref={latestNewsContainerRef}
+              className="no-scrollbar relative z-0 flex min-w-[20rem] items-center overflow-x-scroll md:min-w-[43rem]"
+            >
+              {loading ? (
+                <div className="flex h-full gap-8 md:w-full">
+                  {[...Array(4)].map((_, index) => (
+                    <div
+                      key={index}
+                      className="!min-h-[25rem] w-[12.5rem] animate-pulse items-start overflow-hidden text-left md:min-w-[22rem]"
+                    >
+                      <div className="h-48 w-full rounded-[10px] bg-gray-800"></div>
+                      <div className="mt-4 h-4 w-3/4 rounded bg-gray-800"></div>
+                      <div className="mt-2 h-4 w-1/2 rounded bg-gray-800"></div>
+                    </div>
+                  ))}
+                </div>
+              ) : error ? (
+                <div className="flex h-full w-full items-center justify-center text-white">
+                  <p>{error}</p>
+                </div>
+              ) : posts.length === 0 ? (
+                <div className="flex h-full w-full items-center justify-center text-white">
+                  <p>No posts available</p>
+                </div>
+              ) : (
+                <div className="flex h-full gap-8 md:w-full">
+                  {posts.map((post, i) => (
+                    <Link
+                      key={`${post.slug}-${i}`}
+                      href={`/blog/${post.slug}`}
+                      className="!min-h-[25rem] w-[12.5rem] items-start overflow-hidden text-left md:min-w-[22rem]"
+                    >
+                      <div className="image-container w-20rem h-10rem overflow-hidden rounded-[10px]">
+                        {post.image ? (
+                          <Image
+                            src={post.image}
+                            alt={post.title}
+                            width={310}
+                            height={300}
+                            className="w-full transition-all duration-[.85s] ease-in-out hover:scale-110"
+                            unoptimized={true} // Add this if you're having issues with external images
+                          />
+                        ) : (
+                          <div className="h-48 w-full bg-gray-800"></div>
+                        )}
+                      </div>
+
+                      <div className={`py-4`}>
+                        <h3 className="mb-2 mt-1 overflow-hidden truncate whitespace-nowrap text-base font-semibold text-white">
+                          {post.title}
+                        </h3>
+
+                        <p className="text-sm text-gray-400">
+                          <span className="font-bold text-white">{post.category}</span> —{' '}
+                          {new Date(post.datePublished).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                          })}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Right Arrow */}
+            {canScrollRightLatest && posts.length > 0 && (
+              <button
+                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-white/80 p-3 text-black shadow-md hover:bg-white focus:outline-none"
+                onClick={() => {
+                  const container = latestNewsContainerRef.current;
+                  container?.scrollBy({ left: 300, behavior: 'smooth' });
                 }}
               >
                 <FaChevronRight size={20} />

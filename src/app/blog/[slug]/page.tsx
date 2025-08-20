@@ -10,14 +10,13 @@ const GET_POST_BY_SLUG = `
     post(where: $where) {
       title
       slug
-      createdAt
-      publishedAt
       category {
         name
       }
       content {
         html
       }
+      datePublished
       publishedBy {
         name
         picture
@@ -70,7 +69,7 @@ export default function BlogPostPage() {
 
   if (!post) return <div className="p-4 text-red-500">Post not found</div>;
 
-  const formattedDate = new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-US', {
+  const formattedDate = new Date(post.datePublished).toLocaleDateString('en-US', {
     weekday: 'long',
     day: 'numeric',
     month: 'long',

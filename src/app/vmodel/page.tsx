@@ -153,7 +153,7 @@ function Vmodel() {
               where creativity meets opportunity. It’s built for freelancers,
               professionals, and emerging talents who want to take control of
               their careers, build meaningful collaborations, and get paid
-              securely for their work—all in one place.
+              securely for their work, all in one place.
             </span>
 
             <span className={`${paragrapghClassName} my-7`}>
@@ -165,7 +165,7 @@ function Vmodel() {
               profile, experience, and interests. Whether you’re looking for
               runway gigs, editorial shoots, brand campaigns, commercial
               projects, or artistic collaborations, our platform helps you
-              connect with the right opportunities—fast.
+              connect with the right opportunities fast.
             </span>
 
             <div className="section-container mb-[6.5rem]">
@@ -265,7 +265,7 @@ function Vmodel() {
             <span className={paragrapghClassName}>
               Need talent for your next campaign? VModel makes scouting
               effortless. Browse profiles, review portfolios, and book
-              professionals instantly—all in one secure, streamlined platform.
+              professionals instantly, all in one secure, streamlined platform.
             </span>
           </div>
           <br />
@@ -398,14 +398,14 @@ function Vmodel() {
           <span className={paragrapghClassName}>
             VModel was born out of frustration with the outdated and
             exclusionary nature of the creative industry. We saw talented
-            individuals unable to land jobs—not because of their skills or
+            individuals unable to land jobs, not because of their skills or
             dedication, but because they lacked industry connections or the
             financial means to work with agencies.
           </span>
 
           <br />
           <span className={paragrapghClassName}>
-            We recognized the same issues on the hiring side—businesses
+            We recognized the same issues on the hiring side-businesses
             struggling to find verified, high-quality talent in an increasingly
             fast-paced digital world. Traditional agencies often create
             bottlenecks, slowing down hiring and making creative work

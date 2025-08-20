@@ -66,7 +66,7 @@ const SecondSection = () => {
                     </span>
                 </h2>
                 <p style={{ fontFamily: "var(--font-sometype-mono)" }} className=" my-10 xl:mb-24 text-sm sm:text-base lg:text-lg xl:text-[25px] font-normal text-white px-6 lg:px-0 md:leading-8 xl:leading-9 text-center mb-10">
-                    In the world of Spinnersonic, every hero carries a spark — <span className="font-bold">
+                    In the world of Spinnersonic, every hero carries a spark - <span className="font-bold">
                         speed,
                         power, heart,
                     </span>

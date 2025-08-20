@@ -11,7 +11,7 @@ export default function FirstSection() {
 
         <p className="text-2xl font-semibold">Smart Tools for Fast Image & Video Editing</p>
         <p className="">
-          Speed up your workflow with our all-in-one suite — remove backgrounds, compress images,
+          Speed up your workflow with our all-in-one suite remove backgrounds, compress images,
           convert media formats, add watermarks, and more. No installs. Just productivity in your
           browser.
         </p>
