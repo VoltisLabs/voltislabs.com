@@ -1,6 +1,6 @@
 'use client';
 
-import { About, updates } from './data';
+import { updates } from './data';
 import Image from 'next/image';
 import FirstHero from '../components/common/carousel/FirstHero';
 import SecondHero from '../components/common/carousel/SecondHero';
