@@ -24,7 +24,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     {
       category: "Games",
       items: [
-        { name: "Game Home", route: "https://voltislabsgames.com/" },
+        { name: "Games Home", route: "https://voltislabsgames.com/" },
         { name: "Spinnersonic", route: "/spinner" },
         { name: "Spellcheck", route: "/spellcheck" },
       ],
@@ -115,7 +115,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                                 <a
                                   href={item.route}
                                   className={`text-sm transition-colors duration-200 hover:text-gray-400 ${
-                                    item.name === "Game Home" ? "text-[#90BEFF]" : "text-white"
+                                    item.name === "Games Home" ? "text-[#90BEFF]" : "text-white"
                                   }`}
                                   target={item.route.startsWith("http") ? "_blank" : undefined}
                                   rel={item.route.startsWith("http") ? "noopener noreferrer" : undefined}
@@ -187,42 +187,44 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
               </button>
 
               <div className="flex-grow max-h-[35rem] py-5 no-scrollbar overflow-y-auto">
-                {links.map((category) => (
-                  <div key={category.category} className="mb-6">
-                    <h3 className="text-gray-600 font-bold text-lg mb-4">{category.category}</h3>
-                    <ul className="space-y-2">
-                      {category.items.map((item) => (
-                       <li key={item.name}>
-    <a
-      href={item.route}
-      className="block hover:text-gray-200"
-      onClick={() => setToggle(false)}
-      target={item.route.startsWith("http") ? "_blank" : undefined}
-      rel={item.route.startsWith("http") ? "noopener noreferrer" : undefined}
-    >
-      {item.name}
-    </a>
-  </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+  {links.map((category) => (
+    <div key={category.category} className="mb-6">
+      <h3 className="text-gray-600 font-bold text-lg mb-4">{category.category}</h3>
+      <ul className="space-y-2">
+        {category.items.map((item) => (
+          <li key={item.name}>
+            <a
+              href={item.route}
+              className={`block transition-colors duration-200 hover:text-gray-400 ${
+                item.name === "Games Home" ? "text-[#90BEFF]" : "text-white"
+              }`}
+              onClick={() => setToggle(false)}
+              target={item.route.startsWith("http") ? "_blank" : undefined}
+              rel={item.route.startsWith("http") ? "noopener noreferrer" : undefined}
+            >
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
 
-                <div className="flex flex-col space-y-2">
-                  <a onClick={() => setToggle(false)} href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-                    VL Academy
-                  </a>
-                  <a onClick={() => setToggle(false)} href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-                    Partners
-                  </a>
-                  <a onClick={() => setToggle(false)} href="/blog" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-                    News Blog
-                  </a>
-                  <a onClick={() => setToggle(false)} href="/contact-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-                    Contact Us
-                  </a>
-                </div>
-              </div>
+  <div className="flex flex-col space-y-2">
+    <a onClick={() => setToggle(false)} href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+      VL Academy
+    </a>
+    <a onClick={() => setToggle(false)} href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+      Partners
+    </a>
+    <a onClick={() => setToggle(false)} href="/blog" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+      News Blog
+    </a>
+    <a onClick={() => setToggle(false)} href="/contact-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
+      Contact Us
+    </a>
+  </div>
+</div>
 
               <div className="absolute bottom-0 pl-6 left-0 w-full bg-[#0D1117] py-4 border-t border-gray-700">
                 <p className="text-white text-sm">
