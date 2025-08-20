@@ -5,7 +5,6 @@ import Image from 'next/image';
 import FirstHero from '../components/common/carousel/FirstHero';
 import SecondHero from '../components/common/carousel/SecondHero';
 import ThirdHero from '../components/common/carousel/ThirdHero';
-import FourthHero from '../components/common/carousel/FourthHero';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -155,15 +154,10 @@ export default function Home() {
     autoplaySpeed: 4500,
     arrows: false,
     fade: true,
-    initialSlide: 3,
     afterChange: (current: any) => setCurrentSlide(current),
   };
 
   const slides = [
-    {
-      image: <FourthHero />,
-      text: 'Slide 4 Text',
-    },
     {
       image: <FirstHero />,
       text: 'Slide 1 Text',
@@ -172,10 +166,10 @@ export default function Home() {
       image: <SecondHero />,
       text: 'Slide 2 Text',
     },
-    // {
-    //   image: <ThirdHero />,
-    //   text: 'Slide 3 Text',
-    // },
+    {
+      image: <ThirdHero />,
+      text: 'Slide 3 Text',
+    },
   ];
 
   const handleNextClick = () => {
