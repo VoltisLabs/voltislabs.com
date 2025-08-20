@@ -14,6 +14,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FaChevronLeft, FaChevronRight, FaSpotify } from 'react-icons/fa';
 import { fetchData } from '../../lib/apiClient';
+import FourthHero from '@/src/components/common/carousel/FourthHero';
 
 const GET_POSTS_QUERY = `
   query GetPost($first: Int!, $skip: Int!) {
@@ -169,6 +170,10 @@ export default function Home() {
     {
       image: <ThirdHero />,
       text: 'Slide 3 Text',
+    },
+    {
+      image: <FourthHero />,
+      text: 'Slide 4 Text',
     },
   ];
 
