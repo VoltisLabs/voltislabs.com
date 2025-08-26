@@ -149,7 +149,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
           </div>
 
           <p className="text-white text-[.8rem] mt-2">{text.message}</p>
-          <p className="text-white text-[.7rem]">{text.time}</p>
+          {/* <p className="text-white text-[.7rem]">{text.time}</p> */}
         </div>
       ))}
     </div>

@@ -50,6 +50,13 @@ const FourthHero = () => {
           </div>
         </section>
       </section>
+      <div className=" md:hidden left-section h-full md:w-[50%] w-full md:p-7 p-2 flex items-end justify-center md:justify-start">
+              <LearnMoreBtn
+            text="Learn More about PONY"
+            borderColor="border-white"
+            textColor="text-white"
+            route="https://myponyapp.com" />
+            </div>
     </>
   );
 };
