@@ -24,9 +24,9 @@ const CourseCard: React.FC<CourseCardProps> = ({
         <Image
           src={imageSrc}
           alt={title}
-          layout="fill"
-          objectFit="cover"
-          className="p-3 rounded-3xl"
+          fill
+          className="rounded-3xl object-cover p-3"
+          sizes="(max-width: 768px) 100vw, 320px"
         />
       </div>
 

@@ -123,8 +123,8 @@ function Academy() {
   };
 
   return (
-    <div className="mx-auto max-w-[85rem]">
-      <div className="max-w-[85rem] text-white">
+    <div className="mx-auto w-full max-w-[85rem] bg-vl-brown-dark pb-20 pt-6 text-vl-cream md:pt-10">
+      <div className="max-w-[85rem] text-vl-cream">
         <Sidebar tbList={menuItems} />
 
         <TitleSection

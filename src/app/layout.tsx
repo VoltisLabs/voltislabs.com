@@ -1,18 +1,45 @@
-"use client";
-
-import { Comfortaa, Geist, Geist_Mono, Hammersmith_One, Sometype_Mono, Titan_One, Lato } from "next/font/google";
+import type { Metadata } from "next";
+import Script from "next/script";
+import {
+  Comfortaa,
+  Geist_Mono,
+  Hammersmith_One,
+  Sometype_Mono,
+  Titan_One,
+  Lato,
+} from "next/font/google";
 import "./globals.css";
-import { useState } from "react";
-import Nav from "../components/common/Nav";
-import Footer from "../components/footer";
-import { usePathname } from "next/navigation";
 import { comixLoud } from "./spinner/utils/font";
-import Script from 'next/script';
-import Analytics from "../components/Analytics";
+import AppChrome from "./AppChrome";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const lato = Lato({
+  variable: "--font-lato",
   subsets: ["latin"],
+  weight: "300",
+});
+
+const someType = Sometype_Mono({
+  variable: "--font-sometype-mono",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const titan = Titan_One({
+  variable: "--font-titan-one",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const hammer = Hammersmith_One({
+  variable: "--font-hammersmith-one",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const comfortaa = Comfortaa({
+  variable: "--font-comfortaa",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const geistMono = Geist_Mono({
@@ -20,48 +47,29 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const lato = Lato({
-  variable: "--font-lato", // Define a variable for Lato
-  subsets: ["latin"],
-  weight: "300"
-});
+const fontVariables = [
+  lato.variable,
+  comixLoud.variable,
+  someType.variable,
+  titan.variable,
+  hammer.variable,
+  comfortaa.variable,
+  geistMono.variable,
+].join(" ");
 
-const someType = Sometype_Mono({
-  variable: "--font-sometype-mono", // Define a variable for Lato
-  subsets: ["latin"],
-  weight: "400"
-});
-const titan = Titan_One({
-  variable: "--font-titan-one", // Define a variable for Lato
-  subsets: ["latin"],
-  weight: "400"
-})
-
-const hammer = Hammersmith_One({
-  variable: "--font-hammersmith-one", // Define a variable for Lato
-  subsets: ["latin"],
-  weight: "400"
-})
-
-const comfortaa = Comfortaa({
-  variable: "--font-comfortaa", // Define a variable for Lato
-  subsets: ["latin"],
-  weight: "400"
-})
+export const metadata: Metadata = {
+  title: "Voltis Labs",
+  description: "Software Development Company",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [toggle, setToggle] = useState<boolean>(false);
-  const pathname = usePathname();
-  console.log("RootLayout rendered");
-
   return (
     <html lang="en">
-      <head>
-        
+      <body className={`${fontVariables} min-h-screen antialiased`}>
         {process.env.NODE_ENV === "production" && (
           <>
             <Script
@@ -78,26 +86,7 @@ export default function RootLayout({
             </Script>
           </>
         )}
-        {/* <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-          rel="stylesheet"
-        /> */}
-        <title>Voltis Labs</title>
-        <meta name="description" content="Software Development Company" />
-      </head>
-
-      <body className={`${lato.variable} ${comixLoud.variable} ${someType.variable} ${titan.variable} ${hammer.variable} ${comfortaa.variable} ${pathname == "/loyalty_bot" ? "bg-[#1a2081]" : "bg-black"}`}>
-      {process.env.NODE_ENV === "production" && <Analytics />}
-        <div className="mx-auto max-w-screen-2xl w-full">
-          <main className={`content ${pathname == "/loyalty_bot" ? "bg-[#1a2081]" : "bg-transparent"} w-full`}>
-            <div className="nav-container bg-black">
-              <Nav setToggle={setToggle} toggle={toggle} />
-            </div>
-
-            <div className="item-container mt-0">{children}</div>
-            <Footer />
-          </main>
-        </div>
+        <AppChrome>{children}</AppChrome>
       </body>
     </html>
   );

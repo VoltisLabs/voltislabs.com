@@ -11,7 +11,7 @@ import { update, whatWeDo } from '../data';
 import Link from 'next/link';
 import CardButton from '@/src/components/UI/CardButton';
 
-const page = () => {         
+function WorkWithUsPage() {
     const [expanded, setExpanded] = useState<number | null>(null);
 
     return (
@@ -275,4 +275,4 @@ const page = () => {
   );
 }
 
-export default page
+export default WorkWithUsPage;

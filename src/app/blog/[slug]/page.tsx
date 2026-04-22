@@ -45,9 +45,11 @@ export default function BlogPostPage() {
           },
         });
 
-        setPost(data.data.post);
+        const raw = data?.data?.post;
+        setPost(raw ?? null);
       } catch (err) {
-        console.error('Failed to fetch post:', err);
+        console.error("Failed to fetch post:", err);
+        setPost(null);
       } finally {
         setLoading(false);
       }
@@ -58,16 +60,23 @@ export default function BlogPostPage() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-black text-white">
+      <div className="flex min-h-[50vh] items-center justify-center bg-vl-cream px-4 py-24 text-vl-ink">
         <div className="flex flex-col items-center gap-4">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-white border-t-transparent" />
-          <p className="text-sm text-gray-300">Loading article...</p>
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-vl-brown border-t-transparent" />
+          <p className="text-sm text-vl-ink-muted">Loading article…</p>
         </div>
       </div>
     );
   }
 
-  if (!post) return <div className="p-4 text-red-500">Post not found</div>;
+  if (!post) {
+    return (
+      <div className="mx-auto max-w-2xl px-4 py-24 text-center text-vl-ink">
+        <p className="text-lg font-medium text-vl-brown-dark">Post not found</p>
+        <p className="mt-2 text-sm text-vl-ink-muted">This article may have been removed or the link is incorrect.</p>
+      </div>
+    );
+  }
 
   const formattedDate = new Date(post.datePublished).toLocaleDateString('en-US', {
     weekday: 'long',
@@ -77,18 +86,18 @@ export default function BlogPostPage() {
   });
 
   return (
-    <div className="mx-auto min-h-screen max-w-4xl bg-black px-4 py-20 text-white">
+    <div className="mx-auto min-h-screen max-w-4xl bg-vl-cream px-4 py-16 text-vl-ink md:py-20">
       <ArticleHeader
         title={post.title}
-        author={post.publishedBy?.name || 'Unknown Author'}
+        author={post.publishedBy?.name || "Unknown Author"}
         date={`Published on ${formattedDate}`}
         showWelcome={false}
       />
 
-<div
-  className="prose prose-invert prose-p:text-justify prose-img:rounded-lg prose-img:w-full prose-img:max-h-[40vh] prose-img:object-cover prose-headings:text-white prose-p:text-gray-200 mt-10 max-w-none"
-  dangerouslySetInnerHTML={{ __html: post.content?.html || '' }}
-/>
+      <div
+        className="prose prose-neutral prose-p:text-justify prose-headings:text-vl-brown-dark prose-p:text-vl-ink prose-a:text-vl-brown prose-img:mt-4 prose-img:max-h-[40vh] prose-img:w-full prose-img:rounded-lg prose-img:object-cover mt-10 max-w-none"
+        dangerouslySetInnerHTML={{ __html: post.content?.html || "" }}
+      />
     </div>
   );
 }

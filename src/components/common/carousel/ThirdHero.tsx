@@ -4,7 +4,7 @@ import LearnMoreBtn from "../../UI/LearnMoreBtn";
 
 const ThirdHero = () => {
   return (
-    <><section className="hero-section-container md:h-[42rem] h-[37rem] flex items-center justify-center relative overflow-hidden">
+    <><section className="hero-section-container h-[37rem] w-full md:h-[42rem] flex items-center justify-center relative overflow-hidden">
       {/* Mobile Background Image (Only visible on small screens) */}
 
 
@@ -12,33 +12,41 @@ const ThirdHero = () => {
         <Image
           src="/image/hero4.jpeg"
           alt="hero-image-mobile"
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
         />
       </div>
 
       {/* Desktop Background Images (Only visible on medium and larger screens) */}
       <div className="hidden md:flex absolute inset-0">
-        <div className="w-1/3 h-full relative">
+        <div className="relative h-full w-1/3">
           <Image
             src="/image/hero4.jpeg"
             alt="hero-image-1"
-            layout="fill"
-            objectFit="cover" />
+            fill
+            className="object-cover"
+            sizes="33vw"
+          />
         </div>
-        <div className="w-1/3 h-full relative">
+        <div className="relative h-full w-1/3">
           <Image
             src="/image/hero5.jpeg"
             alt="hero-image-2"
-            layout="fill"
-            objectFit="cover" />
+            fill
+            className="object-cover"
+            sizes="33vw"
+          />
         </div>
-        <div className="w-1/3 h-full relative">
+        <div className="relative h-full w-1/3">
           <Image
             src="/image/garm1.jpg"
             alt="hero-image-3"
-            layout="fill"
-            objectFit="cover" />
+            fill
+            className="object-cover"
+            sizes="33vw"
+          />
         </div>
       </div>
 
@@ -47,8 +55,8 @@ const ThirdHero = () => {
       <div className="absolute bottom-7 left-7 hidden md:flex">
         <LearnMoreBtn
           text="Learn More about Afrogarm"
-          borderColor="border-white"
-          textColor="text-white"
+          borderColor="border-vl-cream"
+          textColor="text-vl-cream"
           route="https://www.afrogarm.com" />
       </div>
 
@@ -70,7 +78,7 @@ const ThirdHero = () => {
           </div>
 
           <div className="text-section mx-auto">
-            <span className="block text-center text-white md:text-[3rem] text-[1.7rem]">
+            <span className="block text-center text-vl-cream md:text-[3rem] text-[1.7rem]">
               "Rooted in Culture, Styled <br />  for Everyone."
             </span>
           </div>
@@ -82,8 +90,8 @@ const ThirdHero = () => {
     </section><div className=" md:hidden left-section h-full md:w-[50%] w-full md:p-7 p-2 flex items-end justify-center md:justify-start">
         <LearnMoreBtn
           text="Learn More about Afrogarm"
-          borderColor="border-white"
-          textColor="text-white"
+          borderColor="border-vl-cream"
+          textColor="text-vl-cream"
           route="https://www.afrogarm.com" />
       </div></>
   );

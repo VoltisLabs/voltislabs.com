@@ -3,8 +3,34 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --vl-cream: #f4efe6;
+  --vl-cream-deep: #ebe4d8;
+  --vl-cream-muted: #dfd6c8;
+  --vl-brown: #5c4033;
+  --vl-brown-dark: #3d2a22;
+  --vl-ink: #14100d;
+  --vl-ink-muted: #3d342c;
+}
+
+html {
+  background-color: var(--vl-cream);
+}
+
 body {
   scroll-behavior: smooth;
+  /* Avoid horizontal scroll from full-bleed sections; keep html unclipped for fixed layers */
+  overflow-x: hidden;
+}
+
+.page-container .slick-slider,
+.page-container .slick-list,
+.page-container .slick-track {
+  background-color: var(--vl-cream);
+}
+
+.page-container .slick-loading .slick-list {
+  background-color: var(--vl-cream) !important;
 }
 
 @layer utilities {
@@ -22,15 +48,9 @@ body {
   }
 }
 
-/* body {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-} */
-
 @layer base {
   body {
-    font-family: "Inter", sans-serif; /* Set Inter with weight 500 globally */
+    font-family: "Inter", sans-serif;
   }
 }
 

@@ -5,13 +5,13 @@ import LearnMoreBtn from "../../UI/LearnMoreBtn";
 
 const FirstHero = () => {
   return (
-    <><section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative">
+    <><section className="hero-section-container h-[37rem] w-full bg-black md:h-[42rem] flex items-center relative">
       {/* Left Section */}
       <div className="hidden md:flex left-section h-full md:w-[50%] w-full bg-[#503C3B] md:p-7 p-2 flex items-end">
         <LearnMoreBtn
           text="Learn More about VModel"
-          borderColor="border-white"
-          textColor="text-white"
+          borderColor="border-vl-cream"
+          textColor="text-vl-cream"
           route="https://vmodelapp.com" />
       </div>
 
@@ -47,7 +47,7 @@ const FirstHero = () => {
     </div>
 
     <div className="text-section mx-auto">
-      <span className="block text-center text-white md:text-[3rem] text-[1.7rem]">
+      <span className="block text-center text-vl-cream md:text-[3rem] text-[1.7rem]">
         “Designed for Creators, Built for the Future”
       </span>
     </div>
@@ -60,8 +60,8 @@ const FirstHero = () => {
     <div className=" md:hidden left-section h-full md:w-[50%] w-full md:p-7 p-2 flex items-end justify-center md:justify-start">
         <LearnMoreBtn
           text="Learn More about VModel"
-          borderColor="border-white"
-          textColor="text-white"
+          borderColor="border-vl-cream"
+          textColor="text-vl-cream"
           route="https://vmodelapp.com" />
       </div>
       </>

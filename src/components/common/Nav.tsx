@@ -1,8 +1,11 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface NavProps {
   setToggle: (value: boolean) => void;
@@ -10,7 +13,73 @@ interface NavProps {
 }
 
 const Nav = ({ setToggle, toggle }: NavProps) => {
+  const pathname = usePathname();
+  const isLoyaltyBot = pathname === "/loyalty_bot";
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const pathActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
+  const desktopShell =
+    "inline-flex min-h-[2.5rem] items-center justify-center rounded-full px-4 py-2 text-[1rem] font-medium transition-colors duration-200";
+
+  const desktopIdle = isLoyaltyBot
+    ? "text-white/90 hover:bg-white/10 hover:text-white"
+    : "text-vl-cream/90 hover:bg-white/10 hover:text-vl-cream";
+
+  const desktopActive = isLoyaltyBot
+    ? "bg-white/15 text-white ring-1 ring-white/30"
+    : "bg-vl-cream text-vl-brown-dark shadow-sm ring-1 ring-vl-cream/80";
+
+  const desktopClass = (href: string) =>
+    `${desktopShell} ${pathActive(href) ? desktopActive : desktopIdle}`;
+
+  const productsActive = pathname.startsWith("/products");
+  const productsBtnClass = `${desktopShell} ${
+    productsActive ? desktopActive : desktopIdle
+  }`;
+
+  const mobileShell =
+    "inline-flex min-h-[2.5rem] items-center justify-center rounded-full px-3 py-1.5 text-sm font-medium transition-colors duration-200";
+  const mobileClass = (href: string) =>
+    `${mobileShell} ${pathActive(href) ? desktopActive : desktopIdle}`;
+
+  const navIcon =
+    "text-1xl rounded-full p-1 " +
+    (isLoyaltyBot
+      ? "text-white hover:bg-white/10 hover:text-white"
+      : "text-vl-cream hover:bg-white/10 hover:text-vl-cream");
+
+  const drawerShell =
+    "block w-full rounded-full px-4 py-2 text-center text-[1rem] font-medium transition-colors duration-200";
+  const drawerIdle = isLoyaltyBot
+    ? "text-white/90 hover:bg-white/10"
+    : "text-vl-ink hover:bg-vl-cream-muted/80 hover:text-vl-brown-dark";
+  const drawerActive = isLoyaltyBot
+    ? "bg-white/15 text-white ring-1 ring-white/30"
+    : "bg-vl-cream text-vl-brown-dark ring-1 ring-vl-brown/20";
+  const drawerNavClass = (href: string) =>
+    `${drawerShell} ${pathActive(href) ? drawerActive : drawerIdle}`;
+
+  const dropdownPanel =
+    "w-fit whitespace-nowrap rounded-lg border p-4 text-sm shadow-lg " +
+    (isLoyaltyBot
+      ? "border-white/20 bg-[#0f145c] text-white"
+      : "border-vl-brown/20 bg-vl-cream-deep text-vl-ink");
+  const dropdownCategory =
+    "cursor-pointer text-base font-bold " +
+    (isLoyaltyBot ? "text-white/70 hover:text-white" : "text-vl-ink-muted hover:text-vl-brown-dark");
+  const dropdownItem = (isGames: boolean) =>
+    "text-sm transition-colors duration-200 " +
+    (isLoyaltyBot
+      ? isGames
+        ? "text-sky-300 hover:text-sky-200"
+        : "text-white/90 hover:text-white"
+      : isGames
+        ? "text-vl-brown-light hover:text-vl-brown"
+        : "text-vl-ink hover:text-vl-brown");
 
   const links = [
     {
@@ -31,11 +100,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     },
     {
       category: "Lifestyle",
-      items: [
-        {
-          name: "PONY", route: "https://myponyapp.com/"
-        }
-      ]
+      items: [{ name: "PONY", route: "https://myponyapp.com/" }],
     },
     {
       category: "Social Media",
@@ -56,167 +121,195 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     } else {
       document.body.classList.remove("overflow-hidden");
     }
-
     return () => {
       document.body.classList.remove("overflow-hidden");
     };
   }, [toggle]);
 
+  /* Opening the drawer locks body scroll; ensure any navigation clears it so subpages are usable */
+  useEffect(() => {
+    setToggle(false);
+    setDropdownOpen(false);
+  }, [pathname]);
+
   return (
-    <div className="fixed bg-[#0D1117] text-sm top-0 left-0 z-40 backdrop-blur-sm bg-black min-h-[5rem] w-full flex items-center justify-between px-6 md:px-16">
-      {/* Logo */}
-      <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-        <Link href="/">
-          <Image src="/icons/voltis.svg" alt="logo" width={90} height={80} className="hidden md:block" />
-          <Image src="/icons/voltis.svg" alt="logo" width={85} height={85} className="md:hidden block" />
-        </Link>
-      </motion.div>
-
-      {/* Centered Navigation */}
-      <nav className="hidden lg:flex flex-row items-center gap-8 absolute left-1/2 transform -translate-x-1/2 text-nowrap pl-10 xl:pl-0">
-        <a href="/" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          Home
-        </a>
-        <div
-          className="group inline-block relative"
-          onMouseEnter={() => setDropdownOpen(true)}
-          onMouseLeave={() => setDropdownOpen(false)}
-        >
-          <Link href="/products">
-            <button className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400 flex items-center gap-1">
-              Products
-            </button>
+    <div
+      className={`fixed left-0 right-0 top-0 z-40 border-b backdrop-blur-sm ${
+        isLoyaltyBot
+          ? "border-transparent bg-[#1a2081]/95 text-white"
+          : "border-vl-brown/30 bg-vl-brown-dark text-vl-cream"
+      }`}
+    >
+      <div className="mx-auto flex min-h-[5rem] w-full max-w-screen-2xl items-center justify-between px-6 text-sm md:px-16">
+        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+          <Link href="/">
+            <Image
+              src="/icons/voltis.svg"
+              alt="logo"
+              width={90}
+              height={80}
+              className={`hidden md:block ${isLoyaltyBot ? "" : "brightness-0 invert"}`}
+            />
+            <Image
+              src="/icons/voltis.svg"
+              alt="logo"
+              width={85}
+              height={85}
+              className={`block md:hidden ${isLoyaltyBot ? "" : "brightness-0 invert"}`}
+            />
           </Link>
+        </motion.div>
 
-          <AnimatePresence>
-            {dropdownOpen && (
-              <motion.div
-                className="absolute top-full left-0 right-0 text-white p-4 flex flex-col items-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              >
-                <div className="bg-[#0D1117] text-sm p-4 w-fit rounded-lg border border-gray-700 whitespace-nowrap">
-                  <div className="flex flex-row gap-6 justify-center">
-                    {links.map((category) => (
-                      <div key={category.category} className="relative flex flex-col items-center">
-                        <div className="text-gray-600 text-base font-bold cursor-pointer hover:text-white">
-                          {category.category}
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 transform flex-row items-center gap-3 text-nowrap pl-10 lg:flex xl:pl-0">
+          <Link href="/" className={desktopClass("/")}>
+            Home
+          </Link>
+          <div
+            className="group relative inline-block"
+            onMouseEnter={() => setDropdownOpen(true)}
+            onMouseLeave={() => setDropdownOpen(false)}
+          >
+            <Link href="/products" className={productsBtnClass}>
+              Products
+            </Link>
+
+            <AnimatePresence>
+              {dropdownOpen && (
+                <motion.div
+                  className={`absolute left-0 right-0 top-full flex flex-col items-center p-4 ${
+                    isLoyaltyBot ? "text-white" : "text-vl-ink"
+                  }`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <div className={dropdownPanel}>
+                    <div className="flex flex-row justify-center gap-6">
+                      {links.map((category) => (
+                        <div key={category.category} className="relative flex flex-col items-center">
+                          <div className={dropdownCategory}>{category.category}</div>
+                          <div className="mt-2">
+                            <ul className="flex flex-col gap-2">
+                              {category.items.map((item) => (
+                                <li key={item.name}>
+                                  <a
+                                    href={item.route}
+                                    className={dropdownItem(item.name === "Games Home")}
+                                    target={item.route.startsWith("http") ? "_blank" : undefined}
+                                    rel={item.route.startsWith("http") ? "noopener noreferrer" : undefined}
+                                  >
+                                    {item.name}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
-                        <div className="mt-2">
-                          <ul className="flex flex-col gap-2">
-                           {category.items.map((item) => (
-                              <li key={item.name}>
-                                <a
-                                  href={item.route}
-                                  className={`text-sm transition-colors duration-200 hover:text-gray-400 ${
-                                    item.name === "Games Home" ? "text-[#90BEFF]" : "text-white"
-                                  }`}
-                                  target={item.route.startsWith("http") ? "_blank" : undefined}
-                                  rel={item.route.startsWith("http") ? "noopener noreferrer" : undefined}
-                                >
-                                  {item.name}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+          <Link href="/Aboutus" className={desktopClass("/Aboutus")}>
+            About Us
+          </Link>
+          <Link href="/blog" className={desktopClass("/blog")}>
+            News Blog
+          </Link>
+          <Link href="/contact-us" className={desktopClass("/contact-us")}>
+            Contact Us
+          </Link>
+        </nav>
+
+        <div className="flex items-center space-x-3 sm:space-x-5 md:space-x-6 lg:hidden">
+          <Link href="/" className={mobileClass("/")}>
+            Home
+          </Link>
+          <Link href="/products" className={productsBtnClass}>
+            Products
+          </Link>
+          <button type="button" className={navIcon} onClick={() => setToggle(!toggle)}>
+            <RxHamburgerMenu size={25} />
+          </button>
         </div>
-        <a href="/Aboutus" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          About Us
-        </a>
-        <a href="/blog" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          News Blog
-        </a>
-        <a href="/contact-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          Contact Us
-        </a>
-      </nav>
-
-      {/* Mobile Navigation */}
-      <div className="lg:hidden flex items-center space-x-3 sm:space-x-5 md:space-x-6">
-        <a href="/" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          Home
-        </a>
-        <a href="/products" className="text-white text-sm">
-          Products
-        </a>
-
-        <button className="text-white text-1xl" onClick={() => setToggle(!toggle)}>
-          <RxHamburgerMenu size={25} />
-        </button>
       </div>
 
       <AnimatePresence>
         {toggle && (
           <>
-            {/* Sidebar Navigation */}
             <motion.nav
-              className="fixed top-0 left-0 h-screen w-[60%] sm:w-[50%] bg-[#0D1117] text-white py-20 px-6 z-50 flex flex-col"
+              className="fixed left-0 top-0 z-50 flex h-screen w-[60%] flex-col bg-vl-cream-deep px-6 py-20 text-vl-ink sm:w-[50%]"
               initial={{ x: "-100%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "-100%", opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
               <span className="absolute top-5">
-                <Image src="/icons/voltis.svg" alt="logo" width={75} height={75} className="md:hidden block" />
+                <Image src="/icons/voltis.svg" alt="logo" width={75} height={75} className="block md:hidden" />
               </span>
-              <button className="absolute top-5 right-6 text-white text-2xl" onClick={() => setToggle(false)}>
+              <button
+                type="button"
+                className={`absolute right-6 top-5 text-2xl ${
+                  isLoyaltyBot ? "text-white hover:text-white/85" : "text-vl-ink hover:text-vl-brown"
+                }`}
+                onClick={() => setToggle(false)}
+              >
                 ✕
               </button>
 
-              <div className="flex-grow max-h-[35rem] py-5 no-scrollbar overflow-y-auto">
-              {links.map((category) => (
-                <div key={category.category} className="mb-6">
-                  <h3 className="text-gray-600 font-bold text-lg mb-4">{category.category}</h3>
-                  <ul className="space-y-2">
-                    {category.items.map((item) => (
-                      <li key={item.name}>
-                        <a
-                          href={item.route}
-                          className={`block transition-colors duration-200 hover:text-gray-400 ${
-                            item.name === "Games Home" ? "text-[#90BEFF]" : "text-white"
-                          }`}
-                          onClick={() => setToggle(false)}
-                          target={item.route.startsWith("http") ? "_blank" : undefined}
-                          rel={item.route.startsWith("http") ? "noopener noreferrer" : undefined}
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+              <div className="no-scrollbar max-h-[35rem] flex-grow overflow-y-auto py-5">
+                {links.map((category) => (
+                  <div key={category.category} className="mb-6">
+                    <h3
+                      className={`mb-4 text-lg font-bold ${
+                        isLoyaltyBot ? "text-white/70" : "text-vl-ink-muted"
+                      }`}
+                    >
+                      {category.category}
+                    </h3>
+                    <ul className="space-y-2">
+                      {category.items.map((item) => (
+                        <li key={item.name}>
+                          <a
+                            href={item.route}
+                            className={`block ${dropdownItem(item.name === "Games Home")}`}
+                            onClick={() => setToggle(false)}
+                            target={item.route.startsWith("http") ? "_blank" : undefined}
+                            rel={item.route.startsWith("http") ? "noopener noreferrer" : undefined}
+                          >
+                            {item.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+
+                <div className="flex flex-col space-y-2">
+                  <Link href="/Aboutus" onClick={() => setToggle(false)} className={drawerNavClass("/Aboutus")}>
+                    About Us
+                  </Link>
+                  <Link href="/blog" onClick={() => setToggle(false)} className={drawerNavClass("/blog")}>
+                    News Blog
+                  </Link>
+                  <Link href="/contact-us" onClick={() => setToggle(false)} className={drawerNavClass("/contact-us")}>
+                    Contact Us
+                  </Link>
                 </div>
-              ))}
-
-              <div className="flex flex-col space-y-2">
-                <a onClick={() => setToggle(false)} href="/blog" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-                  News Blog
-                </a>
-                <a onClick={() => setToggle(false)} href="/contact-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-                  Contact Us
-                </a>
               </div>
-            </div>
 
-              <div className="absolute bottom-0 pl-6 left-0 w-full bg-[#0D1117] py-4 border-t border-gray-700">
-                <p className="text-white text-sm">
-                  © 2025 Voltis Labs. <br /> All rights reserved.
+              <div className="absolute bottom-0 left-0 w-full border-t border-vl-brown/15 bg-vl-cream py-4 pl-6">
+                <p className="text-sm text-vl-ink-muted">
+                  © 2026 Voltis Labs. <br /> All rights reserved.
                 </p>
               </div>
             </motion.nav>
 
-            {/* Blurred backdrop covering remaining 40% / 50% */}
             <motion.div
-              className="fixed top-0 right-0 h-screen w-[40%] sm:w-[50%] bg-black/30 backdrop-blur-sm z-40"
+              className="fixed right-0 top-0 z-40 h-screen w-[40%] bg-vl-brown/20 backdrop-blur-sm sm:w-[50%]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

@@ -1,19 +1,18 @@
 import Image from "next/image";
 import React from "react";
-import Link from 'next/link';
 import LearnMoreBtn from '@/src/components/UI/LearnMoreBtn';
 
 const FourthHero = () => {
   return (
     <>
-      <section className="hero-section-container md:h-[42rem] h-[37rem] bg-black flex items-center relative">
+      <section className="hero-section-container h-[37rem] w-full bg-black md:h-[42rem] flex items-center relative">
         {/* Left Section */}
         <div className="hidden md:flex left-section h-full md:w-[50%] w-full bg-[#1B1B1B] md:p-7 p-2 items-end"></div>
         <div className="absolute bottom-7 left-7 hidden md:flex">
           <LearnMoreBtn
             text="Learn More about PONY"
-            borderColor="border-white"
-            textColor="text-white"
+            borderColor="border-vl-cream"
+            textColor="text-vl-cream"
             route="https://myponyapp.com" />
         </div>
 
@@ -22,8 +21,14 @@ const FourthHero = () => {
           {/* Overlay */}
           <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
           {/* Background Image */}
-          <div className="absolute inset-0 w-full h-full z-0">
-            <Image src="/pony.jpg" alt="pony" layout="fill" objectFit="cover" />
+          <div className="absolute inset-0 z-0 h-full w-full">
+            <Image
+              src="/pony.jpg"
+              alt="pony"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
         </div>
 
@@ -42,7 +47,7 @@ const FourthHero = () => {
 </svg>
 
               </div>
-              <span className="block text-center text-white md:text-[3rem] text-[1.7rem]">
+              <span className="block text-center text-vl-cream md:text-[3rem] text-[1.7rem]">
                 “Interests Make Connections, Start With Substance.”
               </span>
 
@@ -53,8 +58,8 @@ const FourthHero = () => {
       <div className=" md:hidden left-section h-full md:w-[50%] w-full md:p-7 p-2 flex items-end justify-center md:justify-start">
               <LearnMoreBtn
             text="Learn More about PONY"
-            borderColor="border-white"
-            textColor="text-white"
+            borderColor="border-vl-cream"
+            textColor="text-vl-cream"
             route="https://myponyapp.com" />
             </div>
     </>

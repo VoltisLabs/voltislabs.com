@@ -9,7 +9,7 @@ import Image from 'next/image';
 import SliderBackground from '@/src/components/UI/SliderBackground';
 import LearnMoreBtn from '@/src/components/UI/LearnMoreBtn';
 
-function page() {
+function AboutusPage() {
   const menuItems = [
     { name: 'Home', route: 'about-home' },
     { name: 'About Us', route: 'about' },
@@ -18,7 +18,7 @@ function page() {
   ];
 
   return (
-    <div className="mx-auto max-w-[85rem]">
+    <div className="mx-auto w-full max-w-[85rem] bg-vl-brown-dark pb-20 pt-6 text-vl-cream md:pt-10">
       <Sidebar tbList={menuItems} />
 
       <section id="prelura-home md:block hidden" className="max-w-[85rem]">
@@ -190,4 +190,4 @@ function page() {
   );
 }
 
-export default page;
+export default AboutusPage;

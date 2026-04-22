@@ -1,6 +1,4 @@
-"use client"
-import Title from '@/src/components/UI/Title'
-import { motion } from 'framer-motion'
+"use client";
 
 interface ArticleHeaderProps {
     title: string
@@ -15,25 +13,17 @@ const ArticleHeader: React.FC<ArticleHeaderProps> = ({ title, author, date, show
             className="mb-12 text-center"
 
         >
-            {showWelcome && (<h2
-                className="text-4xl md:text-5xl font-bold mb-6 whitespace-pre-line"
-
-            >
-                {` Welcome to Voltis labs News Blog`}
-            </h2>)}
-            <div
-                className="flex flex-col md:flex-row items-center justify-center text-gray-400 mb-3 text-sm md:text-base"
-
-            >      <span>By {author}</span>
-                {date && <span className="mx-2 ">•</span>}
-                {date && <span>{date}</span>}
+            {showWelcome && (
+              <h2 className="mb-6 whitespace-pre-line text-4xl font-bold text-vl-brown-dark md:text-5xl">
+                Welcome to Voltis Labs News Blog
+              </h2>
+            )}
+            <div className="mb-3 flex flex-col items-center justify-center text-sm text-vl-ink-muted md:flex-row md:text-base">
+              <span>By {author}</span>
+              {date && <span className="mx-2">•</span>}
+              {date && <span>{date}</span>}
             </div>
-            <h1
-                className="text-2xl md:text-3xl font-bold mb-3"
-
-            >
-                {title}
-            </h1>
+            <h1 className="mb-3 text-2xl font-bold text-vl-brown-dark md:text-3xl">{title}</h1>
 
         </header>
     )

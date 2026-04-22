@@ -23,7 +23,7 @@ const sectionVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
-function page() {
+function LoyaltyBotPage() {
   const menuItems = [
     { name: "About Loyalty", route: "loyalty-home", Icon: "" },
     { name: "Workspace", route: "loyalty-workspace", Icon: "" },
@@ -35,7 +35,7 @@ function page() {
   const [isPlaying, setIsplaying] = useState(false);
 
   return (
-    <div id="loyalty-home" className="pt-14 max-w-[85rem]">
+    <div id="loyalty-home" className="mx-auto w-full max-w-[85rem] bg-[#1a2081] pb-12 pt-14 text-white">
       <Sidebar tbList={menuItems} />
       <div className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[20px] bg-[#1a2081] pb-10 flex-col flex">
         <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -64,4 +64,4 @@ function page() {
   );
 }
 
-export default page;
+export default LoyaltyBotPage;

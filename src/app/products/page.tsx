@@ -21,11 +21,13 @@ const Page = () => {
   };
 
   const handlePrev = () => {
-    setImageIdx(i => (i === 0 ? images.length - 1 : i - 1));
+    if (images.length < 1) return;
+    setImageIdx((i) => (i === 0 ? images.length - 1 : i - 1));
   };
 
   const handleNext = () => {
-    setImageIdx(i => (i === images.length - 1 ? 0 : i + 1));
+    if (images.length < 1) return;
+    setImageIdx((i) => (i === images.length - 1 ? 0 : i + 1));
   };
 
   const handleThumbClick = (idx: number) => {
@@ -33,9 +35,9 @@ const Page = () => {
   };
 
   return (
-    <div className="pt-[5.3rem] px-4 md:px-6 xl:px-0 mx-auto xl:w-[75rem] flex flex-col xl:flex-row gap-4 md:gap-6 xl:gap-8">
+    <div className="mx-auto flex min-h-[50vh] flex-col gap-4 px-4 pb-12 pt-[5.3rem] md:gap-6 md:px-6 xl:w-[75rem] xl:flex-row xl:gap-8">
       {/* Preview Window */}
-      <div className="w-full xl:w-2/3 flex flex-col rounded-lg shadow-2xl border border-[#23272F]">
+      <div className="flex w-full flex-col rounded-lg border border-vl-brown/25 bg-vl-cream-deep shadow-xl xl:w-2/3">
         {/* Main image */}
         <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[650px] rounded-lg flex items-center justify-center group">
           {images.length > 0 && (
@@ -49,13 +51,13 @@ const Page = () => {
             <>
               <button
                 onClick={handlePrev}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all z-10"
+                className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-vl-brown/80 p-2 text-vl-cream opacity-0 transition-all hover:bg-vl-brown group-hover:opacity-100"
               >
                 <ChevronLeft className="w-6 h-6 md:w-7 md:h-7" />
               </button>
               <button
                 onClick={handleNext}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all z-10"
+                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-vl-brown/80 p-2 text-vl-cream opacity-0 transition-all hover:bg-vl-brown group-hover:opacity-100"
               >
                 <ChevronRight className="w-6 h-6 md:w-7 md:h-7" />
               </button>
@@ -69,11 +71,11 @@ const Page = () => {
             <button
               key={img}
               onClick={() => handleThumbClick(idx)}
-              className={`w-16 h-10 sm:w-20 sm:h-12 md:w-24 md:h-14 xl:w-32 xl:h-16 rounded-lg overflow-hidden border-2 ${imageIdx === idx ? 'border-[#90BEFF]' : 'border-transparent'} bg-[#23272F] flex items-center justify-center transition-all relative`}
+              className={`relative flex h-10 w-16 items-center justify-center overflow-hidden rounded-lg border-2 transition-all sm:h-12 sm:w-20 md:h-14 md:w-24 xl:h-16 xl:w-32 ${imageIdx === idx ? "border-vl-brown" : "border-transparent"} bg-vl-cream-muted`}
             >
               <img src={img} alt={`Thumbnail ${idx}`} className="object-cover w-full h-full" />
               {images.length > 4 && idx === 3 && (
-                <span className="absolute inset-0 bg-black/60 text-white flex items-center justify-center text-xs font-semibold">
+                <span className="absolute inset-0 flex items-center justify-center bg-vl-brown/70 text-xs font-semibold text-vl-cream">
                   +{images.length - 3}
                 </span>
               )}
@@ -83,12 +85,12 @@ const Page = () => {
 
         {/* Description and View Button */}
         <div className="w-full flex flex-col px-3 pb-4">
-          <h2 className="text-base sm:text-lg md:text-xl font-bold text-white mb-1">{selectedProduct.message}</h2>
-          <p className="text-gray-400 text-sm whitespace-pre-line mb-3">{selectedProduct.description}</p>
+          <h2 className="mb-1 text-base font-bold text-vl-ink sm:text-lg md:text-xl">{selectedProduct.message}</h2>
+          <p className="mb-3 whitespace-pre-line text-sm text-vl-ink-muted">{selectedProduct.description}</p>
           <div className="flex justify-end">
             <a
               href={selectedProduct.link}
-              className="px-3 md:px-4 py-2 rounded-lg bg-[#23272F] text-[#90BEFF] font-semibold text-sm hover:bg-[#222b3a] transition"
+              className="rounded-lg border border-vl-brown bg-vl-brown px-3 py-2 text-sm font-semibold text-vl-cream transition hover:bg-vl-brown-dark md:px-4"
             >
               View More
             </a>
@@ -102,7 +104,7 @@ const Page = () => {
           <div
             key={product.message}
             onClick={() => handleSelect(idx)}
-            className={`rounded-lg shadow-md border border-[#23272F] group cursor-pointer hover:scale-[1.03] transition-all duration-200 ${selectedIdx === idx ? 'ring-2 ring-[#90BEFF]' : ''}`}
+            className={`group cursor-pointer rounded-lg border border-vl-brown/25 bg-vl-cream-deep shadow-md transition-all duration-200 hover:scale-[1.03] ${selectedIdx === idx ? "ring-2 ring-vl-brown" : ""}`}
           >
             <div className="relative w-full aspect-square overflow-hidden">
               <img
@@ -112,8 +114,8 @@ const Page = () => {
               />
             </div>
             <div className="p-2">
-              <h2 className="text-sm sm:text-base font-semibold text-white truncate mb-1">{product.message}</h2>
-              <p className="text-gray-400 text-xs line-clamp-4">{product.description}</p>
+              <h2 className="mb-1 truncate text-sm font-semibold text-vl-ink sm:text-base">{product.message}</h2>
+              <p className="line-clamp-4 text-xs text-vl-ink-muted">{product.description}</p>
             </div>
           </div>
         ))}

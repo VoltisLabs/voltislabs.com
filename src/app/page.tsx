@@ -11,7 +11,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Content from '../components/Content';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { FaChevronLeft, FaChevronRight, FaSpotify } from 'react-icons/fa';
 import { fetchData } from '../../lib/apiClient';
 import FourthHero from '@/src/components/common/carousel/FourthHero';
@@ -53,7 +52,6 @@ export default function Home() {
   const updatesContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -75,7 +73,9 @@ export default function Home() {
         },
       });
 
-      const formatted = data?.data?.posts.map((p: any) => ({
+      const raw = data?.data?.posts;
+      const list = Array.isArray(raw) ? raw : [];
+      const formatted = list.map((p: any) => ({
         title: p.title,
         slug: p.slug,
         date: p.datePublished,
@@ -85,12 +85,8 @@ export default function Home() {
           Array.isArray(p.category) && p.category.length > 0 ? p.category[0].name : 'Uncategorized',
       }));
 
-      if (formatted) {
-        setPosts(formatted);
-        // setTotalPostsLoaded(formatted.length);
-        // setHasMorePosts(formatted.length === 4); // Adjusted to match the fixed limit
-        setError(null); // Clear error on success
-      }
+      setPosts(formatted);
+      setError(null);
     } catch (err) {
       console.log('Failed to fetch blog posts:', err);
       setError('Network error. Please check your network connection and try again.');
@@ -155,7 +151,6 @@ export default function Home() {
     autoplaySpeed: 4500,
     arrows: false,
     fade: true,
-    afterChange: (current: any) => setCurrentSlide(current),
   };
 
   const slides = [
@@ -187,13 +182,12 @@ export default function Home() {
       sliderRef.current.slickPrev();
     }
   };
-  const router = useRouter();
-  console.log(currentSlide);
   return (
-    <div className="page-container min-h-screen w-full bg-black">
-      <div className="item-container absolute inset-0 mx-auto h-full w-full 2xl:w-3/5">
+    <div className="page-container relative min-h-screen w-full bg-vl-cream">
+      {/* Column-wide hero; avoid overriding Slick slide widths (breaks the carousel) */}
+      <div className="item-container absolute inset-x-0 top-0 z-0 min-h-[37rem] w-full md:min-h-[42rem]">
         <button
-          className="absolute left-4 top-[20rem] z-10 rounded-full bg-gray-100/90 text-white opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none md:p-2"
+          className="absolute left-4 top-[20rem] z-10 rounded-full border border-vl-brown/20 bg-vl-cream-deep/95 text-vl-ink opacity-70 transition-all delay-75 ease-in-out hover:opacity-100 focus:outline-none md:p-2"
           onClick={handlePrevClick}
         >
           <Image
@@ -205,7 +199,7 @@ export default function Home() {
           />
         </button>
 
-        <Slider ref={sliderRef} {...settings}>
+        <Slider ref={sliderRef} {...settings} className="w-full">
           {slides.map((item) => (
             <div key={item.text} className="h-full w-full">
               {item.image}
@@ -214,7 +208,7 @@ export default function Home() {
         </Slider>
 
         <button
-          className="absolute right-4 top-[20rem] z-10 rounded-full bg-gray-100/90 text-white opacity-40 transition-all delay-75 ease-in-out hover:opacity-90 focus:outline-none md:p-2"
+          className="absolute right-4 top-[20rem] z-10 rounded-full border border-vl-brown/20 bg-vl-cream-deep/95 text-vl-ink opacity-70 transition-all delay-75 ease-in-out hover:opacity-100 focus:outline-none md:p-2"
           onClick={handleNextClick}
         >
           <Image src={'/icons/button-arrow.svg'} alt="button-icon" width={30} height={30} />
@@ -241,9 +235,9 @@ export default function Home() {
           ))}
         </section> */}
 
-        <section className="relative mb-20 mt-10 h-[23rem] px-[1rem] md:mt-20 md:h-[34rem] md:px-[2rem]">
-          <div className="mb-6 w-full border-[1px] border-white"></div>
-          <div className="mb-10 flex flex-row items-start justify-between text-white sm:items-center">
+        <section className="relative mb-20 mt-10 min-h-[16rem] px-[1rem] md:mt-20 md:min-h-[20rem] md:px-[2rem]">
+          <div className="mb-6 w-full border border-vl-brown/20"></div>
+          <div className="mb-10 flex flex-row items-start justify-between text-vl-ink sm:items-center">
             <h2 className="text-[1.6rem] font-normal md:text-[1.7rem]">Latest Updates</h2>
             <Link href={'/latest-updates'} className="mt-2 text-sm font-normal underline sm:mt-0">
               See all
@@ -256,7 +250,7 @@ export default function Home() {
             {/* Left Arrow */}
             {canScrollLeft && (
               <button
-                className="absolute left-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-white/80 p-3 text-black shadow-md hover:bg-white focus:outline-none"
+                className="absolute left-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full border border-vl-brown/20 bg-vl-cream p-3 text-vl-ink shadow-md hover:bg-vl-cream-deep focus:outline-none"
                 onClick={() => {
                   const container = updatesContainerRef.current;
                   container?.scrollBy({ left: -300, behavior: 'smooth' });
@@ -268,34 +262,34 @@ export default function Home() {
 
             {/* Scrollable Content */}
             <div
-              id="updates-container"
+              id="home-updates-scroll"
               ref={updatesContainerRef}
-              className="no-scrollbar flex min-w-[20rem] items-center overflow-x-scroll md:min-w-[43rem]"
+              className="no-scrollbar flex min-w-0 items-center overflow-x-scroll"
             >
-              <div className="flex h-full gap-8 md:w-full">
+              <div className="flex h-full gap-4 md:gap-5 md:w-full">
                 {updates.map((text, index) => (
                   <Link href={`/latest-updates?item=${index}`} key={index} scroll={false}>
-                    <div
-                      className="!min-h-[25rem] w-[12.5rem] items-start overflow-hidden text-left md:min-w-[22rem] cursor-pointer"
-                    >
-                      <div className="image-container w-20rem h-10rem overflow-hidden rounded-[10px]">
+                    <div className="w-[8.75rem] shrink-0 cursor-pointer items-start overflow-hidden text-left md:w-[11rem]">
+                      {/* Same aspect as before (310×300), only scaled down */}
+                      <div className="image-container relative aspect-[310/300] w-full overflow-hidden rounded-[10px]">
                         <Image
                           src={text.img}
                           alt="Icon"
-                          width={310}
-                          height={300}
-                          className="w-full transition-all duration-[.85s] ease-in-out hover:scale-110"
+                          width={200}
+                          height={194}
+                          sizes="(max-width: 768px) 140px, 176px"
+                          className="h-full w-full object-cover transition-all duration-[.85s] ease-in-out hover:scale-110"
                         />
                       </div>
-                      <p className="mt-3 text-[.9rem] text-white">{text.message}</p>
-                      {text.subText && <p className="text-[.9rem] text-[#535353]">{text.subText}</p>}
-                      <p className="text-[.7rem] text-white">{text.time}</p>
+                      <p className="mt-3 text-[.9rem] text-vl-ink">{text.message}</p>
+                      {text.subText && <p className="text-[.9rem] text-vl-ink-muted">{text.subText}</p>}
+                      <p className="text-[.7rem] text-vl-ink">{text.time}</p>
                       {text.spotify && (
                         <a
                           href={text.spotifyLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group relative mt-4 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-white px-4 py-2 text-[.9rem] font-medium text-white hover:border-transparent"
+                          className="group relative mt-4 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-vl-brown px-4 py-2 text-[.9rem] font-medium text-vl-brown hover:border-vl-brown-dark"
                         >
                           <span className="absolute inset-0 origin-left scale-x-0 bg-[#1DB954] transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
                           <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
@@ -313,7 +307,7 @@ export default function Home() {
             {/* Right Arrow */}
             {canScrollRight && (
               <button
-                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-white/80 p-3 text-black shadow-md hover:bg-white focus:outline-none"
+                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full border border-vl-brown/20 bg-vl-cream p-3 text-vl-ink shadow-md hover:bg-vl-cream-deep focus:outline-none"
                 onClick={() => {
                   const container = updatesContainerRef.current;
                   container?.scrollBy({ left: 300, behavior: 'smooth' });
@@ -326,9 +320,9 @@ export default function Home() {
         </section>
 
         {/* Latest news  */}
-        <section className="relative mb-20 mt-10 h-[23rem] px-[1rem] md:mt-20 md:h-[34rem] md:px-[2rem]">
-          <div className="mb-6 w-full border-[1px] border-white"></div>
-          <div className="mb-10 flex flex-row items-start justify-between text-white sm:items-center">
+        <section className="relative mb-20 mt-10 min-h-[16rem] px-[1rem] md:mt-20 md:min-h-[20rem] md:px-[2rem]">
+          <div className="mb-6 w-full border border-vl-brown/20"></div>
+          <div className="mb-10 flex flex-row items-start justify-between text-vl-ink sm:items-center">
             <h2 className="text-[1.6rem] font-normal md:text-[1.7rem]">Latest News</h2>
             <Link href={'/blog'} className="mt-2 text-sm font-normal underline sm:mt-0">
               See all
@@ -340,7 +334,7 @@ export default function Home() {
             {/* Left Arrow */}
             {canScrollLeftLatest && (
               <button
-                className="absolute left-2 top-1/2 z-50 -translate-y-1/2 transform rounded-full bg-white/80 p-3 text-black shadow-md hover:bg-white focus:outline-none"
+                className="absolute left-2 top-1/2 z-50 -translate-y-1/2 transform rounded-full border border-vl-brown/20 bg-vl-cream p-3 text-vl-ink shadow-md hover:bg-vl-cream-deep focus:outline-none"
                 onClick={() => {
                   const container = latestNewsContainerRef.current;
                   container?.scrollBy({ left: -300, behavior: 'smooth' });
@@ -352,61 +346,62 @@ export default function Home() {
 
             {/* Scrollable Content */}
             <div
-              id="updates-container"
+              id="home-latest-news-scroll"
               ref={latestNewsContainerRef}
-              className="no-scrollbar relative z-0 flex min-w-[20rem] items-center overflow-x-scroll md:min-w-[43rem]"
+              className="no-scrollbar relative z-0 flex min-w-0 items-center overflow-x-scroll"
             >
               {loading ? (
-                <div className="flex h-full gap-8 md:w-full">
+                <div className="flex h-full gap-4 md:gap-5 md:w-full">
                   {[...Array(4)].map((_, index) => (
                     <div
                       key={index}
-                      className="!min-h-[25rem] w-[12.5rem] animate-pulse items-start overflow-hidden text-left md:min-w-[22rem]"
+                      className="w-[8.75rem] shrink-0 animate-pulse items-start overflow-hidden text-left md:w-[11rem]"
                     >
-                      <div className="h-48 w-full rounded-[10px] bg-gray-800"></div>
-                      <div className="mt-4 h-4 w-3/4 rounded bg-gray-800"></div>
-                      <div className="mt-2 h-4 w-1/2 rounded bg-gray-800"></div>
+                      <div className="aspect-[310/300] w-full rounded-[10px] bg-vl-cream-muted"></div>
+                      <div className="mt-4 h-4 w-3/4 rounded bg-vl-cream-muted"></div>
+                      <div className="mt-2 h-4 w-1/2 rounded bg-vl-cream-muted"></div>
                     </div>
                   ))}
                 </div>
               ) : error ? (
-                <div className="flex h-full w-full items-center justify-center text-white">
+                <div className="flex h-full w-full items-center justify-center text-vl-ink">
                   <p>{error}</p>
                 </div>
               ) : posts.length === 0 ? (
-                <div className="flex h-full w-full items-center justify-center text-white">
+                <div className="flex h-full w-full items-center justify-center text-vl-ink">
                   <p>No posts available</p>
                 </div>
               ) : (
-                <div className="flex h-full gap-8 md:w-full">
+                <div className="flex h-full gap-4 md:gap-5 md:w-full">
                   {posts.map((post, i) => (
                     <Link
                       key={`${post.slug}-${i}`}
                       href={`/blog/${post.slug}`}
-                      className="!min-h-[25rem] w-[12.5rem] items-start overflow-hidden text-left md:min-w-[22rem]"
+                      className="w-[8.75rem] shrink-0 items-start overflow-hidden text-left md:w-[11rem]"
                     >
-                      <div className="image-container w-20rem h-10rem overflow-hidden rounded-[10px]">
+                      <div className="image-container relative aspect-[310/300] w-full overflow-hidden rounded-[10px]">
                         {post.image ? (
                           <Image
                             src={post.image}
                             alt={post.title}
-                            width={310}
-                            height={300}
-                            className="w-full transition-all duration-[.85s] ease-in-out hover:scale-110"
+                            width={200}
+                            height={194}
+                            sizes="(max-width: 768px) 140px, 176px"
+                            className="h-full w-full object-cover transition-all duration-[.85s] ease-in-out hover:scale-110"
                             unoptimized={true} // Add this if you're having issues with external images
                           />
                         ) : (
-                          <div className="h-48 w-full bg-gray-800"></div>
+                          <div className="aspect-[310/300] w-full bg-vl-cream-muted"></div>
                         )}
                       </div>
 
                       <div className={`py-4`}>
-                        <h3 className="mb-2 mt-1 overflow-hidden truncate whitespace-nowrap text-base font-semibold text-white">
+                        <h3 className="mb-2 mt-1 overflow-hidden truncate whitespace-nowrap text-base font-semibold text-vl-ink">
                           {post.title}
                         </h3>
 
-                        <p className="text-sm text-gray-400">
-                          <span className="font-bold text-white">{post.category}</span> —{' '}
+                        <p className="text-sm text-vl-ink-muted">
+                          <span className="font-bold text-vl-ink">{post.category}</span> —{' '}
                           {new Date(post.datePublished).toLocaleDateString('en-US', {
                             year: 'numeric',
                             month: 'long',
@@ -423,7 +418,7 @@ export default function Home() {
             {/* Right Arrow */}
             {canScrollRightLatest && posts.length > 0 && (
               <button
-                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-white/80 p-3 text-black shadow-md hover:bg-white focus:outline-none"
+                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full border border-vl-brown/20 bg-vl-cream p-3 text-vl-ink shadow-md hover:bg-vl-cream-deep focus:outline-none"
                 onClick={() => {
                   const container = latestNewsContainerRef.current;
                   container?.scrollBy({ left: 300, behavior: 'smooth' });

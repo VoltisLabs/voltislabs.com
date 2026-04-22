@@ -71,7 +71,7 @@ export default function NewsPage() {
 
   // Infinite scroll states
   const [totalPostsLoaded, setTotalPostsLoaded] = useState<number>(0);
-  const [postsPerPage] = useState<number>(3);
+  const [postsPerPage] = useState<number>(9);
   const [hasMorePosts, setHasMorePosts] = useState<boolean>(true);
 
   // Back to top button states
@@ -142,7 +142,9 @@ export default function NewsPage() {
         },
       });
 
-      const formatted = data?.data?.posts.map((p: any) => ({
+      const raw = data?.data?.posts;
+      const list = Array.isArray(raw) ? raw : [];
+      const formatted = list.map((p: any) => ({
         title: p.title,
         slug: p.slug,
         date: p.datePublished,
@@ -152,17 +154,13 @@ export default function NewsPage() {
           Array.isArray(p.category) && p.category.length > 0 ? p.category[0].name : 'Uncategorized',
       }));
 
-      if (formatted && formatted.length > 0) {
-        // Append new posts to existing posts
+      if (formatted.length > 0) {
         setPosts((prevPosts) => [...prevPosts, ...formatted]);
         setTotalPostsLoaded((prev) => prev + formatted.length);
-
-        // If we get fewer posts than requested, we know we're at the end
         if (formatted.length < postsPerPage) {
           setHasMorePosts(false);
         }
       } else {
-        // No more posts available
         setHasMorePosts(false);
       }
     } catch (err) {
@@ -188,7 +186,9 @@ export default function NewsPage() {
         },
       });
 
-      const formatted = data?.data?.posts.map((p: any) => ({
+      const raw = data?.data?.posts;
+      const list = Array.isArray(raw) ? raw : [];
+      const formatted = list.map((p: any) => ({
         title: p.title,
         slug: p.slug,
         date: p.datePublished,
@@ -198,14 +198,10 @@ export default function NewsPage() {
           Array.isArray(p.category) && p.category.length > 0 ? p.category[0].name : 'Uncategorized',
       }));
 
-      if (formatted) {
-        setPosts(formatted);
-        setTotalPostsLoaded(formatted.length);
-
-        // If we get fewer posts than requested, we know we're at the end
-        setHasMorePosts(formatted.length === postsPerPage);
-        setError(null); // Clear error on success
-      }
+      setPosts(formatted);
+      setTotalPostsLoaded(formatted.length);
+      setHasMorePosts(formatted.length === postsPerPage);
+      setError(null);
     } catch (err) {
       console.log('Failed to fetch blog posts:', err);
       setError('Please check your network connection and try again.');
@@ -548,11 +544,11 @@ export default function NewsPage() {
           className={`animate-pulse overflow-hidden ${view === 'list' ? 'flex flex-row' : ''}`}
         >
           <div
-            className={`rounded-lg bg-gray-900 ${view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'}`}
+            className={`rounded-lg bg-vl-cream-muted ${view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'}`}
           />
           <div className={`${view === 'list' ? 'flex-1 p-4' : 'py-4'}`}>
-            <div className="mb-2 h-4 rounded bg-gray-900" />
-            <div className="h-3 w-2/3 rounded bg-gray-900" />
+            <div className="mb-2 h-4 rounded bg-vl-cream-muted" />
+            <div className="h-3 w-2/3 rounded bg-vl-cream-muted" />
           </div>
         </div>
       ))}
@@ -562,7 +558,7 @@ export default function NewsPage() {
   // Error Component
   const ErrorComponent = () => (
     <motion.div
-      className="flex items-center justify-center bg-black text-white"
+      className="flex items-center justify-center bg-vl-cream text-vl-ink"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -582,8 +578,8 @@ export default function NewsPage() {
         </motion.div>
 
         <div>
-          <h2 className="mb-2 text-2xl font-bold text-white">Network Error</h2>
-          <p className="leading-relaxed text-gray-400">
+          <h2 className="mb-2 text-2xl font-bold text-vl-ink">Network Error</h2>
+          <p className="leading-relaxed text-vl-ink-muted">
             {error || 'Please check your network connection and try again'}
           </p>
         </div>
@@ -591,7 +587,7 @@ export default function NewsPage() {
         <motion.button
           onClick={handleRetry}
           disabled={retrying}
-          className="flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-black transition-all hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex items-center gap-2 rounded-lg border border-vl-brown bg-vl-brown px-6 py-3 font-medium text-vl-cream transition-all hover:bg-vl-brown-dark disabled:cursor-not-allowed disabled:opacity-50"
           whileHover={{ scale: retrying ? 1 : 1.05 }}
           whileTap={{ scale: retrying ? 1 : 0.95 }}
         >
@@ -612,7 +608,7 @@ export default function NewsPage() {
   );
 
   return (
-    <div className="mx-auto min-h-screen max-w-[75rem] bg-black px-4 py-12 pt-28 text-white sm:px-6 lg:px-8">
+    <div className="mx-auto min-h-screen max-w-[75rem] bg-vl-cream px-4 py-12 pt-28 text-vl-ink sm:px-6 lg:px-8">
       {/* <Sidebar tbList={menuItems} /> */}
 
       {/* Back to top button */}
@@ -623,11 +619,11 @@ export default function NewsPage() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={scrollToTop}
-            className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-gray-700 bg-black/90 backdrop-blur-sm transition-colors hover:bg-gray-800"
+            className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-vl-brown/30 bg-vl-cream-deep/95 backdrop-blur-sm transition-colors hover:bg-vl-cream-muted"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <ChevronUp className="h-5 w-5 text-white" />
+            <ChevronUp className="h-5 w-5 text-vl-ink" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -639,7 +635,7 @@ export default function NewsPage() {
         {/* Year DropDown filter */}
         <div className="relative">
           <select
-            className="appearance-none rounded-lg border border-gray-700 bg-black px-4 py-2 pr-8 text-white focus:border-gray-400 focus:outline-none"
+            className="appearance-none rounded-lg border border-vl-brown/25 bg-vl-cream-deep px-4 py-2 pr-8 text-vl-ink focus:border-vl-brown focus:outline-none"
             value={selectedYear || ''}
             onChange={handleYearChange}
           >
@@ -659,7 +655,7 @@ export default function NewsPage() {
         {selectedYear && (
           <div className="relative">
             <select
-              className="appearance-none rounded-lg border border-gray-700 bg-black px-4 py-2 pr-8 text-white focus:border-gray-400 focus:outline-none"
+              className="appearance-none rounded-lg border border-vl-brown/25 bg-vl-cream-deep px-4 py-2 pr-8 text-vl-ink focus:border-vl-brown focus:outline-none"
               value={selectedMonth || ''}
               onChange={handleMonthChange}
             >
@@ -683,8 +679,8 @@ export default function NewsPage() {
               type="text"
               placeholder="Search by date (e.g., February, April 2025, February 16, 2025)"
               className={`w-full rounded-lg border ${
-                invalidDateEntered ? 'border-red-500' : 'border-gray-700'
-              } bg-black py-2 pl-4 pr-10 text-white placeholder-gray-500 focus:border-gray-400 focus:outline-none`}
+                invalidDateEntered ? 'border-red-500' : 'border-vl-brown/25'
+              } bg-vl-cream-deep py-2 pl-4 pr-10 text-vl-ink placeholder-vl-ink-muted focus:border-vl-brown focus:outline-none`}
               value={dateSearchInput}
               onChange={handleDateChange}
             />
@@ -707,7 +703,7 @@ export default function NewsPage() {
               setDateSearchInput('');
               setInvalidDateEntered(false);
             }}
-            className="rounded-lg border border-gray-700 bg-transparent px-3 py-2 text-sm text-gray-400 hover:border-gray-400 hover:text-white"
+            className="rounded-lg border border-vl-brown/25 bg-transparent px-3 py-2 text-sm text-vl-ink-muted hover:border-vl-brown hover:text-vl-ink"
           >
             Clear Filters
           </button>
@@ -721,16 +717,16 @@ export default function NewsPage() {
           {loading ? (
             <div className="flex flex-row gap-2">
               {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="mb-2 h-4 w-16 rounded bg-gray-900" />
+                <div key={i} className="mb-2 h-4 w-16 rounded bg-vl-cream-muted" />
               ))}
             </div>
           ) : (
-            <div className="flex flex-wrap gap-4 text-gray-400 sm:gap-6">
+            <div className="flex flex-wrap gap-4 text-vl-ink-muted sm:gap-6">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   className={`pb-1 text-sm ${
-                    activeTab === cat ? 'font-bold text-white' : 'hover:text-gray-200'
+                    activeTab === cat ? 'font-bold text-vl-ink' : 'hover:text-vl-brown'
                   }`}
                   onClick={() => setActiveTab(cat)}
                 >
@@ -745,13 +741,13 @@ export default function NewsPage() {
         <div className="flex gap-2">
           <button
             onClick={() => setView('grid')}
-            className={`rounded p-2 ${view === 'grid' ? 'text-white' : 'text-gray-200'}`}
+            className={`rounded p-2 ${view === 'grid' ? 'text-vl-ink' : 'text-vl-ink-muted'}`}
           >
             <Grid size={16} />
           </button>
           <button
             onClick={() => setView('list')}
-            className={`rounded p-2 ${view === 'list' ? 'text-white' : 'text-gray-200'}`}
+            className={`rounded p-2 ${view === 'list' ? 'text-vl-ink' : 'text-vl-ink-muted'}`}
           >
             <List size={16} />
           </button>
@@ -759,7 +755,7 @@ export default function NewsPage() {
       </div>
 
       {/* Post count */}
-      <div className="mb-4 text-sm text-gray-400">
+      <div className="mb-4 text-sm text-vl-ink-muted">
         Showing {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
         {totalPostsLoaded > 0 && ` (${totalPostsLoaded} total loaded)`}
       </div>
@@ -795,12 +791,12 @@ export default function NewsPage() {
                         }`}
                       />
                       <div className={`${view === 'list' ? 'p-4' : 'py-4'}`}>
-                        <h3 className="text-md mb-4 mt-1 overflow-hidden truncate whitespace-nowrap font-semibold text-white">
+                        <h3 className="text-md mb-4 mt-1 overflow-hidden truncate whitespace-nowrap font-semibold text-vl-ink">
                           {post.title}
                         </h3>
 
-                        <p className="text-sm text-gray-400">
-                          <span className="font-bold text-white">{post.category}</span> —{' '}
+                        <p className="text-sm text-vl-ink-muted">
+                          <span className="font-bold text-vl-ink">{post.category}</span> —{' '}
                           {new Date(post.datePublished).toLocaleDateString('en-US', {
                             year: 'numeric',
                             month: 'long',
@@ -813,7 +809,7 @@ export default function NewsPage() {
                 ))
               ) : (
                 <motion.div
-                  className="col-span-full rounded-xl border border-gray-700 bg-black/50 py-12 text-center"
+                  className="col-span-full rounded-xl border border-vl-brown/25 bg-vl-cream-deep/80 py-12 text-center"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -831,7 +827,7 @@ export default function NewsPage() {
                     <Calendar size={48} className="mx-auto mb-4 text-gray-400" />
                   </motion.div>
                   <motion.h3
-                    className="mb-2 text-xl font-bold text-white"
+                    className="mb-2 text-xl font-bold text-vl-ink"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
@@ -839,7 +835,7 @@ export default function NewsPage() {
                     No posts found
                   </motion.h3>
                   <motion.p
-                    className="mx-auto max-w-md text-gray-400"
+                    className="mx-auto max-w-md text-vl-ink-muted"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
@@ -900,10 +896,10 @@ export default function NewsPage() {
                     repeatType: 'reverse',
                   }}
                 >
-                  <div className="flex flex-col items-center gap-3 rounded-xl border border-gray-700 bg-black/50 px-8 py-4">
+                  <div className="flex flex-col items-center gap-3 rounded-xl border border-vl-brown/25 bg-vl-cream-deep/80 px-8 py-4">
                     <div className="flex items-center gap-3">
-                      <Loader2 className="h-5 w-5 animate-spin text-white" />
-                      <span className="text-sm font-medium text-white">Loading more posts...</span>
+                      <Loader2 className="h-5 w-5 animate-spin text-vl-ink" />
+                      <span className="text-sm font-medium text-vl-ink">Loading more posts...</span>
                     </div>
                     <div className="flex space-x-1">
                       <div className="h-2 w-2 animate-pulse rounded-full bg-gray-400" />
@@ -933,23 +929,23 @@ export default function NewsPage() {
           transition={{ duration: 0.5 }}
         >
           <div className="flex items-center justify-center gap-4">
-            <div className="h-px flex-1 bg-gray-700" />
-            <p className="px-4 text-sm text-gray-400">You've reached the end of all posts</p>
-            <div className="h-px flex-1 bg-gray-700" />
+            <div className="h-px flex-1 bg-vl-brown/20" />
+            <p className="px-4 text-sm text-vl-ink-muted">You've reached the end of all posts</p>
+            <div className="h-px flex-1 bg-vl-brown/20" />
           </div>
         </motion.div>
       )}
 
       {/* Newsletter */}
       <motion.div
-        className="mt-16 rounded-xl border border-gray-400 bg-transparent p-8 text-center"
+        className="mt-16 rounded-xl border border-vl-brown/25 bg-vl-cream-deep/50 p-8 text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2 }}
       >
-        <motion.h3 className="mb-4 text-2xl font-bold text-white">Want to stay updated?</motion.h3>
-        <motion.p className="mx-auto mb-6 max-w-lg text-gray-400">
+        <motion.h3 className="mb-4 text-2xl font-bold text-vl-ink">Want to stay updated?</motion.h3>
+        <motion.p className="mx-auto mb-6 max-w-lg text-vl-ink-muted">
           Join our newsletter to get updates on new products, features, and our philosophy of
           human-centered tech.
         </motion.p>
@@ -960,13 +956,13 @@ export default function NewsPage() {
           <input
             type="email"
             placeholder="Your email address"
-            className="flex-grow rounded-lg border border-gray-300 bg-transparent px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+            className="flex-grow rounded-lg border border-vl-brown/25 bg-vl-cream px-4 py-2 text-vl-ink focus:outline-none focus:ring-2 focus:ring-vl-brown/40"
           />
           <motion.button
-            className="rounded-lg bg-black px-6 py-3 font-medium text-white"
+            className="rounded-lg border border-vl-brown bg-vl-brown px-6 py-3 font-medium text-vl-cream hover:bg-vl-brown-dark"
             whileHover={{
               scale: 1.05,
-              boxShadow: '0 5px 15px rgba(255, 255, 255, 0.2)',
+              boxShadow: "0 5px 15px rgba(92, 64, 51, 0.25)",
             }}
             whileTap={{ scale: 0.95 }}
           >

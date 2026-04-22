@@ -22,7 +22,7 @@ const LearnMoreBtn = ({
     <Link
       href={route ?? "/"}
       target="_blank" rel="noopener noreferrer"
-      className={`item-container justify-between cursor-pointer flex items-center gap-2 p-1 border-solid ${borderColor} border-[1px] px-2 w-[12rem] h-[2rem] rounded-[4px]`}
+      className={`item-container flex h-[2rem] w-[12rem] cursor-pointer items-center justify-center gap-2 rounded-[4px] border border-solid p-1 px-2 ${borderColor}`}
     >
       <span className={`block ${textColor} md:text-[.7rem] text-[.6rem]`}>
         {text}

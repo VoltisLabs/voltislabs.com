@@ -1,7 +1,7 @@
 "use client";
+
 import React, { useState } from "react";
 import { FiMapPin, FiMail, FiPhone, FiArrowRight } from "react-icons/fi";
-import TitleSection from "@/src/components/UI/TitleSection";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -13,10 +13,11 @@ const fadeUp = {
   }),
 };
 
+const inputClass =
+  "w-full rounded-lg border border-vl-brown/25 bg-vl-cream px-4 py-3 text-vl-ink placeholder:text-vl-ink-muted shadow-sm focus:border-vl-brown focus:outline-none focus:ring-2 focus:ring-vl-brown/30";
+
 const ContactUs = () => {
-  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">(
-    "idle"
-  );
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,32 +35,29 @@ const ContactUs = () => {
 
       if (response.ok) {
         setFormStatus("success");
-        form.reset(); // Clear the form after successful submission
+        form.reset();
       } else {
         setFormStatus("error");
       }
-    } catch (error) {
+    } catch {
       setFormStatus("error");
     }
   };
 
   return (
-    <div className="contact-page mt-[10rem] bg-black text-white min-h-screen">
-      {/* Hero Section */}
-      <section id="contact-home" className="">
-        <TitleSection
-          title="We are Voltis Labs"
-          subTitle="Contact Us"
-          secondaryText="Have questions or want to collaborate? We’d love to hear from you."
-          containerStyle="mb-4 "
-        />
+    <div className="contact-page mx-auto w-full max-w-5xl px-4 pb-20 pt-28 text-vl-ink md:px-8 md:pt-32">
+      <section id="contact-home" className="text-center">
+        <h1 className="text-3xl font-semibold text-vl-brown-dark md:text-4xl">We are Voltis Labs</h1>
+        <p className="mt-2 text-xl font-medium text-vl-brown md:text-2xl">Contact Us</p>
+        <p className="mx-auto mt-4 max-w-2xl text-sm text-vl-ink-muted md:text-base">
+          Have questions or want to collaborate? We&apos;d love to hear from you.
+        </p>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="form-section py-16 px-6 md:px-16">
-        <div className="max-w-4xl mx-auto">
+      <section className="form-section mt-12">
+        <div className="rounded-xl border border-vl-brown/20 bg-vl-cream-deep/90 p-6 shadow-sm md:p-10">
           <motion.h2
-            className="text-3xl font-bold mb-6 text-center"
+            className="mb-6 text-center text-2xl font-semibold text-vl-brown-dark md:text-3xl"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -71,7 +69,7 @@ const ContactUs = () => {
 
           {formStatus === "success" && (
             <motion.div
-              className="text-center text-green-500 mb-6"
+              className="mb-6 text-center text-sm font-medium text-green-700"
               initial="hidden"
               animate="visible"
               variants={fadeUp}
@@ -83,13 +81,13 @@ const ContactUs = () => {
 
           {formStatus === "error" && (
             <motion.div
-              className="text-center text-red-500 mb-6"
+              className="mb-6 text-center text-sm font-medium text-red-600"
               initial="hidden"
               animate="visible"
               variants={fadeUp}
               custom={0}
             >
-              Oops! Something went wrong. Please try again.
+              Something went wrong. Please try again.
             </motion.div>
           )}
 
@@ -100,56 +98,52 @@ const ContactUs = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {/* Name */}
             <motion.div variants={fadeUp} custom={1}>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
+              <label htmlFor="name" className="mb-2 block text-sm font-medium text-vl-ink">
                 Name
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Your Name"
+                placeholder="Your name"
                 required
-                className="w-full bg-[#0D1117] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
+                className={inputClass}
               />
             </motion.div>
 
-            {/* Email */}
             <motion.div variants={fadeUp} custom={2}>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
+              <label htmlFor="email" className="mb-2 block text-sm font-medium text-vl-ink">
                 Email
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Your Email"
+                placeholder="you@example.com"
                 required
-                className="w-full bg-[#0D1117] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
+                className={inputClass}
               />
             </motion.div>
 
-            {/* Message */}
             <motion.div variants={fadeUp} custom={3}>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
+              <label htmlFor="message" className="mb-2 block text-sm font-medium text-vl-ink">
                 Message
               </label>
               <textarea
                 id="message"
                 name="message"
-                placeholder="Your Message"
+                placeholder="Your message"
                 rows={5}
                 required
-                className="w-full bg-[#0D1117] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#fff]"
-              ></textarea>
+                className={inputClass}
+              />
             </motion.div>
 
-            {/* Submit Button */}
             <motion.div className="text-center" variants={fadeUp} custom={4}>
               <button
                 type="submit"
-                className="md:text-[.8rem] text-[.6rem] item-container justify-between cursor-pointer flex items-center gap-2 p-1 border-solid border-white border-[1px] px-4 min-w-[9rem] h-[2rem] rounded-[4px] transition-all duration-300 hover:bg-white hover:text-black"
+                className="inline-flex min-w-[9rem] items-center justify-center gap-2 rounded-full border border-vl-brown bg-vl-brown px-6 py-2.5 text-sm font-medium text-vl-cream transition-colors hover:bg-vl-brown-dark"
               >
                 Send Message
                 <FiArrowRight size={18} />
@@ -159,10 +153,8 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* Contact Details Section */}
-      <section className="contact-details py-16 px-6 md:px-16">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Address */}
+      <section className="contact-details mt-16 border-t border-vl-brown/15 pt-12">
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
           <motion.div
             className="text-center"
             initial="hidden"
@@ -171,12 +163,11 @@ const ContactUs = () => {
             variants={fadeUp}
             custom={1}
           >
-            <FiMapPin size={40} className="mx-auto mb-4 text-[#fff]" />
-            <h3 className="text-xl font-bold mb-2">Our Address</h3>
-            <p className="text-gray-400">London, UK</p>
+            <FiMapPin size={36} className="mx-auto mb-3 text-vl-brown" />
+            <h3 className="mb-2 text-lg font-semibold text-vl-brown-dark">Our Address</h3>
+            <p className="text-sm text-vl-ink-muted">London, UK</p>
           </motion.div>
 
-          {/* Email */}
           <motion.div
             className="text-center"
             initial="hidden"
@@ -185,17 +176,16 @@ const ContactUs = () => {
             variants={fadeUp}
             custom={2}
           >
-            <FiMail size={40} className="mx-auto mb-4 text-[#fff]" />
-            <h3 className="text-xl font-bold mb-2">Email Us</h3>
+            <FiMail size={36} className="mx-auto mb-3 text-vl-brown" />
+            <h3 className="mb-2 text-lg font-semibold text-vl-brown-dark">Email Us</h3>
             <a
               href="mailto:contact@voltislabs.com"
-              className="text-gray-400 hover:underline"
+              className="text-sm text-vl-brown underline hover:text-vl-brown-dark"
             >
               contact@voltislabs.com
             </a>
           </motion.div>
 
-          {/* Phone */}
           <motion.div
             className="text-center"
             initial="hidden"
@@ -204,13 +194,13 @@ const ContactUs = () => {
             variants={fadeUp}
             custom={3}
           >
-            <FiPhone size={40} className="mx-auto mb-4 text-[#fff]" />
-            <h3 className="text-xl font-bold mb-2">Call Us</h3>
+            <FiPhone size={36} className="mx-auto mb-3 text-vl-brown" />
+            <h3 className="mb-2 text-lg font-semibold text-vl-brown-dark">Call Us</h3>
             <a
               href="tel:+442039479699"
-              className="text-gray-400 hover:underline"
+              className="text-sm text-vl-brown underline hover:text-vl-brown-dark"
             >
-              +442039479699
+              +44 20 3947 9699
             </a>
           </motion.div>
         </div>

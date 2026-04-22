@@ -76,11 +76,10 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
           }}
 
 
-          className={`card text-left w-[16rem] h-[20rem]  items-center px-3 bg-black
-            `}
+          className={`card h-[20rem] w-[16rem] items-center bg-vl-cream-deep px-3 text-left`}
         >
 
-          <div className={`image-container bg-[white] w-[14rem] h-[14rem] overflow-hidden rounded-[10px] `}>
+          <div className={`image-container h-[14rem] w-[14rem] overflow-hidden rounded-[10px] bg-vl-cream`}>
             <Image
               src={text.img}
               alt="Icon"
@@ -90,7 +89,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
             />
           </div>
 
-          <p className="text-white text-[.9rem] mt-3">{text.message}</p>
+          <p className="mt-3 text-[.9rem] text-vl-ink">{text.message}</p>
         </div>
       })}
     </div >
@@ -136,7 +135,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
             }
             console.log({ clickedCardIndex })
           }}
-          className={`card w-[12rem] text-left min-h-[15rem] overflow-hidden items-start px-3 bg-black`}
+          className={`card min-h-[15rem] w-[12rem] items-start overflow-hidden bg-vl-cream-deep px-3 text-left`}
         >
           <div className="image-container w-[10rem] h-[10rem] overflow-hidden rounded-[10px] bg-white">
             <Image
@@ -148,7 +147,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
             />
           </div>
 
-          <p className="text-white text-[.8rem] mt-2">{text.message}</p>
+          <p className="mt-2 text-[.8rem] text-vl-ink">{text.message}</p>
           {/* <p className="text-white text-[.7rem]">{text.time}</p> */}
         </div>
       ))}
@@ -166,7 +165,9 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
   };
 
   const animatedText = () => {
-    return (<motion.span
+    return (
+    <div className="flex w-full justify-center py-1">
+    <motion.span
       className=" self-center text-transparent bg-clip-text uppercase text-xs lg:text-base whitespace-nowrap"
       initial={{ backgroundPosition: '200% 0%' }}
       animate={{ backgroundPosition: '-100% 0%' }}
@@ -179,7 +180,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
       style={{
         backgroundSize: '400% 100%',
         backgroundImage:
-          'linear-gradient(90deg, #888 0%, #888 40%, white 50%, #888 60%, #888 100%)',
+          "linear-gradient(90deg, #6f5243 0%, #6f5243 40%, #f4efe6 50%, #6f5243 60%, #6f5243 100%)",
         WebkitBackgroundClip: 'text',
         backgroundClip: 'text',
         color: 'transparent',
@@ -187,6 +188,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
     >
       click to expand
     </motion.span>
+    </div>
     );
   }
 
@@ -195,10 +197,10 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
       {/* Desktop View */}
       <div className="hidden md:block">
         {marquee ? (
-          <div className="flex-col flex gap-6 bg-[#000000]">
+          <div className="flex flex-col gap-6 bg-vl-cream">
 
             <Marquee
-              className="slider-statement z-20 cursor-default bg-carpet-green relative overflow-hidden"
+              className="slider-statement relative z-20 cursor-default overflow-hidden bg-vl-cream-deep"
               speed={50}
               pauseOnHover
               pauseOnClick={false}
@@ -215,14 +217,14 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
             {paused && (<motion.div initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }} className="rounded-3xl   px-14 py-12">
-              <div className="p-6 bg-[#000000] flex-col justify-center items-center rounded-3xl">
-                <p className="text-white font-normal text-sm">{formatParagraph(seledctedDescription)}</p>
+              <div className="flex flex-col items-center justify-center rounded-3xl bg-vl-cream-deep p-6">
+                <p className="text-sm font-normal text-vl-ink">{formatParagraph(seledctedDescription)}</p>
 
-                <div className="my-7 mx-auto w-fit">
+                <div className="mx-auto my-7 w-fit">
                   <a
                     href={selectedLink}
 
-                    className="p-2 border-white border px-10 py-2 rounded-md text-white text-center font-black ">
+                    className="rounded-md border border-vl-brown px-10 py-2 p-2 text-center font-black text-vl-brown hover:bg-vl-cream">
                     Read More
                   </a>
                 </div>
@@ -240,7 +242,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
           <div className="flex-col flex  gap-6">
 
             <Marquee
-              className="slider-statement z-20 cursor-default bg-black relative"
+              className="slider-statement relative z-20 cursor-default bg-vl-cream-deep"
               speed={30}
               pauseOnHover
               pauseOnClick={false}
@@ -257,14 +259,14 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
             {paused && (<motion.div initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }} className="rounded-3xl px-4 py-6">
-              <div className="p-6 bg-[#000000] flex-col justify-center items-center rounded-3xl">
-                <p className="text-white font-normal text-sm leading-6">{formatParagraph(seledctedDescription)}</p>
+              <div className="flex flex-col items-center justify-center rounded-3xl bg-vl-cream-deep p-6">
+                <p className="text-sm font-normal leading-6 text-vl-ink">{formatParagraph(seledctedDescription)}</p>
 
-                <div className="my-7 mx-auto w-fit">
+                <div className="mx-auto my-7 w-fit">
                   <a target="_blank"
                     href={selectedLink}
                     rel="noopener noreferrer"
-                    className="p-2 border-white border px-10 py-2 rounded-md text-white text-center font-black ">
+                    className="rounded-md border border-vl-brown px-10 py-2 p-2 text-center font-black text-vl-brown hover:bg-vl-cream">
                     Read More
                   </a>
                 </div>

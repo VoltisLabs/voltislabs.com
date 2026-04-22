@@ -58,7 +58,7 @@ function Vmodel() {
   };
 
   return (
-    <div className="text-white mx-auto max-w-[85rem]">
+    <div className="mx-auto w-full max-w-[85rem] bg-vl-brown-dark pb-20 pt-6 text-vl-cream md:pt-10">
       <Sidebar tbList={menuItems} />
 
       <TitleSection

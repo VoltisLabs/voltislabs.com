@@ -11,7 +11,7 @@ import TitleSection from '@/src/components/UI/TitleSection';
 import SliderBackground from '@/src/components/UI/SliderBackground';
 import LearnMoreBtn from '@/src/components/UI/LearnMoreBtn';
 
-function page() {
+function PreluraPage() {
   const menuItems = [
     { name: 'About Prelura', route: 'prelura-home', Icon: '' },
     { name: 'How It Works', route: 'prelura-more', Icon: '' },
@@ -24,7 +24,10 @@ function page() {
   const [isPlaying, setIsplaying] = useState(false);
 
   return (
-    <div id="prelura-home " className="mx-auto max-w-[85rem]">
+    <div
+      id="prelura-home "
+      className="mx-auto w-full max-w-[85rem] bg-vl-brown-dark pb-20 pt-6 text-vl-cream md:pt-10"
+    >
       <Sidebar tbList={menuItems} />
 
       <section id="prelura-home md:block hidden">
@@ -311,4 +314,4 @@ function page() {
   );
 }
 
-export default page;
+export default PreluraPage;

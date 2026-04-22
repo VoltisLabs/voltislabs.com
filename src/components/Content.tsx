@@ -7,8 +7,8 @@ function Content() {
   return (
     <>
       <section className="mb-20 md:px-[2rem] ">
-        <div className="border-white  border-[1px] w-[full] mb-6 "></div>
-        <div className="flex flex-col text-white mb-10 gap-8">
+        <div className="mb-6 w-full border border-vl-brown/20"></div>
+        <div className="mb-10 flex flex-col gap-8 text-vl-ink">
           {/* Title Section */}
           <h2 className="font-normal md:text-[1.7rem] text-[1.6rem] text-center lg:text-left">
             Responsible Innovation
@@ -36,7 +36,7 @@ function Content() {
                 We believe in building technology that empowers, disrupts, and
                 transforms-always with a thoughtful approach to its risks and rewards.
               </p>
-              <p className="text-sm md:mt-[120px] underline cursor-pointer font-normal text-white hover:text-blue-500 visited:text-red-500">
+              <p className="cursor-pointer text-sm font-normal text-vl-brown underline visited:text-red-500 hover:text-vl-brown-dark md:mt-[120px]">
                 Learn about safety
               </p>
             </div>
@@ -66,9 +66,9 @@ function Content() {
         <FlexContainer array={research} />
       </section> */}
 
-      <div className="border-white border-[1px] w-[full] mb-6"></div>
-      <section className="mb-12 md:px-[2rem] px-[1rem] md:min-h-[23rem] min-h-[20rem]">
-        <div className="flex flex-col md:flex-row justify-between text-white mb-10">
+      <div className="mb-6 w-full border border-vl-brown/20"></div>
+      <section className="mb-12 min-h-[20rem] px-[1rem] md:min-h-[23rem] md:px-[2rem]">
+        <div className="mb-10 flex flex-col justify-between text-vl-ink md:flex-row">
           <div className="flex justify-between w-full ">
             <h2 className="font-normal  md:text-[1.7rem] text-[1.6rem] ">Products</h2>
             <ViewAllButton link="/products" text="view all" />
