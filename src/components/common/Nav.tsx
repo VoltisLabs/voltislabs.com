@@ -111,6 +111,8 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       items: [
         { name: "Toolkit", route: "/bg" },
         { name: "Loyalty Bot", route: "/loyalty_bot" },
+        { name: "Pinnacle Transfer", route: "/pinnacle-transfer" },
+        { name: "Clipstack", route: "/clipstack" },
       ],
     },
   ];

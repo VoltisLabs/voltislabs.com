@@ -298,6 +298,28 @@ export const products = [
     description:
       "Loyalty Bot is a productivity-focused Discord bot built to help remote teams stay accountable and on time. Designed for digital workspaces that use Discord as their primary hub, Loyalty Bot tracks break times, monitors lateness, and applies custom consequences such as salary deductions or logged infractions. \n\n Loyalty Bot acts as a quiet but firm supervisor, keeping your team aligned without constant manual checks. It integrates smoothly into your team's daily workflow, offering a subtle but effective layer of structure to how your team collaborates.",
   },
+  {
+    id: 7,
+    img: '/icons/pinnacle-transfer.svg',
+    images: ['/icons/pinnacle-transfer.svg'],
+    message: 'Pinnacle Transfer',
+    time: 'Apr 18, 2026',
+    link: '/pinnacle-transfer',
+    description: `Pinnacle Transfer is built for teams who move large files daily—design exports, video cuts, audio stems, and campaign assets—without fighting attachment limits or scattered drive links. It keeps transfers fast and intentional so collaborators spend less time waiting and more time shipping.
+
+Whether you are handing off to a remote editor or syncing work between machines, Pinnacle Transfer focuses on a smooth, dependable handoff experience that fits naturally into a creative workflow.`,
+  },
+  {
+    id: 8,
+    img: '/icons/clipstack.svg',
+    images: ['/icons/clipstack.svg'],
+    message: 'Clipstack',
+    time: 'Apr 18, 2026',
+    link: '/clipstack',
+    description: `Clipstack is a clipboard manager for people who live in copy-and-paste—developers, writers, support leads, and anyone juggling URLs, snippets, and boilerplate all day. Stack what you copy, search your history, and paste the right item in seconds instead of re-fetching tabs or retyping the same text.
+
+It turns a chaotic stream of temporary clips into an organised, recallable library so your context stays with you across apps and sessions.`,
+  },
 ];
 
 /** Hero marquee images for the Wearhouse product page */
