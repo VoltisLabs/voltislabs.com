@@ -5,7 +5,6 @@ import {
   forBuyers,
   forSellers,
   outfeatz,
-  prelura,
   secondaryTitleClassName,
   trustedCommunity,
 } from "../data";
@@ -25,9 +24,9 @@ function OutfeatzPage() {
   const menuItems = [
     { name: "About Outfeatz", route: "outfeatz-home", Icon: "" },
     { name: "How It Works", route: "prelura-more", Icon: "" },
-    // { name: "Why Choose Prelura?", route: "prelura-vision", Icon: "" },
-    // { name: "Prelura For Sellers", route: "prelura-sellers", Icon: "" },
-    // { name: "Prelura For Buyers", route: "prelura-buyer", Icon: "" },
+    // { name: "Why Choose Wearhouse?", route: "prelura-vision", Icon: "" },
+    // { name: "Wearhouse For Sellers", route: "prelura-sellers", Icon: "" },
+    // { name: "Wearhouse For Buyers", route: "prelura-buyer", Icon: "" },
     // { name: "FAQs & Help Center", route: "prelura-more", Icon: "" },
   ];
 

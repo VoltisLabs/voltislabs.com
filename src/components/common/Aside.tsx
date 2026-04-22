@@ -8,7 +8,7 @@ const Aside = () => {
     },
 
     {
-      name: "Prelura",
+      name: "Wearhouse",
       url: "",
     },
     {

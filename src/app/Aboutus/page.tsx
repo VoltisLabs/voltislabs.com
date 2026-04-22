@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Aboutus, prelura } from '../data';
+import { Aboutus } from '../data';
 import { paragrapghClassName, titleClassName } from '../data';
 import Sidebar from '@/src/components/UI/SideBar';
 import TitleSection from '@/src/components/UI/TitleSection';

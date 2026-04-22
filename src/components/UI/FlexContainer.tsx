@@ -85,7 +85,8 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
               alt="Icon"
               width={192}
               height={192}
-              className="transition-all w-full h-full object-cover duration-[.85s] ease-in-out hover:scale-110"
+              unoptimized={text.img.endsWith(".svg")}
+              className={`transition-all w-full h-full duration-[.85s] ease-in-out hover:scale-110 ${text.img.endsWith(".svg") ? "object-contain p-3" : "object-cover"}`}
             />
           </div>
 
@@ -143,7 +144,8 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
               alt="Icon"
               width={160}
               height={160}
-              className="transition-all w-full h-full object-cover duration-[.85s] ease-in-out hover:scale-110"
+              unoptimized={text.img.endsWith(".svg")}
+              className={`transition-all w-full h-full duration-[.85s] ease-in-out hover:scale-110 ${text.img.endsWith(".svg") ? "object-contain p-2" : "object-cover"}`}
             />
           </div>
 

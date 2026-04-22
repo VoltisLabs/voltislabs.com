@@ -31,9 +31,9 @@ export const blogPosts = [
   },
   {
     slug: 'rethinking-style',
-    title: 'Rethinking Style: How Prelura Is Making Resale Fashion Feel Like First Choice',
+    title: 'Rethinking Style: How Wearhouse Is Making Resale Fashion Feel Like First Choice',
     date: '6th May, 2025',
-    category: 'Prelura',
+    category: 'Wearhouse',
     image: '/blog/prelura2.jpg',
     content: RethinkingStyle,
   },

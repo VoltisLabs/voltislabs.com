@@ -29,15 +29,23 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ products }) => {
                     >
 
                         {/* Placeholder for product icon */}
-                        <div className="w-12 h-12 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
-                            <img src={product.image} className="text-white text-xs" alt={product.name} />
+                        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gray-100">
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className={
+                                product.image?.endsWith(".svg")
+                                  ? "h-9 w-auto max-w-[2.75rem] object-contain"
+                                  : "h-8 w-8 object-cover"
+                              }
+                            />
                         </div>
                         <h3 className="text-xl font-bold mb-2">{product.name}</h3>
                         <p className="text-white text-sm mb-4 whitespace-pre-line">{product.description}</p>
                         <a
                             href={product.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            target={product.link.startsWith("http") ? "_blank" : undefined}
+                            rel={product.link.startsWith("http") ? "noopener noreferrer" : undefined}
                             className="text-grtey-400 hover:underline inline-flex items-center"
 
                         >

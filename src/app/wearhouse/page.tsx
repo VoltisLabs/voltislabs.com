@@ -1,7 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { forBuyers, forSellers, prelura, secondaryTitleClassName, trustedCommunity } from '../data';
+import {
+  forBuyers,
+  forSellers,
+  wearhouseSliderImages,
+  secondaryTitleClassName,
+  trustedCommunity,
+} from '../data';
 import Image from 'next/image';
 import { paragrapghClassName, titleClassName } from '../data';
 import Sidebar from '@/src/components/UI/SideBar';
@@ -11,13 +17,13 @@ import TitleSection from '@/src/components/UI/TitleSection';
 import SliderBackground from '@/src/components/UI/SliderBackground';
 import LearnMoreBtn from '@/src/components/UI/LearnMoreBtn';
 
-function PreluraPage() {
+function WearhousePage() {
   const menuItems = [
-    { name: 'About Prelura', route: 'prelura-home', Icon: '' },
+    { name: 'About Wearhouse', route: 'prelura-home', Icon: '' },
     { name: 'How It Works', route: 'prelura-more', Icon: '' },
-    { name: 'Why Choose Prelura?', route: 'prelura-vision', Icon: '' },
-    { name: 'Prelura For Sellers', route: 'prelura-sellers', Icon: '' },
-    { name: 'Prelura For Buyers', route: 'prelura-buyer', Icon: '' },
+    { name: 'Why Choose Wearhouse?', route: 'prelura-vision', Icon: '' },
+    { name: 'Wearhouse For Sellers', route: 'prelura-sellers', Icon: '' },
+    { name: 'Wearhouse For Buyers', route: 'prelura-buyer', Icon: '' },
     { name: 'FAQs & Help Center', route: 'prelura-more', Icon: '' },
   ];
 
@@ -32,7 +38,7 @@ function PreluraPage() {
 
       <section id="prelura-home md:block hidden">
         <TitleSection
-          title="Prelura: A New Era of Secondhand Fashion"
+          title="Wearhouse: A New Era of Secondhand Fashion"
           subTitle=" Exciting updates are here for VModel! Enjoy a fresh UI, AI job
             matching, real-time messaging, an enhanced portfolio, and easier
             payments. More to come soon!"
@@ -55,14 +61,14 @@ function PreluraPage() {
             pauseOnClick
             direction="right"
           >
-            {prelura.map((img, index) => (
+            {wearhouseSliderImages.map((img, index) => (
               <div
                 key={index}
                 className="mr-4 h-[23rem] w-[20rem] overflow-hidden rounded-[10px] md:h-[21rem]"
               >
                 <Image
                   src={img.img}
-                  alt="reluraimg"
+                  alt="Wearhouse"
                   className="h-full w-full object-cover object-top"
                   width={500}
                   height={500}
@@ -77,16 +83,16 @@ function PreluraPage() {
           text="Visit Website"
           borderColor="border-white"
           textColor="text-white"
-          route="https://prelura.com"
+          route="https://wearhouse.com"
         />
       </div>
       <section className="mobile-slider hero-section mb-7 block md:hidden">
         <SliderBackground
           containerStyle="bg-[#AB28B280] w-full"
-          imagesArray={prelura}
+          imagesArray={wearhouseSliderImages}
           titleText="A New Home for Your Fashion Finds"
           smallBtnText="Learn More"
-          route="https://prelura.com"
+          route="https://wearhouse.com"
         />
       </section>
 
@@ -97,11 +103,11 @@ function PreluraPage() {
             Fashion is more than just clothing it’s a reflection of personality, creativity, and
             individuality. But the way we consume fashion has changed drastically. Overproduction,
             impulse shopping, and short-lived trends have created a wasteful cycle where clothes are
-            discarded faster than ever before. At Prelura, we’re flipping the script.
+            discarded faster than ever before. At Wearhouse, we’re flipping the script.
           </span>{' '}
           <br />
           <span className={`mb-2 ${paragrapghClassName}`}>
-            Prelura isn’t just another resale platform. We’re redefining secondhand fashion by
+            Wearhouse isn’t just another resale platform. We’re redefining secondhand fashion by
             making it simpler, smarter, and more rewarding for both buyers and sellers. We believe
             in quality over quantity, sustainability over waste, and individuality over mass
             production.
@@ -139,7 +145,7 @@ function PreluraPage() {
               Many existing resale platforms are complicated, impersonal, and frustrating to
               navigate. Sellers struggle with slow sales, unreliable buyers, and pricing confusion.
               Buyers worry about product authenticity, item condition, and getting fair deals.
-              Fashion should be sustainable, stylish, and accessible. That’s where Prelura comes in.
+              Fashion should be sustainable, stylish, and accessible. That’s where Wearhouse comes in.
             </span>
           </div>
         </section>
@@ -157,7 +163,7 @@ function PreluraPage() {
               </span>
 
               <span className={paragrapghClassName}>
-                Prelura is built for people who love fashion but want a smarter, more sustainable
+                Wearhouse is built for people who love fashion but want a smarter, more sustainable
                 way to shop and sell. We’re here to make resale:
               </span>
               <br />
@@ -237,7 +243,7 @@ function PreluraPage() {
         <br />
         <br />
         <section id="prelura-sellers" className="mb-8 text-white">
-          <h1 className={secondaryTitleClassName}>How Prelura Works</h1>
+          <h1 className={secondaryTitleClassName}>How Wearhouse Works</h1>
           <br />
 
           <div className="text-section">
@@ -265,14 +271,14 @@ function PreluraPage() {
           <br />
 
           <section id="prelura-help">
-            <h1 className={secondaryTitleClassName}>What Sets Prelura Apart?</h1>
+            <h1 className={secondaryTitleClassName}>What Sets Wearhouse Apart?</h1>
 
             <br />
 
             <div className="text-container">
               <span className={titleClassName}>Simplicity First</span>
               <span className={paragrapghClassName}>
-                Unlike other platforms, we designed Prelura to feel as easy and enjoyable as
+                Unlike other platforms, we designed Wearhouse to feel as easy and enjoyable as
                 shopping online, no unnecessary complexity, no frustration.
               </span>
             </div>
@@ -314,4 +320,4 @@ function PreluraPage() {
   );
 }
 
-export default PreluraPage;
+export default WearhousePage;

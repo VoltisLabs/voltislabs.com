@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import {
   forBuyers,
   forSellers,
-  prelura,
   secondaryTitleClassName,
   trustedCommunity,
 } from "../data";
