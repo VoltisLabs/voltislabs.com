@@ -85,7 +85,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     {
       category: "Fashion",
       items: [
-        { name: "Prelura", route: "/prelura" },
+        { name: "Wearhouse", route: "/wearhouse" },
         { name: "Outfeatz", route: "/outfeatz" },
         { name: "Afrogarm", route: "/afrogarm" },
       ],
@@ -114,6 +114,19 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       ],
     },
   ];
+
+  /** Mobile hamburger: productivity before fashion (stable order, not index-fragile). */
+  const linksMobile = (
+    [
+      "Productivity",
+      "Games",
+      "Social Media",
+      "Lifestyle",
+      "Fashion",
+    ] as const
+  )
+    .map((name) => links.find((c) => c.category === name))
+    .filter((c): c is (typeof links)[number] => c != null);
 
   useEffect(() => {
     if (toggle) {
@@ -261,7 +274,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
               </button>
 
               <div className="no-scrollbar max-h-[35rem] flex-grow overflow-y-auto py-5">
-                {links.map((category) => (
+                {linksMobile.map((category) => (
                   <div key={category.category} className="mb-6">
                     <h3
                       className={`mb-4 text-lg font-bold ${

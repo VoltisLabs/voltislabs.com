@@ -23,7 +23,7 @@ const RethinkingStyle = () => {
     <div id="april2025">
       {/* <h2 className='text-gray-500 font-extrabold text-base mb-6'>April 2025</h2> */}
       <ArticleHeader
-        title="Rethinking Style: How Prelura Is Making Resale Fashion Feel Like First Choice"
+        title="Rethinking Style: How Wearhouse Is Making Resale Fashion Feel Like First Choice"
         author="Voltis Labs"
         date="Published on Tuesday 8th April, 2025"
         showWelcome={false}
@@ -31,7 +31,7 @@ const RethinkingStyle = () => {
 
       {/* Hero Image Placeholder */}
       <div className="my-12 h-36 overflow-hidden rounded-xl md:h-96">
-        <img src="/blog/Prelura.png" className="aspect-video size-full rounded-md object-contain" />
+        <img src="/icons/primary-logo.svg" className="aspect-video size-full rounded-md object-contain p-6" />
       </div>
 
       <div className="prose lg:prose-xl">
@@ -42,11 +42,11 @@ const RethinkingStyle = () => {
         <br />
         <p>
           Scrolling endless listings. Confusing sizing. Clunky interfaces that make the resale
-          experience feel like a chore instead of a choice. That’s what Prelura is here to change
+          experience feel like a chore instead of a choice. That’s what Wearhouse is here to change
         </p>
         <br />
         <h2 className={`font-extrabold`}>This is how VModel ensures safety is a priority: </h2>
-        <p>At Prelura, our mission is simple:</p>
+        <p>At Wearhouse, our mission is simple:</p>
         <p>Make re-loved fashion the instinctive, stylish, and smart first choice.</p>
         <p>
           Because choosing second-hand shouldn’t feel like a compromise-it should feel like a
@@ -58,7 +58,7 @@ const RethinkingStyle = () => {
         <h2 className={`font-extrabold`}>This is how VModel ensures safety is a priority: </h2>
 
         <p>
-          Prelura isn’t just a resale platform. It’s a fashion space designed for people who want
+          Wearhouse isn’t just a resale platform. It’s a fashion space designed for people who want
           their wardrobe to have a story, not just a price tag.
         </p>
         <div className="my-12 grid h-auto grid-cols-1 gap-4 overflow-hidden rounded-xl md:grid-cols-2">
@@ -91,7 +91,7 @@ const RethinkingStyle = () => {
         </ul>
         <br />
         <p>
-          We’re rethinking every step-from listing to discovery-to make sure Prelura works for real
+          We’re rethinking every step-from listing to discovery-to make sure Wearhouse works for real
           people, not algorithms.
         </p>
         <br />
@@ -104,7 +104,7 @@ const RethinkingStyle = () => {
         </p>
         <br />
         <h2 className={`font-extrabold`}>
-          Prelura is here for that shift. Not to ride the trend-but to support the transformation.
+          Wearhouse is here for that shift. Not to ride the trend-but to support the transformation.
         </h2>
         <p>
           Because buying better doesn’t have to mean buying new. And fashion should never come at
@@ -114,7 +114,7 @@ const RethinkingStyle = () => {
         <br />
         <h2 className={`font-extrabold`}>Where Style Meets Sustainability</h2>
         <p>
-          Prelura isn’t just about resale-it’s about redefining our relationship with fashion. Every
+          Wearhouse isn’t just about resale-it’s about redefining our relationship with fashion. Every
           item listed carries a history, and every purchase helps extend the lifecycle of something
           beautiful. It’s a way to participate in sustainability that feels personal, creative, and
           accessible. By keeping clothes in circulation, we reduce waste and slow down the endless
@@ -123,14 +123,14 @@ const RethinkingStyle = () => {
         <br />
         <p>
           But we also know that sustainable choices need to be convenient to become common. That’s
-          why Prelura puts usability at the forefront-from intuitive listing tools to a scrollworthy
+          why Wearhouse puts usability at the forefront-from intuitive listing tools to a scrollworthy
           discovery feed that feels more like your favourite fashion app than a marketplace. Because
           doing good should feel just as good.
         </p>
         <br />
         <h2 className={`font-extrabold`}>Join the Movement</h2>
         <p>
-          Whether you’re cleaning out your closet or discovering your next favourite look, Prelura
+          Whether you’re cleaning out your closet or discovering your next favourite look, Wearhouse
           is your space to buy and sell with confidence, clarity, and community. This isn’t about
           guilt. It’s about better options. About being more thoughtful-without losing the thrill of
           a great find. Second - hand doesn’t mean second-best
@@ -138,14 +138,14 @@ const RethinkingStyle = () => {
         <br />
 
         <h2 className={`font-extrabold`}>
-          With Prelura, it means first-class, first-choice, and forever evolving.
+          With Wearhouse, it means first-class, first-choice, and forever evolving.
         </h2>
         <div className="mx-auto my-7 w-fit">
           <LearnMoreBtn
             text="Start exploring"
             borderColor="border-white"
             textColor="text-white"
-            route="https://prelura.com/"
+            route="/wearhouse"
           />
         </div>
       </div>

@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import LearnMoreBtn from "../../UI/LearnMoreBtn";
 
@@ -9,10 +7,10 @@ const SecondHero = () => {
       {/* Left Section */}
       <div className="hidden md:flex left-section h-full md:w-[50%] w-full bg-[#AB28B280] md:p-7 p-2 flex items-end">
         <LearnMoreBtn
-          text="Learn More about Prelura"
+          text="Learn More about Wearhouse"
           borderColor="border-vl-cream md:w-[12.7rem] w-[10.45rem]"
           textColor="text-vl-cream"
-          route="https://prelura.com" />
+          route="/wearhouse" />
       </div>
 
       {/* Right Section with Overlay */}
@@ -34,12 +32,10 @@ const SecondHero = () => {
       <section className="text-container absolute top-1/2 left-0 -translate-y-1/2 px-4 w-full flex items-center justify-center z-20">
         <div className="content-container mx-auto md:w-[50%] w-[90%] text-center">
           <div className="image-container flex items-center justify-center md:mb-1 mb-[1.5rem] gap-2">
-            <Image
-              src={"/image/prelura2.jpg"}
-              alt="vmodel-logo"
-              className="rounded"
-              width={50}
-              height={60}
+            <img
+              src="/icons/primary-logo.svg"
+              alt="Wearhouse"
+              className="h-12 w-12 rounded-[10px] object-cover object-center shadow-sm md:h-14 md:w-14"
             />
             {/* <span className="block text-[#EDCEAB] font-semibold md:text-[1.15rem] text-[.85rem]">
         VMODEL
@@ -58,10 +54,10 @@ const SecondHero = () => {
 
     </section><div className=" md:hidden left-section  h-full md:w-[50%] w-full md:p-7 p-2 flex items-end justify-center md:justify-start">
         <LearnMoreBtn
-          text="Learn More about Prelura"
+          text="Learn More about Wearhouse"
           borderColor="border-vl-cream md:w-[12.7rem] w-[10.45rem]"
           textColor="text-vl-cream"
-          route="https://prelura.com" />
+          route="/wearhouse" />
       </div></>
   );
 };

@@ -89,11 +89,11 @@ export const updates = [
     description: 'Stay informed about the latest developments and breakthroughs at Voltis Labs.',
   },
   {
-    img: '/image/prelura.jpeg',
-    message: 'Introducing Prelura Pro',
+    img: '/icons/primary-logo.svg',
+    message: 'Introducing Wearhouse Pro',
     time: 'Nov 6, 2023',
     description:
-      'Explore the advanced features of Prelura Pro, tailored for professionals and creators.',
+      'Explore the advanced features of Wearhouse Pro, tailored for professionals and creators.',
   },
 ];
 
@@ -133,18 +133,13 @@ export const whatWeDo = [
     content: `As a remote-first company, we design internal systems to help distributed teams thrive. We also offer these same tools and frameworks to startups looking to scale remotely.`,
     link: { text: 'Includes: Discord workspaces, moderation bots (like Loyalty Bot), culture guides, break tracking, accountability tools.', url: '#', color: '#90BEFF' },
   },
-  {
-    title: 'Education & Upskilling (Voltis Labs Academy)',
-    content: `Through Voltis Labs Academy, we train the next generation of talent. Students and interns work on real products, gain certifications, and grow with mentorship and live feedback.`,
-    link: { text: 'Includes: Internships, bootcamps, Discord learning hubs, live projects, student badges.', url: '#', color: '#90BEFF' },
-  },
 ];
 
 export const update = [
   {
     id: 0,
-    img: '/image/prelura-icon.jpg',
-    message: 'Prelura',
+    img: '/icons/primary-logo.svg',
+    message: 'Wearhouse',
   },
   {
     id: 1,
@@ -200,17 +195,17 @@ export const research = [
 export const products = [
   {
     id: 0,
-    img: '/image/prelura-icon.jpg',
+    img: '/icons/primary-logo.svg',
     images: [
       '/image/updated-image1.jpg',
       '/image/updated-image2.jpg',
       '/image/updated-image3.jpg',
       '/image/updated-image4.jpg',
     ],
-    message: 'Prelura',
+    message: 'Wearhouse',
     time: 'Nov 18, 2024',
-    link: '/prelura',
-    description: `Prelura is a secondhand fashion marketplace designed for style-conscious, sustainability-minded shoppers. It offers a seamless platform to buy and sell preloved clothing and accessories with ease. From everyday essentials to designer pieces, users can list items, grade their condition, create profiles, and manage their wardrobes in a way that feels modern, intuitive, and community-driven.`,
+    link: '/wearhouse',
+    description: `Wearhouse is a secondhand fashion marketplace designed for style-conscious, sustainability-minded shoppers. It offers a seamless platform to buy and sell preloved clothing and accessories with ease. From everyday essentials to designer pieces, users can list items, grade their condition, create profiles, and manage their wardrobes in a way that feels modern, intuitive, and community-driven.`,
   },
   {
     id: 1,
@@ -303,24 +298,10 @@ export const products = [
     description:
       "Loyalty Bot is a productivity-focused Discord bot built to help remote teams stay accountable and on time. Designed for digital workspaces that use Discord as their primary hub, Loyalty Bot tracks break times, monitors lateness, and applies custom consequences such as salary deductions or logged infractions. \n\n Loyalty Bot acts as a quiet but firm supervisor, keeping your team aligned without constant manual checks. It integrates smoothly into your team's daily workflow, offering a subtle but effective layer of structure to how your team collaborates.",
   },
-  {
-    id: 7,
-    img: '/image/academylogo.png',
-    images: [
-      '/image/loyalty_bot.jpg',
-      '/image/team.png',
-      '/image/Frame_12.png',
-      '/image/Frame_13.png',
-    ],
-    message: 'VoltisLabs Academy',
-    time: 'Mar 10, 2025',
-    link: 'https://academy.voltislabs.com/',
-    description:
-      "Voltis Labs Academy is not just another online course platform. We prepare the next generation of builders through hands-on learning, mentorship, and direct internship opportunities inside real Voltis Labs projects. Whether you're a developer, designer, marketer, or future product leader - you'll gain experience that matters.",
-  },
 ];
 
-export const prelura = [
+/** Hero marquee images for the Wearhouse product page */
+export const wearhouseSliderImages = [
   {
     img: '/image/preluraslider1.jpeg',
   },

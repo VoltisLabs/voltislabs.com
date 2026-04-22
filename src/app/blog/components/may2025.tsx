@@ -1,5 +1,4 @@
 import React from 'react'
-import { products } from '../../data'
 import ArticleHeader from './articleHeader'
 import ProductShowcase from './productShowcase'
 
@@ -13,10 +12,10 @@ const may2025 = () => {
             image: "/image/vmodel-icon.png",
         },
         {
-            name: 'Prelura',
-            description: `Second-hand fashion meets smart design. Prelura makes it easy (and fun) to resell, discover, and shop fashion with purpose. \n Resale shouldn’t feel clunky. Prelura is built for the next generation of sustainable style.`,
-            link: 'https://prelura.com/',
-            image: "/image/prelura-icon.jpg",
+            name: 'Wearhouse',
+            description: `Second-hand fashion meets smart design. Wearhouse makes it easy (and fun) to resell, discover, and shop fashion with purpose. \n Resale shouldn’t feel clunky. Wearhouse is built for the next generation of sustainable style.`,
+            link: '/wearhouse',
+            image: "/icons/primary-logo.svg",
         },
         {
             name: 'Outfeatz',
@@ -43,12 +42,6 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
             link: 'https://bgremover.uk/',
 
         },
-        {
-            name: 'Voltis Labs Academy',
-            description: `A learning hub for creative minds who want to do more than consume tech - they want to understand it, shape it, and grow with it. \n Voltis Labs Academy is our way of opening the door. Through live workshops, creator toolkits, and mentorship sessions, we’re helping the next generation of freelancers, designers, culture builders, and innovators grow the confidence and skills they need to thrive in the digital world. `,
-            link: 'https://academy.voltislabs.com/',
-            image: "/images/voltis-labs-academy.png"
-        }
     ]
     return (
         <div id='may2025' className='text-sm md:text-base'>

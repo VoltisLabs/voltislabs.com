@@ -10,7 +10,15 @@ const UpdateItem = ({ img, message, subText, time, description, spotify, spotify
       <div className="flex flex-col md:flex-row items-start gap-6 py-8 border-b border-gray-600">
         {/* Image Section */}
         <div className="w-full md:w-1/4">
-          <img src={img} alt={message} className="w-full h-auto rounded-lg" />
+          <img
+            src={img}
+            alt={message}
+            className={
+              img.endsWith('.svg')
+                ? 'h-auto w-full rounded-lg object-cover'
+                : 'h-auto w-full rounded-lg'
+            }
+          />
         </div>
   
         {/* Text Section */}

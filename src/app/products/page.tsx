@@ -44,7 +44,11 @@ const Page = () => {
             <img
               src={images[imageIdx]}
               alt={selectedProduct.message}
-              className={`${selectedProduct.message === 'Spinnersonic' ? 'object-contain' : 'object-cover'} w-full h-full rounded-xl`}
+              className={`${
+                selectedProduct.message === 'Spinnersonic' || images[imageIdx].endsWith('.svg')
+                  ? 'object-contain p-6'
+                  : 'object-cover'
+              } h-full w-full rounded-xl`}
             />
           )}
           {images.length > 1 && (
@@ -65,15 +69,20 @@ const Page = () => {
           )}
         </div>
 
-        {/* Thumbnails */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-3 px-2 my-3">
+        {/* Thumbnails: square chips, left-aligned (not wide/centered) */}
+        <div className="my-3 flex w-full flex-wrap justify-start gap-2 px-2 md:gap-3">
           {images.slice(0, 4).map((img: string, idx: number) => (
             <button
               key={img}
+              type="button"
               onClick={() => handleThumbClick(idx)}
-              className={`relative flex h-10 w-16 items-center justify-center overflow-hidden rounded-lg border-2 transition-all sm:h-12 sm:w-20 md:h-14 md:w-24 xl:h-16 xl:w-32 ${imageIdx === idx ? "border-vl-brown" : "border-transparent"} bg-vl-cream-muted`}
+              className={`relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg border-2 transition-all sm:h-14 sm:w-14 md:h-16 md:w-16 ${imageIdx === idx ? "border-vl-brown" : "border-transparent"} bg-vl-cream-muted`}
             >
-              <img src={img} alt={`Thumbnail ${idx}`} className="object-cover w-full h-full" />
+              <img
+                src={img}
+                alt={`Thumbnail ${idx}`}
+                className={`h-full w-full ${img.endsWith('.svg') ? 'object-contain p-1' : 'object-cover'}`}
+              />
               {images.length > 4 && idx === 3 && (
                 <span className="absolute inset-0 flex items-center justify-center bg-vl-brown/70 text-xs font-semibold text-vl-cream">
                   +{images.length - 3}
@@ -110,7 +119,7 @@ const Page = () => {
               <img
                 src={product.img}
                 alt={product.message}
-                className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                className={`h-full w-full transition-transform duration-300 group-hover:scale-105 ${product.img.endsWith('.svg') ? 'object-contain p-3' : 'object-cover'}`}
               />
             </div>
             <div className="p-2">

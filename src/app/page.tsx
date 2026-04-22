@@ -246,8 +246,6 @@ export default function Home() {
 
           {/* Scrollable Section with Arrows */}
           <div className="relative">
-            {/* Left Arrow */}
-            {/* Left Arrow */}
             {canScrollLeft && (
               <button
                 className="absolute left-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full border border-vl-brown/20 bg-vl-cream p-3 text-vl-ink shadow-md hover:bg-vl-cream-deep focus:outline-none"
@@ -264,42 +262,58 @@ export default function Home() {
             <div
               id="home-updates-scroll"
               ref={updatesContainerRef}
-              className="no-scrollbar flex min-w-0 items-center overflow-x-scroll"
+              className="no-scrollbar flex min-w-0 items-stretch overflow-x-scroll"
             >
-              <div className="flex h-full gap-4 md:gap-5 md:w-full">
+              <div className="flex h-full min-h-0 items-stretch gap-4 md:gap-5 md:w-full">
                 {updates.map((text, index) => (
-                  <Link href={`/latest-updates?item=${index}`} key={index} scroll={false}>
-                    <div className="w-[8.75rem] shrink-0 cursor-pointer items-start overflow-hidden text-left md:w-[11rem]">
+                  <div
+                    key={index}
+                    className="flex w-[8.75rem] shrink-0 flex-col cursor-pointer items-stretch overflow-hidden text-left md:w-[11rem]"
+                  >
+                    {/* Link must not wrap a nested <a> (Spotify CTA) — invalid HTML and hydration errors. */}
+                    <Link
+                      href={`/latest-updates?item=${index}`}
+                      scroll={false}
+                      className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-vl-brown/40"
+                    >
                       {/* Same aspect as before (310×300), only scaled down */}
-                      <div className="image-container relative aspect-[310/300] w-full overflow-hidden rounded-[10px]">
-                        <Image
-                          src={text.img}
-                          alt="Icon"
-                          width={200}
-                          height={194}
-                          sizes="(max-width: 768px) 140px, 176px"
-                          className="h-full w-full object-cover transition-all duration-[.85s] ease-in-out hover:scale-110"
-                        />
+                      <div className="image-container relative aspect-[310/300] w-full min-h-0 overflow-hidden rounded-[10px]">
+                        {text.img.endsWith('.svg') ? (
+                          <img
+                            src={text.img}
+                            alt={text.message}
+                            className="h-full w-full min-h-0 object-cover object-center transition-all duration-[.85s] ease-in-out hover:scale-110"
+                          />
+                        ) : (
+                          <Image
+                            src={text.img}
+                            alt={text.message}
+                            width={200}
+                            height={194}
+                            sizes="(max-width: 768px) 140px, 176px"
+                            className="h-full w-full object-cover transition-all duration-[.85s] ease-in-out hover:scale-110"
+                          />
+                        )}
                       </div>
                       <p className="mt-3 text-[.9rem] text-vl-ink">{text.message}</p>
                       {text.subText && <p className="text-[.9rem] text-vl-ink-muted">{text.subText}</p>}
                       <p className="text-[.7rem] text-vl-ink">{text.time}</p>
-                      {text.spotify && (
-                        <a
-                          href={text.spotifyLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group relative mt-4 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-vl-brown px-4 py-2 text-[.9rem] font-medium text-vl-brown hover:border-vl-brown-dark"
-                        >
-                          <span className="absolute inset-0 origin-left scale-x-0 bg-[#1DB954] transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
-                          <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
-                          <span className="relative z-10 transition-all duration-300 group-hover:text-black">
-                            Listen on Spotify
-                          </span>
-                        </a>
-                      )}
-                    </div>
-                  </Link>
+                    </Link>
+                    {text.spotify && text.spotifyLink ? (
+                      <a
+                        href={text.spotifyLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative mt-4 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-vl-brown px-4 py-2 text-[.9rem] font-medium text-vl-brown hover:border-vl-brown-dark"
+                      >
+                        <span className="absolute inset-0 origin-left scale-x-0 bg-[#1DB954] transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+                        <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
+                        <span className="relative z-10 transition-all duration-300 group-hover:text-black">
+                          Listen on Spotify
+                        </span>
+                      </a>
+                    ) : null}
+                  </div>
                 ))}
               </div>
             </div>
@@ -400,9 +414,10 @@ export default function Home() {
                           {post.title}
                         </h3>
 
-                        <p className="text-sm text-vl-ink-muted">
+                        <p className="text-sm text-vl-ink-muted" suppressHydrationWarning>
                           <span className="font-bold text-vl-ink">{post.category}</span> —{' '}
                           {new Date(post.datePublished).toLocaleDateString('en-US', {
+                            timeZone: 'UTC',
                             year: 'numeric',
                             month: 'long',
                             day: 'numeric',
