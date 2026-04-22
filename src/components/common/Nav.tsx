@@ -42,10 +42,6 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       items: [{ name: "VModel", route: "/vmodel" }],
     },
     {
-      category: "Company",
-      items: [{ name: "Work with us", route: "/work-with-us" }],
-    },
-    {
       category: "Productivity",
       items: [
         { name: "Toolkit", route: "/bg" },
@@ -134,15 +130,6 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
             )}
           </AnimatePresence>
         </div>
-        <a href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          VL Academy
-        </a>
-        <a href="/work-with-us" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          Work with us
-        </a>
-        <a href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-          Partners
-        </a>
         <a href="/Aboutus" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
           About Us
         </a>
@@ -211,12 +198,6 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
               ))}
 
               <div className="flex flex-col space-y-2">
-                <a onClick={() => setToggle(false)} href="/academy" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-                  VL Academy
-                </a>
-                <a onClick={() => setToggle(false)} href="/partners" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
-                  Partners
-                </a>
                 <a onClick={() => setToggle(false)} href="/blog" className="text-white text-[1rem] font-medium pb-1 hover:text-gray-400">
                   News Blog
                 </a>
