@@ -23,12 +23,20 @@ const LearnMoreBtn = ({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className={`item-container flex min-h-[2.25rem] w-[12rem] cursor-pointer items-center justify-center gap-2 rounded-full border border-solid px-3 py-2 ${borderColor}`}
+      className={`item-container inline-flex h-auto w-max max-w-full cursor-pointer flex-nowrap items-center justify-center gap-2 whitespace-nowrap rounded-full border border-solid px-3 py-2 leading-snug ${borderColor}`}
     >
-      <span className={`block font-semibold tracking-wide ${textColor} text-[.6rem] md:text-[.7rem]`}>
+      <span
+        className={`shrink-0 font-semibold tracking-wide ${textColor} text-[.68rem] leading-snug md:text-[.72rem]`}
+      >
         {text}
       </span>
-      <Image src={"/icons/arrow.svg"} alt="arrow-icon" width={20} height={20} />
+      <Image
+        src={"/icons/arrow.svg"}
+        alt=""
+        width={18}
+        height={18}
+        className="h-[18px] w-[18px] shrink-0"
+      />
     </Link>
   );
 };

@@ -22,12 +22,14 @@ const SmallLearnBtn = ({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className={`item-container flex h-auto min-h-[1.75rem] cursor-pointer items-center gap-2 rounded-full border border-solid px-2.5 py-1.5 ${borderColor}`}
+      className={`item-container inline-flex h-auto w-max max-w-full cursor-pointer flex-nowrap items-center gap-1.5 whitespace-nowrap rounded-full border border-solid px-2.5 py-2 leading-snug ${borderColor}`}
     >
-      <span className={`block font-semibold tracking-wide ${textColor} text-[.75rem] md:text-[.8rem]`}>
+      <span
+        className={`shrink-0 font-semibold tracking-wide ${textColor} text-[.78rem] leading-snug md:text-[.82rem]`}
+      >
         {text}
       </span>
-      <Image src={"/icons/arrow.svg"} alt="arrow-icon" width={12} height={12} />
+      <Image src={"/icons/arrow.svg"} alt="" width={14} height={14} className="h-3.5 w-3.5 shrink-0" />
     </Link>
   );
 };

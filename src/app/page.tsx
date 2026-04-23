@@ -88,8 +88,12 @@ export default function Home() {
       setPosts(formatted);
       setError(null);
     } catch (err) {
-      console.log('Failed to fetch blog posts:', err);
-      setError('Network error. Please check your network connection and try again.');
+      console.error("Failed to fetch blog posts:", err);
+      const msg =
+        err instanceof Error
+          ? err.message
+          : "Could not load latest news. Open the News Blog or try again later.";
+      setError(msg);
     } finally {
       setLoading(false);
       // isLoadingRef.current = false;
@@ -313,11 +317,11 @@ export default function Home() {
                         href={text.spotifyLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group relative mt-4 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-vl-brown px-4 py-2 text-[.9rem] font-semibold text-vl-brown hover:border-vl-brown-dark"
+                        className="group relative mt-4 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-vl-brown px-3.5 py-2 text-[.88rem] font-semibold leading-snug text-vl-brown transition-colors hover:border-vl-brown-dark"
                       >
-                        <span className="absolute inset-0 origin-left scale-x-0 bg-[#1DB954] transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
-                        <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
-                        <span className="relative z-10 transition-all duration-300 group-hover:text-black">
+                        <span className="absolute inset-0 origin-left scale-x-0 bg-[#1DB954]/85 transition-transform duration-200 ease-out group-hover:scale-x-100" />
+                        <FaSpotify className="relative z-10 text-[1.1rem] transition-colors duration-200 group-hover:text-vl-ink" />
+                        <span className="relative z-10 transition-colors duration-200 group-hover:text-vl-ink">
                           Listen on Spotify
                         </span>
                       </a>

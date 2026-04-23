@@ -23,7 +23,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   };
 
   const desktopShell =
-    "inline-flex min-h-[2.5rem] items-center justify-center rounded-full px-4 py-2 text-[1rem] font-semibold transition-colors duration-200";
+    "inline-flex min-h-[2.25rem] items-center justify-center rounded-full px-3.5 py-2 text-[0.9375rem] font-semibold leading-snug transition-colors duration-200";
 
   const desktopIdle = isLoyaltyBot
     ? "text-white/90 hover:bg-white/10 hover:text-white"
@@ -31,7 +31,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
   const desktopActive = isLoyaltyBot
     ? "bg-white/15 text-white ring-1 ring-white/30"
-    : "bg-vl-cream text-vl-brown-dark shadow-sm ring-1 ring-vl-cream/80";
+    : "bg-vl-cream text-vl-brown-dark shadow-sm ring-1 ring-vl-brown/25";
 
   const desktopClass = (href: string) =>
     `${desktopShell} ${pathActive(href) ? desktopActive : desktopIdle}`;
@@ -42,7 +42,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   }`;
 
   const mobileShell =
-    "inline-flex min-h-[2.5rem] items-center justify-center rounded-full px-3 py-1.5 text-sm font-semibold transition-colors duration-200";
+    "inline-flex min-h-[2.125rem] items-center justify-center rounded-full px-3 py-2 text-sm font-semibold leading-snug transition-colors duration-200";
   const mobileClass = (href: string) =>
     `${mobileShell} ${pathActive(href) ? desktopActive : desktopIdle}`;
 
@@ -53,13 +53,13 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       : "text-vl-cream hover:bg-white/10 hover:text-vl-cream");
 
   const drawerShell =
-    "block w-full rounded-full px-4 py-2 text-center text-[1rem] font-semibold transition-colors duration-200";
+    "block w-full rounded-full px-3.5 py-2 text-center text-[0.9375rem] font-semibold leading-snug transition-colors duration-200";
   const drawerIdle = isLoyaltyBot
     ? "text-white/90 hover:bg-white/10"
     : "text-vl-ink hover:bg-vl-cream-muted/80 hover:text-vl-brown-dark";
   const drawerActive = isLoyaltyBot
     ? "bg-white/15 text-white ring-1 ring-white/30"
-    : "bg-vl-cream text-vl-brown-dark ring-1 ring-vl-brown/20";
+    : "bg-vl-cream text-vl-brown-dark ring-1 ring-vl-brown/25";
   const drawerNavClass = (href: string) =>
     `${drawerShell} ${pathActive(href) ? drawerActive : drawerIdle}`;
 

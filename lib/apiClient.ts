@@ -31,10 +31,12 @@ export async function fetchData(params: FetchParams): Promise<any> {
       graphqlUrl(),
       { query, variables },
       {
+        timeout: 25_000,
         headers: {
           "Content-Type": "application/json",
           ...headers,
         },
+        validateStatus: (status) => status >= 200 && status < 300,
       },
     );
 
