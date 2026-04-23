@@ -31,19 +31,19 @@ function WearhousePage() {
 
   return (
     <div
-      id="prelura-home "
+      id="prelura-home"
       className="mx-auto w-full max-w-[85rem] bg-vl-brown-dark pb-20 pt-6 text-vl-cream md:pt-10"
     >
       <Sidebar tbList={menuItems} />
 
-      <section id="prelura-home md:block hidden">
+      <section className="hidden md:block">
         <TitleSection
           title="Wearhouse: A New Era of Secondhand Fashion"
           subTitle=" Exciting updates are here for VModel! Enjoy a fresh UI, AI job
             matching, real-time messaging, an enhanced portfolio, and easier
             payments. More to come soon!"
           secondaryText="Published on Monday 17th February, 2025"
-          containerStyle="mb-4 md:block hidden"
+          containerStyle="mb-4"
         />
       </section>
 
@@ -83,7 +83,7 @@ function WearhousePage() {
           text="Visit Website"
           borderColor="border-white"
           textColor="text-white"
-          route="https://wearhouse.com"
+          route="https://wearhouse.co.uk"
         />
       </div>
       <section className="mobile-slider hero-section mb-7 block md:hidden">
@@ -92,7 +92,7 @@ function WearhousePage() {
           imagesArray={wearhouseSliderImages}
           titleText="A New Home for Your Fashion Finds"
           smallBtnText="Learn More"
-          route="https://wearhouse.com"
+          route="https://wearhouse.co.uk"
         />
       </section>
 

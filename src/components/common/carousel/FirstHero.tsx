@@ -47,7 +47,7 @@ const FirstHero = () => {
     </div>
 
     <div className="text-section mx-auto">
-      <span className="block text-center text-vl-cream md:text-[3rem] text-[1.7rem]">
+      <span className="block text-center text-[1.7rem] font-semibold leading-tight text-vl-cream md:text-[3rem]">
         “Designed for Creators, Built for the Future”
       </span>
     </div>

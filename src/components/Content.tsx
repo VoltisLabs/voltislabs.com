@@ -10,7 +10,7 @@ function Content() {
         <div className="mb-6 w-full border border-vl-brown/20"></div>
         <div className="mb-10 flex flex-col gap-8 text-vl-ink">
           {/* Title Section */}
-          <h2 className="font-normal md:text-[1.7rem] text-[1.6rem] text-center lg:text-left">
+          <h2 className="text-center text-[1.6rem] font-semibold tracking-tight text-vl-brown-dark md:text-[1.7rem] lg:text-left">
             Responsible Innovation
           </h2>
 
@@ -27,16 +27,16 @@ function Content() {
 
             {/* Text Section */}
             <div className="flex px-[1rem] flex-col lg:w-1/2 justify-center gap-6">
-              <p className="font-normal text-[20px] md:text-[28px]">
+              <p className="text-[20px] font-medium leading-snug text-vl-ink md:text-[28px]">
                 At Voltis Labs, we innovate with purpose and responsibility - crafting
                 technology that enhances lives while considering its long-term impact
                 on people and the planet.
               </p>
-              <p className="font-normal text-[20px] md:text-[28px]">
+              <p className="text-[20px] font-medium leading-snug text-vl-ink md:text-[28px]">
                 We believe in building technology that empowers, disrupts, and
                 transforms-always with a thoughtful approach to its risks and rewards.
               </p>
-              <p className="cursor-pointer text-sm font-normal text-vl-brown underline visited:text-red-500 hover:text-vl-brown-dark md:mt-[120px]">
+              <p className="cursor-pointer text-sm font-semibold text-vl-brown underline decoration-vl-brown/30 underline-offset-4 visited:text-red-500 hover:text-vl-brown-dark md:mt-[120px]">
                 Learn about safety
               </p>
             </div>
@@ -70,7 +70,9 @@ function Content() {
       <section className="mb-12 min-h-[20rem] px-[1rem] md:min-h-[23rem] md:px-[2rem]">
         <div className="mb-10 flex flex-col justify-between text-vl-ink md:flex-row">
           <div className="flex justify-between w-full ">
-            <h2 className="font-normal  md:text-[1.7rem] text-[1.6rem] ">Products</h2>
+            <h2 className="text-[1.6rem] font-semibold tracking-tight text-vl-brown-dark md:text-[1.7rem]">
+              Products
+            </h2>
             <ViewAllButton link="/products" text="view all" />
           </div>
           {/* <div className="md:w-1/2">

@@ -10,6 +10,7 @@ interface SelectFieldProps {
   placeholder?: string;
   containerClassName?: string;
   labelClassName?: string;
+  surface?: "dark" | "light";
 }
 
 const SelectField: React.FC<SelectFieldProps> = ({
@@ -19,10 +20,12 @@ const SelectField: React.FC<SelectFieldProps> = ({
   value,
   onChange,
   name,
-  placeholder = 'Select an option',
-  containerClassName = '',
-  labelClassName = '',
+  placeholder = "Select an option",
+  containerClassName = "",
+  labelClassName = "",
+  surface = "dark",
 }) => {
+  const light = surface === "light";
   const [open, setOpen] = useState(false);
   const [highlighted, setHighlighted] = useState<number>(-1);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -69,40 +72,60 @@ const SelectField: React.FC<SelectFieldProps> = ({
     setHighlighted(-1);
   };
 
+  const btnClass = light
+    ? "flex w-full justify-between rounded-lg border border-vl-brown/25 bg-white py-3 px-4 text-vl-ink transition focus:outline-none focus:ring-2 focus:ring-vl-brown/25"
+    : "flex w-full justify-between rounded-lg border border-gray-700 bg-[#0D1117] py-3 px-4 text-white transition focus:outline-none focus:ring-2 focus:ring-[#90BEFF]";
+
+  const listClass = light
+    ? "absolute left-0 top-full z-50 mt-2 max-h-60 w-full overflow-y-auto rounded-xl border border-vl-brown/20 bg-vl-cream-deep py-2 shadow-lg"
+    : "absolute left-0 top-full z-50 mt-2 max-h-60 w-full overflow-y-auto rounded-xl border border-[#374151] bg-[#374151] py-2 shadow-lg";
+
+  const itemClass = (idx: number, option: string) => {
+    const selected = value === option;
+    const hi = highlighted === idx;
+    if (light) {
+      return `cursor-pointer select-none px-4 py-4 text-base text-vl-ink transition ${selected || hi ? "bg-vl-cream-muted/90" : ""} ${idx !== options.length - 1 ? "border-b border-vl-brown/15" : ""}`;
+    }
+    return `cursor-pointer select-none px-4 py-4 text-base text-white transition ${selected || hi ? "bg-[#2D3748]" : ""} ${idx !== options.length - 1 ? "border-b border-[#2D3748]" : ""}`;
+  };
+
   return (
-    <div className={`mb-4 ${containerClassName}`}> 
-      <label htmlFor={id} className={`block text-sm font-medium mb-2 text-white ${labelClassName}`}>{label}</label>
+    <div className={`mb-4 ${containerClassName}`}>
+      <label
+        htmlFor={id}
+        className={`mb-2 block text-sm font-medium ${light ? "text-vl-ink" : "text-white"} ${labelClassName}`}
+      >
+        {label}
+      </label>
       <div ref={dropdownRef} className="relative ">
         <button
           type="button"
           id={id}
           aria-haspopup="listbox"
           aria-expanded={open}
-          className="w-full bg-[#0D1117] flex justify-between text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#90BEFF] transition"
+          className={btnClass}
           onClick={() => setOpen((o) => !o)}
         >
-          <span className={value ? '' : 'text-gray-400'}>
+          <span className={value ? "" : light ? "text-vl-ink-muted" : "text-gray-400"}>
             {value || placeholder}
           </span>
-          <svg className={`ml-2 h-5 w-5 text-gray-300 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+          <svg
+            className={`ml-2 h-5 w-5 transition-transform ${light ? "text-vl-ink-muted" : "text-gray-300"} ${open ? "rotate-180" : ""}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
         </button>
         {open && (
-          <ul
-            tabIndex={-1}
-            role="listbox"
-            aria-labelledby={id}
-            className="absolute z-50 top-full left-0 mt-2 w-full bg-[#374151] rounded-xl shadow-lg border border-[#374151] py-2 max-h-60 overflow-y-auto max-h-40"
-          >
+          <ul tabIndex={-1} role="listbox" aria-labelledby={id} className={listClass}>
             {options.map((option, idx) => (
               <li
                 key={option}
                 role="option"
                 aria-selected={value === option}
-                className={`px-4 py-4 text-white text-base cursor-pointer select-none transition
-                  ${value === option ? 'bg-[#2D3748]' : ''}
-                  ${highlighted === idx ? 'bg-[#2D3748]' : ''}
-                  ${idx !== options.length - 1 ? 'border-b border-[#2D3748]' : ''}
-                `}
+                className={itemClass(idx, option)}
                 onClick={() => handleSelect(option)}
                 onMouseEnter={() => setHighlighted(idx)}
               >

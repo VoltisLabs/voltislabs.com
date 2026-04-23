@@ -115,11 +115,11 @@ const Page = () => {
             onClick={() => handleSelect(idx)}
             className={`group cursor-pointer rounded-lg border border-vl-brown/25 bg-vl-cream-deep shadow-md transition-all duration-200 hover:scale-[1.03] ${selectedIdx === idx ? "ring-2 ring-vl-brown" : ""}`}
           >
-            <div className="relative w-full aspect-square overflow-hidden">
+            <div className="relative aspect-square w-full overflow-hidden rounded-t-lg">
               <img
                 src={product.img}
                 alt={product.message}
-                className={`h-full w-full transition-transform duration-300 group-hover:scale-105 ${product.img.endsWith('.svg') ? 'object-contain p-3' : 'object-cover'}`}
+                className="h-full w-full origin-center object-cover transition-transform duration-300 ease-out group-hover:scale-105"
               />
             </div>
             <div className="p-2">

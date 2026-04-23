@@ -15,24 +15,30 @@ export default function Footer() {
 
       <footer className="mb-20 flex flex-col justify-between text-vl-ink md:flex-row">
         <div className="flex flex-col space-y-2">
-          <Link href="/terms">
+          <Link href="/terms" className="font-medium hover:text-vl-brown-dark">
             <p>Terms & policies</p>
           </Link>
-          <Link href="/privacy">
+          <Link href="/privacy" className="font-medium hover:text-vl-brown-dark">
             <p>Privacy policy</p>
           </Link>
-          <Link href="/brand-guidelines">
+          <Link href="/brand-guidelines" className="font-medium hover:text-vl-brown-dark">
             <p>Brand guidelines</p>
           </Link>
         </div>
         <div className="mt-4 flex flex-wrap gap-4 md:mt-0">
-          <Link target="_blank" rel="noopener noreferrer" href="https://x.com">
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://x.com"
+            className="font-semibold hover:text-vl-brown-dark"
+          >
             <p>X</p>
           </Link>
           <Link
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.linkedin.com/company/voltis-labs"
+            className="font-semibold hover:text-vl-brown-dark"
           >
             <p>LinkedIn</p>
           </Link>
@@ -47,7 +53,9 @@ export default function Footer() {
           />
         </Link>
       </footer>
-      <p className="mt-10 pb-10 text-center text-vl-ink-muted">© 2026 Voltis Labs. All rights reserved.</p>
+      <p className="mt-10 pb-10 text-center text-sm font-medium text-vl-ink-muted">
+        © 2026 Voltis Labs. All rights reserved.
+      </p>
     </div>
   );
 }

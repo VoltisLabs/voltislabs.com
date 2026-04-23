@@ -238,8 +238,13 @@ export default function Home() {
         <section className="relative mb-20 mt-10 min-h-[16rem] px-[1rem] md:mt-20 md:min-h-[20rem] md:px-[2rem]">
           <div className="mb-6 w-full border border-vl-brown/20"></div>
           <div className="mb-10 flex flex-row items-start justify-between text-vl-ink sm:items-center">
-            <h2 className="text-[1.6rem] font-normal md:text-[1.7rem]">Latest Updates</h2>
-            <Link href={'/latest-updates'} className="mt-2 text-sm font-normal underline sm:mt-0">
+            <h2 className="text-[1.6rem] font-semibold tracking-tight text-vl-brown-dark md:text-[1.7rem]">
+              Latest Updates
+            </h2>
+            <Link
+              href={"/latest-updates"}
+              className="mt-2 text-sm font-semibold text-vl-brown underline decoration-vl-brown/40 underline-offset-4 transition-colors hover:text-vl-brown-dark sm:mt-0"
+            >
               See all
             </Link>
           </div>
@@ -295,16 +300,20 @@ export default function Home() {
                           />
                         )}
                       </div>
-                      <p className="mt-3 text-[.9rem] text-vl-ink">{text.message}</p>
-                      {text.subText && <p className="text-[.9rem] text-vl-ink-muted">{text.subText}</p>}
-                      <p className="text-[.7rem] text-vl-ink">{text.time}</p>
+                      <p className="mt-3 text-[.9rem] font-semibold text-vl-ink">{text.message}</p>
+                      {text.subText && (
+                        <p className="text-[.9rem] font-medium text-vl-ink-muted">{text.subText}</p>
+                      )}
+                      <p className="text-[.7rem] font-medium uppercase tracking-wide text-vl-ink-muted">
+                        {text.time}
+                      </p>
                     </Link>
                     {text.spotify && text.spotifyLink ? (
                       <a
                         href={text.spotifyLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group relative mt-4 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-vl-brown px-4 py-2 text-[.9rem] font-medium text-vl-brown hover:border-vl-brown-dark"
+                        className="group relative mt-4 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-vl-brown px-4 py-2 text-[.9rem] font-semibold text-vl-brown hover:border-vl-brown-dark"
                       >
                         <span className="absolute inset-0 origin-left scale-x-0 bg-[#1DB954] transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
                         <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
@@ -337,8 +346,13 @@ export default function Home() {
         <section className="relative mb-20 mt-10 min-h-[16rem] px-[1rem] md:mt-20 md:min-h-[20rem] md:px-[2rem]">
           <div className="mb-6 w-full border border-vl-brown/20"></div>
           <div className="mb-10 flex flex-row items-start justify-between text-vl-ink sm:items-center">
-            <h2 className="text-[1.6rem] font-normal md:text-[1.7rem]">Latest News</h2>
-            <Link href={'/blog'} className="mt-2 text-sm font-normal underline sm:mt-0">
+            <h2 className="text-[1.6rem] font-semibold tracking-tight text-vl-brown-dark md:text-[1.7rem]">
+              Latest News
+            </h2>
+            <Link
+              href={"/blog"}
+              className="mt-2 text-sm font-semibold text-vl-brown underline decoration-vl-brown/40 underline-offset-4 transition-colors hover:text-vl-brown-dark sm:mt-0"
+            >
               See all
             </Link>
           </div>
@@ -410,12 +424,12 @@ export default function Home() {
                       </div>
 
                       <div className={`py-4`}>
-                        <h3 className="mb-2 mt-1 overflow-hidden truncate whitespace-nowrap text-base font-semibold text-vl-ink">
+                        <h3 className="mb-2 mt-1 overflow-hidden truncate whitespace-nowrap text-base font-bold text-vl-ink">
                           {post.title}
                         </h3>
 
-                        <p className="text-sm text-vl-ink-muted" suppressHydrationWarning>
-                          <span className="font-bold text-vl-ink">{post.category}</span> —{' '}
+                        <p className="text-sm font-medium text-vl-ink-muted" suppressHydrationWarning>
+                          <span className="font-bold text-vl-ink">{post.category}</span> —{" "}
                           {new Date(post.datePublished).toLocaleDateString('en-US', {
                             timeZone: 'UTC',
                             year: 'numeric',

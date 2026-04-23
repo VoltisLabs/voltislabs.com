@@ -59,11 +59,14 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col pb-40 items-center pt-20 md:px-10">
-      <div className="w-full md:max-w-4xl rounded-xl shadow-lg p-5 md:p-8 relative pb-24">
-        <h1 className="text-2xl font-bold mb-2 text-center">Partner With Us <span className="text-[#667085] text-2xl font-normal">(Client Form)</span></h1>
+    <div className="flex min-h-screen flex-col items-center bg-transparent pb-40 pt-20 text-vl-ink md:px-10">
+      <div className="relative w-full rounded-2xl border border-vl-brown/20 bg-vl-cream-deep/90 p-5 shadow-sm md:max-w-4xl md:p-8 pb-24 backdrop-blur-sm">
+        <h1 className="mb-2 text-center text-2xl font-bold text-vl-brown-dark">
+          Partner With Us <span className="text-2xl font-normal text-vl-ink-muted">(Client Form)</span>
+        </h1>
         <form className="mt-8 space-y-4">
           <InputField
+            surface="light"
             label="Full Name"
             id="fullName"
             name="fullName"
@@ -73,6 +76,7 @@ const Page = () => {
             required
           />
           <InputField
+            surface="light"
             label="Company name (Optional)"
             id="companyName"
             name="companyName"
@@ -81,6 +85,7 @@ const Page = () => {
             onChange={handleInputChange}
           />
           <InputField
+            surface="light"
             label="Email Address"
             id="email"
             name="email"
@@ -91,6 +96,7 @@ const Page = () => {
             required
           />
           <InputField
+            surface="light"
             label="Phone Number"
             id="phone"
             name="phone"
@@ -100,6 +106,7 @@ const Page = () => {
             required
           />
           <InputField
+            surface="light"
             label="Website or Portfolio (Optional)"
             id="website"
             name="website"
@@ -108,16 +115,20 @@ const Page = () => {
             onChange={handleInputChange}
           />
           <div className="mt-6">
-            <Label htmlFor="services" className="mb-2">Which service are you interested in? <span className="text-xs text-gray-400">Select all that apply.</span></Label>
+            <Label htmlFor="services" surface="light" className="mb-2">
+              Which service are you interested in?{" "}
+              <span className="text-xs text-vl-ink-muted">Select all that apply.</span>
+            </Label>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-2">
               {SERVICES.map((service) => (
                 <CardButton
+                  surface="light"
                   key={service}
                   title={service}
                   expanded={selectedServices.includes(service)}
                   onClick={() => handleServiceToggle(service)}
-                  className={`text-sm px-2 py-4 ${selectedServices.includes(service) ? 'border-[#90BEFF] border-2' : ''}`}
-                  animationProps={{ style: { minHeight: '60px', minWidth: '120px', maxWidth: '220px' } }}
+                  className={`px-2 py-4 text-sm ${selectedServices.includes(service) ? "border-2 border-vl-brown" : ""}`}
+                  animationProps={{ style: { minHeight: "60px", minWidth: "120px", maxWidth: "220px" } }}
                 />
               ))}
             </div>
@@ -134,7 +145,9 @@ const Page = () => {
                 className=""
               >
                 <div className="mt-6">
-                  <Label htmlFor="idea">Tell us more about your idea/project.</Label>
+                  <Label htmlFor="idea" surface="light">
+                    Tell us more about your idea/project.
+                  </Label>
                   <textarea
                     id="idea"
                     name="idea"
@@ -142,7 +155,7 @@ const Page = () => {
                     value={form.idea}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full bg-[#0D1117] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#90BEFF] transition mb-4"
+                    className="mb-4 w-full rounded-lg border border-vl-brown/25 bg-white px-4 py-3 text-vl-ink transition focus:border-vl-brown/40 focus:outline-none focus:ring-2 focus:ring-vl-brown/25"
                   />
                 
                 </div>
@@ -161,6 +174,7 @@ const Page = () => {
               >
                 <div className="mt-6">
               <SelectField
+                surface="light"
                 label="What's your ideal timeline?"
                 id="timeline"
                 name="timeline"
@@ -177,6 +191,7 @@ const Page = () => {
               />
 
               <SelectField
+                surface="light"
                 label="How did you hear about us?"
                 id="hearAbout"
                 name="hearAbout"
@@ -193,14 +208,16 @@ const Page = () => {
               />
                       
                   <div className="mt-4 ">
-                    <Label htmlFor="file">Upload Deck / Files <span className="text-xs text-gray-400">(Optional)</span></Label>
-                    <Upload fileName={fileName} handleFileChange={handleFileChange} />
+                    <Label htmlFor="file" surface="light">
+                      Upload Deck / Files <span className="text-xs text-vl-ink-muted">(Optional)</span>
+                    </Label>
+                    <Upload surface="light" fileName={fileName} handleFileChange={handleFileChange} />
                   </div>
                   
                 </div>
               </motion.div>
         </form>
-        <LinkButton title='Send Message' />
+        <LinkButton surface="light" title="Send Message" />
       </div>
     </div>
   );

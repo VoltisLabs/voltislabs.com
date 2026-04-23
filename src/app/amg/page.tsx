@@ -2,8 +2,8 @@ import React from "react";
 
 const Page = () => {
   return (
-    <div className="flex items-center justify-center h-screen bg-black text-white">
-      <h1 className="text-2xl">AMG Studios</h1>
+    <div className="flex h-screen items-center justify-center bg-transparent text-vl-ink">
+      <h1 className="text-2xl font-semibold text-vl-brown-dark">AMG Studios</h1>
     </div>
   );
 };

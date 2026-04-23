@@ -90,7 +90,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
             />
           </div>
 
-          <p className="mt-3 text-[.9rem] text-vl-ink">{text.message}</p>
+          <p className="mt-3 text-[.9rem] font-semibold text-vl-ink">{text.message}</p>
         </div>
       })}
     </div >
@@ -149,7 +149,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
             />
           </div>
 
-          <p className="mt-2 text-[.8rem] text-vl-ink">{text.message}</p>
+          <p className="mt-2 text-[.8rem] font-semibold text-vl-ink">{text.message}</p>
           {/* <p className="text-white text-[.7rem]">{text.time}</p> */}
         </div>
       ))}
@@ -220,7 +220,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }} className="rounded-3xl   px-14 py-12">
               <div className="flex flex-col items-center justify-center rounded-3xl bg-vl-cream-deep p-6">
-                <p className="text-sm font-normal text-vl-ink">{formatParagraph(seledctedDescription)}</p>
+                <p className="text-sm font-medium leading-relaxed text-vl-ink">{formatParagraph(seledctedDescription)}</p>
 
                 <div className="mx-auto my-7 w-fit">
                   <a
@@ -262,7 +262,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }} className="rounded-3xl px-4 py-6">
               <div className="flex flex-col items-center justify-center rounded-3xl bg-vl-cream-deep p-6">
-                <p className="text-sm font-normal leading-6 text-vl-ink">{formatParagraph(seledctedDescription)}</p>
+                <p className="text-sm font-medium leading-6 text-vl-ink">{formatParagraph(seledctedDescription)}</p>
 
                 <div className="mx-auto my-7 w-fit">
                   <a target="_blank"

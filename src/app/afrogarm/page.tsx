@@ -289,19 +289,17 @@ function Vmodel() {
 
         </Marquee> */}
 
-        <div className="flex justify-center w-full my-12 gap-6 items-center">
-          <div className="w-fit text-center py-2.5 px-4 lg:px-12 rounded-xl bg-[url('/svgs/insta_bg.svg')]">
-            <Link href="https://www.instagram.com/afrogarm" className="">
-              <p className="font-normal text-white sm:mt-0 text-sm lg:text-lg  cursor-pointer">
+        <div className="my-12 flex w-full items-center justify-center gap-4 md:gap-6">
+          <div className="w-fit rounded-full bg-[url('/svgs/insta_bg.svg')] px-5 py-2.5 text-center lg:px-10">
+            <Link href="https://www.instagram.com/afrogarm">
+              <p className="cursor-pointer text-sm font-semibold text-white lg:text-base">
                 Follow us on instagram
               </p>
             </Link>
           </div>
-          <div className="border-[#FFFFFF] border-[1px] w-fit text-center py-2.5 px-4 lg:px-12 rounded-xl">
+          <div className="w-fit rounded-full border border-white px-5 py-2.5 text-center lg:px-10">
             <Link href="https://www.afrogarm.com">
-              <p className="font-normal text-white sm:mt-0 text-sm lg:text-lg  cursor-pointer">
-                Visit Website
-              </p>
+              <p className="cursor-pointer text-sm font-semibold text-white lg:text-base">Visit Website</p>
             </Link>
           </div>
         </div>

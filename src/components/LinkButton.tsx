@@ -1,20 +1,30 @@
-import { ArrowRight } from 'lucide-react'
-import React from 'react'
+import { ArrowRight } from "lucide-react";
+import React from "react";
 
-const LinkButton = ({title} : {title: string}) => {
+const LinkButton = ({
+  title,
+  surface = "dark",
+}: {
+  title: string;
+  surface?: "dark" | "light";
+}) => {
+  const light = surface === "light";
   return (
     <div>
-        <div className="ml-5 md:ml-8 px-2 absolute hover:bg-[#0D1117] bottom-0 md:-bottom-10 left-0 xl:bottom-0 flex items-center gap-1 rounded border-white border text-white ">
-          <button
-            type="submit"
-            className=" py-2 px-2 rounded-lg font-bold text-lg transition shadow-lg"
-          >
-            {title}
-          </button>
-          <ArrowRight />
-        </div>
+      <div
+        className={`absolute bottom-0 left-0 ml-5 flex items-center gap-1 rounded border px-2 md:ml-8 md:-bottom-10 xl:bottom-0 ${
+          light
+            ? "border-vl-brown/40 text-vl-ink hover:bg-vl-cream-muted/80"
+            : "border-white text-white hover:bg-[#0D1117]"
+        }`}
+      >
+        <button type="submit" className="rounded-lg px-2 py-2 text-lg font-bold shadow-lg transition">
+          {title}
+        </button>
+        <ArrowRight />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default LinkButton
+export default LinkButton;

@@ -16,7 +16,7 @@ function WorkWithUsPage() {
 
     return (
       <motion.div
-        className="mx-auto max-w-[85rem] bg-black text-white p-4 md:p-0"
+        className="mx-auto max-w-[85rem] bg-transparent p-4 text-vl-ink md:p-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.7 }}
@@ -30,6 +30,7 @@ function WorkWithUsPage() {
           transition={{ duration: 0.7 }}
         >
           <TitleSection
+            tone="light"
             title="Lets build whats next - together."
             subTitle="Innovation starts here. Join us at Voltis Labs is where great ideas gets made real."
             secondaryText=""
@@ -72,15 +73,19 @@ function WorkWithUsPage() {
           transition={{ duration: 0.7, delay: 0.3 }}
         >
           <Link href="/work-with-us/partner-with-us" passHref legacyBehavior className='cursor-pointer'>
-            <p className="px-4 py-1.5 cursor-pointer text-xs border border-[#888] rounded-[4px] bg-transparent hover:bg-[#232323] transition">Partner with us (For Clients) ↗</p>
+            <p className="cursor-pointer rounded-full border border-vl-brown/35 bg-transparent px-4 py-1.5 text-xs font-semibold transition hover:bg-vl-cream-muted/90">
+              Partner with us (For Clients) ↗
+            </p>
           </Link>
           {/* <Link href="/work-with-us/join-team" passHref legacyBehavior className='cursor-pointer'>
-            <p className="px-4 cursor-pointer py-1.5 text-xs border border-[#888] rounded-[4px] bg-transparent hover:bg-[#232323] transition">Join the team (For Talent) ↗</p>
+            <p className="cursor-pointer rounded-full border border-vl-brown/35 bg-transparent px-4 py-1.5 text-xs font-semibold text-vl-ink transition hover:bg-vl-cream-muted/90">
+              Join the team (For Talent) ↗
+            </p>
           </Link> */}
         </motion.div>
         {/* What we do Section */}
         <motion.h2
-          className="text-3xl font-bold text-center mb-8"
+          className="mb-8 text-center text-3xl font-bold text-vl-brown-dark"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -93,7 +98,7 @@ function WorkWithUsPage() {
           {/* First row: 4 cards */}
           <div className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-4">
             {whatWeDo.slice(0, 4).map((item, idx) => (
-              <CardButton
+              <CardButton surface="light"
                 key={item.title}
                 title={item.title}
                 expanded={expanded === idx}
@@ -127,7 +132,7 @@ function WorkWithUsPage() {
                   transition={{ delay: 0.15, duration: 0.5 }}
                 >
                   <motion.p
-                    className="text-white text-base mb-2"
+                    className="mb-2 text-base text-vl-ink"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.25, duration: 0.5 }}
@@ -141,7 +146,7 @@ function WorkWithUsPage() {
                     transition={{ delay: 0.35, duration: 0.5 }}
                   >
                     <Dot color={whatWeDo[expanded].link.color} />
-                    <p className="text-[#90BEFF] items-center">{whatWeDo[expanded].link.text}</p>
+                    <p className="items-center text-vl-brown underline-offset-2 hover:text-vl-brown-dark">{whatWeDo[expanded].link.text}</p>
                   </motion.div>
                 </motion.div>
               </div>
@@ -151,7 +156,7 @@ function WorkWithUsPage() {
           {/* Second row: 4 cards */}
           <div className="grid grid-cols-4 gap-6 max-w-[75%] mx-auto mb-6">
             {whatWeDo.slice(4, 8).map((item, idx) => (
-              <CardButton
+              <CardButton surface="light"
                 key={item.title}
                 title={item.title}
                 expanded={expanded === idx + 4}
@@ -179,7 +184,7 @@ function WorkWithUsPage() {
                   transition={{ delay: 0.15, duration: 0.5 }}
                 >
                   <motion.p
-                    className="text-white text-base mb-2"
+                    className="mb-2 text-base text-vl-ink"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.25, duration: 0.5 }}
@@ -193,7 +198,7 @@ function WorkWithUsPage() {
                     transition={{ delay: 0.35, duration: 0.5 }}
                   >
                     <Dot color={whatWeDo[expanded].link.color} />
-                    <p className="text-[#90BEFF] items-center">{whatWeDo[expanded].link.text}</p>
+                    <p className="items-center text-vl-brown underline-offset-2 hover:text-vl-brown-dark">{whatWeDo[expanded].link.text}</p>
                   </motion.div>
                 </motion.div>
               </div>
@@ -206,7 +211,7 @@ function WorkWithUsPage() {
           {/* First row: 3 cards */}
           <div className="grid grid-cols-3 gap-4 max-w-[90%] mx-auto mb-4">
             {whatWeDo.slice(0, 3).map((item, idx) => (
-              <CardButton
+              <CardButton surface="light"
                 key={item.title}
                 title={item.title}
                 expanded={expanded === idx}
@@ -218,7 +223,7 @@ function WorkWithUsPage() {
           {/* Second row: 3 cards */}
           <div className="grid grid-cols-3 gap-4 max-w-[90%] mx-auto mb-4">
             {whatWeDo.slice(3, 6).map((item, idx) => (
-              <CardButton
+              <CardButton surface="light"
                 key={item.title}
                 title={item.title}
                 expanded={expanded === idx + 3}
@@ -231,7 +236,7 @@ function WorkWithUsPage() {
           <div className="grid grid-cols-3 gap-4 max-w-[90%] mx-auto mb-4">
             <div className="col-span-1"></div>
             {whatWeDo.slice(6, 8).map((item, idx) => (
-              <CardButton
+              <CardButton surface="light"
                 key={item.title}
                 title={item.title}
                 expanded={expanded === idx + 6}
@@ -247,7 +252,7 @@ function WorkWithUsPage() {
           <div className="grid grid-cols-2 gap-3 w-full max-w-[98%] mb-4">
             {whatWeDo.slice(0, 8).map((item, idx) => (
               <React.Fragment key={item.title}>
-                <CardButton
+                <CardButton surface="light"
                   title={item.title}
                   expanded={expanded === idx}
                   onClick={() => setExpanded(expanded === idx ? null : idx)}
@@ -258,10 +263,10 @@ function WorkWithUsPage() {
                 {(idx % 2 === 1 && (expanded === idx || expanded === idx - 1)) && (
                   <div className="col-span-2 flex justify-center w-full">
                     <div className="mt-2 p-3 max-w-[340px] w-full text-center">
-                      <p className="text-white text-sm mb-2">{whatWeDo[expanded].content}</p>
+                      <p className="mb-2 text-sm text-vl-ink">{whatWeDo[expanded].content}</p>
                       <div className='flex items-center gap-1 justify-center'>
                         <Dot color={whatWeDo[expanded].link.color} />
-                        <p className="text-[#90BEFF] items-center text-xs">{whatWeDo[expanded].link.text}</p>
+                        <p className="items-center text-xs text-vl-brown">{whatWeDo[expanded].link.text}</p>
                       </div>
                     </div>
                   </div>

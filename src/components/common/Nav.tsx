@@ -23,7 +23,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   };
 
   const desktopShell =
-    "inline-flex min-h-[2.5rem] items-center justify-center rounded-full px-4 py-2 text-[1rem] font-medium transition-colors duration-200";
+    "inline-flex min-h-[2.5rem] items-center justify-center rounded-full px-4 py-2 text-[1rem] font-semibold transition-colors duration-200";
 
   const desktopIdle = isLoyaltyBot
     ? "text-white/90 hover:bg-white/10 hover:text-white"
@@ -42,7 +42,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   }`;
 
   const mobileShell =
-    "inline-flex min-h-[2.5rem] items-center justify-center rounded-full px-3 py-1.5 text-sm font-medium transition-colors duration-200";
+    "inline-flex min-h-[2.5rem] items-center justify-center rounded-full px-3 py-1.5 text-sm font-semibold transition-colors duration-200";
   const mobileClass = (href: string) =>
     `${mobileShell} ${pathActive(href) ? desktopActive : desktopIdle}`;
 
@@ -53,7 +53,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       : "text-vl-cream hover:bg-white/10 hover:text-vl-cream");
 
   const drawerShell =
-    "block w-full rounded-full px-4 py-2 text-center text-[1rem] font-medium transition-colors duration-200";
+    "block w-full rounded-full px-4 py-2 text-center text-[1rem] font-semibold transition-colors duration-200";
   const drawerIdle = isLoyaltyBot
     ? "text-white/90 hover:bg-white/10"
     : "text-vl-ink hover:bg-vl-cream-muted/80 hover:text-vl-brown-dark";
@@ -72,7 +72,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     "cursor-pointer text-base font-bold " +
     (isLoyaltyBot ? "text-white/70 hover:text-white" : "text-vl-ink-muted hover:text-vl-brown-dark");
   const dropdownItem = (isGames: boolean) =>
-    "text-sm transition-colors duration-200 " +
+    "text-sm font-medium transition-colors duration-200 " +
     (isLoyaltyBot
       ? isGames
         ? "text-sky-300 hover:text-sky-200"

@@ -92,11 +92,15 @@ const JoinTeam = () => {
   const weekDays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center py-20 px-4">
-      <div className="w-full max-w-4xl rounded-xl shadow-lg p-8 relative pb-10">
-        <h1 className="text-3xl font-bold mb-2 text-center">Join the Team <span className="text-[#90BEFF] text-xl font-normal">(Talent Recruitment Form)</span></h1>
+    <div className="flex min-h-screen flex-col items-center bg-transparent px-4 py-20 text-vl-ink">
+      <div className="relative w-full max-w-4xl rounded-2xl border border-vl-brown/20 bg-vl-cream-deep/90 p-8 pb-10 shadow-sm backdrop-blur-sm">
+        <h1 className="mb-2 text-center text-3xl font-bold text-vl-brown-dark">
+          Join the Team{" "}
+          <span className="text-xl font-normal text-vl-ink-muted">(Talent Recruitment Form)</span>
+        </h1>
         <form className="mt-8 space-y-4">
           <InputField
+            surface="light"
             label="Full Name"
             id="fullName"
             name="fullName"
@@ -106,6 +110,7 @@ const JoinTeam = () => {
             required
           />
           <InputField
+            surface="light"
             label="Email Address"
             id="email"
             name="email"
@@ -115,6 +120,7 @@ const JoinTeam = () => {
             required
           />
           <InputField
+            surface="light"
             label="Location and time zone"
             id="location"
             name="location"
@@ -124,6 +130,7 @@ const JoinTeam = () => {
             required
           />
           <InputField
+            surface="light"
             label="Github link"
             id="github"
             name="github"
@@ -132,6 +139,7 @@ const JoinTeam = () => {
             onChange={handleInputChange}
           />
           <InputField
+            surface="light"
             label="Linkedin link"
             id="linkedin"
             name="linkedin"
@@ -140,13 +148,15 @@ const JoinTeam = () => {
             onChange={handleInputChange}
           />
           <div>
-            <Label htmlFor="role">Role you're applying for</Label>
+            <Label htmlFor="role" surface="light">
+              Role you&apos;re applying for
+            </Label>
             <select
               id="role"
               name="role"
               value={form.role}
               onChange={handleInputChange}
-              className="w-full bg-[#0D1117] text-white border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-[#90BEFF] transition"
+              className="w-full rounded-lg border border-vl-brown/25 bg-white py-3 px-4 text-vl-ink transition focus:border-vl-brown/40 focus:outline-none focus:ring-2 focus:ring-vl-brown/25"
               required
             >
               <option value="">Select a role</option>
@@ -156,6 +166,7 @@ const JoinTeam = () => {
             </select>
           </div>
           <InputField
+            surface="light"
             label="Website or Portfolio (Optional)"
             id="website"
             name="website"
@@ -164,16 +175,20 @@ const JoinTeam = () => {
             onChange={handleInputChange}
           />
           <div className="mt-6">
-            <Label htmlFor="workType" className="mb-2">Are you open to full-time or part-time? <span className="text-xs text-gray-400">Select all that apply.</span></Label>
-            <div className="flex gap-4 mt-2">
-              {['Full time', 'Part-time'].map((type) => (
+            <Label htmlFor="workType" surface="light" className="mb-2">
+              Are you open to full-time or part-time?{" "}
+              <span className="text-xs text-vl-ink-muted">Select all that apply.</span>
+            </Label>
+            <div className="mt-2 flex gap-4">
+              {["Full time", "Part-time"].map((type) => (
                 <CardButton
+                  surface="light"
                   key={type}
                   title={type}
                   expanded={workType.includes(type)}
                   onClick={() => handleWorkTypeToggle(type)}
-                  className={`text-sm px-8 py-2 ${workType.includes(type) ? 'border-[#90BEFF] border-2' : ''}`}
-                  animationProps={{ style: { minWidth: '120px', maxWidth: '220px' } }}
+                  className={`px-8 py-2 text-sm ${workType.includes(type) ? "border-2 border-vl-brown" : ""}`}
+                  animationProps={{ style: { minWidth: "120px", maxWidth: "220px" } }}
                 />
               ))}
             </div>
@@ -188,25 +203,51 @@ const JoinTeam = () => {
                 transition={{ duration: 0.4 }}
                 className="overflow-hidden"
               >
-                <div className="mt-6 flex flex-col items-start w-full">
-                  <Label htmlFor="availability">Availability to start</Label>
-                  <div className="flex flex-col items-center w-full">
-                    <div className=" rounded-[12px] border border-[#374151] shadow-md w-[320px] mx-auto p-0 pt-2 pb-4" style={{boxShadow:'0 2px 12px 0 #0008'}}>
-                      <div className="flex items-center justify-between px-6 mb-2">
-                        <button type="button" onClick={handlePrevMonth} className="text-[#C94A4A] text-xl font-bold px-2 focus:outline-none">&#60;</button>
-                        <span className="text-white font-semibold text-base">{new Date(calendarYear, calendarMonth).toLocaleString('default', { month: 'long', year: 'numeric' })}</span>
-                        <button type="button" onClick={handleNextMonth} className="text-[#C94A4A] text-xl font-bold px-2 focus:outline-none">&#62;</button>
-                        <span className="text-white ml-4 text-sm font-normal">TUE</span>
+                <div className="mt-6 flex w-full flex-col items-start">
+                  <Label htmlFor="availability" surface="light">
+                    Availability to start
+                  </Label>
+                  <div className="flex w-full flex-col items-center">
+                    <div
+                      className="mx-auto w-[320px] rounded-[12px] border border-vl-brown/20 bg-white p-0 pb-4 pt-2 shadow-md"
+                      style={{ boxShadow: "0 2px 12px 0 rgba(60, 48, 40, 0.12)" }}
+                    >
+                      <div className="mb-2 flex items-center justify-between px-6">
+                        <button
+                          type="button"
+                          onClick={handlePrevMonth}
+                          className="px-2 text-xl font-bold text-[#C94A4A] focus:outline-none"
+                        >
+                          &#60;
+                        </button>
+                        <span className="text-base font-semibold text-vl-ink">
+                          {new Date(calendarYear, calendarMonth).toLocaleString("default", {
+                            month: "long",
+                            year: "numeric",
+                          })}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={handleNextMonth}
+                          className="px-2 text-xl font-bold text-[#C94A4A] focus:outline-none"
+                        >
+                          &#62;
+                        </button>
+                        <span className="ml-4 text-sm font-normal text-vl-ink-muted">TUE</span>
                       </div>
-                      <div className="grid grid-cols-7 gap-1 px-6 mb-2">
+                      <div className="mb-2 grid grid-cols-7 gap-1 px-6">
                         {weekDays.map((d) => (
-                          <span key={d} className="text-xs text-white text-center opacity-80 font-medium">{d}</span>
+                          <span key={d} className="text-center text-xs font-medium text-vl-ink-muted opacity-90">
+                            {d}
+                          </span>
                         ))}
                       </div>
                       <div className="grid grid-cols-7 gap-1 px-6">
                         {/* Previous month's days (not clickable, gray) */}
                         {Array.from({ length: firstDayOfCalendar }).map((_, i) => (
-                          <span key={i} className="text-xs text-gray-600 text-center opacity-40 select-none">{prevMonthDays - firstDayOfCalendar + i + 1}</span>
+                          <span key={i} className="select-none text-center text-xs text-vl-ink-muted opacity-40">
+                            {prevMonthDays - firstDayOfCalendar + i + 1}
+                          </span>
                         ))}
                         {/* Current month's days */}
                         {Array.from({ length: daysInCalendarMonth }).map((_, i) => {
@@ -217,10 +258,12 @@ const JoinTeam = () => {
                               key={i + 1}
                               type="button"
                               onClick={() => handleDateClick(date)}
-                              className={`w-8 h-8 rounded-full flex items-center justify-center text-sm transition font-semibold
-                                ${isSelected ? 'bg-[#C94A4A] text-white' : 'text-white hover:bg-[#232323]'}
-                              `}
-                              style={{margin:'0 auto'}}
+                              className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold transition ${
+                                isSelected
+                                  ? "bg-[#C94A4A] text-white"
+                                  : "text-vl-ink hover:bg-vl-cream-muted"
+                              }`}
+                              style={{ margin: "0 auto" }}
                             >
                               {i + 1}
                             </button>
@@ -231,7 +274,9 @@ const JoinTeam = () => {
                           const totalCells = firstDayOfCalendar + daysInCalendarMonth;
                           const nextMonthDays = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
                           return Array.from({ length: nextMonthDays }).map((_, i) => (
-                            <span key={i} className="text-xs text-gray-600 text-center opacity-40 select-none">{i + 1}</span>
+                            <span key={i} className="select-none text-center text-xs text-vl-ink-muted opacity-40">
+                              {i + 1}
+                            </span>
                           ));
                         })()}
                       </div>
@@ -242,10 +287,12 @@ const JoinTeam = () => {
             )}
           </AnimatePresence>
           <div className="my-10">
-            <Label htmlFor="cv">Upload a CV</Label>
-            <Upload fileName={fileName} handleFileChange={handleFileChange} />
+            <Label htmlFor="cv" surface="light">
+              Upload a CV
+            </Label>
+            <Upload surface="light" fileName={fileName} handleFileChange={handleFileChange} />
           </div>
-          <LinkButton title='Submit' />
+          <LinkButton surface="light" title="Submit" />
         </form>
       </div>
     </div>

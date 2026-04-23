@@ -78,8 +78,8 @@ const ThirdHero = () => {
           </div>
 
           <div className="text-section mx-auto">
-            <span className="block text-center text-vl-cream md:text-[3rem] text-[1.7rem]">
-              "Rooted in Culture, Styled <br />  for Everyone."
+            <span className="block text-center text-[1.7rem] font-semibold leading-tight text-vl-cream md:text-[3rem]">
+              &ldquo;Rooted in Culture, Styled <br /> for Everyone.&rdquo;
             </span>
           </div>
         </div>

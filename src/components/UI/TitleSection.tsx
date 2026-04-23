@@ -7,6 +7,8 @@ interface TitleProps {
   subTitle: string;
   secondaryText: string;
   containerStyle?: string;
+  /** `light`: headings for cream / light page backgrounds (default matches legacy dark sections). */
+  tone?: "dark" | "light";
 }
 
 const TitleSection = ({
@@ -14,13 +16,19 @@ const TitleSection = ({
   subTitle,
   secondaryText,
   containerStyle,
+  tone = "dark",
 }: TitleProps) => {
+  const isLight = tone === "light";
   return (
     <div className={`text-center px-4 pt-20 ${containerStyle}`}>
-      <Title className="text-white">{title}</Title>
-      <div className="text-center px-4 sm:px-10 md:px-20 !text-white xl:px-56 mt-4 ">
-        <Subtitle className="font-medium mb-8 text-white">{subTitle}</Subtitle>
-        <Subtitle className="text-[#858585] font-normal ">
+      <Title className={isLight ? "text-vl-brown-dark" : "text-white"}>{title}</Title>
+      <div
+        className={`text-center px-4 sm:px-10 md:px-20 xl:px-56 mt-4 ${isLight ? "!text-vl-ink" : "!text-white"}`}
+      >
+        <Subtitle className={isLight ? "font-medium mb-8 text-vl-ink-muted" : "font-medium mb-8 text-white"}>
+          {subTitle}
+        </Subtitle>
+        <Subtitle className={isLight ? "text-vl-ink-muted/90 font-normal" : "text-[#858585] font-normal"}>
           {secondaryText}
         </Subtitle>
       </div>

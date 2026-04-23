@@ -7,7 +7,7 @@ import { useSearchParams } from 'next/navigation';
 
 const UpdateItem = ({ img, message, subText, time, description, spotify, spotifyLink }: any) => {
     return (
-      <div className="flex flex-col md:flex-row items-start gap-6 py-8 border-b border-gray-600">
+      <div className="flex flex-col md:flex-row items-start gap-6 py-8 border-b border-vl-brown/20">
         {/* Image Section */}
         <div className="w-full md:w-1/4">
           <img
@@ -23,10 +23,10 @@ const UpdateItem = ({ img, message, subText, time, description, spotify, spotify
   
         {/* Text Section */}
         <div className="w-full md:w-3/4 flex flex-col gap-4">
-          <h2 className="text-xl font-bold text-white">{message}</h2>
-          {subText && <h3 className="text-md text-gray-400">{subText}</h3>}
-          <p className="text-sm text-gray-500">{time}</p>
-          <p className="text-gray-300 mt-2">{description ?? "No description available."}</p>
+          <h2 className="text-xl font-bold text-vl-ink">{message}</h2>
+          {subText && <h3 className="text-md text-vl-ink-muted">{subText}</h3>}
+          <p className="text-sm text-vl-ink-muted/90">{time}</p>
+          <p className="text-vl-ink-muted mt-2 leading-relaxed">{description ?? "No description available."}</p>
   
           {/* Spotify Link (if applicable) */}
           {spotify && spotifyLink && (
@@ -34,7 +34,7 @@ const UpdateItem = ({ img, message, subText, time, description, spotify, spotify
                href={spotifyLink} // Ensure this points to a valid Spotify link
                target="_blank"
                rel="noopener noreferrer"
-               className="relative inline-flex items-center gap-2 mt-4 py-2 px-4 rounded-full border hover:border-transparent border-white text-white text-[.9rem] font-medium overflow-hidden w-fit cursor-pointer group"
+               className="relative inline-flex items-center gap-2 mt-4 py-2 px-4 rounded-full border border-vl-ink/25 hover:border-transparent text-vl-ink text-[.9rem] font-medium overflow-hidden w-fit cursor-pointer group"
              >
                <span className="absolute inset-0 bg-[#1DB954] scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
                <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
@@ -48,7 +48,7 @@ const UpdateItem = ({ img, message, subText, time, description, spotify, spotify
           <div className="mt-4 text-right">
             <a
               href="#"
-              className="text-[#fff] text-sm font-medium  hover:text-blue-300"
+              className="text-vl-brown text-sm font-medium underline-offset-2 hover:text-vl-brown-dark"
             >
               see more...
             </a>
@@ -70,9 +70,9 @@ const UpdateItem = ({ img, message, subText, time, description, spotify, spotify
       }
     }, [searchParams]);
     return (
-      <div className="page-container bg-black w-full min-h-screen">
+      <div className="page-container w-full min-h-screen bg-transparent text-vl-ink">
         <section className="mb-20 md:px-[2rem] px-[1rem]">
-          <h1 className="text-3xl mt-20 font-bold text-white mb-8">Latest Updates</h1>
+          <h1 className="text-3xl mt-20 font-bold text-vl-brown-dark mb-8">Latest Updates</h1>
           {updates.map((update, index) => (
             <div
               id={`update-item-${index}`}
@@ -97,7 +97,7 @@ const UpdateItem = ({ img, message, subText, time, description, spotify, spotify
 
 export default function LatestUpdatesPage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div className="min-h-[40vh] px-4 py-20 text-center text-vl-ink-muted">Loading…</div>}>
       <LatestUpdatesContent />
     </Suspense>
   );

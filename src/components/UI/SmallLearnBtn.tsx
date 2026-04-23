@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React from "react";
 
 interface LearnMoreProps {
@@ -16,14 +15,16 @@ const SmallLearnBtn = ({
   textColor,
   route,
 }: LearnMoreProps) => {
-  const router = useRouter();
+  const href = route ?? "/";
+  const external = href.startsWith("http");
   return (
     <Link
-    href={route ?? "/"}
-    target="_blank" rel="noopener noreferrer"
-      className={`item-container cursor-pointer flex items-center gap-2 h-[1.6rem] p-1 py-2 border-solid ${borderColor} border-[1px] p-2 rounded-[4px]`}
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className={`item-container flex h-auto min-h-[1.75rem] cursor-pointer items-center gap-2 rounded-full border border-solid px-2.5 py-1.5 ${borderColor}`}
     >
-      <span className={`block ${textColor} md:text-[.8rem] text-[.8rem]`}>
+      <span className={`block font-semibold tracking-wide ${textColor} text-[.75rem] md:text-[.8rem]`}>
         {text}
       </span>
       <Image src={"/icons/arrow.svg"} alt="arrow-icon" width={12} height={12} />
