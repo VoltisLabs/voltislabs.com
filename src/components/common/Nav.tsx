@@ -228,11 +228,11 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
               )}
             </AnimatePresence>
           </div>
-          <Link href="/Aboutus" className={desktopClass("/Aboutus")}>
-            About Us
-          </Link>
           <Link href="/blog" className={desktopClass("/blog")}>
             News Blog
+          </Link>
+          <Link href="/Aboutus" className={desktopClass("/Aboutus")}>
+            About Us
           </Link>
           <Link href="/contact-us" className={desktopClass("/contact-us")}>
             Contact Us
@@ -304,11 +304,11 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                 ))}
 
                 <div className="flex flex-col space-y-2">
-                  <Link href="/Aboutus" onClick={() => setToggle(false)} className={drawerNavClass("/Aboutus")}>
-                    About Us
-                  </Link>
                   <Link href="/blog" onClick={() => setToggle(false)} className={drawerNavClass("/blog")}>
                     News Blog
+                  </Link>
+                  <Link href="/Aboutus" onClick={() => setToggle(false)} className={drawerNavClass("/Aboutus")}>
+                    About Us
                   </Link>
                   <Link href="/contact-us" onClick={() => setToggle(false)} className={drawerNavClass("/contact-us")}>
                     Contact Us

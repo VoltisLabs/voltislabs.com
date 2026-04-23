@@ -32,37 +32,37 @@ const UpdateItem = ({ img, message, subText, time, description, spotify, spotify
         </div>
   
         {/* Text Section */}
-        <div className="flex w-full min-w-0 flex-col gap-4 md:flex-1">
+        <div className="flex w-full min-w-0 flex-col gap-3 md:flex-1">
           <h2 className="text-xl font-bold text-vl-ink">{message}</h2>
           {subText && <h3 className="text-md text-vl-ink-muted">{subText}</h3>}
-          <p className="text-sm text-vl-ink-muted/90">{time}</p>
-          <p className="text-vl-ink-muted mt-2 leading-relaxed">{description ?? "No description available."}</p>
-  
-          {/* Spotify Link (if applicable) */}
-          {spotify && spotifyLink && (
-            <a
-               href={spotifyLink} // Ensure this points to a valid Spotify link
-               target="_blank"
-               rel="noopener noreferrer"
-               className="relative inline-flex items-center gap-2 mt-4 py-2 px-4 rounded-full border border-vl-ink/25 hover:border-transparent text-vl-ink text-[.9rem] font-medium overflow-hidden w-fit cursor-pointer group"
-             >
-               <span className="absolute inset-0 bg-[#1DB954] scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
-               <FaSpotify className="relative z-10 text-[1.2rem] transition-all duration-300 group-hover:text-black" />
-               <span className="relative z-10 transition-all duration-300 group-hover:text-black">
-                 Listen on Spotify
-               </span>
-             </a>
-          )}
-  
-          {/* See More Link */}
-          <div className="mt-4 text-right">
+
+          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+            <p className="text-sm font-medium text-vl-ink-muted/90">{time}</p>
+            {spotify && spotifyLink ? (
+              <a
+                href={spotifyLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-flex shrink-0 cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-vl-ink/25 px-3.5 py-1.5 text-[0.9rem] font-medium text-vl-ink transition-colors hover:border-transparent group"
+              >
+                <span className="absolute inset-0 origin-left scale-x-0 bg-[#1DB954] transition-transform duration-300 ease-out group-hover:scale-x-100" />
+                <FaSpotify className="relative z-10 text-[1.1rem] transition-colors duration-300 group-hover:text-black" />
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+                  Listen on Spotify
+                </span>
+              </a>
+            ) : null}
+          </div>
+
+          <p className="leading-relaxed text-vl-ink-muted">
+            {description ?? "No description available."}{" "}
             <a
               href="#"
-              className="text-vl-brown text-sm font-medium underline-offset-2 hover:text-vl-brown-dark"
+              className="whitespace-nowrap text-sm font-medium text-vl-brown underline-offset-2 hover:text-vl-brown-dark"
             >
               see more...
             </a>
-          </div>
+          </p>
         </div>
       </div>
     );
