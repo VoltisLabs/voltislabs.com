@@ -44,11 +44,11 @@ const Page = () => {
             <img
               src={images[imageIdx]}
               alt={selectedProduct.message}
-              className={`${
-                selectedProduct.message === 'Spinnersonic' || images[imageIdx].endsWith('.svg')
-                  ? 'object-contain p-6'
-                  : 'object-cover'
-              } h-full w-full rounded-xl`}
+              className={
+                selectedProduct.message === 'Spinnersonic'
+                  ? 'h-full w-full rounded-xl object-contain p-4'
+                  : 'h-full w-full rounded-xl object-cover'
+              }
             />
           )}
           {images.length > 1 && (
@@ -81,7 +81,7 @@ const Page = () => {
               <img
                 src={img}
                 alt={`Thumbnail ${idx}`}
-                className={`h-full w-full ${img.endsWith('.svg') ? 'object-contain p-1' : 'object-cover'}`}
+                className="h-full w-full object-cover"
               />
               {images.length > 4 && idx === 3 && (
                 <span className="absolute inset-0 flex items-center justify-center bg-vl-brown/70 text-xs font-semibold text-vl-cream">
@@ -119,9 +119,7 @@ const Page = () => {
               <img
                 src={product.img}
                 alt={product.message}
-                className={`h-full w-full origin-center transition-transform duration-300 ease-out group-hover:scale-105 ${
-                  product.img?.endsWith?.('.svg') ? 'object-contain p-3' : 'object-cover'
-                }`}
+                className="h-full w-full origin-center object-cover transition-transform duration-300 ease-out group-hover:scale-105"
               />
             </div>
             <div className="p-2">

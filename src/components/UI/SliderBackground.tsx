@@ -59,6 +59,7 @@ const SliderBackground = ({
                     className="w-[13rem] h-full object-cover object-top"
                     width={300}
                     height={300}
+                    unoptimized={img.img.endsWith(".svg")}
                   />
                 </div>
               ))}

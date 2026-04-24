@@ -76,21 +76,21 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
           }}
 
 
-          className={`card h-[20rem] w-[16rem] items-center bg-vl-cream-deep px-3 text-left`}
+          className={`card flex h-[20rem] w-[16rem] flex-col overflow-hidden rounded-lg bg-vl-cream-deep text-left`}
         >
 
-          <div className={`image-container h-[14rem] w-[14rem] overflow-hidden rounded-[10px] bg-vl-cream`}>
+          <div className="image-container aspect-square w-full shrink-0 overflow-hidden bg-vl-cream">
             <Image
               src={text.img}
               alt="Icon"
-              width={192}
-              height={192}
+              width={256}
+              height={256}
               unoptimized={text.img.endsWith(".svg")}
-              className={`transition-all w-full h-full duration-[.85s] ease-in-out hover:scale-110 ${text.img.endsWith(".svg") ? "object-contain p-3" : "object-cover"}`}
+              className="h-full w-full object-cover transition-all duration-[.85s] ease-in-out hover:scale-110"
             />
           </div>
 
-          <p className="mt-3 text-[.9rem] font-semibold text-vl-ink">{text.message}</p>
+          <p className="mt-3 px-3 pb-3 text-[.9rem] font-semibold text-vl-ink">{text.message}</p>
         </div>
       })}
     </div >
@@ -136,20 +136,20 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
             }
             console.log({ clickedCardIndex })
           }}
-          className={`card min-h-[15rem] w-[12rem] items-start overflow-hidden bg-vl-cream-deep px-3 text-left`}
+          className={`card flex min-h-[15rem] w-[12rem] flex-col overflow-hidden rounded-lg bg-vl-cream-deep text-left`}
         >
-          <div className="image-container w-[10rem] h-[10rem] overflow-hidden rounded-[10px] bg-white">
+          <div className="image-container aspect-square w-full shrink-0 overflow-hidden bg-vl-cream">
             <Image
               src={text.img}
               alt="Icon"
-              width={160}
-              height={160}
+              width={200}
+              height={200}
               unoptimized={text.img.endsWith(".svg")}
-              className={`transition-all w-full h-full duration-[.85s] ease-in-out hover:scale-110 ${text.img.endsWith(".svg") ? "object-contain p-2" : "object-cover"}`}
+              className="h-full w-full object-cover transition-all duration-[.85s] ease-in-out hover:scale-110"
             />
           </div>
 
-          <p className="mt-2 text-[.8rem] font-semibold text-vl-ink">{text.message}</p>
+          <p className="mt-2 px-3 pb-3 text-[.8rem] font-semibold text-vl-ink">{text.message}</p>
           {/* <p className="text-white text-[.7rem]">{text.time}</p> */}
         </div>
       ))}

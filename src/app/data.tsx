@@ -324,10 +324,10 @@ It turns a chaotic stream of temporary clips into an organised, recallable libra
     id: 9,
     img: '/products/notepad-pro/frame-103.svg',
     images: ['/products/notepad-pro/frame-103.svg'],
-    message: 'Notepad Pro',
+    message: 'NotepadPro',
     time: 'Apr 24, 2026',
     link: '/notepadpro',
-    description: `Notepad Pro is a desktop thinking workspace-not a single-format notes app. Write in plain text, structure work as tasks, crunch rows in CSV, and preview HTML, with local-first speed and sync when you want it (including LAN sessions). One surface for the way you actually think.`,
+    description: `NotepadPro is a desktop thinking workspace-not a single-format notes app. Write in plain text, structure work as tasks, crunch rows in CSV, and preview HTML, with local-first speed and sync when you want it (including LAN sessions). One surface for the way you actually think.`,
   },
 ];
 

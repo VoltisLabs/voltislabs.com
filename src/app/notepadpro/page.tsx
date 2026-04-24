@@ -83,7 +83,7 @@ const powerBullets = [
 export default function NotepadProPage() {
   const menuItems = [
     { name: "Overview", route: "firstSection", Icon: "" },
-    { name: "Why Notepad Pro", route: "secondSection", Icon: "" },
+    { name: "Why NotepadPro", route: "secondSection", Icon: "" },
     { name: "Modes", route: "thirdSection", Icon: "" },
     { name: "Core features", route: "fourthSection", Icon: "" },
     { name: "See it in action", route: "fifthSection", Icon: "" },
@@ -102,7 +102,7 @@ export default function NotepadProPage() {
       <TitleSection
         title="One place for every way you think."
         subTitle="Notes, tasks, tables, and previews-plain text, HTML, CSV, and tasks in one app. Local-first, with sync when you choose it."
-        secondaryText="Notepad Pro · Voltis Labs · Desktop"
+        secondaryText="NotepadPro · Voltis Labs · Desktop"
         containerStyle="mb-[2.8rem] hidden md:block"
       />
 
@@ -127,9 +127,9 @@ export default function NotepadProPage() {
               >
                 <Image
                   src={tile.img}
-                  alt="Notepad Pro artwork"
+                  alt="NotepadPro artwork"
                   fill
-                  className="object-contain p-6"
+                  className="object-cover"
                   sizes="320px"
                   unoptimized
                 />
@@ -141,7 +141,7 @@ export default function NotepadProPage() {
 
       <div className="hidden h-full justify-center p-2 md:flex md:p-7">
         <LearnMoreBtn
-          text="Get Notepad Pro"
+          text="Get NotepadPro"
           borderColor="border-white"
           textColor="text-white"
           route="/contact-us"
@@ -154,7 +154,7 @@ export default function NotepadProPage() {
           imagesArray={sliderTiles}
           titleText="One place for every way you think."
           route="/contact-us"
-          smallBtnText="Get Notepad Pro"
+          smallBtnText="Get NotepadPro"
         />
       </section>
 
@@ -162,7 +162,7 @@ export default function NotepadProPage() {
         <div id="firstSection" className="mb-10 mt-1">
           <h1 className={sectionTitleClassName}>A multi-format thinking tool</h1>
           <span className={`${paragrapghClassName} mb-6`}>
-            Most tools pick one format and ask you to bend your work around it. Notepad Pro sits closer to the flexibility
+            Most tools pick one format and ask you to bend your work around it. NotepadPro sits closer to the flexibility
             you would expect from a workspace stack-without forcing you through five separate installs to get there.
           </span>
           <span className={paragrapghClassName}>
@@ -173,9 +173,9 @@ export default function NotepadProPage() {
         </div>
 
         <div id="secondSection" className="mb-12">
-          <h1 className={secondaryTitleClassName}>Why Notepad Pro?</h1>
+          <h1 className={secondaryTitleClassName}>Why NotepadPro?</h1>
           <p className={`${paragrapghClassName} mt-6 text-center md:text-left`}>
-            Your ideas rarely arrive as a single file type-so a serious workspace should not pretend they do. Notepad Pro
+            Your ideas rarely arrive as a single file type-so a serious workspace should not pretend they do. NotepadPro
             reframes the product as a thinking surface with modes, not as yet another “write notes faster” banner.
           </p>
         </div>
@@ -256,7 +256,7 @@ export default function NotepadProPage() {
               <thead>
                 <tr className="bg-black/30 text-[#FFE32F]">
                   <th className="px-3 py-2 font-semibold md:px-4">Capability</th>
-                  <th className="px-3 py-2 font-semibold md:px-4">Notepad Pro</th>
+                  <th className="px-3 py-2 font-semibold md:px-4">NotepadPro</th>
                   <th className="px-3 py-2 font-semibold md:px-4">Typical “notes” app</th>
                 </tr>
               </thead>
