@@ -3,6 +3,11 @@ import React, { useState } from 'react';
 import { products } from '../data';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+/** SVG / sharp-edged logos need contain + padding; photos use cover to fill the frame. */
+function isVectorAsset(src: string) {
+  return /\.svg(\?|$)/i.test(src);
+}
+
 const Page = () => {
   const productsWithImages = products.map((p: any) => ({
     ...p,
@@ -39,14 +44,14 @@ const Page = () => {
       {/* Preview Window */}
       <div className="flex w-full flex-col rounded-lg border border-vl-brown/25 bg-vl-cream-deep shadow-xl xl:w-2/3">
         {/* Main image */}
-        <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[650px] rounded-lg flex items-center justify-center group">
+        <div className="group relative flex h-[300px] w-full items-center justify-center rounded-lg bg-vl-cream-muted sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[650px]">
           {images.length > 0 && (
             <img
               src={images[imageIdx]}
               alt={selectedProduct.message}
               className={
-                selectedProduct.message === 'Spinnersonic'
-                  ? 'h-full w-full rounded-xl object-contain p-4'
+                isVectorAsset(images[imageIdx]) || selectedProduct.message === 'Spinnersonic'
+                  ? 'max-h-full max-w-full rounded-xl object-contain p-4 sm:p-6 md:p-10'
                   : 'h-full w-full rounded-xl object-cover'
               }
             />
@@ -81,7 +86,11 @@ const Page = () => {
               <img
                 src={img}
                 alt={`Thumbnail ${idx}`}
-                className="h-full w-full object-cover"
+                className={
+                  isVectorAsset(img)
+                    ? 'max-h-full max-w-full object-contain object-center p-1'
+                    : 'h-full w-full object-cover object-center'
+                }
               />
               {images.length > 4 && idx === 3 && (
                 <span className="absolute inset-0 flex items-center justify-center bg-vl-brown/70 text-xs font-semibold text-vl-cream">
@@ -115,11 +124,15 @@ const Page = () => {
             onClick={() => handleSelect(idx)}
             className={`group cursor-pointer rounded-lg border border-vl-brown/25 bg-vl-cream-deep shadow-md transition-all duration-200 hover:scale-[1.03] ${selectedIdx === idx ? "ring-2 ring-vl-brown" : ""}`}
           >
-            <div className="relative aspect-square w-full overflow-hidden rounded-t-lg">
+            <div className="relative aspect-square w-full overflow-hidden rounded-t-lg bg-vl-cream-muted">
               <img
                 src={product.img}
                 alt={product.message}
-                className="h-full w-full origin-center object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+                className={`h-full w-full origin-center transition-transform duration-300 ease-out group-hover:scale-105 ${
+                  typeof product.img === 'string' && isVectorAsset(product.img)
+                    ? 'object-contain object-center p-3 sm:p-4'
+                    : 'object-cover object-center'
+                }`}
               />
             </div>
             <div className="p-2">
