@@ -19,7 +19,7 @@ const may2025 = () => {
         },
         {
             name: 'Outfeatz',
-            description: 'Your digital closet—finally organized with background-free cutouts. Think of Outfeatz as your wardrobe’s creative assistant. Less clutter, more style.',
+            description: 'Your digital closet-finally organized with background-free cutouts. Think of Outfeatz as your wardrobe’s creative assistant. Less clutter, more style.',
             link: 'https://outfeatz.com/',
             image: "/image/outfeatz.png",
         },
@@ -109,7 +109,7 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                 </p>
                 <br />
                 <p>
-                    Every platform we build is connected by one philosophy—design tools that empower
+                    Every platform we build is connected by one philosophy-design tools that empower
                     people to express themselves, organize their lives, and create without barriers.
                 </p>
 
@@ -139,7 +139,7 @@ We don’t always need “smarter AI.” Sometimes we just need tools that quiet
                 </p>
                 <br />
                 <p>
-                    Follow along. Sign up. Reach out. Or just watch—we're okay earning your trust slowly.
+                    Follow along. Sign up. Reach out. Or just watch-we're okay earning your trust slowly.
                 </p>
 
                 <p className="text-2xl font-bold mt-12 text-center">

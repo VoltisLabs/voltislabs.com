@@ -220,7 +220,7 @@ export const products = [
     time: 'Feb 03, 2021',
     link: '/vmodel',
     description:
-      "VModel is a digital platform designed to connect creators with paid opportunities in a streamlined, visually-driven environment. Blending the functionality of a freelance marketplace with the aesthetic of a social network, VModel empowers creatives—models, photographers, stylists, videographers, and more—to showcase their work, apply for jobs, and offer services all in one place. Through sleek portfolios, verified profiles, and a personalised feed, users can build their reputation and attract brands or clients looking for talent.\n \n Built with simplicity and impact in mind, VModel eliminates the friction between creativity and commerce. The platform encourages authenticity, creativity, and community—supporting both independent creatives and brands seeking fresh, skilled collaborators. Whether you're booking a photoshoot, offering a niche service, or building your creative business, VModel is designed to help you turn your craft into opportunity.",
+      "VModel is a digital platform designed to connect creators with paid opportunities in a streamlined, visually-driven environment. Blending the functionality of a freelance marketplace with the aesthetic of a social network, VModel empowers creatives-models, photographers, stylists, videographers, and more-to showcase their work, apply for jobs, and offer services all in one place. Through sleek portfolios, verified profiles, and a personalised feed, users can build their reputation and attract brands or clients looking for talent.\n \n Built with simplicity and impact in mind, VModel eliminates the friction between creativity and commerce. The platform encourages authenticity, creativity, and community-supporting both independent creatives and brands seeking fresh, skilled collaborators. Whether you're booking a photoshoot, offering a niche service, or building your creative business, VModel is designed to help you turn your craft into opportunity.",
   },
   {
     id: 2,
@@ -267,7 +267,7 @@ export const products = [
     message: 'Spinnersonic',
     time: 'Mar 18, 2025',
     link: '/spinner',
-    description: `Spinnersonic is a high-energy fidget spinner game built for mobile and web. With multiple game modes—including multiplayer races, leaderboard challenges, and relaxed free play—it offers a fresh, dynamic take on casual gaming. Players can race, customise spinners, track spin miles, and even compete in reverse-style races where being slow is the way to win.`,
+    description: `Spinnersonic is a high-energy fidget spinner game built for mobile and web. With multiple game modes-including multiplayer races, leaderboard challenges, and relaxed free play-it offers a fresh, dynamic take on casual gaming. Players can race, customise spinners, track spin miles, and even compete in reverse-style races where being slow is the way to win.`,
   },
   {
     id: 5,
@@ -305,7 +305,7 @@ export const products = [
     message: 'Pinnacle Transfer',
     time: 'Apr 18, 2026',
     link: '/pinnacle-transfer',
-    description: `Pinnacle Transfer is built for teams who move large files daily—design exports, video cuts, audio stems, and campaign assets—without fighting attachment limits or scattered drive links. It keeps transfers fast and intentional so collaborators spend less time waiting and more time shipping.
+    description: `Pinnacle Transfer is built for teams who move large files daily-design exports, video cuts, audio stems, and campaign assets-without fighting attachment limits or scattered drive links. It keeps transfers fast and intentional so collaborators spend less time waiting and more time shipping.
 
 Whether you are handing off to a remote editor or syncing work between machines, Pinnacle Transfer focuses on a smooth, dependable handoff experience that fits naturally into a creative workflow.`,
   },
@@ -316,9 +316,18 @@ Whether you are handing off to a remote editor or syncing work between machines,
     message: 'Clipstack',
     time: 'Apr 18, 2026',
     link: '/clipstack',
-    description: `Clipstack is a clipboard manager for people who live in copy-and-paste—developers, writers, support leads, and anyone juggling URLs, snippets, and boilerplate all day. Stack what you copy, search your history, and paste the right item in seconds instead of re-fetching tabs or retyping the same text.
+    description: `Clipstack is a clipboard manager for people who live in copy-and-paste-developers, writers, support leads, and anyone juggling URLs, snippets, and boilerplate all day. Stack what you copy, search your history, and paste the right item in seconds instead of re-fetching tabs or retyping the same text.
 
 It turns a chaotic stream of temporary clips into an organised, recallable library so your context stays with you across apps and sessions.`,
+  },
+  {
+    id: 9,
+    img: '/products/notepad-pro/frame-102.svg',
+    images: ['/products/notepad-pro/frame-102.svg'],
+    message: 'Notepad Pro',
+    time: 'Apr 24, 2026',
+    link: '/notepadpro',
+    description: `Notepad Pro is a desktop thinking workspace-not a single-format notes app. Write in plain text, structure work as tasks, crunch rows in CSV, and preview HTML, with local-first speed and sync when you want it (including LAN sessions). One surface for the way you actually think.`,
   },
 ];
 
@@ -387,7 +396,7 @@ export const manyCreatives = [
 export const vmodelSolutions = [
   {
     id: 1,
-    name: 'A centralized marketplace where models, photographers, and creatives can build an interactive portfolio and apply for jobs directly—no agency needed.',
+    name: 'A centralized marketplace where models, photographers, and creatives can build an interactive portfolio and apply for jobs directly-no agency needed.',
   },
   {
     id: 2,
@@ -457,7 +466,7 @@ export const unfairPayment = [
 export const vmodelSolutions3 = [
   {
     id: 1,
-    name: 'Zero agency fees – Talent set their own rates and receive 100% of their earnings.',
+    name: 'Zero agency fees - Talent set their own rates and receive 100% of their earnings.',
   },
 
   {
@@ -501,7 +510,7 @@ export const vmodelSolution4 = [
   {
     id: 2,
 
-    name: 'No agency bias – Clients see talent based on merit, not stereotypes.',
+    name: 'No agency bias - Clients see talent based on merit, not stereotypes.',
   },
 
   {
@@ -555,7 +564,7 @@ export const vmodelSolution6 = [
   {
     id: 2,
 
-    name: 'No agency bias – Clients see talent based on merit, not stereotypes.',
+    name: 'No agency bias - Clients see talent based on merit, not stereotypes.',
   },
 
   {
@@ -648,60 +657,60 @@ export const constantlyInnovating = [
 export const forSellers = [
   {
     id: 1,
-    name: 'List in Minutes – Snap photos, add details, and set a price in a few taps.',
+    name: 'List in Minutes - Snap photos, add details, and set a price in a few taps.',
   },
 
   {
     id: 2,
-    name: 'Smart Pricing Insights – Get help pricing items competitively.',
+    name: 'Smart Pricing Insights - Get help pricing items competitively.',
   },
 
   {
     id: 3,
-    name: 'Quick & Secure Payments – No waiting weeks for payouts. Sell, ship, and get paid fast.',
+    name: 'Quick & Secure Payments - No waiting weeks for payouts. Sell, ship, and get paid fast.',
   },
 
   {
     id: 4,
-    name: 'Seamless Buyer Interaction – Manage orders, respond to offers, and keep track of sales.',
+    name: 'Seamless Buyer Interaction - Manage orders, respond to offers, and keep track of sales.',
   },
 ];
 
 export const forBuyers = [
   {
     id: 1,
-    name: 'Discover Unique Finds – Browse high-quality secondhand and vintage pieces.',
+    name: 'Discover Unique Finds - Browse high-quality secondhand and vintage pieces.',
   },
 
   {
     id: 2,
-    name: 'Graded Condition System – Clear item condition labels for total transparency.',
+    name: 'Graded Condition System - Clear item condition labels for total transparency.',
   },
 
   {
     id: 3,
-    name: 'Personalized Shopping – Follow sellers, save favorite items, and get tailored recommendations.',
+    name: 'Personalized Shopping - Follow sellers, save favorite items, and get tailored recommendations.',
   },
 
   {
     id: 4,
-    name: 'Safe & Secure Transactions – Buyer protection ensures a worry-free experience.',
+    name: 'Safe & Secure Transactions - Buyer protection ensures a worry-free experience.',
   },
 ];
 
 export const trustedCommunity = [
   {
     id: 1,
-    name: 'Buyer & Seller Protection – Secure transactions, clear policies, and dispute resolution.',
+    name: 'Buyer & Seller Protection - Secure transactions, clear policies, and dispute resolution.',
   },
 
   {
     id: 2,
-    name: 'Authenticity & Quality – Our grading system ensures buyers know exactly what they’re getting.',
+    name: 'Authenticity & Quality - Our grading system ensures buyers know exactly what they’re getting.',
   },
 
   {
     id: 3,
-    name: 'Fair Pricing – No inflated markups or unfair cuts. Sellers keep more of what they earn.',
+    name: 'Fair Pricing - No inflated markups or unfair cuts. Sellers keep more of what they earn.',
   },
 ];

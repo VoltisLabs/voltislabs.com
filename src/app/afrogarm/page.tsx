@@ -133,7 +133,7 @@ function Vmodel() {
             <div className="section-container mb-[6.5rem]">
               <span className={`${paragrapghClassName}`}>
 
-                <span className={`  !font-bold`}> Our mission goes beyond commerce. </span>  We aim to celebrate Africa’s rich cultural heritage, its bold modern expressions, and its future-forward vision of fashion. Every piece you discover on Afrogarm carries a story — of craftsmanship, innovation, and identity - woven into fabric, stitched into detail, and expressed through bold colour and design.
+                <span className={`  !font-bold`}> Our mission goes beyond commerce. </span>  We aim to celebrate Africa’s rich cultural heritage, its bold modern expressions, and its future-forward vision of fashion. Every piece you discover on Afrogarm carries a story - of craftsmanship, innovation, and identity - woven into fabric, stitched into detail, and expressed through bold colour and design.
                 You may be seeking timeless traditional wear or contemporary African street style, or exclusive handmade accessories, Afrogarm offers a curated experience that honours authenticity while embracing modern style. Here, fashion is not just worn, it’s lived, celebrated, and shared with the world.
 
               </span>
@@ -178,7 +178,7 @@ function Vmodel() {
             Unique, Limited Pieces
           </h1>
           <span className={paragrapghClassName}>
-            Many designs you’ll find on Afrogarm are exclusive, limited edition, or handmade—perfect for those who value individuality.
+            Many designs you’ll find on Afrogarm are exclusive, limited edition, or handmade-perfect for those who value individuality.
           </span>
           <br />
         </div>
@@ -224,16 +224,16 @@ function Vmodel() {
               <ul className={`list-outside pl-4 ${paragrapghClassName}`}>
 
                 <li>
-                  <span className="font-bold">User-Friendly Platform</span> — Easily navigate through categories, filter preferences, and find exactly what you're looking for.
+                  <span className="font-bold">User-Friendly Platform</span> - Easily navigate through categories, filter preferences, and find exactly what you're looking for.
                 </li>
                 <li>
-                  <span className="font-bold"> Secure Transactions</span> — Shop with confidence knowing that your payments are protected.
+                  <span className="font-bold"> Secure Transactions</span> - Shop with confidence knowing that your payments are protected.
                 </li>
                 <li>
-                  <span className="font-bold"> Worldwide Shipping</span> — Reliable delivery services to bring your chosen pieces from Africa to your doorstep.
+                  <span className="font-bold"> Worldwide Shipping</span> - Reliable delivery services to bring your chosen pieces from Africa to your doorstep.
                 </li>
                 <li>
-                  <span className="font-bold">Customer Support</span> — Our dedicated team is here to assist you with any inquiries or concerns.
+                  <span className="font-bold">Customer Support</span> - Our dedicated team is here to assist you with any inquiries or concerns.
                 </li>
               </ul>
             </span>

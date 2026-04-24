@@ -113,7 +113,7 @@ function WearhousePage() {
             production.
           </span>
           <span className={paragrapghClassName}>
-            Every piece of clothing has a story, and we’re here to help it continue—through new
+            Every piece of clothing has a story, and we’re here to help it continue-through new
             owners, new styles, and new possibilities.
           </span>
         </section>

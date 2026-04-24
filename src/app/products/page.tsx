@@ -119,7 +119,9 @@ const Page = () => {
               <img
                 src={product.img}
                 alt={product.message}
-                className="h-full w-full origin-center object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+                className={`h-full w-full origin-center transition-transform duration-300 ease-out group-hover:scale-105 ${
+                  product.img?.endsWith?.('.svg') ? 'object-contain p-3' : 'object-cover'
+                }`}
               />
             </div>
             <div className="p-2">

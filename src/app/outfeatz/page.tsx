@@ -44,7 +44,7 @@ function OutfeatzPage() {
 
       <section id="outfeatz-home md:block hidden max-w-[85rem]">
         <TitleSection
-          title=" Outfeatz – Curate Your Style, Your Way"
+          title=" Outfeatz - Curate Your Style, Your Way"
           subTitle="Turn Your Outfits into Stunning Digital Galleries"
           secondaryText="Published on Monday 17th February, 2025"
           containerStyle="mb-4 md:block hidden"
@@ -108,7 +108,7 @@ function OutfeatzPage() {
       >
         <section className="text-white mb-8">
           <h1 className={titleClassName}>
-            Outfeatz – Curate Your Style, Your Way
+            Outfeatz - Curate Your Style, Your Way
           </h1>
           <span className={paragrapghClassName}>
             Your fashion deserves a spotlight. Outfeatz is a revolutionary app
@@ -117,7 +117,7 @@ function OutfeatzPage() {
             effortlessly. With one tap, Outfeatz automatically removes backgrounds
             from your outfit photos, giving you clean, professional cut-outs.
             From there, you can create custom galleries, categorise your looks,
-            and even save them to your account for easy access – all from your
+            and even save them to your account for easy access - all from your
             phone.
           </span>{" "}
           <br />
@@ -139,7 +139,7 @@ function OutfeatzPage() {
               <h3 className="font-semibold">Curate Your Gallery</h3>
               <p>
                 Create and organise multiple custom galleries to keep track of
-                your best outfits. Name them however you like – categorise by
+                your best outfits. Name them however you like - categorise by
                 style, season, or occasion.
               </p>
             </div>
@@ -307,10 +307,10 @@ function OutfeatzPage() {
             Why Outfeatz?
           </h2>
           <ul className="list-disc mt-4 pl-5">
-            <li>Instant Background Removal – No more messy backgrounds.</li>
-            <li>Create & Customise Galleries – Organise your fashion moments effortlessly.</li>
-            <li>Account Syncing – Save your curated collections securely.</li>
-            <li>Fast, Seamless, and Fun – No design skills required.</li>
+            <li>Instant Background Removal - No more messy backgrounds.</li>
+            <li>Create & Customise Galleries - Organise your fashion moments effortlessly.</li>
+            <li>Account Syncing - Save your curated collections securely.</li>
+            <li>Fast, Seamless, and Fun - No design skills required.</li>
           </ul>
         </section>
 
@@ -319,7 +319,7 @@ function OutfeatzPage() {
             The Future of Digital Fashion Starts Here
           </h2>
           <p className="mt-4">
-            Outfeatz is more than an app – it is a fashion tool that helps you
+            Outfeatz is more than an app - it is a fashion tool that helps you
             stay organised, creative, and inspired. Whether you are planning your
             next outfit, curating looks for social media, or building a
             professional fashion portfolio, Outfeatz gives you full control over

@@ -9,7 +9,7 @@ const HeroSection = () => {
                 </h1>
 
                 <span className='text-white text-[21.6px] font-light leading-8'>
-                    Loyalty Bot is a productivity and moderation tool built specifically for teams who run their work life on Discord. Loyalty Bot helps you track<span className='font-bold'> break times, monitor lateness</span>, and hold everyone to the<span className='font-bold'> same standard</span> — fairly, automatically, and without micromanagement.
+                    Loyalty Bot is a productivity and moderation tool built specifically for teams who run their work life on Discord. Loyalty Bot helps you track<span className='font-bold'> break times, monitor lateness</span>, and hold everyone to the<span className='font-bold'> same standard</span> - fairly, automatically, and without micromanagement.
                 </span>
             </div>
             <div className=' hidden  relative md:flex items-center justify-end  flex-1 '>

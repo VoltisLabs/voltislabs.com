@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // GraphQL convention: 200 + { data, errors } — avoids Axios rejecting on upstream 401/403 HTML.
+    // GraphQL convention: 200 + { data, errors } - avoids Axios rejecting on upstream 401/403 HTML.
     return NextResponse.json(parsed, { status: 200 });
   } catch (e) {
     const message = e instanceof Error ? e.message : "Hygraph proxy request failed";

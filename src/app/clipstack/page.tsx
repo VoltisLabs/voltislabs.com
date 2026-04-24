@@ -19,7 +19,7 @@ export default function ClipstackPage() {
       <p className="mb-6 text-center text-sm text-vl-ink-muted">Productivity · Voltis Labs</p>
       <div className="space-y-4 text-pretty leading-relaxed text-vl-ink-muted">
         <p>
-          Clipstack is a clipboard manager for people who live in copy-and-paste—developers, writers, support leads,
+          Clipstack is a clipboard manager for people who live in copy-and-paste-developers, writers, support leads,
           and anyone juggling URLs, snippets, and boilerplate all day. Stack what you copy, search your history, and
           paste the right item in seconds instead of re-fetching tabs or retyping the same text.
         </p>

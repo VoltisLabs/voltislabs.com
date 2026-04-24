@@ -279,7 +279,7 @@ export default function Home() {
                     key={index}
                     className="flex w-[9.75rem] shrink-0 flex-col cursor-pointer items-stretch overflow-hidden text-left md:w-[12rem]"
                   >
-                    {/* Link must not wrap a nested <a> (Spotify CTA) — invalid HTML and hydration errors. */}
+                    {/* Link must not wrap a nested <a> (Spotify CTA) - invalid HTML and hydration errors. */}
                     <Link
                       href={`/latest-updates?item=${index}`}
                       scroll={false}
@@ -433,7 +433,7 @@ export default function Home() {
                         </h3>
 
                         <p className="text-sm font-medium text-vl-ink-muted" suppressHydrationWarning>
-                          <span className="font-bold text-vl-ink">{post.category}</span> —{" "}
+                          <span className="font-bold text-vl-ink">{post.category}</span> -{" "}
                           {new Date(post.datePublished).toLocaleDateString('en-US', {
                             timeZone: 'UTC',
                             year: 'numeric',

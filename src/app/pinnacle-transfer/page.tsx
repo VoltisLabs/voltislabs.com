@@ -19,8 +19,8 @@ export default function PinnacleTransferPage() {
       <p className="mb-6 text-center text-sm text-vl-ink-muted">Productivity · Voltis Labs</p>
       <div className="space-y-4 text-pretty leading-relaxed text-vl-ink-muted">
         <p>
-          Pinnacle Transfer is built for teams who move large files daily—design exports, video cuts, audio stems,
-          and campaign assets—without fighting attachment limits or scattered drive links. It keeps transfers fast
+          Pinnacle Transfer is built for teams who move large files daily-design exports, video cuts, audio stems,
+          and campaign assets-without fighting attachment limits or scattered drive links. It keeps transfers fast
           and intentional so collaborators spend less time waiting and more time shipping.
         </p>
         <p>

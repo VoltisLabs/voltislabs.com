@@ -24,7 +24,7 @@ function AboutusPage() {
       <section id="prelura-home md:block hidden" className="max-w-[85rem]">
         <TitleSection
           title="We are Voltis Labs"
-          subTitle="Where tomorrow’s tech leaders are built — one project at a time."
+          subTitle="Where tomorrow’s tech leaders are built - one project at a time."
           secondaryText="Published on Monday 17th February, 2025"
           containerStyle="mb-4 md:block hidden"
         />
@@ -79,7 +79,7 @@ function AboutusPage() {
           <span className={` ${paragrapghClassName}`}>
             At Voltis Labs, we <span className="font-semibold">believe </span>
             technology has the power to unlock human potential. We are a company built on the idea
-            that innovation should serve a purpose—solving real problems, empowering creators, and
+            that innovation should serve a purpose-solving real problems, empowering creators, and
             shaping a more connected future.
           </span>
 
@@ -91,7 +91,7 @@ function AboutusPage() {
           </span>
 
           <span className={paragrapghClassName}>
-            The result was Voltis Labs—a place where bold ideas are turned into reality, where
+            The result was Voltis Labs-a place where bold ideas are turned into reality, where
             barriers are broken, and where technology serves people, not the other way around.
           </span>
         </section>
@@ -106,7 +106,7 @@ function AboutusPage() {
           <div className="flex w-full flex-col gap-8 md:flex-row">
             <div className="w-full md:w-[48.5%]">
               <span className={paragrapghClassName}>
-                We are here to build the next generation of digital platforms—ones that are
+                We are here to build the next generation of digital platforms-ones that are
                 intuitive, scalable, and designed to make life easier. Our approach is rooted in
                 innovation, but more importantly, in impact. Every product we create is built to
                 solve a problem, to simplify complexity, and to open new doors for those who dare to
@@ -175,7 +175,7 @@ function AboutusPage() {
             Looking Ahead
           </div>
           <span className={paragrapghClassName}>
-            Voltis Labs isn’t just a tech company—it’s a movement. We are here to redefine what’s
+            Voltis Labs isn’t just a tech company-it’s a movement. We are here to redefine what’s
             possible, to bridge the gap between vision and execution, and to create technology that
             truly matters. Whether it’s enabling new ways to work, connect, or create, we are
             building a future where digital solutions empower, rather than complicate.

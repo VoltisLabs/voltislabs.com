@@ -823,7 +823,7 @@ export default function NewsPage() {
                             view === 'list' ? 'text-sm' : 'text-xs leading-snug sm:text-sm'
                           }`}
                         >
-                          <span className="font-bold text-vl-ink">{post.category}</span> —{' '}
+                          <span className="font-bold text-vl-ink">{post.category}</span> -{' '}
                           {new Date(post.datePublished).toLocaleDateString('en-US', {
                             year: 'numeric',
                             month: 'long',

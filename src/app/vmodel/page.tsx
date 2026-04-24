@@ -144,7 +144,7 @@ function Vmodel() {
               create without limits. Whether you're an aspiring model trying to
               land your first gig, a seasoned photographer building your brand,
               or a creative director scouting the perfect talent for a campaign,
-              VModel streamlines the process—so you can focus on what truly
+              VModel streamlines the process-so you can focus on what truly
               matters: your craft.
             </span>
 
@@ -191,7 +191,7 @@ function Vmodel() {
             Say goodbye to unpaid invoices and sketchy payment processes.
             VModel's built-in secure payment system ensures that funds are held
             safely and released once the job is completed. No more chasing
-            payments or worrying about getting scammed—just clear, transparent
+            payments or worrying about getting scammed-just clear, transparent
             transactions that protect both talent and clients.
           </span>
           <br />
@@ -199,7 +199,7 @@ function Vmodel() {
             Create & Build Your Professional Reputation
           </h1>
           <span className={paragrapghClassName}>
-            Your work should speak for itself—and on VModel, it does. Build a
+            Your work should speak for itself-and on VModel, it does. Build a
             professional profile that showcases your portfolio, experience, and
             unique style. Let brands and clients see your best work at a glance,
             helping you stand out in a competitive industry.
@@ -240,7 +240,7 @@ function Vmodel() {
           <br />
           <h1 className={titleClassName}>Photographers</h1>
           <span className={paragrapghClassName}>
-            No more waiting for the right connections—VModel puts you directly
+            No more waiting for the right connections-VModel puts you directly
             in touch with models, stylists, and brands. Whether you're shooting
             high fashion, commercial work, or personal projects, finding the
             right talent has never been easier.
@@ -289,14 +289,14 @@ function Vmodel() {
             your portfolio, including high-quality images, videos, detailed
             descriptions, and even process notes. You can organize your work
             into categories, allowing clients to easily navigate your
-            expertise—whether it’s photography, design, writing, or something
+            expertise-whether it’s photography, design, writing, or something
             else entirely.
           </span>
           <br />
 
           <div className="section-container">
             <h1 className={titleClassName}>
-              No Middlemen, No Delays—Just Pure Creative Collaboration
+              No Middlemen, No Delays-Just Pure Creative Collaboration
             </h1>
             <span className={paragrapghClassName}>
               We believe that creators should own their careers and keep their
@@ -370,7 +370,7 @@ function Vmodel() {
           <br />
           <span className={paragrapghClassName}>
             For decades, the creative industry - spanning fashion, photography,
-            styling, and content creation—has remained tightly controlled by
+            styling, and content creation-has remained tightly controlled by
             traditional agencies and outdated gatekeeping systems. While the
             digital era has democratized many industries, creatives still
             struggle with limited access to opportunities, inconsistent income,
@@ -509,7 +509,7 @@ function Vmodel() {
               4. Fragmented Work Management & Lack of Professional Tools
             </h1>
             <span className={paragrapghClassName}>
-              Most creatives use multiple platforms—Instagram for exposure,
+              Most creatives use multiple platforms-Instagram for exposure,
               emails for client communication, and third-party sites for
               payments. This leads to:
             </span>
