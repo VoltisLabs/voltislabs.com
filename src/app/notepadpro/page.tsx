@@ -14,7 +14,7 @@ import {
   titleClassName,
 } from "../data";
 
-const ART = "/products/notepad-pro/frame-102.svg";
+const ART = "/products/notepad-pro/frame-103.svg";
 
 const sliderTiles = [{ img: ART }, { img: ART }, { img: ART }, { img: ART }];
 

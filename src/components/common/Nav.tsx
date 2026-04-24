@@ -113,6 +113,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
         { name: "Loyalty Bot", route: "/loyalty_bot" },
         { name: "Pinnacle Transfer", route: "/pinnacle-transfer" },
         { name: "Clipstack", route: "/clipstack" },
+        { name: "Notepad Pro", route: "/notepadpro" },
       ],
     },
   ];
