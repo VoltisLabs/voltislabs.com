@@ -67,9 +67,9 @@ function Content() {
       </section> */}
 
       <div className="mb-6 w-full border border-vl-brown/20"></div>
-      <section className="mb-12 min-h-[20rem] px-[1rem] md:min-h-[23rem] md:px-[2rem]">
-        <div className="mb-10 flex flex-col justify-between text-vl-ink md:flex-row">
-          <div className="flex justify-between w-full ">
+      <section className="mb-12 px-[1rem] md:px-[2rem]">
+        <div className="mb-8 flex flex-col gap-4 text-vl-ink md:mb-10 md:flex-row md:items-center md:justify-between">
+          <div className="flex w-full items-center justify-between gap-4">
             <h2 className="text-[1.6rem] font-semibold tracking-tight text-vl-brown-dark md:text-[1.7rem]">
               Products
             </h2>

@@ -38,7 +38,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
     console.log({ id });
   };
   const desktopContent = (
-    <div className="flex items-center ">
+    <div className="flex items-stretch gap-3 px-3 py-1 md:gap-4">
       {array.map((text, index) => {
         const isBefore = selected !== null && array[index + 1]?.id === selected;
         const isAfter = selected !== null && array[index - 1]?.id === selected;
@@ -66,37 +66,40 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
                 card.classList.remove("after")
                 card.classList.remove("current")
               })
-              let leftCard = cards[clickedCardIndex - 1]
-              let rightCard = cards[clickedCardIndex + 1]
-              leftCard.classList.add('before')
-              rightCard.classList.add('after')
-              // cards[clickedCardIndex].classList.add('current')
+              const leftCard = cards[clickedCardIndex - 1]
+              const rightCard = cards[clickedCardIndex + 1]
+              leftCard?.classList.add("before")
+              rightCard?.classList.add("after")
             }
             console.log({ clickedCardIndex })
           }}
 
 
-          className={`card flex h-[20rem] w-[16rem] flex-col overflow-hidden rounded-lg bg-vl-cream-deep text-left`}
+          className={`card flex w-[7.25rem] shrink-0 flex-col overflow-hidden rounded-xl border border-vl-brown/10 bg-vl-cream-deep text-left shadow-sm sm:w-32 md:w-36`}
         >
 
           <div className="image-container aspect-square w-full shrink-0 overflow-hidden bg-vl-cream">
             <Image
               src={text.img}
-              alt="Icon"
-              width={256}
-              height={256}
+              alt={text.message}
+              width={160}
+              height={160}
               unoptimized={text.img.endsWith(".svg")}
-              className="h-full w-full object-cover transition-all duration-[.85s] ease-in-out hover:scale-110"
+              className={`h-full w-full transition-all duration-[.85s] ease-in-out hover:scale-105 ${
+                text.img.endsWith(".svg") ? "object-contain p-2" : "object-cover"
+              }`}
             />
           </div>
 
-          <p className="mt-3 px-3 pb-3 text-[.9rem] font-semibold text-vl-ink">{text.message}</p>
+          <p className="mt-2 min-h-[2.25rem] px-2 pb-2 text-center text-[0.7rem] font-semibold leading-tight text-vl-ink sm:text-xs">
+            {text.message}
+          </p>
         </div>
       })}
-    </div >
+    </div>
   );
   const mobileContent = (
-    <div className="flex flex-nowrap  h-full ">
+    <div className="flex h-full flex-nowrap items-stretch gap-3 px-3 py-1">
       {array.map((text, index) => (
         <div
           key={index}
@@ -128,28 +131,31 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
                 card.classList.remove("after")
                 card.classList.remove("current")
               })
-              let leftCard = cards[clickedCardIndex - 1]
-              let rightCard = cards[clickedCardIndex + 1]
-              leftCard.classList.add('before')
-              rightCard.classList.add('after')
-              // cards[clickedCardIndex].classList.add('current')
+              const leftCard = cards[clickedCardIndex - 1]
+              const rightCard = cards[clickedCardIndex + 1]
+              leftCard?.classList.add("before")
+              rightCard?.classList.add("after")
             }
             console.log({ clickedCardIndex })
           }}
-          className={`card flex min-h-[15rem] w-[12rem] flex-col overflow-hidden rounded-lg bg-vl-cream-deep text-left`}
+          className={`card flex w-[6.75rem] shrink-0 flex-col overflow-hidden rounded-xl border border-vl-brown/10 bg-vl-cream-deep text-left shadow-sm sm:w-28`}
         >
           <div className="image-container aspect-square w-full shrink-0 overflow-hidden bg-vl-cream">
             <Image
               src={text.img}
-              alt="Icon"
-              width={200}
-              height={200}
+              alt={text.message}
+              width={128}
+              height={128}
               unoptimized={text.img.endsWith(".svg")}
-              className="h-full w-full object-cover transition-all duration-[.85s] ease-in-out hover:scale-110"
+              className={`h-full w-full transition-all duration-[.85s] ease-in-out hover:scale-105 ${
+                text.img.endsWith(".svg") ? "object-contain p-1.5" : "object-cover"
+              }`}
             />
           </div>
 
-          <p className="mt-2 px-3 pb-3 text-[.8rem] font-semibold text-vl-ink">{text.message}</p>
+          <p className="mt-1.5 min-h-[2rem] px-1.5 pb-2 text-center text-[0.65rem] font-semibold leading-tight text-vl-ink sm:text-[0.7rem]">
+            {text.message}
+          </p>
           {/* <p className="text-white text-[.7rem]">{text.time}</p> */}
         </div>
       ))}
@@ -199,17 +205,14 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
       {/* Desktop View */}
       <div className="hidden md:block">
         {marquee ? (
-          <div className="flex flex-col gap-6 bg-vl-cream">
-
+          <div className="flex flex-col gap-4 bg-vl-cream">
             <Marquee
-              className="slider-statement relative z-20 cursor-default overflow-hidden bg-vl-cream-deep"
-              speed={50}
+              className="slider-statement relative z-20 cursor-default overflow-hidden rounded-xl border border-vl-brown/10 bg-vl-cream-deep/80 px-2 py-2"
+              speed={40}
               pauseOnHover
               pauseOnClick={false}
               direction="right"
-
               play={!paused}
-
             >
               {desktopContent}
             </Marquee>
@@ -241,15 +244,13 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
       {/* Mobile View */}
       <div className="md:hidden">
         {marquee ? (
-          <div className="flex-col flex  gap-6">
-
+          <div className="flex flex-col gap-4">
             <Marquee
-              className="slider-statement relative z-20 cursor-default bg-vl-cream-deep"
-              speed={30}
+              className="slider-statement relative z-20 cursor-default overflow-hidden rounded-xl border border-vl-brown/10 bg-vl-cream-deep/80 px-2 py-2"
+              speed={28}
               pauseOnHover
               pauseOnClick={false}
               direction="left"
-
               play={!paused}
             >
               {mobileContent}
