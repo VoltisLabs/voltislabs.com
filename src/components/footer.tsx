@@ -43,13 +43,14 @@ export default function Footer() {
             <p>LinkedIn</p>
           </Link>
         </div>
-        <Link className="hover:scale-[1.02] transition-transform" href={"/"}>
+        <Link className="transition-transform hover:scale-[1.02]" href={"/"}>
           <Image
-            src={"/image/logo3.png"}
-            alt="Icon"
-            width={100}
+            src="/icons/vl-logo-brown.svg"
+            alt="Voltis Labs"
+            width={252}
             height={100}
-            className="mb-6 mt-6 md:mb-24 md:mt-0"
+            unoptimized
+            className="mb-6 mt-6 h-10 w-auto max-w-[min(100%,14rem)] object-contain md:mb-24 md:mt-0 md:h-12 md:max-w-[18rem]"
           />
         </Link>
       </footer>
