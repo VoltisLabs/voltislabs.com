@@ -9,7 +9,10 @@ export default function GlobalError({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-vl-cream text-vl-ink antialiased">
+      <body
+        className="min-h-screen bg-vl-cream text-vl-ink antialiased"
+        style={{ backgroundColor: "#f4efe6", color: "#14100d" }}
+      >
         <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-6">
           <h2 className="text-xl font-semibold">Something went wrong</h2>
           <button

@@ -18,6 +18,11 @@ export default function AppChrome({ children }: { children: React.ReactNode }) {
         className={`mx-auto flex min-h-screen w-full max-w-screen-2xl flex-col ${
           isLoyaltyBot ? "bg-[#1a2081] text-white" : "bg-vl-cream text-vl-ink"
         }`}
+        style={
+          isLoyaltyBot
+            ? { backgroundColor: "#1a2081", color: "#ffffff" }
+            : { backgroundColor: "#f4efe6", color: "#14100d" }
+        }
       >
         <main
           className={`content flex w-full flex-1 flex-col min-h-0 ${isLoyaltyBot ? "bg-[#1a2081]" : "bg-transparent"}`}

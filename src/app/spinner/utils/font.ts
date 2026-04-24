@@ -1,7 +1,9 @@
-import localFont from 'next/font/local';
+import { Bungee } from "next/font/google";
 
-export const comixLoud = localFont({
-    src: '../../../app/fonts/ComixLoud.ttf',
-    display: 'swap',
-    variable: '--font-comix-loud',
+/** Display font for spinner UI (replaces missing local `ComixLoud.ttf` in repo). */
+export const comixLoud = Bungee({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-comix-loud",
 });
