@@ -6,6 +6,17 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  /** Helps Fast Refresh when native file watchers miss saves (multiple dev servers, some sandboxes). */
+  webpack: (config, { dev }) => {
+    if (dev) {
+      config.watchOptions = {
+        ...config.watchOptions,
+        poll: 1000,
+        aggregateTimeout: 300,
+      };
+    }
+    return config;
+  },
   async redirects() {
     return [{ source: "/prelura", destination: "/wearhouse", permanent: true }];
   },

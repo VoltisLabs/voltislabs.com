@@ -10,7 +10,7 @@ const UpdateItem = ({ img, message, subText, time, description, spotify, spotify
     return (
       <div className="flex flex-col md:flex-row items-start gap-6 py-8 border-b border-vl-brown/20">
         {/* Match home "Latest Updates" rail: fixed card width + same aspect + radius */}
-        <div className="w-[8.75rem] shrink-0 md:w-[11rem]">
+        <div className="w-[9.75rem] shrink-0 md:w-[12rem]">
           <div className="relative aspect-[310/300] w-full min-h-0 overflow-hidden rounded-[10px]">
             {img.endsWith('.svg') ? (
               <img
@@ -24,7 +24,7 @@ const UpdateItem = ({ img, message, subText, time, description, spotify, spotify
                 alt={message}
                 width={200}
                 height={194}
-                sizes="(max-width: 768px) 140px, 176px"
+                sizes="(max-width: 768px) 156px, 192px"
                 className="h-full w-full object-cover"
               />
             )}

@@ -277,7 +277,7 @@ export default function Home() {
                 {updates.map((text, index) => (
                   <div
                     key={index}
-                    className="flex w-[8.75rem] shrink-0 flex-col cursor-pointer items-stretch overflow-hidden text-left md:w-[11rem]"
+                    className="flex w-[9.75rem] shrink-0 flex-col cursor-pointer items-stretch overflow-hidden text-left md:w-[12rem]"
                   >
                     {/* Link must not wrap a nested <a> (Spotify CTA) — invalid HTML and hydration errors. */}
                     <Link
@@ -299,7 +299,7 @@ export default function Home() {
                             alt={text.message}
                             width={200}
                             height={194}
-                            sizes="(max-width: 768px) 140px, 176px"
+                            sizes="(max-width: 768px) 156px, 192px"
                             className="h-full w-full object-cover transition-all duration-[.85s] ease-in-out hover:scale-110"
                           />
                         )}
@@ -387,7 +387,7 @@ export default function Home() {
                   {[...Array(4)].map((_, index) => (
                     <div
                       key={index}
-                      className="w-[8.75rem] shrink-0 animate-pulse items-start overflow-hidden text-left md:w-[11rem]"
+                      className="w-[9.75rem] shrink-0 animate-pulse items-start overflow-hidden text-left md:w-[12rem]"
                     >
                       <div className="aspect-[310/300] w-full rounded-[10px] bg-vl-cream-muted"></div>
                       <div className="mt-4 h-4 w-3/4 rounded bg-vl-cream-muted"></div>
@@ -409,7 +409,7 @@ export default function Home() {
                     <Link
                       key={`${post.slug}-${i}`}
                       href={`/blog/${post.slug}`}
-                      className="w-[8.75rem] shrink-0 items-start overflow-hidden text-left md:w-[11rem]"
+                      className="w-[9.75rem] shrink-0 items-start overflow-hidden text-left md:w-[12rem]"
                     >
                       <div className="image-container relative aspect-[310/300] w-full overflow-hidden rounded-[10px]">
                         {post.image ? (
@@ -418,7 +418,7 @@ export default function Home() {
                             alt={post.title}
                             width={200}
                             height={194}
-                            sizes="(max-width: 768px) 140px, 176px"
+                            sizes="(max-width: 768px) 156px, 192px"
                             className="h-full w-full object-cover transition-all duration-[.85s] ease-in-out hover:scale-110"
                             unoptimized={true} // Add this if you're having issues with external images
                           />

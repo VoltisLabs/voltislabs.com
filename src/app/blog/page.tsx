@@ -533,22 +533,33 @@ export default function NewsPage() {
     }
   };
 
+  /** Match home / latest-updates rail thumbnails */
+  const blogThumbWrap = 'w-[9.75rem] shrink-0 md:w-[12rem]';
+  const blogThumbFrame =
+    'relative aspect-[310/300] w-full min-h-0 overflow-hidden rounded-[10px]';
+  /** Wider grid now that thumbs are narrow; generous gaps so it does not feel cramped */
+  const blogGridClass =
+    'grid grid-cols-1 justify-items-start gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5';
+
   // Loading Skeleton Component for infinite scroll
   const LoadingSkeleton = () => (
     <div
-      className={`${view === 'grid' ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3' : 'flex flex-col gap-6'}`}
+      className={`${view === 'grid' ? blogGridClass : 'flex flex-col gap-6'}`}
     >
       {[...Array(3)].map((_, index) => (
         <div
           key={index}
-          className={`animate-pulse overflow-hidden ${view === 'list' ? 'flex flex-row' : ''}`}
+          className={`animate-pulse overflow-hidden ${view === 'list' ? 'flex flex-row gap-4' : 'flex flex-col items-start gap-3'}`}
         >
+          <div className={`${blogThumbWrap}`}>
+            <div className={`${blogThumbFrame} bg-vl-cream-muted`} />
+          </div>
           <div
-            className={`rounded-lg bg-vl-cream-muted ${view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'}`}
-          />
-          <div className={`${view === 'list' ? 'flex-1 p-4' : 'py-4'}`}>
-            <div className="mb-2 h-4 rounded bg-vl-cream-muted" />
-            <div className="h-3 w-2/3 rounded bg-vl-cream-muted" />
+            className={`${view === 'list' ? 'min-w-0 flex-1 p-4' : `${blogThumbWrap} space-y-2 py-2`}`}
+          >
+            <div className="h-4 w-full rounded bg-vl-cream-muted" />
+            <div className="h-3 w-full rounded bg-vl-cream-muted" />
+            <div className="h-3 w-4/5 rounded bg-vl-cream-muted" />
           </div>
         </div>
       ))}
@@ -768,34 +779,50 @@ export default function NewsPage() {
           {loading ? (
             <LoadingSkeleton />
           ) : (
-            <div
-              className={
-                view === 'grid'
-                  ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'
-                  : 'flex flex-col gap-6'
-              }
-            >
+            <div className={view === 'grid' ? blogGridClass : 'flex flex-col gap-6'}>
               {filteredPosts.length > 0 ? (
                 filteredPosts.map((post, i) => (
-                  <Link key={`${post.slug}-${i}`} href={`/blog/${post.slug}`}>
+                  <Link
+                    key={`${post.slug}-${i}`}
+                    href={`/blog/${post.slug}`}
+                    className={view === 'list' ? 'block w-full' : 'block w-fit max-w-full'}
+                  >
                     <div
                       className={`group overflow-hidden transition-all duration-300 hover:scale-105 ${
-                        view === 'list' ? 'flex flex-row' : ''
+                        view === 'list' ? 'flex flex-row gap-4' : 'flex flex-col items-start gap-3'
                       }`}
                     >
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        className={`rounded-lg object-cover transition-transform duration-300 ${
-                          view === 'list' ? 'h-40 w-40' : 'aspect-square w-full'
-                        }`}
-                      />
-                      <div className={`${view === 'list' ? 'p-4' : 'py-4'}`}>
-                        <h3 className="text-md mb-4 mt-1 overflow-hidden truncate whitespace-nowrap font-semibold text-vl-ink">
+                      <div className={blogThumbWrap}>
+                        <div className={blogThumbFrame}>
+                          <img
+                            src={post.image}
+                            alt={post.title}
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        className={
+                          view === 'list'
+                            ? 'min-w-0 flex-1 p-4'
+                            : `${blogThumbWrap} space-y-2 py-2`
+                        }
+                      >
+                        <h3
+                          className={`mt-1 font-semibold leading-snug text-vl-ink ${
+                            view === 'list'
+                              ? 'text-md mb-2 line-clamp-2 sm:line-clamp-3'
+                              : 'mb-1 line-clamp-4 break-words text-sm sm:text-[0.9375rem]'
+                          }`}
+                        >
                           {post.title}
                         </h3>
 
-                        <p className="text-sm text-vl-ink-muted">
+                        <p
+                          className={`text-vl-ink-muted ${
+                            view === 'list' ? 'text-sm' : 'text-xs leading-snug sm:text-sm'
+                          }`}
+                        >
                           <span className="font-bold text-vl-ink">{post.category}</span> —{' '}
                           {new Date(post.datePublished).toLocaleDateString('en-US', {
                             year: 'numeric',
