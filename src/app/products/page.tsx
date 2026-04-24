@@ -34,20 +34,20 @@ const Page = () => {
     setImageIdx(idx);
   };
 
-  /** One rule everywhere: fill the box, centred (works for square SVGs and photos). */
-  const fillFrame = 'h-full w-full object-cover object-center';
+  /** Edge-to-edge fill (same visual as raster cards; no letterboxing padding). */
+  const fillCover = 'absolute inset-0 h-full w-full object-cover object-center';
 
   return (
     <div className="mx-auto flex min-h-[50vh] flex-col gap-4 px-4 pb-12 pt-[5.3rem] md:gap-6 md:px-6 xl:w-[75rem] xl:flex-row xl:gap-8">
       {/* Preview Window */}
       <div className="flex w-full flex-col rounded-lg border border-vl-brown/25 bg-vl-cream-deep shadow-xl xl:w-2/3">
         {/* Main image */}
-        <div className="group relative h-[300px] w-full overflow-hidden rounded-lg sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[650px]">
+        <div className="group relative h-[300px] w-full overflow-hidden rounded-lg bg-vl-cream sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[650px]">
           {images.length > 0 && (
             <img
               src={images[imageIdx]}
               alt={selectedProduct.message}
-              className={`${fillFrame} rounded-lg`}
+              className={fillCover}
             />
           )}
           {images.length > 1 && (
@@ -82,7 +82,7 @@ const Page = () => {
               <img
                 src={img}
                 alt={`${selectedProduct.message} preview ${idx + 1}`}
-                className={fillFrame}
+                className={fillCover}
               />
               {images.length > 4 && idx === 3 && (
                 <span className="absolute inset-0 flex items-center justify-center bg-vl-brown/70 text-xs font-semibold text-vl-cream">
@@ -117,7 +117,11 @@ const Page = () => {
             className={`group cursor-pointer rounded-lg border border-vl-brown/25 bg-vl-cream-deep shadow-md transition-all duration-200 hover:scale-[1.03] ${selectedIdx === idx ? 'ring-2 ring-vl-brown' : ''}`}
           >
             <div className="relative aspect-square w-full overflow-hidden rounded-t-lg bg-vl-cream">
-              <img src={product.img} alt={product.message} className={`${fillFrame} transition-transform duration-300 ease-out group-hover:scale-105`} />
+              <img
+                src={product.img}
+                alt={product.message}
+                className={`${fillCover} transition-transform duration-300 ease-out group-hover:scale-105`}
+              />
             </div>
             <div className="p-2">
               <h2 className="mb-1 truncate text-sm font-semibold text-vl-ink sm:text-base">{product.message}</h2>

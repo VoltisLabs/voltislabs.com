@@ -78,16 +78,14 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
           className={`card flex w-[7.25rem] shrink-0 flex-col overflow-hidden rounded-xl border border-vl-brown/10 bg-vl-cream-deep text-left shadow-sm sm:w-32 md:w-36`}
         >
 
-          <div className="image-container aspect-square w-full shrink-0 overflow-hidden bg-vl-cream">
+          <div className="image-container relative aspect-square w-full shrink-0 overflow-hidden bg-vl-cream">
             <Image
               src={text.img}
               alt={text.message}
-              width={160}
-              height={160}
+              fill
+              sizes="(max-width: 768px) 7rem, 9rem"
               unoptimized={text.img.endsWith(".svg")}
-              className={`h-full w-full transition-all duration-[.85s] ease-in-out hover:scale-105 ${
-                text.img.endsWith(".svg") ? "object-contain p-2" : "object-cover"
-              }`}
+              className="object-cover object-center transition-all duration-[.85s] ease-in-out hover:scale-105"
             />
           </div>
 
@@ -140,16 +138,14 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
           }}
           className={`card flex w-[6.75rem] shrink-0 flex-col overflow-hidden rounded-xl border border-vl-brown/10 bg-vl-cream-deep text-left shadow-sm sm:w-28`}
         >
-          <div className="image-container aspect-square w-full shrink-0 overflow-hidden bg-vl-cream">
+          <div className="image-container relative aspect-square w-full shrink-0 overflow-hidden bg-vl-cream">
             <Image
               src={text.img}
               alt={text.message}
-              width={128}
-              height={128}
+              fill
+              sizes="(max-width: 640px) 6.75rem, 7rem"
               unoptimized={text.img.endsWith(".svg")}
-              className={`h-full w-full transition-all duration-[.85s] ease-in-out hover:scale-105 ${
-                text.img.endsWith(".svg") ? "object-contain p-1.5" : "object-cover"
-              }`}
+              className="object-cover object-center transition-all duration-[.85s] ease-in-out hover:scale-105"
             />
           </div>
 
