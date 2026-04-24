@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;1,14..32,300&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,12 +14,22 @@
 
 html {
   background-color: var(--vl-cream);
+  color: var(--vl-ink);
 }
 
 body {
+  background-color: var(--vl-cream);
+  color: var(--vl-ink);
   scroll-behavior: smooth;
   /* Avoid horizontal scroll from full-bleed sections; keep html unclipped for fixed layers */
   overflow-x: hidden;
+}
+
+/* Windows high-contrast / forced-colors can flatten the whole UI to system black & white */
+@media (forced-colors: active) {
+  html {
+    forced-color-adjust: none;
+  }
 }
 
 .page-container .slick-slider,
@@ -50,7 +59,7 @@ body {
 
 @layer base {
   body {
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   }
 }
 

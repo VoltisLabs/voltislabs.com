@@ -4,6 +4,7 @@ import {
   Comfortaa,
   Geist_Mono,
   Hammersmith_One,
+  Inter,
   Sometype_Mono,
   Titan_One,
   Lato,
@@ -11,6 +12,12 @@ import {
 import "./globals.css";
 import { comixLoud } from "./spinner/utils/font";
 import AppChrome from "./AppChrome";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const lato = Lato({
   variable: "--font-lato",
@@ -48,6 +55,7 @@ const geistMono = Geist_Mono({
 });
 
 const fontVariables = [
+  inter.variable,
   lato.variable,
   comixLoud.variable,
   someType.variable,
@@ -69,7 +77,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fontVariables} min-h-screen antialiased`}>
+      <body
+        className={`${fontVariables} min-h-screen antialiased`}
+        style={{
+          backgroundColor: "#f4efe6",
+          color: "#14100d",
+        }}
+      >
         {process.env.NODE_ENV === "production" && (
           <>
             <Script
