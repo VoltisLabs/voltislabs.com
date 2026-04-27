@@ -167,10 +167,10 @@ export default function Home() {
       </div>
       */}
 
-      <section className="hero-shell px-[1rem] pb-11 pt-[6.1rem] md:px-[2rem] md:pb-16 md:pt-[6.7rem]">
-        <div className="mx-auto flex w-full max-w-5xl flex-col justify-center gap-8 md:min-h-[37vh]">
+      <section className="hero-shell px-[1rem] pb-16 pt-[6.1rem] md:px-[2rem] md:pb-24 md:pt-[6.7rem]">
+        <div className="mx-auto flex w-full max-w-5xl flex-col justify-center gap-10 min-h-[52vh] sm:min-h-[54vh] md:min-h-[58vh] lg:min-h-[62vh]">
           <div className="max-w-3xl">
-            <div className="hero-stage relative min-h-[15.5rem] md:min-h-[17rem]">
+            <div className="hero-stage relative min-h-[22rem] sm:min-h-[24rem] md:min-h-[30rem] lg:min-h-[32rem]">
               {heroSlides.map((slide, idx) => (
                 <div
                   key={slide.title}
@@ -194,7 +194,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <div className="mt-6 flex items-center gap-2">
+            <div className="mt-8 flex items-center gap-2 md:mt-10">
               {heroSlides.map((slide, idx) => (
                 <button
                   key={`dot-${slide.title}`}
