@@ -203,7 +203,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
         {marquee ? (
           <div className="flex flex-col gap-4 bg-vl-cream">
             <Marquee
-              className="slider-statement relative z-20 cursor-default overflow-hidden rounded-xl border border-vl-brown/10 bg-vl-cream-deep/80 px-2 py-2"
+              className="slider-statement relative z-20 cursor-default overflow-hidden"
               speed={40}
               pauseOnHover
               pauseOnClick={false}
@@ -242,7 +242,7 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
         {marquee ? (
           <div className="flex flex-col gap-4">
             <Marquee
-              className="slider-statement relative z-20 cursor-default overflow-hidden rounded-xl border border-vl-brown/10 bg-vl-cream-deep/80 px-2 py-2"
+              className="slider-statement relative z-20 cursor-default overflow-hidden"
               speed={28}
               pauseOnHover
               pauseOnClick={false}
@@ -284,3 +284,4 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
 };
 
 export default FlexContainer;
+
