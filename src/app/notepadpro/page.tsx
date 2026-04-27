@@ -244,7 +244,7 @@ export default function NotepadProPage() {
             <div className="text-center lg:text-left">
               <h1 className={secondaryTitleClassName}>Take it on mobile</h1>
               <p className={`${paragrapghClassName} mx-auto mt-4 max-w-xl lg:mx-0`}>
-                NotepadPro is not only a desktop session—the same multi-mode workspace runs on your phone and tablet, so
+                NotepadPro is not only a desktop session - the same multi-mode workspace runs on your phone and tablet, so
                 you can capture, edit tasks, and skim notes when you are away from your desk. Install from the App Store
                 or Google Play and pick up where you left off.
               </p>

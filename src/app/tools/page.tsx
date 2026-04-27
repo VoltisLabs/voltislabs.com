@@ -40,7 +40,7 @@ const ToolsPage = () => {
           Voltis Core
         </h1>
         <p className="mt-4 max-w-2xl text-lg font-medium leading-snug text-vl-ink-muted md:text-xl">
-          Productivity software built for deep work—notes, clipboard handoffs, and large-file delivery in one family of
+          Productivity software built for deep work - notes, clipboard handoffs, and large-file delivery in one family of
           tools.
         </p>
         <p className="mt-5 max-w-3xl text-base leading-relaxed text-vl-ink md:text-lg">

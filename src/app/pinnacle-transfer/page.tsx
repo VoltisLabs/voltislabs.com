@@ -5,10 +5,50 @@ import Sidebar from "@/src/components/UI/SideBar";
 import TitleSection from "@/src/components/UI/TitleSection";
 import ProductBannerSlider from "@/src/components/UI/ProductBannerSlider";
 import LearnMoreBtn from "@/src/components/UI/LearnMoreBtn";
+import { PinnaclePhoneCarousel } from "@/src/components/pinnacle/PinnaclePhoneCarousel";
 import { paragrapghClassName, secondaryTitleClassName, sectionTitleClassName, titleClassName } from "../data";
 
 const ART = "/icons/pinnacle-transfer.svg";
-const sliderTiles = [{ img: ART }, { img: ART }, { img: ART }, { img: ART }];
+/** Hero slider - marketing frames (order: 118, 121, 125, 124, 126, 120). */
+const sliderTiles = [
+  { img: "/products/pinnacle-transfer/pinnacle-hero-01.png" },
+  { img: "/products/pinnacle-transfer/pinnacle-hero-02.png" },
+  { img: "/products/pinnacle-transfer/pinnacle-hero-03.png" },
+  { img: "/products/pinnacle-transfer/pinnacle-hero-04.png" },
+  { img: "/products/pinnacle-transfer/pinnacle-hero-05.png" },
+  { img: "/products/pinnacle-transfer/pinnacle-hero-06.png" },
+];
+
+/** Same assets and sizing as NotepadPro hero store strip (`/notepadpro`). */
+const storeBadgesStatic = [
+  { img: "/products/notepad-pro/store-app-store-black.svg", alt: "Download on the App Store" },
+  { img: "/products/notepad-pro/store-google-play-black.svg", alt: "Get it on Google Play" },
+  { img: "/products/notepad-pro/store-microsoft-black.svg", alt: "Get it from Microsoft" },
+] as const;
+
+/** App Store + Google Play only (no Microsoft), for the Take it on mobile block. */
+const storeBadgesAppPlay = storeBadgesStatic.filter((b) => !b.img.includes("microsoft"));
+
+function StoreBadgesNotepadStyle({
+  className,
+  badges = storeBadgesStatic,
+}: {
+  className: string;
+  badges?: readonly { img: string; alt: string }[];
+}) {
+  return (
+    <div className={className}>
+      {badges.map((badge) => (
+        <img
+          key={badge.img}
+          src={badge.img}
+          alt={badge.alt}
+          className="h-10 w-auto sm:h-11 md:h-12"
+        />
+      ))}
+    </div>
+  );
+}
 
 const workflows = [
   {
@@ -54,6 +94,7 @@ export default function PinnacleTransferPage() {
     { name: "Use cases", route: "pinnacle-usecases", Icon: "" },
     { name: "Core features", route: "pinnacle-features", Icon: "" },
     { name: "Why it matters", route: "pinnacle-value", Icon: "" },
+    { name: "Mobile app", route: "pinnacle-mobile", Icon: "" },
     { name: "Get Pinnacle", route: "pinnacle-cta", Icon: "" },
   ];
 
@@ -71,20 +112,19 @@ export default function PinnacleTransferPage() {
       </section>
 
       <section className="mb-[0.2rem] hidden px-[2rem] md:block md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
-        <ProductBannerSlider images={sliderTiles} />
+        <div className="mx-auto w-[70%] max-w-full">
+          <ProductBannerSlider images={sliderTiles} fallbackImage={ART} />
+        </div>
       </section>
 
-      <div className="flex hidden h-full items-center justify-center p-2 md:flex md:p-7">
-        <LearnMoreBtn
-          text="Get Pinnacle Transfer"
-          borderColor="border-vl-brown"
-          textColor="text-vl-brown"
-          route="/contact-us"
-        />
-      </div>
+      <section className="hero-section mb-9 block px-[1.4rem] md:hidden">
+        <div className="mx-auto w-[70%] max-w-full">
+          <ProductBannerSlider images={sliderTiles} fallbackImage={ART} />
+        </div>
+      </section>
 
-      <section className="hero-section mb-7 block px-[1.4rem] md:hidden">
-        <ProductBannerSlider images={sliderTiles} />
+      <section className="mb-8 mt-5 px-[1.4rem] md:mt-7 md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
+        <StoreBadgesNotepadStyle className="flex flex-wrap items-center justify-center gap-3 md:gap-4" />
       </section>
 
       <div className="mx-auto mb-16 content-flow space-y-12 px-[1.4rem] md:space-y-14 md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
@@ -132,6 +172,32 @@ export default function PinnacleTransferPage() {
             </div>
           </div>
         </section>
+
+        <div
+          id="pinnacle-mobile"
+          className="mb-12 scroll-mt-24 rounded-2xl border border-vl-brown/20 bg-vl-cream-deep/40 px-5 py-10 md:px-8 md:py-12"
+        >
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(240px,320px)] lg:items-center lg:gap-14 xl:grid-cols-[minmax(0,1fr)_minmax(260px,340px)]">
+            <div className="text-center lg:text-left">
+              <h2 className={secondaryTitleClassName}>Take it on mobile</h2>
+              <p className={`${paragrapghClassName} mx-auto mt-4 max-w-xl lg:mx-0`}>
+                Start a receive session or send large files from your phone on the same Wi-Fi - pair with a code or QR,
+                watch progress, and open the destination folder when the transfer completes.
+              </p>
+              <p className={`${paragrapghClassName} mx-auto mt-3 max-w-xl lg:mx-0`}>
+                Install from the App Store or Google Play. The carousel shows a few mobile screens; use the arrows or
+                wait for the next frame.
+              </p>
+              <StoreBadgesNotepadStyle
+                badges={storeBadgesAppPlay}
+                className="mt-8 flex flex-wrap items-center justify-center gap-3 md:gap-4 lg:justify-start"
+              />
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <PinnaclePhoneCarousel />
+            </div>
+          </div>
+        </div>
 
         <section id="pinnacle-usecases" className="mb-8 text-vl-ink">
           <h2 className={secondaryTitleClassName}>Where teams use it most</h2>

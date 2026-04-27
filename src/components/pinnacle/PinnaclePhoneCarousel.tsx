@@ -5,38 +5,27 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const AUTO_MS = 4500;
 
-/** Marketing frames under `public/products/notepad-pro/` (mobile exports from design). */
 const PHONE_DIM = { width: 1280, height: 2642 } as const;
 
 const PHONE_SLIDES = [
   {
-    src: "/products/notepad-pro/notepadpro-mobile-01.png",
-    alt: "NotepadPro on mobile - screen 1",
+    src: "/products/pinnacle-transfer/pinnacle-mobile-01.png",
+    alt: "Pinnacle Transfer on mobile - screen 1",
     ...PHONE_DIM,
   },
   {
-    src: "/products/notepad-pro/notepadpro-mobile-02.png",
-    alt: "NotepadPro on mobile - screen 2",
+    src: "/products/pinnacle-transfer/pinnacle-mobile-02.png",
+    alt: "Pinnacle Transfer on mobile - screen 2",
     ...PHONE_DIM,
   },
   {
-    src: "/products/notepad-pro/notepadpro-mobile-03.png",
-    alt: "NotepadPro on mobile - screen 3",
+    src: "/products/pinnacle-transfer/pinnacle-mobile-03.png",
+    alt: "Pinnacle Transfer on mobile - screen 3",
     ...PHONE_DIM,
   },
   {
-    src: "/products/notepad-pro/notepadpro-mobile-04.png",
-    alt: "NotepadPro on mobile - screen 4",
-    ...PHONE_DIM,
-  },
-  {
-    src: "/products/notepad-pro/notepadpro-mobile-05.png",
-    alt: "NotepadPro on mobile - screen 5",
-    ...PHONE_DIM,
-  },
-  {
-    src: "/products/notepad-pro/notepadpro-mobile-06.png",
-    alt: "NotepadPro on mobile - screen 6",
+    src: "/products/pinnacle-transfer/pinnacle-mobile-04.png",
+    alt: "Pinnacle Transfer on mobile - screen 4",
     ...PHONE_DIM,
   },
 ] as const;
@@ -75,7 +64,7 @@ function ChevronRight({ className = "h-5 w-5" }: { className?: string }) {
   );
 }
 
-export function NotepadProPhoneCarousel() {
+export function PinnaclePhoneCarousel() {
   const [index, setIndex] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
   const pausedRef = useRef(false);
