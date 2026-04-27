@@ -322,8 +322,15 @@ It turns a chaotic stream of temporary clips into an organised, recallable libra
   },
   {
     id: 9,
-    img: '/products/notepad-pro/frame-103.svg',
-    images: ['/products/notepad-pro/frame-103.svg'],
+    img: '/products/notepad-pro/frame-104-1.png',
+    images: [
+      '/products/notepad-pro/frame-104-1.png',
+      '/products/notepad-pro/frame-101-1.png',
+      '/products/notepad-pro/frame-107-1.png',
+      '/products/notepad-pro/frame-105-1.png',
+      '/products/notepad-pro/frame-113-1.png',
+      '/products/notepad-pro/frame-114-1.png',
+    ],
     message: 'NotepadPro',
     time: 'Apr 24, 2026',
     link: '/notepadpro',

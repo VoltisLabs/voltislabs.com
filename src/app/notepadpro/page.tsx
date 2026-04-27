@@ -13,9 +13,15 @@ import {
   titleClassName,
 } from "../data";
 
-/** Hero frames ship in-repo as `frame-103.svg`. Add PNGs under `public/products/notepad-pro/` to extend the slider. */
 const FALLBACK_SLIDE = "/products/notepad-pro/frame-103.svg";
-const sliderTiles = [{ img: FALLBACK_SLIDE }];
+const sliderTiles = [
+  { img: "/products/notepad-pro/frame-104-1.png" },
+  { img: "/products/notepad-pro/frame-101-1.png" },
+  { img: "/products/notepad-pro/frame-107-1.png" },
+  { img: "/products/notepad-pro/frame-105-1.png" },
+  { img: "/products/notepad-pro/frame-113-1.png" },
+  { img: "/products/notepad-pro/frame-114-1.png" },
+];
 const storeBadges = [
   { img: "/products/notepad-pro/store-app-store-black.svg", alt: "Download on the App Store" },
   { img: "/products/notepad-pro/store-google-play-black.svg", alt: "Get it on Google Play" },
@@ -221,7 +227,7 @@ export default function NotepadProPage() {
                 Google Play, or the Microsoft Store and pick up where you left off.
               </p>
               <p className={`${paragrapghClassName} mx-auto mt-3 max-w-xl lg:mx-0`}>
-                The preview matches the same hero artwork as above for a consistent story across desktop and mobile.
+                The carousel shows a few mobile screens; use the arrows or wait for the next frame to explore the flow.
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start md:gap-4">
                 {storeBadges.map((badge) => (

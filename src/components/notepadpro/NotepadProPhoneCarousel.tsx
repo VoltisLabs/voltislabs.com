@@ -5,13 +5,31 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const AUTO_MS = 4500;
 
-/** Uses assets committed under `public/products/notepad-pro/` (add PNG frames locally to extend). */
+/** Marketing frames under `public/products/notepad-pro/` (same aspect as hero exports). */
 const PHONE_SLIDES = [
   {
-    src: "/products/notepad-pro/frame-103.svg",
-    alt: "NotepadPro product preview",
-    width: 1000,
-    height: 1000,
+    src: "/products/notepad-pro/frame-113-1.png",
+    alt: "NotepadPro on mobile — notes and workspace",
+    width: 6867,
+    height: 4145,
+  },
+  {
+    src: "/products/notepad-pro/frame-114-1.png",
+    alt: "NotepadPro on mobile — editing and modes",
+    width: 6867,
+    height: 4145,
+  },
+  {
+    src: "/products/notepad-pro/frame-105-1.png",
+    alt: "NotepadPro on mobile — tasks and lists",
+    width: 6867,
+    height: 4145,
+  },
+  {
+    src: "/products/notepad-pro/frame-101-1.png",
+    alt: "NotepadPro on mobile — capture and browse",
+    width: 6867,
+    height: 4145,
   },
 ] as const;
 
