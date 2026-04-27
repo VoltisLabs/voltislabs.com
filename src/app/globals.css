@@ -108,6 +108,9 @@ body {
   transform: translateY(8px);
   transition: opacity 0.45s ease, transform 0.45s ease;
   pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-slide.is-active {

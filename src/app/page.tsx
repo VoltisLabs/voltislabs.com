@@ -167,10 +167,10 @@ export default function Home() {
       </div>
       */}
 
-      <section className="hero-shell px-[1rem] pb-16 pt-[6.1rem] md:px-[2rem] md:pb-24 md:pt-[6.7rem]">
-        <div className="mx-auto flex w-full max-w-5xl flex-col justify-center gap-10 min-h-[52vh] sm:min-h-[54vh] md:min-h-[58vh] lg:min-h-[62vh]">
+      <section className="hero-shell flex min-h-[calc(100svh-4.5rem)] items-center px-[1rem] py-12 pb-16 pt-[6.1rem] md:min-h-[calc(100svh-5rem)] md:px-[2rem] md:py-16 md:pb-24 md:pt-[6.7rem]">
+        <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 md:gap-10">
           <div className="max-w-3xl">
-            <div className="hero-stage relative min-h-[22rem] sm:min-h-[24rem] md:min-h-[30rem] lg:min-h-[32rem]">
+            <div className="hero-stage relative min-h-[18rem] sm:min-h-[20rem] md:min-h-[24rem] lg:min-h-[26rem]">
               {heroSlides.map((slide, idx) => (
                 <div
                   key={slide.title}
