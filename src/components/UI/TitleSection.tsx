@@ -28,9 +28,11 @@ const TitleSection = ({
         <Subtitle className={isLight ? "font-medium mb-8 text-vl-ink-muted" : "font-medium mb-8 text-white"}>
           {subTitle}
         </Subtitle>
-        <Subtitle className={isLight ? "text-vl-ink-muted/90 font-normal" : "text-[#858585] font-normal"}>
-          {secondaryText}
-        </Subtitle>
+        {secondaryText.trim() ? (
+          <Subtitle className={isLight ? "text-vl-ink-muted/90 font-normal" : "text-[#858585] font-normal"}>
+            {secondaryText}
+          </Subtitle>
+        ) : null}
       </div>
     </div>
   );

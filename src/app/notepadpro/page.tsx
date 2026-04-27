@@ -22,10 +22,10 @@ const sliderTiles = [
   { img: "/products/notepad-pro/frame-113-1.png" },
   { img: "/products/notepad-pro/frame-114-1.png" },
 ];
-/** Same hero slider component as the top of the page; two frames only. */
+/** Screenshots strip: two-frame carousel (marketing exports). */
 const secondarySliderTiles = [
-  { img: "/products/notepad-pro/frame-107-1.png" },
-  { img: "/products/notepad-pro/frame-105-1.png" },
+  { img: "/products/notepad-pro/frame-116-1.png" },
+  { img: "/products/notepad-pro/frame-117-1.png" },
 ];
 const storeBadges = [
   { img: "/products/notepad-pro/store-app-store-black.svg", alt: "Download on the App Store" },
@@ -104,7 +104,7 @@ export default function NotepadProPage() {
     { name: "Modes", route: "thirdSection", Icon: "" },
     { name: "Core features", route: "fourthSection", Icon: "" },
     { name: "See it in action", route: "fifthSection", Icon: "" },
-    { name: "Spotlight", route: "spotlightSliderSection", Icon: "" },
+    { name: "Screenshots", route: "screenshotsSection", Icon: "" },
     { name: "Mobile", route: "mobileSection", Icon: "" },
     { name: "Power & engineering", route: "sixthSection", Icon: "" },
     { name: "Comparison", route: "seventhSection", Icon: "" },
@@ -119,7 +119,7 @@ export default function NotepadProPage() {
       <TitleSection
         title="One place for every way you think."
         subTitle="Notes, tasks, tables, and previews-plain text, HTML, CSV, and tasks in one app. Local-first, with sync when you choose it."
-        secondaryText="NotepadPro · Voltis Labs · Desktop"
+        secondaryText=""
         containerStyle="mb-[2.8rem] hidden md:block"
       />
 
@@ -219,20 +219,21 @@ export default function NotepadProPage() {
             ))}
           </div>
         </div>
+      </div>
 
-        <div id="spotlightSliderSection" className="mb-12 scroll-mt-24">
-          <h1 className={secondaryTitleClassName}>Spotlight</h1>
-          <p className={`${paragrapghClassName} mt-4 text-center md:text-left`}>
-            Two more product views in the same full-width carousel as the hero above.
-          </p>
-          <section className="image-section mb-[0.2rem] mt-6 hidden px-[2rem] md:block md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
-            <ProductBannerSlider images={secondarySliderTiles} fallbackImage={FALLBACK_SLIDE} />
-          </section>
-          <section className="hero-section mb-0 mt-6 block px-[1.4rem] md:hidden">
-            <ProductBannerSlider images={secondarySliderTiles} fallbackImage={FALLBACK_SLIDE} />
-          </section>
+      <div id="screenshotsSection" className="mb-12 scroll-mt-24">
+        <div className="mx-auto max-w-[85rem] px-[1.4rem] pb-4 md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
+          <h1 className={secondaryTitleClassName}>Screenshots</h1>
         </div>
+        <section className="image-section mb-[0.2rem] hidden px-[2rem] md:block md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
+          <ProductBannerSlider images={secondarySliderTiles} fallbackImage={FALLBACK_SLIDE} />
+        </section>
+        <section className="hero-section mb-9 block px-[1.4rem] md:hidden">
+          <ProductBannerSlider images={secondarySliderTiles} fallbackImage={FALLBACK_SLIDE} />
+        </section>
+      </div>
 
+      <div className="mx-auto mb-16 content-flow space-y-12 px-[1.4rem] md:space-y-14 md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
         <div
           id="mobileSection"
           className="mb-12 scroll-mt-24 rounded-2xl border border-vl-brown/20 bg-vl-cream-deep/40 px-5 py-10 md:px-8 md:py-12"
