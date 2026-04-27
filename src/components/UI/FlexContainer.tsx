@@ -5,11 +5,8 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Marquee from "react-fast-marquee";
-import "./flexContainer.css"
-import LearnMoreBtn from "./LearnMoreBtn";
-import SmallLearnBtn from "./SmallLearnBtn";
+import "./flexContainer.css";
 import { motion } from "framer-motion";
-import TextColorAnimation from "./animating_text";
 
 interface Update {
   img: string;
@@ -168,33 +165,40 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
     );
   };
 
-  const animatedText = () => {
-    return (
-    <div className="flex w-full justify-center py-1">
-    <motion.span
-      className=" self-center text-transparent bg-clip-text uppercase text-xs lg:text-base whitespace-nowrap"
-      initial={{ backgroundPosition: '200% 0%' }}
-      animate={{ backgroundPosition: '-100% 0%' }}
-      transition={{
-        duration: 5,
-        repeat: Infinity,
-        repeatType: 'mirror',
-        ease: 'linear',
-      }}
-      style={{
-        backgroundSize: '400% 100%',
-        backgroundImage:
-          "linear-gradient(90deg, #6f5243 0%, #6f5243 40%, #f4efe6 50%, #6f5243 60%, #6f5243 100%)",
-        WebkitBackgroundClip: 'text',
-        backgroundClip: 'text',
-        color: 'transparent',
-      }}
+  const expandHint = () => (
+    <p className="py-2 text-center text-[11px] font-medium tracking-wide text-vl-brown/40 md:text-xs md:text-vl-ink/40">
+      Select a card to expand
+    </p>
+  );
+
+  const expandedPanel = (compact: boolean) => (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+      className={
+        compact
+          ? "mx-auto mt-5 max-w-xl rounded-2xl border border-vl-brown/20 bg-transparent px-5 py-7 sm:px-7 sm:py-8"
+          : "mx-auto mt-6 max-w-2xl rounded-2xl border border-vl-brown/20 bg-transparent px-8 py-9 md:px-12 md:py-10"
+      }
     >
-      click to expand
-    </motion.span>
-    </div>
-    );
-  }
+      <p
+        className={`text-center font-normal leading-relaxed text-vl-ink/90 ${compact ? "text-sm leading-6" : "text-sm leading-7 md:text-[15px] md:leading-8"}`}
+      >
+        {formatParagraph(seledctedDescription)}
+      </p>
+      <div className={`flex justify-center ${compact ? "mt-6" : "mt-8"}`}>
+        <a
+          href={selectedLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center rounded-full border border-vl-brown bg-vl-brown px-5 py-2 text-sm font-semibold text-vl-cream transition-colors hover:border-vl-brown-dark hover:bg-vl-brown-dark"
+        >
+          Read more
+        </a>
+      </div>
+    </motion.div>
+  );
 
   return (
     <>
@@ -212,25 +216,8 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
             >
               {desktopContent}
             </Marquee>
-            {!paused && isClickAble && (
-              animatedText()
-            )}
-            {paused && (<motion.div initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }} className="rounded-3xl   px-14 py-12">
-              <div className="flex flex-col items-center justify-center rounded-3xl bg-vl-cream-deep p-6">
-                <p className="text-sm font-medium leading-relaxed text-vl-ink">{formatParagraph(seledctedDescription)}</p>
-
-                <div className="mx-auto my-7 w-fit">
-                  <a
-                    href={selectedLink}
-
-                    className="rounded-md border border-vl-brown px-10 py-2 p-2 text-center font-black text-vl-brown hover:bg-vl-cream">
-                    Read More
-                  </a>
-                </div>
-              </div>
-            </motion.div>)}
+            {!paused && isClickAble && expandHint()}
+            {paused && expandedPanel(false)}
           </div>
         ) : (
           desktopContent
@@ -251,26 +238,8 @@ const FlexContainer = ({ array, marquee = false, isClickAble = false }: FlexCont
             >
               {mobileContent}
             </Marquee>
-            {!paused && isClickAble && (
-
-              animatedText()
-            )}
-            {paused && (<motion.div initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }} className="rounded-3xl px-4 py-6">
-              <div className="flex flex-col items-center justify-center rounded-3xl bg-vl-cream-deep p-6">
-                <p className="text-sm font-medium leading-6 text-vl-ink">{formatParagraph(seledctedDescription)}</p>
-
-                <div className="mx-auto my-7 w-fit">
-                  <a target="_blank"
-                    href={selectedLink}
-                    rel="noopener noreferrer"
-                    className="rounded-md border border-vl-brown px-10 py-2 p-2 text-center font-black text-vl-brown hover:bg-vl-cream">
-                    Read More
-                  </a>
-                </div>
-              </div>
-            </motion.div>)}
+            {!paused && isClickAble && expandHint()}
+            {paused && expandedPanel(true)}
           </div>
 
         ) : (
