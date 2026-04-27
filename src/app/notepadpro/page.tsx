@@ -22,6 +22,11 @@ const sliderTiles = [
   { img: "/products/notepad-pro/frame-113-1.png" },
   { img: "/products/notepad-pro/frame-114-1.png" },
 ];
+/** Same hero slider component as the top of the page; two frames only. */
+const secondarySliderTiles = [
+  { img: "/products/notepad-pro/frame-107-1.png" },
+  { img: "/products/notepad-pro/frame-105-1.png" },
+];
 const storeBadges = [
   { img: "/products/notepad-pro/store-app-store-black.svg", alt: "Download on the App Store" },
   { img: "/products/notepad-pro/store-google-play-black.svg", alt: "Get it on Google Play" },
@@ -99,6 +104,7 @@ export default function NotepadProPage() {
     { name: "Modes", route: "thirdSection", Icon: "" },
     { name: "Core features", route: "fourthSection", Icon: "" },
     { name: "See it in action", route: "fifthSection", Icon: "" },
+    { name: "Spotlight", route: "spotlightSliderSection", Icon: "" },
     { name: "Mobile", route: "mobileSection", Icon: "" },
     { name: "Power & engineering", route: "sixthSection", Icon: "" },
     { name: "Comparison", route: "seventhSection", Icon: "" },
@@ -212,6 +218,19 @@ export default function NotepadProPage() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div id="spotlightSliderSection" className="mb-12 scroll-mt-24">
+          <h1 className={secondaryTitleClassName}>Spotlight</h1>
+          <p className={`${paragrapghClassName} mt-4 text-center md:text-left`}>
+            Two more product views in the same full-width carousel as the hero above.
+          </p>
+          <section className="image-section mb-[0.2rem] mt-6 hidden px-[2rem] md:block md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
+            <ProductBannerSlider images={secondarySliderTiles} fallbackImage={FALLBACK_SLIDE} />
+          </section>
+          <section className="hero-section mb-0 mt-6 block px-[1.4rem] md:hidden">
+            <ProductBannerSlider images={secondarySliderTiles} fallbackImage={FALLBACK_SLIDE} />
+          </section>
         </div>
 
         <div

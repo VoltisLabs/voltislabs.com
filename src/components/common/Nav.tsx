@@ -36,7 +36,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   const desktopClass = (href: string) =>
     `${desktopShell} ${pathActive(href) ? desktopActive : desktopIdle}`;
 
-  const productsActive = pathname.startsWith("/products");
+  const productsActive = pathname.startsWith("/products") || pathname === "/tools";
   const productsBtnClass = `${desktopShell} ${
     productsActive ? desktopActive : desktopIdle
   }`;
@@ -85,6 +85,7 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
     {
       category: "Productivity",
       items: [
+        { name: "Voltis Core", route: "/tools" },
         { name: "NotepadPro", route: "/notepadpro" },
         { name: "Pinnacle Transfer", route: "/pinnacle-transfer" },
         { name: "Clipstack", route: "/clipstack" },
