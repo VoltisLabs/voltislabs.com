@@ -35,7 +35,7 @@ function LoyaltyBotPage() {
 
   return (
     <div id="loyalty-home" className="mx-auto w-full max-w-[85rem] bg-[#1a2081] pb-12 pt-14 text-white">
-      <Sidebar tbList={menuItems} />
+      <Sidebar tbList={menuItems} tone="light" />
       <div className=" md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[20px] bg-[#1a2081] pb-10 flex-col flex">
         <motion.div variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
           <HeroSection />
@@ -64,3 +64,4 @@ function LoyaltyBotPage() {
 }
 
 export default LoyaltyBotPage;
+

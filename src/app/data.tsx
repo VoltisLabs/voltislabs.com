@@ -1,11 +1,11 @@
-export const titleClassName = 'text-white font-bold text-[14.5px]';
+export const titleClassName = 'mb-2 block text-vl-brown-dark font-semibold text-[1.02rem] leading-7 tracking-normal';
 export const paragrapghClassName =
-  'text-white font-normal mb-3 block text-xs md:text-sm leading-6 md:leading-6';
+  'mb-4 block text-vl-ink text-[0.98rem] md:text-[1.04rem] font-normal leading-7 md:leading-8 tracking-normal';
 
-export const sectionTitleClassName = 'text-white font-bold text-[15.5px]';
+export const sectionTitleClassName = 'mb-3 block text-vl-brown-dark font-bold text-[1.1rem] md:text-[1.2rem] leading-8 tracking-normal';
 
 export const secondaryTitleClassName =
-  'text-white w-full max-w-[40rem] mx-auto text-center font-extrabold md:text-[24px] text-[19px]';
+  'mb-4 w-full max-w-[52rem] mx-auto text-center text-vl-brown-dark font-extrabold text-[1.6rem] md:text-[2rem] leading-tight tracking-normal';
 
 interface AboutItem {
   title: string;
@@ -714,3 +714,4 @@ export const trustedCommunity = [
     name: 'Fair Pricing - No inflated markups or unfair cuts. Sellers keep more of what they earn.',
   },
 ];
+

@@ -119,8 +119,8 @@ const april2025 = () => {
 
                     <LearnMoreBtn
                         text="Visit Homepage"
-                        borderColor="border-white"
-                        textColor="text-white"
+                        borderColor="border-vl-brown"
+                        textColor="text-vl-brown"
                         route="https://www.vmodelapp.com/"
                     />
                 </div>

@@ -10,9 +10,10 @@ interface MenuItem {
 
 interface SidebarProps {
   tbList: MenuItem[];
+  tone?: "light" | "dark";
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ tbList }) => {
+const Sidebar: React.FC<SidebarProps> = ({ tbList, tone = "dark" }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
@@ -46,13 +47,21 @@ const Sidebar: React.FC<SidebarProps> = ({ tbList }) => {
               transition={{ delay: index * 0.2, duration: 0.5 }}
               onClick={() => scrollToSection(item.route)}
             >
-              <div className="group flex hover:text-gray-200 items-center gap-2 text-white text-[.8rem] font-semibold px-4 py-3 rounded-[9px] transition-all duration-300 relative cursor-pointer hover:bg-transparent">
+              <div
+                className={`group flex items-center gap-2 text-[.8rem] font-semibold px-4 py-3 rounded-[9px] transition-all duration-300 relative cursor-pointer hover:bg-transparent ${
+                  tone === "dark"
+                    ? "text-vl-brown-dark hover:text-vl-brown"
+                    : "text-white hover:text-gray-200"
+                }`}
+              >
                 {item.name}
                 {/* <span className="absolute right-[-3px] top-[52%] transform -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:text-gray-300"> */}
                 <ChevronRight
                   size={20}
-                  className="text-[#A9A9A9] group-hover:opacity-100 opacity-0 group-hover:text-gray-300"
-                  color="#A9A9A9"
+                  className={`group-hover:opacity-100 opacity-0 ${
+                    tone === "dark" ? "text-vl-brown/70 group-hover:text-vl-brown" : "text-[#A9A9A9] group-hover:text-gray-300"
+                  }`}
+                  color={tone === "dark" ? "#6f5243" : "#A9A9A9"}
                 />
                 {/* </span> */}
               </div>

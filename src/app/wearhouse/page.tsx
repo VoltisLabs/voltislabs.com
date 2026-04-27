@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
   forBuyers,
   forSellers,
@@ -12,9 +12,8 @@ import Image from 'next/image';
 import { paragrapghClassName, titleClassName } from '../data';
 import Sidebar from '@/src/components/UI/SideBar';
 import FlatList from '@/src/components/UI/FlatList';
-import Marquee from 'react-fast-marquee';
 import TitleSection from '@/src/components/UI/TitleSection';
-import SliderBackground from '@/src/components/UI/SliderBackground';
+import ProductBannerSlider from '@/src/components/UI/ProductBannerSlider';
 import LearnMoreBtn from '@/src/components/UI/LearnMoreBtn';
 
 function WearhousePage() {
@@ -27,77 +26,42 @@ function WearhousePage() {
     { name: 'FAQs & Help Center', route: 'prelura-more', Icon: '' },
   ];
 
-  const [isPlaying, setIsplaying] = useState(false);
-
   return (
     <div
       id="prelura-home"
-      className="mx-auto w-full max-w-[85rem] bg-vl-brown-dark pb-20 pt-6 text-vl-cream md:pt-10"
+      className="mx-auto w-full max-w-[85rem] bg-vl-cream pb-20 pt-6 text-vl-ink md:pt-10"
     >
-      <Sidebar tbList={menuItems} />
+      <Sidebar tbList={menuItems} tone="dark" />
 
       <section className="hidden md:block">
         <TitleSection
           title="Wearhouse: A New Era of Secondhand Fashion"
-          subTitle=" Exciting updates are here for VModel! Enjoy a fresh UI, AI job
-            matching, real-time messaging, an enhanced portfolio, and easier
-            payments. More to come soon!"
+          subTitle="Buy and sell pre-loved fashion in a trusted social marketplace."
           secondaryText="Published on Monday 17th February, 2025"
           containerStyle="mb-4"
         />
       </section>
 
       <section className="mb-[0.2rem] hidden px-[2rem] md:block md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
-        <div
-          onMouseEnter={() => setIsplaying(true)}
-          onMouseLeave={() => setIsplaying(false)}
-          onClick={() => setIsplaying(!isPlaying)}
-          className="flex flex-col items-center gap-6 md:flex-row"
-        >
-          <Marquee
-            className="no-scrollbar slider-statement bg-carpet-green relative cursor-default overflow-x-scroll"
-            speed={50}
-            pauseOnHover
-            pauseOnClick
-            direction="right"
-          >
-            {wearhouseSliderImages.map((img, index) => (
-              <div
-                key={index}
-                className="mr-4 h-[23rem] w-[20rem] overflow-hidden rounded-[10px] md:h-[21rem]"
-              >
-                <Image
-                  src={img.img}
-                  alt="Wearhouse"
-                  className="h-full w-full object-cover object-top"
-                  width={500}
-                  height={500}
-                />
-              </div>
-            ))}
-          </Marquee>
-        </div>
+        <ProductBannerSlider images={wearhouseSliderImages} />
       </section>
       <div className="flex hidden h-full items-center justify-center p-2 md:flex md:p-7">
         <LearnMoreBtn
           text="Visit Website"
-          borderColor="border-white"
-          textColor="text-white"
+          borderColor="border-vl-brown"
+          textColor="text-vl-brown"
           route="https://wearhouse.co.uk"
         />
       </div>
-      <section className="mobile-slider hero-section mb-7 block md:hidden">
-        <SliderBackground
-          containerStyle="bg-[#AB28B280] w-full"
-          imagesArray={wearhouseSliderImages}
-          titleText="A New Home for Your Fashion Finds"
-          smallBtnText="Learn More"
-          route="https://wearhouse.co.uk"
-        />
+      <section className="mobile-slider hero-section mb-7 block px-[1.4rem] md:hidden">
+        <ProductBannerSlider images={wearhouseSliderImages} />
       </section>
 
-      <div id="prelura-more" className="mx-auto mb-16 max-w-[45rem] px-[1.4rem] md:px-0">
-        <section className="mb-8 text-white">
+      <div
+        id="prelura-more"
+        className="mx-auto mb-16 content-flow space-y-12 px-[1.4rem] md:space-y-14 md:px-[4rem] lg:px-[10rem] xl:px-[16rem]"
+      >
+        <section className="mb-8 text-vl-ink">
           <h1 className={titleClassName}>Reimagining Preloved, One Item at a Time</h1>
           <span className={paragrapghClassName}>
             Fashion is more than just clothing it’s a reflection of personality, creativity, and
@@ -118,7 +82,7 @@ function WearhousePage() {
           </span>
         </section>
 
-        <section id="prelura-more" className="mb-8 text-white">
+        <section id="prelura-more" className="mb-8 text-vl-ink">
           <h1 className={secondaryTitleClassName}>The Problem We're Solving</h1>
 
           <div className="text-section">
@@ -156,7 +120,7 @@ function WearhousePage() {
           <br />
           <div className="flex-section flex w-full items-start justify-between gap-3">
             <div className="text-section w-[45%]">
-              <span className={`${paragrapghClassName} !text-justify`}>
+              <span className={`${paragrapghClassName} text-left`}>
                 We see a future where second-hand fashion is the first choice. A future where
                 selling your clothes is as easy as posting a photo, and finding unique, high-quality
                 items feels as effortless as browsing your favourite store.
@@ -168,7 +132,7 @@ function WearhousePage() {
               </span>
               <br />
               <div className="title-text-section hidden md:block">
-                <ul className="list-disc pl-5 text-white">
+                <ul className="list-disc pl-5 text-vl-ink">
                   <li>
                     <span className={`${paragrapghClassName}`}>
                       <span className="font-bold">Effortless - </span>
@@ -211,7 +175,7 @@ function WearhousePage() {
           </div>
         </section>
         <div className="title-text-section block md:hidden">
-          <ul className="list-disc pl-5 text-white">
+          <ul className="list-disc pl-5 text-vl-ink">
             <li>
               <span className={`${paragrapghClassName}`}>
                 <span className="font-bold">Effortless - </span>
@@ -242,7 +206,7 @@ function WearhousePage() {
         </div>
         <br />
         <br />
-        <section id="prelura-sellers" className="mb-8 text-white">
+        <section id="prelura-sellers" className="mb-8 text-vl-ink">
           <h1 className={secondaryTitleClassName}>How Wearhouse Works</h1>
           <br />
 
@@ -310,7 +274,7 @@ function WearhousePage() {
         </section>
 
         <section className="final-section">
-          <blockquote className="mx-auto w-full text-center text-[1rem] font-bold text-white md:w-[90%] md:text-[1.4rem]">
+          <blockquote className="mx-auto w-full text-center text-[1rem] font-bold text-vl-brown-dark md:w-[90%] md:text-[1.4rem]">
             "Clothing is a form of self-expression. Let’s express ourselves while making a
             difference." - <span className="text-gray-500">Voltis Labs</span>
           </blockquote>
@@ -321,3 +285,7 @@ function WearhousePage() {
 }
 
 export default WearhousePage;
+
+
+
+

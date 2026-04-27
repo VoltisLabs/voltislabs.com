@@ -134,8 +134,8 @@ const March2025 = () => {
             <div className='mx-auto w-fit my-7'>
                 <LearnMoreBtn
                     text="Visit Homepage"
-                    borderColor="border-white"
-                    textColor="text-white"
+                    borderColor="border-vl-brown"
+                    textColor="text-vl-brown"
                     route="https://spinnersonic.com/"
                 />
             </div>

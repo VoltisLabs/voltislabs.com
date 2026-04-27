@@ -1,12 +1,11 @@
 "use client";
 
 import LearnMoreBtn from "@/src/components/UI/LearnMoreBtn";
+import ProductBannerSlider from "@/src/components/UI/ProductBannerSlider";
 import Sidebar from "@/src/components/UI/SideBar";
-import SliderBackground from "@/src/components/UI/SliderBackground";
+import { NotepadProPhoneCarousel } from "@/src/components/notepadpro/NotepadProPhoneCarousel";
 import TitleSection from "@/src/components/UI/TitleSection";
-import Image from "next/image";
-import React, { useState } from "react";
-import Marquee from "react-fast-marquee";
+import React from "react";
 import {
   paragrapghClassName,
   secondaryTitleClassName,
@@ -14,15 +13,22 @@ import {
   titleClassName,
 } from "../data";
 
-const ART = "/products/notepad-pro/frame-103.svg";
-
-const sliderTiles = [{ img: ART }, { img: ART }, { img: ART }, { img: ART }];
-
+/** Hero frames ship in-repo as `frame-103.svg`. Add PNGs under `public/products/notepad-pro/` to extend the slider. */
+const FALLBACK_SLIDE = "/products/notepad-pro/frame-103.svg";
+const sliderTiles = [{ img: FALLBACK_SLIDE }];
+const storeBadges = [
+  { img: "/products/notepad-pro/store-app-store-black.svg", alt: "Download on the App Store" },
+  { img: "/products/notepad-pro/store-google-play-black.svg", alt: "Get it on Google Play" },
+  { img: "/products/notepad-pro/store-microsoft-black.svg", alt: "Get it from Microsoft" },
+];
 const modeRows = [
   { mode: "Plain", for: "Writing, journaling, quick capture" },
-  { mode: "Tasks", for: "To-dos, reminders, timed focus" },
+  { mode: "Checklist", for: "To-dos, reminders, and trackable task flow" },
   { mode: "CSV", for: "Budgets, lists, lightweight spreadsheets" },
   { mode: "HTML", for: "Snippets, formatted notes, preview" },
+  { mode: "Voice", for: "Record and keep voice notes alongside written context" },
+  { mode: "Images", for: "Attach and review visual references inside a note" },
+  { mode: "Math", for: "Capture calculations and formula-driven thinking" },
 ] as const;
 
 const featureCards = [
@@ -87,17 +93,16 @@ export default function NotepadProPage() {
     { name: "Modes", route: "thirdSection", Icon: "" },
     { name: "Core features", route: "fourthSection", Icon: "" },
     { name: "See it in action", route: "fifthSection", Icon: "" },
+    { name: "Mobile", route: "mobileSection", Icon: "" },
     { name: "Power & engineering", route: "sixthSection", Icon: "" },
     { name: "Comparison", route: "seventhSection", Icon: "" },
     { name: "Get started", route: "eighthSection", Icon: "" },
     { name: "Download", route: "lastSection", Icon: "" },
   ];
 
-  const [isPlaying, setIsplaying] = useState(false);
-
   return (
-    <div className="mx-auto w-full max-w-[85rem] bg-vl-brown-dark pb-20 pt-6 text-vl-cream md:pt-10">
-      <Sidebar tbList={menuItems} />
+    <div className="mx-auto w-full max-w-[85rem] bg-vl-cream pb-20 pt-6 text-vl-ink md:pt-10">
+      <Sidebar tbList={menuItems} tone="dark" />
 
       <TitleSection
         title="One place for every way you think."
@@ -107,58 +112,27 @@ export default function NotepadProPage() {
       />
 
       <section className="image-section mb-[0.2rem] hidden px-[2rem] md:block md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
-        <div
-          onMouseEnter={() => setIsplaying(true)}
-          onMouseLeave={() => setIsplaying(false)}
-          onClick={() => setIsplaying(!isPlaying)}
-          className="slider-statement relative z-10 cursor-default"
-        >
-          <Marquee
-            className="slider-statement relative z-20 cursor-default bg-[#2a1f1a]"
-            speed={50}
-            pauseOnHover
-            pauseOnClick
-            direction="right"
-          >
-            {sliderTiles.map((tile, index) => (
-              <div
-                key={index}
-                className="relative mr-4 h-[21rem] w-[20rem] overflow-hidden rounded-[10px] border border-white/10 bg-white md:h-[21rem]"
-              >
-                <Image
-                  src={tile.img}
-                  alt="NotepadPro artwork"
-                  fill
-                  className="object-cover"
-                  sizes="320px"
-                  unoptimized
-                />
-              </div>
-            ))}
-          </Marquee>
+        <ProductBannerSlider images={sliderTiles} fallbackImage={FALLBACK_SLIDE} />
+      </section>
+
+      <section className="hero-section mb-9 block px-[1.4rem] md:hidden">
+        <ProductBannerSlider images={sliderTiles} fallbackImage={FALLBACK_SLIDE} />
+      </section>
+
+      <section className="mb-8 mt-5 px-[1.4rem] md:mt-7 md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
+        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+          {storeBadges.map((badge) => (
+            <img
+              key={badge.img}
+              src={badge.img}
+              alt={badge.alt}
+              className="h-10 w-auto sm:h-11 md:h-12"
+            />
+          ))}
         </div>
       </section>
 
-      <div className="hidden h-full justify-center p-2 md:flex md:p-7">
-        <LearnMoreBtn
-          text="Get NotepadPro"
-          borderColor="border-white"
-          textColor="text-white"
-          route="/contact-us"
-        />
-      </div>
-
-      <section className="hero-section mb-9 block md:hidden">
-        <SliderBackground
-          containerStyle="bg-[#3d2a22] w-full"
-          imagesArray={sliderTiles}
-          titleText="One place for every way you think."
-          route="/contact-us"
-          smallBtnText="Get NotepadPro"
-        />
-      </section>
-
-      <div className="mx-auto mb-16 max-w-[45rem] px-[1.4rem] md:px-0">
+      <div className="mx-auto mb-16 content-flow space-y-12 px-[1.4rem] md:space-y-14 md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
         <div id="firstSection" className="mb-10 mt-1">
           <h1 className={sectionTitleClassName}>A multi-format thinking tool</h1>
           <span className={`${paragrapghClassName} mb-6`}>
@@ -168,7 +142,7 @@ export default function NotepadProPage() {
           <span className={paragrapghClassName}>
             Plain capture when you are drafting, task mode when you are executing, CSV when you are counting, HTML when
             you need structure and preview. The landing story is simple:{" "}
-            <span className="font-semibold text-[#FFE32F]">stop switching apps. Start thinking in one place.</span>
+            <span className="font-medium text-vl-brown">stop switching apps. Start thinking in one place.</span>
           </span>
         </div>
 
@@ -182,19 +156,21 @@ export default function NotepadProPage() {
 
         <div id="thirdSection" className="mb-12">
           <h1 className={titleClassName}>Modes at a glance</h1>
-          <div className="mt-4 overflow-x-auto rounded-lg border border-white/15 bg-black/20">
+          <div className="mt-4 overflow-x-auto rounded-lg border border-vl-brown/25 bg-transparent">
             <table className="w-full min-w-[320px] text-left text-xs md:text-sm">
               <thead>
-                <tr className="border-b border-white/15 text-[#FFE32F]">
+                <tr className="border-b border-vl-brown/25 text-vl-brown-dark">
                   <th className="px-4 py-3 font-semibold">Mode</th>
-                  <th className="px-4 py-3 font-semibold">Built for</th>
+                  <th className="border-l border-vl-brown/25 px-4 py-3 font-semibold">Built for</th>
                 </tr>
               </thead>
               <tbody>
                 {modeRows.map((row) => (
-                  <tr key={row.mode} className="border-b border-white/10 last:border-0">
-                    <td className="px-4 py-3 font-semibold text-white">{row.mode}</td>
-                    <td className={`${paragrapghClassName} !mb-0 px-4 py-3`}>{row.for}</td>
+                  <tr key={row.mode} className="border-b border-vl-brown/20 last:border-0">
+                    <td className="px-4 py-3 font-semibold text-vl-brown-dark">{row.mode}</td>
+                    <td className={`${paragrapghClassName} !mb-0 border-l border-vl-brown/20 px-4 py-3`}>
+                      {row.for}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -208,9 +184,9 @@ export default function NotepadProPage() {
             {featureCards.map((card) => (
               <div
                 key={card.title}
-                className="rounded-xl border border-white/10 bg-white/[0.04] p-4 transition hover:border-[#FFE32F]/50"
+                className="rounded-xl border border-vl-brown/20 bg-vl-cream-deep/70 p-4 transition hover:border-vl-brown/45"
               >
-                <h2 className={`${titleClassName} mb-2 text-[#FFE32F]`}>{card.title}</h2>
+                <h2 className={`${titleClassName} mb-2 text-vl-brown-dark`}>{card.title}</h2>
                 <p className={`${paragrapghClassName} !mb-0`}>{card.body}</p>
               </div>
             ))}
@@ -224,11 +200,43 @@ export default function NotepadProPage() {
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {scenarios.map((s) => (
-              <div key={s.title} className="rounded-lg border-l-4 border-[#FFE32F] bg-black/25 px-4 py-3">
+              <div key={s.title} className="rounded-lg border-l-4 border-vl-brown bg-vl-cream-deep/70 px-4 py-3">
                 <h3 className={`${titleClassName} mb-2`}>{s.title}</h3>
                 <p className={`${paragrapghClassName} !mb-0`}>{s.body}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        <div
+          id="mobileSection"
+          className="mb-12 scroll-mt-24 rounded-2xl border border-vl-brown/20 bg-vl-cream-deep/40 px-5 py-10 md:px-8 md:py-12"
+        >
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(240px,320px)] lg:items-center lg:gap-14 xl:grid-cols-[minmax(0,1fr)_minmax(260px,340px)]">
+            <div className="text-center lg:text-left">
+              <h1 className={secondaryTitleClassName}>Take it on mobile</h1>
+              <p className={`${paragrapghClassName} mx-auto mt-4 max-w-xl lg:mx-0`}>
+                NotepadPro is not only a desktop session—the same multi-mode workspace runs on your phone and tablet, so
+                you can capture, edit tasks, and skim notes when you are away from your desk. Install from the App Store,
+                Google Play, or the Microsoft Store and pick up where you left off.
+              </p>
+              <p className={`${paragrapghClassName} mx-auto mt-3 max-w-xl lg:mx-0`}>
+                The preview matches the same hero artwork as above for a consistent story across desktop and mobile.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start md:gap-4">
+                {storeBadges.map((badge) => (
+                  <img
+                    key={`mobile-${badge.img}`}
+                    src={badge.img}
+                    alt={badge.alt}
+                    className="h-10 w-auto sm:h-11 md:h-12"
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <NotepadProPhoneCarousel />
+            </div>
           </div>
         </div>
 
@@ -238,7 +246,7 @@ export default function NotepadProPage() {
             Built for people who keep large libraries open all day-local storage, selective sync, and tooling that respects
             a serious desktop session.
           </p>
-          <ul className="mt-4 list-inside list-disc space-y-2 text-xs text-white/90 md:text-sm">
+          <ul className="mt-4 list-inside list-disc space-y-2 text-xs text-vl-ink md:text-sm">
             {powerBullets.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -251,37 +259,37 @@ export default function NotepadProPage() {
             No competitor names required-the pattern is what matters: one workspace that respects offline work, optional
             sync, and multiple formats without duct-taping four SaaS tabs together.
           </p>
-          <div className="mt-6 overflow-x-auto rounded-lg border border-white/15">
+          <div className="mt-6 overflow-x-auto rounded-lg border border-vl-brown/25">
             <table className="w-full min-w-[360px] text-left text-[11px] md:text-sm">
               <thead>
-                <tr className="bg-black/30 text-[#FFE32F]">
+                <tr className="border-b border-vl-brown/25 text-vl-brown-dark">
                   <th className="px-3 py-2 font-semibold md:px-4">Capability</th>
                   <th className="px-3 py-2 font-semibold md:px-4">NotepadPro</th>
                   <th className="px-3 py-2 font-semibold md:px-4">Typical “notes” app</th>
                 </tr>
               </thead>
-              <tbody className="text-white/90">
-                <tr className="border-t border-white/10">
+              <tbody className="text-vl-ink">
+                <tr className="border-t border-vl-brown/20">
                   <td className="px-3 py-2 md:px-4">Multi-format in one note</td>
                   <td className="px-3 py-2 md:px-4">Yes</td>
                   <td className="px-3 py-2 md:px-4">Usually one format</td>
                 </tr>
-                <tr className="border-t border-white/10">
+                <tr className="border-t border-vl-brown/20">
                   <td className="px-3 py-2 md:px-4">Fully usable offline</td>
                   <td className="px-3 py-2 md:px-4">Yes</td>
                   <td className="px-3 py-2 md:px-4">Often partial</td>
                 </tr>
-                <tr className="border-t border-white/10">
+                <tr className="border-t border-vl-brown/20">
                   <td className="px-3 py-2 md:px-4">Optional / LAN sync</td>
                   <td className="px-3 py-2 md:px-4">Yes</td>
                   <td className="px-3 py-2 md:px-4">Often cloud-only</td>
                 </tr>
-                <tr className="border-t border-white/10">
+                <tr className="border-t border-vl-brown/20">
                   <td className="px-3 py-2 md:px-4">Built-in grid / CSV mode</td>
                   <td className="px-3 py-2 md:px-4">Yes</td>
                   <td className="px-3 py-2 md:px-4">Rare</td>
                 </tr>
-                <tr className="border-t border-white/10">
+                <tr className="border-t border-vl-brown/20">
                   <td className="px-3 py-2 md:px-4">Task timers in-workspace</td>
                   <td className="px-3 py-2 md:px-4">Yes</td>
                   <td className="px-3 py-2 md:px-4">Uncommon</td>
@@ -300,7 +308,7 @@ export default function NotepadProPage() {
           </ol>
         </div>
 
-        <div id="lastSection" className="rounded-2xl border border-[#FFE32F]/40 bg-gradient-to-br from-[#2c211c] to-black/40 p-8 text-center">
+        <div id="lastSection" className="rounded-2xl border border-vl-brown/30 bg-vl-cream-deep/70 p-8 text-center">
           <h1 className={`${secondaryTitleClassName} !mx-0 !max-w-none`}>Start thinking in one workspace</h1>
           <p className={`${paragrapghClassName} mx-auto mt-4 max-w-xl`}>
             If you want early access, installers, or a walkthrough for your team, reach out-we will point you to the right
@@ -309,14 +317,14 @@ export default function NotepadProPage() {
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <LearnMoreBtn
               text="Contact Voltis Labs"
-              borderColor="border-[#FFE32F]"
-              textColor="text-[#FFE32F]"
+              borderColor="border-vl-brown"
+              textColor="text-vl-brown"
               route="/contact-us"
             />
             <LearnMoreBtn
               text="All products"
-              borderColor="border-white"
-              textColor="text-white"
+              borderColor="border-vl-brown"
+              textColor="text-vl-brown"
               route="/products"
             />
           </div>
@@ -325,3 +333,7 @@ export default function NotepadProPage() {
     </div>
   );
 }
+
+
+
+

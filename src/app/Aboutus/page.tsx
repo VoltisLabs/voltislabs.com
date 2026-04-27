@@ -4,9 +4,7 @@ import { Aboutus } from '../data';
 import { paragrapghClassName, titleClassName } from '../data';
 import Sidebar from '@/src/components/UI/SideBar';
 import TitleSection from '@/src/components/UI/TitleSection';
-import Marquee from 'react-fast-marquee';
-import Image from 'next/image';
-import SliderBackground from '@/src/components/UI/SliderBackground';
+import ProductBannerSlider from '@/src/components/UI/ProductBannerSlider';
 import LearnMoreBtn from '@/src/components/UI/LearnMoreBtn';
 
 function AboutusPage() {
@@ -18,8 +16,8 @@ function AboutusPage() {
   ];
 
   return (
-    <div className="mx-auto w-full max-w-[85rem] bg-vl-brown-dark pb-20 pt-6 text-vl-cream md:pt-10">
-      <Sidebar tbList={menuItems} />
+    <div className="mx-auto w-full max-w-[85rem] bg-vl-cream pb-20 pt-6 text-vl-ink md:pt-10">
+      <Sidebar tbList={menuItems} tone="dark" />
 
       <section id="prelura-home md:block hidden" className="max-w-[85rem]">
         <TitleSection
@@ -31,51 +29,22 @@ function AboutusPage() {
       </section>
 
       <section className="mb-[0.2rem] hidden px-[2rem] md:block md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
-        <div className="flex flex-col items-center gap-6 md:flex-row">
-          <Marquee
-            className="no-scrollbar slider-statement bg-carpet-green relative cursor-default overflow-x-scroll"
-            speed={50}
-            pauseOnHover
-            pauseOnClick
-            direction="right"
-          >
-            {Aboutus.map((img, index) => (
-              <div
-                key={index}
-                className="mr-4 h-[23rem] w-[20rem] overflow-hidden rounded-[10px] md:h-[21rem]"
-              >
-                <Image
-                  src={img.img}
-                  alt="reluraimg"
-                  className="h-full w-full object-cover object-top"
-                  width={500}
-                  height={500}
-                />
-              </div>
-            ))}
-          </Marquee>
-        </div>
+        <ProductBannerSlider images={Aboutus} />
       </section>
       <div className="flex hidden h-full items-center justify-center p-2 md:flex md:p-7">
         <LearnMoreBtn
           text="Visit Website"
-          borderColor="border-white"
-          textColor="text-white"
+          borderColor="border-vl-brown"
+          textColor="text-vl-brown"
           route="/"
         />
       </div>
-      <section className="mobile-slider hero-section mb-7 block md:hidden">
-        <SliderBackground
-          containerStyle="bg-[#000] w-full"
-          imagesArray={Aboutus}
-          titleText="We are Voltis Labs"
-          smallBtnText="Learn More"
-          route="/"
-        />
+      <section className="mobile-slider hero-section mb-7 block px-[1.4rem] md:hidden">
+        <ProductBannerSlider images={Aboutus} />
       </section>
 
-      <div className="mx-auto mb-16 max-w-[45rem] px-[1.4rem] md:px-0">
-        <section id="about" className="my-8 mb-10 font-normal text-white">
+      <div className="mx-auto mb-16 content-flow space-y-12 px-[1.4rem] md:space-y-14 md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
+        <section id="about" className="my-8 mb-10 font-normal text-vl-ink">
           <span className={` ${paragrapghClassName}`}>
             At Voltis Labs, we <span className="font-semibold">believe </span>
             technology has the power to unlock human potential. We are a company built on the idea
@@ -98,9 +67,9 @@ function AboutusPage() {
 
         <section
           id="mission"
-          className="my-0 mb-10 text-[1rem] font-normal text-white md:text-[1.1rem]"
+          className="my-0 mb-10 text-[1rem] font-normal text-vl-ink md:text-[1.1rem]"
         >
-          <div id="mission" className="mb-3 text-3xl font-bold text-white">
+          <div id="mission" className="mb-3 text-3xl font-bold text-vl-brown-dark">
             Our Mission
           </div>
           <div className="flex w-full flex-col gap-8 md:flex-row">
@@ -169,7 +138,7 @@ function AboutusPage() {
 
         <section
           id="looking-ahead"
-          className="my-3 mb-10 text-[1rem] font-normal text-white md:text-[1.1rem]"
+          className="my-3 mb-10 text-[1rem] font-normal text-vl-ink md:text-[1.1rem]"
         >
           <div id="looking-ahead" className="mb-2 text-[30px] font-bold">
             Looking Ahead
@@ -191,3 +160,7 @@ function AboutusPage() {
 }
 
 export default AboutusPage;
+
+
+
+

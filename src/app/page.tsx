@@ -2,18 +2,11 @@
 
 import { About, updates } from './data';
 import Image from 'next/image';
-import FirstHero from '../components/common/carousel/FirstHero';
-import SecondHero from '../components/common/carousel/SecondHero';
-import ThirdHero from '../components/common/carousel/ThirdHero';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Content from '../components/Content';
 import Link from 'next/link';
 import { FaChevronLeft, FaChevronRight, FaSpotify } from 'react-icons/fa';
 import { fetchData } from '../../lib/apiClient';
-import FourthHero from '@/src/components/common/carousel/FourthHero';
 
 const GET_POSTS_QUERY = `
   query GetPost($first: Int!, $skip: Int!) {
@@ -48,7 +41,6 @@ interface Post {
 }
 
 export default function Home() {
-  const sliderRef = useRef<Slider>(null);
   const updatesContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -58,6 +50,21 @@ export default function Home() {
   const latestNewsContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeftLatest, setCanScrollLeftLatest] = useState(false);
   const [canScrollRightLatest, setCanScrollRightLatest] = useState(false);
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
+
+  const heroSlides = [
+    {
+      title: 'We design and build scalable digital products.',
+      subtitle: 'Creator platforms. Marketplaces. Apps that scale.',
+      cta: { href: '/products', label: 'Explore Our Products' },
+    },
+    {
+      title: 'Voltis Core',
+      subtitle:
+        'A growing suite of productivity tools designed to help you write, organise, and stay in control.',
+      cta: { href: '/tools', label: 'Explore Tools' },
+    },
+  ];
 
   const getPosts = useCallback(async () => {
     setLoading(true);
@@ -145,81 +152,65 @@ export default function Home() {
     }
   }, []);
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 1300,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4500,
-    arrows: false,
-    fade: true,
-  };
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setActiveHeroSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 4200);
+    return () => window.clearInterval(id);
+  }, [heroSlides.length]);
 
-  const slides = [
-    {
-      image: <FirstHero />,
-      text: 'Slide 1 Text',
-    },
-    {
-      image: <SecondHero />,
-      text: 'Slide 2 Text',
-    },
-    {
-      image: <ThirdHero />,
-      text: 'Slide 3 Text',
-    },
-    {
-      image: <FourthHero />,
-      text: 'Slide 4 Text',
-    },
-  ];
-
-  const handleNextClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
-    }
-  };
-  const handlePrevClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev();
-    }
-  };
   return (
     <div className="page-container relative min-h-screen w-full bg-vl-cream">
-      {/* Column-wide hero; avoid overriding Slick slide widths (breaks the carousel) */}
+      {/* Previous slider intentionally disabled for now.
       <div className="item-container absolute inset-x-0 top-0 z-0 min-h-[37rem] w-full md:min-h-[42rem]">
-        <button
-          className="absolute left-4 top-[20rem] z-10 rounded-full border border-vl-brown/20 bg-vl-cream-deep/95 text-vl-ink opacity-70 transition-all delay-75 ease-in-out hover:opacity-100 focus:outline-none md:p-2"
-          onClick={handlePrevClick}
-        >
-          <Image
-            src={'/icons/button-arrow.svg'}
-            alt="button-icon"
-            width={30}
-            height={30}
-            className="rotate-180"
-          />
-        </button>
-
-        <Slider ref={sliderRef} {...settings} className="w-full">
-          {slides.map((item) => (
-            <div key={item.text} className="h-full w-full">
-              {item.image}
-            </div>
-          ))}
-        </Slider>
-
-        <button
-          className="absolute right-4 top-[20rem] z-10 rounded-full border border-vl-brown/20 bg-vl-cream-deep/95 text-vl-ink opacity-70 transition-all delay-75 ease-in-out hover:opacity-100 focus:outline-none md:p-2"
-          onClick={handleNextClick}
-        >
-          <Image src={'/icons/button-arrow.svg'} alt="button-icon" width={30} height={30} />
-        </button>
+        ...
       </div>
+      */}
 
-      <div className="content-container pt-[42rem]">
+      <section className="hero-shell px-[1rem] pb-11 pt-[6.1rem] md:px-[2rem] md:pb-16 md:pt-[6.7rem]">
+        <div className="mx-auto flex w-full max-w-5xl flex-col justify-center gap-8 md:min-h-[37vh]">
+          <div className="max-w-3xl">
+            <div className="hero-stage relative min-h-[15.5rem] md:min-h-[17rem]">
+              {heroSlides.map((slide, idx) => (
+                <div
+                  key={slide.title}
+                  className={`hero-slide absolute inset-0 ${activeHeroSlide === idx ? 'is-active' : ''}`}
+                  aria-hidden={activeHeroSlide !== idx}
+                >
+                  <h1 className="hero-reveal hero-reveal-1 text-balance text-4xl font-bold leading-[1.03] text-vl-brown-dark sm:text-5xl md:text-6xl">
+                    {slide.title}
+                  </h1>
+                  <p className="hero-reveal hero-reveal-2 mt-6 max-w-2xl text-lg leading-relaxed text-vl-ink-muted md:text-xl">
+                    {slide.subtitle}
+                  </p>
+                  <div className="hero-reveal hero-reveal-3 mt-10 flex flex-wrap items-center gap-3">
+                    <Link
+                      href={slide.cta.href}
+                      className="inline-flex items-center rounded-full border border-vl-brown bg-vl-brown px-5 py-2.5 text-sm font-semibold text-vl-cream transition hover:bg-vl-brown-dark"
+                    >
+                      {slide.cta.label}
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex items-center gap-2">
+              {heroSlides.map((slide, idx) => (
+                <button
+                  key={`dot-${slide.title}`}
+                  type="button"
+                  onClick={() => setActiveHeroSlide(idx)}
+                  aria-label={`Show hero slide ${idx + 1}`}
+                  className={`h-2.5 w-2.5 rounded-full transition-all ${activeHeroSlide === idx ? 'bg-vl-brown scale-110' : 'bg-vl-brown/30 hover:bg-vl-brown/55'}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="content-container pt-10">
+        <Content showResponsible={false} />
         {/* <section className="overflow-x-scroll no-scrollbar flex md:px-[2rem] px-[1rem] pt-[3.45rem]   w-full min-h-[150px] md:gap-12 gap:4  mb-20">
           {About.map((text, index) => (
             <div
@@ -346,6 +337,7 @@ export default function Home() {
           </div>
         </section>
 
+        <Content showProducts={false} />
         {/* Latest news  */}
         <section className="relative mb-20 mt-10 min-h-[16rem] px-[1rem] md:mt-20 md:min-h-[20rem] md:px-[2rem]">
           <div className="mb-6 w-full border border-vl-brown/20"></div>
@@ -462,7 +454,6 @@ export default function Home() {
             )}
           </div>
         </section>
-        <Content />
       </div>
     </div>
   );

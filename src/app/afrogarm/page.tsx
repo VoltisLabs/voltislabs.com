@@ -2,7 +2,7 @@
 
 import Subtitle from "@/src/components/UI/subtitle";
 import Title from "@/src/components/UI/Title";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   paragrapghClassName,
   secondaryTitleClassName,
@@ -14,8 +14,7 @@ import {
 import Sidebar from "@/src/components/UI/SideBar";
 import Image from "next/image";
 import TitleSection from "@/src/components/UI/TitleSection";
-import Marquee from "react-fast-marquee";
-import SliderBackground from "@/src/components/UI/SliderBackground";
+import ProductBannerSlider from "@/src/components/UI/ProductBannerSlider";
 import LearnMoreBtn from "@/src/components/UI/LearnMoreBtn";
 import Link from "next/link";
 
@@ -44,22 +43,9 @@ function Vmodel() {
     },
   ]
 
-  const [isPlaying, setIsplaying] = useState(false);
-
-
-
-  const formatDate = (timestamp: string) => {
-    const options: Intl.DateTimeFormatOptions = {
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric',
-    };
-    return new Date(timestamp).toLocaleDateString('en-GB', options);
-  };
-
   return (
-    <div className="mx-auto w-full max-w-[85rem] bg-vl-brown-dark pb-20 pt-6 text-vl-cream md:pt-10">
-      <Sidebar tbList={menuItems} />
+    <div className="mx-auto w-full max-w-[85rem] bg-vl-cream pb-20 pt-6 text-vl-ink md:pt-10">
+      <Sidebar tbList={menuItems} tone="dark" />
 
       <TitleSection
         title="Welcome to Afrogarm"
@@ -68,57 +54,22 @@ function Vmodel() {
         containerStyle="mb-[2.8rem] hidden md:block"
       />
       {/* <InfiniteMarqueeSlider/> */}
-      <section className="image-section hidden md:block mb-[0.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
-        <div
-          onMouseEnter={() => setIsplaying(true)}
-          onMouseLeave={() => setIsplaying(false)}
-          onClick={() => setIsplaying(!isPlaying)}
-          className="slider-statement z-10 cursor-default relative"
-        >
-          <Marquee
-            className="slider-statement z-20 cursor-default bg-carpet-green relative"
-            speed={50}
-            pauseOnHover
-            pauseOnClick
-            direction="right"
-          >
-            {afrogarmImages.map((img, index) => (
-              <div
-                key={index}
-                className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
-              >
-                <Image
-                  src={img.img}
-                  alt="afrogarmImage"
-                  className="w-full h-full object-cover object-top"
-                  width={500}
-                  height={500}
-                />
-              </div>
-            ))}
-          </Marquee>
-        </div>
+      <section className="image-section mb-[0.2rem] hidden px-[2rem] md:block md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
+        <ProductBannerSlider images={afrogarmImages} />
       </section>
       <div className="hidden md:flex h-full  md:p-7 p-2 flex justify-center items-center">
         <LearnMoreBtn
           text="Visit Website"
-          borderColor="border-white"
-          textColor="text-white"
+          borderColor="border-vl-brown"
+          textColor="text-vl-brown"
           route="http://www.afrogarm.com"
         />
       </div>
-      <section className="hero-section md:hidden block mb-9">
-        <SliderBackground
-          containerStyle="bg-black w-full"
-          imagesArray={afrogarmImages}
-          titleText="Welcome to Afrogarm"
-          afrogarm
-          route="https://www.afrogarm.com"
-          smallBtnText="Visit Afrogarm"
-        />
+      <section className="hero-section mb-9 block px-[1.4rem] md:hidden">
+        <ProductBannerSlider images={afrogarmImages} />
       </section>
 
-      <div className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0">
+      <div className="mx-auto mb-16 content-flow space-y-12 px-[1.4rem] md:space-y-14 md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
         <div className="flex-container mb-8">
           <div id="firstSection" className="text-section mt-1">
             <h1 className={`${sectionTitleClassName}`}>What is Afrogarm?</h1>
@@ -292,14 +243,14 @@ function Vmodel() {
         <div className="my-12 flex w-full items-center justify-center gap-4 md:gap-6">
           <div className="w-fit rounded-full bg-[url('/svgs/insta_bg.svg')] px-5 py-2.5 text-center lg:px-10">
             <Link href="https://www.instagram.com/afrogarm">
-              <p className="cursor-pointer text-sm font-semibold text-white lg:text-base">
+              <p className="cursor-pointer text-sm font-semibold text-vl-brown-dark lg:text-base">
                 Follow us on instagram
               </p>
             </Link>
           </div>
-          <div className="w-fit rounded-full border border-white px-5 py-2.5 text-center lg:px-10">
+          <div className="w-fit rounded-full border border-vl-brown px-5 py-2.5 text-center lg:px-10">
             <Link href="https://www.afrogarm.com">
-              <p className="cursor-pointer text-sm font-semibold text-white lg:text-base">Visit Website</p>
+              <p className="cursor-pointer text-sm font-semibold text-vl-brown lg:text-base">Visit Website</p>
             </Link>
           </div>
         </div>
@@ -309,3 +260,7 @@ function Vmodel() {
 }
 
 export default Vmodel;
+
+
+
+

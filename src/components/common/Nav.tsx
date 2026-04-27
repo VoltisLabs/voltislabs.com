@@ -83,12 +83,26 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
 
   const links = [
     {
+      category: "Productivity",
+      items: [
+        { name: "NotepadPro", route: "/notepadpro" },
+        { name: "Pinnacle Transfer", route: "/pinnacle-transfer" },
+        { name: "Clipstack", route: "/clipstack" },
+        { name: "Toolkit", route: "/bg" },
+        { name: "Loyalty Bot", route: "/loyalty_bot" },
+      ],
+    },
+    {
       category: "Fashion",
       items: [
         { name: "Wearhouse", route: "/wearhouse" },
         { name: "Outfeatz", route: "/outfeatz" },
         { name: "Afrogarm", route: "/afrogarm" },
       ],
+    },
+    {
+      category: "Lifestyle",
+      items: [{ name: "PONY", route: "https://myponyapp.com/" }],
     },
     {
       category: "Games",
@@ -99,22 +113,8 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
       ],
     },
     {
-      category: "Lifestyle",
-      items: [{ name: "PONY", route: "https://myponyapp.com/" }],
-    },
-    {
       category: "Social Media",
       items: [{ name: "VModel", route: "/vmodel" }],
-    },
-    {
-      category: "Productivity",
-      items: [
-        { name: "Toolkit", route: "/bg" },
-        { name: "Loyalty Bot", route: "/loyalty_bot" },
-        { name: "Pinnacle Transfer", route: "/pinnacle-transfer" },
-        { name: "Clipstack", route: "/clipstack" },
-        { name: "NotepadPro", route: "/notepadpro" },
-      ],
     },
   ];
 
@@ -122,10 +122,10 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
   const linksMobile = (
     [
       "Productivity",
+      "Fashion",
+      "Lifestyle",
       "Games",
       "Social Media",
-      "Lifestyle",
-      "Fashion",
     ] as const
   )
     .map((name) => links.find((c) => c.category === name))
@@ -201,12 +201,12 @@ const Nav = ({ setToggle, toggle }: NavProps) => {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   <div className={dropdownPanel}>
-                    <div className="flex flex-row justify-center gap-6">
+                    <div className="flex flex-row justify-center gap-8">
                       {links.map((category) => (
-                        <div key={category.category} className="relative flex flex-col items-center">
-                          <div className={dropdownCategory}>{category.category}</div>
-                          <div className="mt-2">
-                            <ul className="flex flex-col gap-2">
+                        <div key={category.category} className="relative flex min-w-[9rem] flex-col items-start">
+                          <div className={`${dropdownCategory} text-left`}>{category.category}</div>
+                          <div className="mt-2 w-full">
+                            <ul className="flex flex-col gap-2 text-left">
                               {category.items.map((item) => (
                                 <li key={item.name}>
                                   <a

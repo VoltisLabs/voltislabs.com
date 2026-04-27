@@ -55,6 +55,15 @@ body {
   .justified-text {
     text-align: justify;
   }
+
+  .content-flow > * + * {
+    margin-top: 1.25rem;
+  }
+
+  .content-flow section[id],
+  .content-flow div[id] {
+    scroll-margin-top: 7rem;
+  }
 }
 
 @layer base {
@@ -70,6 +79,56 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hero-shell {
+  position: relative;
+}
+
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: heroFadeUp 0.7s ease-out forwards;
+}
+
+.hero-reveal-1 {
+  animation-delay: 0.05s;
+}
+
+.hero-reveal-2 {
+  animation-delay: 0.2s;
+}
+
+.hero-reveal-3 {
+  animation-delay: 0.35s;
+}
+
+.hero-slide {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  pointer-events: none;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.hero-slide.is-active .hero-reveal {
+  animation: heroFadeUp 0.55s ease-out both;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .spinner {

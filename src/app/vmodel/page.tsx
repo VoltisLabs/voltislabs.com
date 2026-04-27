@@ -2,7 +2,7 @@
 
 import Subtitle from "@/src/components/UI/subtitle";
 import Title from "@/src/components/UI/Title";
-import React, { useState } from "react";
+import React from "react";
 import {
   constantlyInnovating,
   fragmentWork,
@@ -28,8 +28,7 @@ import Sidebar from "@/src/components/UI/SideBar";
 import Image from "next/image";
 import FlatList from "@/src/components/UI/FlatList";
 import TitleSection from "@/src/components/UI/TitleSection";
-import Marquee from "react-fast-marquee";
-import SliderBackground from "@/src/components/UI/SliderBackground";
+import ProductBannerSlider from "@/src/components/UI/ProductBannerSlider";
 import InfiniteMarqueeSlider from "@/src/components/common/autoSlider";
 import LearnMoreBtn from "@/src/components/UI/LearnMoreBtn";
 
@@ -69,72 +68,33 @@ function Vmodel() {
     },
   ];
 
-  const [isPlaying, setIsplaying] = useState(false);
-
   return (
-    <div className="mx-auto w-full max-w-[85rem] bg-vl-brown-dark pb-20 pt-6 text-vl-cream md:pt-10">
-      <Sidebar tbList={menuItems} />
+    <div className="mx-auto w-full max-w-[85rem] bg-vl-cream pb-20 pt-6 text-vl-ink md:pt-10">
+      <Sidebar tbList={menuItems} tone="dark" />
 
       <TitleSection
         title="Your creative career, your way!"
-        subTitle="Exciting updates are here for VModel! Enjoy a fresh UI, AI job
-          matching, real-time messaging, an enhanced portfolio, and easier
-          payments. More to come soon!"
+        subTitle="Connect, collaborate, and get booked on your terms."
         secondaryText="Published on Monday 17th February, 2025"
         containerStyle="mb-[2.8rem] hidden md:block"
       />
       {/* <InfiniteMarqueeSlider/> */}
-      <section className="image-section hidden md:block mb-[0.2rem] md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
-        <div
-          onMouseEnter={() => setIsplaying(true)}
-          onMouseLeave={() => setIsplaying(false)}
-          onClick={() => setIsplaying(!isPlaying)}
-          className="slider-statement z-10 cursor-default relative"
-        >
-          <Marquee
-            className="slider-statement z-20 cursor-default bg-carpet-green relative"
-            speed={50}
-            pauseOnHover
-            pauseOnClick
-            direction="right"
-          >
-            {vmodelImages.map((img, index) => (
-              <div
-                key={index}
-                className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
-              >
-                <Image
-                  src={img.img}
-                  alt="reluraimg"
-                  className="w-full h-full object-cover object-top"
-                  width={500}
-                  height={500}
-                />
-              </div>
-            ))}
-          </Marquee>
-        </div>
+      <section className="image-section mb-[0.2rem] hidden px-[2rem] md:block md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
+        <ProductBannerSlider images={vmodelImages} />
       </section>
       <div className="hidden md:flex h-full  md:p-7 p-2 flex justify-center items-center">
         <LearnMoreBtn
           text="Visit Website"
-          borderColor="border-white"
-          textColor="text-white"
+          borderColor="border-vl-brown"
+          textColor="text-vl-brown"
           route="http://vmodelapp.com"
         />
       </div>
-      <section className="hero-section md:hidden block mb-9">
-        <SliderBackground
-          containerStyle="bg-[#503C3B] w-full"
-          imagesArray={vmodelImages}
-          titleText="Your creative career, your way!"
-          vmodel
-          route="https://vmodelapp.com"
-          smallBtnText="Visit Vmodel"
-        />
+      <section className="hero-section mb-9 block px-[1.4rem] md:hidden">
+        <ProductBannerSlider images={vmodelImages} />
       </section>
 
-      <div className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0">
+      <div className="mx-auto mb-16 content-flow space-y-12 px-[1.4rem] md:space-y-14 md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
         <div className="flex-container mb-8">
           <div id="firstSection" className="text-section mt-1">
             <h1 className={`${sectionTitleClassName}`}>What is VModel?</h1>
@@ -641,3 +601,7 @@ function Vmodel() {
 }
 
 export default Vmodel;
+
+
+
+

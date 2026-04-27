@@ -17,6 +17,7 @@ interface SliderBackgroundProps {
   route?: string;
   vlA?: boolean;
   smallBtnText?: string;
+  smallBtnArrowSrc?: string;
 }
 
 const SliderBackground = ({
@@ -28,6 +29,7 @@ const SliderBackground = ({
   afrogarm,
   smallBtnText,
   vlA,
+  smallBtnArrowSrc,
 }: SliderBackgroundProps) => {
   const [isPlaying, setIsplaying] = useState(false);
 
@@ -111,6 +113,7 @@ const SliderBackground = ({
               textColor="text-white"
               borderColor="border-white"
               route={route}
+              arrowSrc={smallBtnArrowSrc}
             />
           </div>
         </div>

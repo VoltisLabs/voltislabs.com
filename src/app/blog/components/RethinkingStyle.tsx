@@ -143,8 +143,8 @@ const RethinkingStyle = () => {
         <div className="mx-auto my-7 w-fit">
           <LearnMoreBtn
             text="Start exploring"
-            borderColor="border-white"
-            textColor="text-white"
+            borderColor="border-vl-brown"
+            textColor="text-vl-brown"
             route="/wearhouse"
           />
         </div>
@@ -154,3 +154,4 @@ const RethinkingStyle = () => {
 };
 
 export default RethinkingStyle;
+

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
   forBuyers,
   forSellers,
@@ -15,9 +15,8 @@ import Subtitle from "@/src/components/UI/subtitle";
 import { paragrapghClassName, titleClassName } from "../data";
 import Sidebar from "@/src/components/UI/SideBar";
 import FlatList from "@/src/components/UI/FlatList";
-import Marquee from "react-fast-marquee";
 import TitleSection from "@/src/components/UI/TitleSection";
-import SliderBackground from "@/src/components/UI/SliderBackground";
+import ProductBannerSlider from "@/src/components/UI/ProductBannerSlider";
 import LearnMoreBtn from "@/src/components/UI/LearnMoreBtn";
 
 function OutfeatzPage() {
@@ -29,18 +28,12 @@ function OutfeatzPage() {
     // { name: "Wearhouse For Buyers", route: "prelura-buyer", Icon: "" },
     // { name: "FAQs & Help Center", route: "prelura-more", Icon: "" },
   ];
-
-
-
-
-  const [isPlaying, setIsplaying] = useState(false);
-
   return (
     <div
       id="Outfeatz-home"
-      className="mx-auto w-full max-w-[85rem] bg-vl-brown-dark pb-20 pt-6 text-vl-cream md:pt-10"
+      className="mx-auto w-full max-w-[85rem] bg-vl-cream pb-20 pt-6 text-vl-ink md:pt-10"
     >
-      <Sidebar tbList={menuItems} />
+      <Sidebar tbList={menuItems} tone="dark" />
 
       <section id="outfeatz-home md:block hidden max-w-[85rem]">
         <TitleSection
@@ -51,62 +44,29 @@ function OutfeatzPage() {
         />
       </section>
 
-      <section className="mb-[0.2rem] md:block hidden md:px-[4rem] lg:px-[10rem] xl:px-[16rem] px-[2rem] ">
-        <div
-          onMouseEnter={() => setIsplaying(true)}
-          onMouseLeave={() => setIsplaying(false)}
-          onClick={() => setIsplaying(!isPlaying)}
-          className="flex items-center gap-6 md:flex-row flex-col"
-        >
-          <Marquee
-            className="overflow-x-scroll no-scrollbar slider-statement cursor-default bg-carpet-green relative"
-            speed={50}
-            pauseOnHover
-            pauseOnClick
-            direction="right"
-          >
-            {outfeatz.map((img, index) => (
-              <div
-                key={index}
-                className="w-[20rem] mr-4 overflow-hidden rounded-[10px] md:h-[21rem] h-[23rem]"
-              >
-                <Image
-                  src={img.img}
-                  alt="reluraimg"
-                  className="w-full h-full object-cover object-top"
-                  width={500}
-                  height={500}
-                />
-              </div>
-            ))}
-          </Marquee>
-        </div>
+      <section className="mb-[0.2rem] hidden px-[2rem] md:block md:px-[4rem] lg:px-[10rem] xl:px-[16rem]">
+        <ProductBannerSlider images={outfeatz} />
       </section>
 
       <div className="hidden md:flex h-full  md:p-7 p-2 flex justify-center items-center">
         <LearnMoreBtn
           text={` Visit website`}
-          borderColor="border-white"
-          textColor="text-white"
+          borderColor="border-vl-brown"
+          textColor="text-vl-brown"
           route="https://outfeatz.com"
+          arrowSrc="/icons/arrow-brown.svg"
         />
       </div>
 
-      <section className="mobile-slider hero-section mb-7 md:hidden block">
-        <SliderBackground
-          containerStyle=" w-full"
-          imagesArray={outfeatz}
-          route="https://outfeatz.com"
-          titleText="A New Home for Your Fashion Finds"
-          smallBtnText="Visit Website"
-        />
+      <section className="mobile-slider hero-section mb-7 block px-[1.4rem] md:hidden">
+        <ProductBannerSlider images={outfeatz} />
       </section>
 
       <div
         id="prelura-more"
-        className="mb-16 mx-auto max-w-[45rem] px-[1.4rem] md:px-0"
+        className="mx-auto mb-16 content-flow space-y-12 px-[1.4rem] md:space-y-14 md:px-[4rem] lg:px-[10rem] xl:px-[16rem]"
       >
-        <section className="text-white mb-8">
+        <section className="text-vl-ink mb-8">
           <h1 className={titleClassName}>
             Outfeatz - Curate Your Style, Your Way
           </h1>
@@ -123,7 +83,7 @@ function OutfeatzPage() {
           <br />
         </section>
 
-        <section id="prelura-more" className="text-white mb-8">
+        <section id="prelura-more" className="text-vl-ink mb-8">
           <h1 className={secondaryTitleClassName}> How It Works</h1>
 
           <div className="flex flex-col gap-8">
@@ -162,7 +122,7 @@ function OutfeatzPage() {
         </section>
 
 
-        <section className="text-white mb-8">
+        <section className="text-vl-ink mb-8">
           <motion.h2
             className={secondaryTitleClassName}
             initial={{ opacity: 0, y: -50 }}
@@ -216,13 +176,13 @@ function OutfeatzPage() {
         </section>
 
 
-        <section id="prelura-vision text-white mb-8" className="">
+        <section id="prelura-vision text-vl-ink mb-8" className="">
           <h1 className={secondaryTitleClassName}>Who Is Outfeatz For?</h1>
           <br />
           <div className="flex-section flex items-start gap-3 justify-between w-full">
             <div className="text-section">
 
-              <div className="flex text-white mb-8 flex-col gap-8">
+              <div className="flex text-vl-ink mb-8 flex-col gap-8">
                 <div>
                   <h3 className="font-semibold ">
                     Fashion Lovers & Outfit Planners
@@ -302,7 +262,7 @@ function OutfeatzPage() {
           </div>
         </section>
 
-        <section className="text-white mb-8">
+        <section className="text-vl-ink mb-8">
           <h2 className={secondaryTitleClassName}>
             Why Outfeatz?
           </h2>
@@ -314,7 +274,7 @@ function OutfeatzPage() {
           </ul>
         </section>
 
-        <section className="text-white mb-8">
+        <section className="text-vl-ink mb-8">
           <h2 className={secondaryTitleClassName}>
             The Future of Digital Fashion Starts Here
           </h2>
@@ -340,3 +300,6 @@ function OutfeatzPage() {
 }
 
 export default OutfeatzPage;
+
+
+

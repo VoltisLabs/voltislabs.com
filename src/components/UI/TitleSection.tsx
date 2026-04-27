@@ -16,7 +16,7 @@ const TitleSection = ({
   subTitle,
   secondaryText,
   containerStyle,
-  tone = "dark",
+  tone = "light",
 }: TitleProps) => {
   const isLight = tone === "light";
   return (

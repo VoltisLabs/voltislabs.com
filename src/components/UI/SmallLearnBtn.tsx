@@ -7,6 +7,7 @@ interface LearnMoreProps {
   borderColor: string;
   textColor: string;
   route?: string;
+  arrowSrc?: string;
 }
 
 const SmallLearnBtn = ({
@@ -14,9 +15,11 @@ const SmallLearnBtn = ({
   borderColor,
   textColor,
   route,
+  arrowSrc,
 }: LearnMoreProps) => {
   const href = route ?? "/";
   const external = href.startsWith("http");
+  const resolvedArrowSrc = arrowSrc ?? (textColor.includes("white") ? "/icons/arrow.svg" : "/icons/arrow-brown.svg");
   return (
     <Link
       href={href}
@@ -29,7 +32,7 @@ const SmallLearnBtn = ({
       >
         {text}
       </span>
-      <Image src={"/icons/arrow.svg"} alt="" width={14} height={14} className="h-3.5 w-3.5 shrink-0" />
+      <Image src={resolvedArrowSrc} alt="" width={14} height={14} className="h-3.5 w-3.5 shrink-0" />
     </Link>
   );
 };
