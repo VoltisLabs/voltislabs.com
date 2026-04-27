@@ -50,7 +50,7 @@ function WearhousePage() {
           text="Visit Website"
           borderColor="border-vl-brown"
           textColor="text-vl-brown"
-          route="https://wearhouse.co.uk"
+          route="https://mywearhouse.co.uk"
         />
       </div>
       <section className="mobile-slider hero-section mb-7 block px-[1.4rem] md:hidden">

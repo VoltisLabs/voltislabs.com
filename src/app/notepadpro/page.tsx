@@ -32,6 +32,8 @@ const storeBadges = [
   { img: "/products/notepad-pro/store-google-play-black.svg", alt: "Get it on Google Play" },
   { img: "/products/notepad-pro/store-microsoft-black.svg", alt: "Get it from Microsoft" },
 ];
+/** App Store + Google Play only (no Microsoft) for the Take it on mobile section. */
+const storeBadgesMobile = storeBadges.filter((b) => !b.img.includes("microsoft"));
 const modeRows = [
   { mode: "Plain", for: "Writing, journaling, quick capture" },
   { mode: "Checklist", for: "To-dos, reminders, and trackable task flow" },
@@ -243,14 +245,14 @@ export default function NotepadProPage() {
               <h1 className={secondaryTitleClassName}>Take it on mobile</h1>
               <p className={`${paragrapghClassName} mx-auto mt-4 max-w-xl lg:mx-0`}>
                 NotepadPro is not only a desktop session—the same multi-mode workspace runs on your phone and tablet, so
-                you can capture, edit tasks, and skim notes when you are away from your desk. Install from the App Store,
-                Google Play, or the Microsoft Store and pick up where you left off.
+                you can capture, edit tasks, and skim notes when you are away from your desk. Install from the App Store
+                or Google Play and pick up where you left off.
               </p>
               <p className={`${paragrapghClassName} mx-auto mt-3 max-w-xl lg:mx-0`}>
                 The carousel shows a few mobile screens; use the arrows or wait for the next frame to explore the flow.
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start md:gap-4">
-                {storeBadges.map((badge) => (
+                {storeBadgesMobile.map((badge) => (
                   <img
                     key={`mobile-${badge.img}`}
                     src={badge.img}

@@ -5,31 +5,39 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const AUTO_MS = 4500;
 
-/** Marketing frames under `public/products/notepad-pro/` (same aspect as hero exports). */
+/** Marketing frames under `public/products/notepad-pro/` (mobile exports from design). */
+const PHONE_DIM = { width: 1280, height: 2642 } as const;
+
 const PHONE_SLIDES = [
   {
-    src: "/products/notepad-pro/frame-113-1.png",
-    alt: "NotepadPro on mobile — notes and workspace",
-    width: 6867,
-    height: 4145,
+    src: "/products/notepad-pro/notepadpro-mobile-01.png",
+    alt: "NotepadPro on mobile — screen 1",
+    ...PHONE_DIM,
   },
   {
-    src: "/products/notepad-pro/frame-114-1.png",
-    alt: "NotepadPro on mobile — editing and modes",
-    width: 6867,
-    height: 4145,
+    src: "/products/notepad-pro/notepadpro-mobile-02.png",
+    alt: "NotepadPro on mobile — screen 2",
+    ...PHONE_DIM,
   },
   {
-    src: "/products/notepad-pro/frame-105-1.png",
-    alt: "NotepadPro on mobile — tasks and lists",
-    width: 6867,
-    height: 4145,
+    src: "/products/notepad-pro/notepadpro-mobile-03.png",
+    alt: "NotepadPro on mobile — screen 3",
+    ...PHONE_DIM,
   },
   {
-    src: "/products/notepad-pro/frame-101-1.png",
-    alt: "NotepadPro on mobile — capture and browse",
-    width: 6867,
-    height: 4145,
+    src: "/products/notepad-pro/notepadpro-mobile-04.png",
+    alt: "NotepadPro on mobile — screen 4",
+    ...PHONE_DIM,
+  },
+  {
+    src: "/products/notepad-pro/notepadpro-mobile-05.png",
+    alt: "NotepadPro on mobile — screen 5",
+    ...PHONE_DIM,
+  },
+  {
+    src: "/products/notepad-pro/notepadpro-mobile-06.png",
+    alt: "NotepadPro on mobile — screen 6",
+    ...PHONE_DIM,
   },
 ] as const;
 
@@ -106,9 +114,9 @@ export function NotepadProPhoneCarousel() {
       }}
     >
       <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px] xl:max-w-[340px]">
-        <div className="relative w-full pb-1">
+        <div className="relative w-full">
           <div
-            className="relative w-full overflow-hidden rounded-[2rem] border border-vl-brown/20 shadow-lg shadow-vl-brown/10 ring-1 ring-black/[0.04]"
+            className="relative w-full overflow-hidden"
             style={{ aspectRatio: `${first.width} / ${first.height}` }}
           >
             {PHONE_SLIDES.map((slide, i) => {
